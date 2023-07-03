@@ -374,18 +374,21 @@
             android:textSize="15sp"
             tools:ignore="HardcodedText" />
 
-        <TextView
+        <EditText
             android:id="@+id/phoneNumberTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
-            android:layout_marginEnd="100dp"
+            android:layout_marginStart="-1dp"
+            android:layout_toEndOf="@+id/phoneCodeTextView"
+            android:background="@null"
             android:letterSpacing="0.04"
-            android:text="Phone number"
+            android:text="  Phone number"
             android:textColor="#A3A3A3"
             android:textSize="15sp"
-            tools:ignore="HardcodedText,TextContrastCheck,TextContrastCheck" />
+            app:layout_constraintStart_toEndof="@id/phoneCodeTextView"
+            tools:ignore="Autofill,HardcodedText,LabelFor,TextContrastCheck,TextContrastCheck,TextFields,TouchTargetSizeCheck" />
 
 
     </RelativeLayout>
@@ -396,11 +399,11 @@
         android:layout_height="1dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        android:background="#A3A3A3"
-        app:layout_constraintTop_toBottomOf="@id/number_insert"
         android:layout_marginTop="7dp"
+        android:background="#A3A3A3"
         app:layout_constraintEnd_toEndOf="@id/number_insert"
         app:layout_constraintStart_toStartOf="@id/number_insert"
+        app:layout_constraintTop_toBottomOf="@id/number_insert"
         tools:ignore="VisualLintBounds" />
 
     <androidx.constraintlayout.widget.Guideline
@@ -409,5 +412,12 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_begin="20dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="16dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
