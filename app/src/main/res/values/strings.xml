@@ -1,3 +1,8 @@
 <resources>
-    <string name="app_name">uklon-android</string>
+    <string name="app_name">uklon-frontend</string>
+    <string name="image_description">image description</string>
+    <string name="button">Button</string>
+    <string name="Start">Button</string>
+    <string name="get_started">Get started</string>
+    <string name="Get_started" />
 </resources>

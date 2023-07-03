@@ -1,0 +1,413 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:ignore="ExtraText">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="156dp"
+        android:layout_height="49dp"
+        android:contentDescription="image description"
+        android:scaleType="fitXY"
+        android:src="@drawable/drive_logo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.105"
+        tools:ignore="HardcodedText,MissingConstraints,ImageContrastCheck" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="328dp"
+        android:layout_height="40dp"
+        android:background="@drawable/start_button_background"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.32"
+        tools:ignore="MissingConstraints,VisualLintButtonSize,DuplicateSpeakableTextCheck,TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+    <TextView
+        android:id="@+id/Continue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:elevation="2dp"
+        android:fontFamily="@font/lato"
+        android:fontWeight="600"
+        android:letterSpacing="0.04"
+        android:text="Continue"
+        android:textColor="#262626"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@id/button"
+        app:layout_constraintEnd_toEndOf="@id/button"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@id/button"
+        app:layout_constraintTop_toTopOf="@id/button"
+        app:layout_constraintVertical_bias="0.5"
+        tools:ignore="HardcodedText,MissingConstraints,TextContrastCheck,TextSizeCheck" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="371dp"
+        android:layout_height="18dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.392"
+        tools:ignore="TextSizeCheck">
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginStart="23dp"
+            android:layout_weight="1"
+            android:background="#A3A3A3" />
+
+        <TextView
+            android:id="@+id/or"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:elevation="2dp"
+            android:fontFamily="@font/lato"
+            android:fontWeight="600"
+            android:letterSpacing="0.04"
+            android:paddingHorizontal="7dp"
+            android:text="or"
+            android:textColor="#A3A3A3"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.392"
+            tools:ignore="HardcodedText,MissingConstraints,TextContrastCheck,TextSizeCheck" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginEnd="23dp"
+            android:layout_weight="1"
+            android:background="#A3A3A3" />
+
+    </LinearLayout>
+
+    //Google
+
+    <Button
+        android:id="@+id/Google_button"
+        android:layout_width="328dp"
+        android:layout_height="40dp"
+        android:background="@drawable/continue_with_buttons"
+        android:contentDescription="@string/get_started"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.45"
+        tools:ignore="MissingConstraints,VisualLintButtonSize,DuplicateSpeakableTextCheck,TouchTargetSizeCheck" />
+
+    <TextView
+        android:id="@+id/Google"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="85dp"
+        android:layout_marginEnd="79dp"
+        android:elevation="2dp"
+        android:fontFamily="@font/lato"
+        android:fontWeight="600"
+        android:letterSpacing="0.04"
+        android:text="Continue with Google"
+        android:textColor="#262626"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@id/Google_button"
+        app:layout_constraintEnd_toEndOf="@id/Google_button"
+        app:layout_constraintStart_toStartOf="@id/Google_button"
+        app:layout_constraintTop_toTopOf="@id/Google_button"
+        app:layout_constraintVertical_bias="0.5"
+
+        tools:ignore="HardcodedText,MissingConstraints,TextContrastCheck,TextSizeCheck" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:elevation="2dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/icon_google"
+        app:layout_constraintBottom_toBottomOf="@id/Google_button"
+        app:layout_constraintEnd_toEndOf="@id/Google_button"
+        app:layout_constraintHorizontal_bias="0.123"
+        app:layout_constraintStart_toStartOf="@id/Google_button"
+        app:layout_constraintTop_toTopOf="@id/Google_button"
+        app:layout_constraintVertical_bias="0.5"
+        tools:ignore="ContentDescription,HardcodedText,ImageContrastCheck,MissingConstraints" />
+
+    //Apple
+
+    <Button
+        android:id="@+id/Apple_button"
+        android:layout_width="328dp"
+        android:layout_height="40dp"
+        android:background="@drawable/continue_with_buttons"
+        android:contentDescription="@string/get_started"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.517"
+        tools:ignore="MissingConstraints,VisualLintButtonSize,DuplicateSpeakableTextCheck,TouchTargetSizeCheck" />
+
+    <TextView
+        android:id="@+id/Apple"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="83dp"
+        android:layout_marginEnd="86dp"
+        android:elevation="2dp"
+        android:fontFamily="@font/lato"
+        android:fontWeight="600"
+        android:letterSpacing="0.04"
+        android:text="Continue with Apple"
+        android:textColor="#262626"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@id/Apple_button"
+        app:layout_constraintEnd_toEndOf="@id/Apple_button"
+        app:layout_constraintStart_toStartOf="@id/Apple_button"
+        app:layout_constraintTop_toTopOf="@id/Apple_button"
+        app:layout_constraintVertical_bias="0.5"
+        tools:ignore="HardcodedText,MissingConstraints,TextContrastCheck,TextSizeCheck" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:elevation="2dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/icon_apple"
+        app:layout_constraintBottom_toBottomOf="@id/Apple_button"
+        app:layout_constraintEnd_toEndOf="@id/Apple_button"
+        app:layout_constraintHorizontal_bias="0.123"
+        app:layout_constraintStart_toStartOf="@id/Apple_button"
+        app:layout_constraintTop_toTopOf="@id/Apple_button"
+        app:layout_constraintVertical_bias="0.5"
+        tools:ignore="ContentDescription,HardcodedText,ImageContrastCheck,MissingConstraints" />
+
+    //Facebook
+
+    <Button
+        android:id="@+id/Facebook_button"
+        android:layout_width="328dp"
+        android:layout_height="40dp"
+        android:background="@drawable/continue_with_buttons"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.585"
+        tools:ignore="MissingConstraints,VisualLintButtonSize,DuplicateSpeakableTextCheck,TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+    <TextView
+        android:id="@+id/Facebook"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="88dp"
+        android:layout_marginEnd="61dp"
+        android:elevation="2dp"
+        android:fontFamily="@font/lato"
+        android:fontWeight="600"
+        android:letterSpacing="0.04"
+        android:text="Continue with Facebook"
+        android:textColor="#262626"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@id/Facebook_button"
+        app:layout_constraintEnd_toEndOf="@id/Facebook_button"
+        app:layout_constraintStart_toStartOf="@id/Facebook_button"
+        app:layout_constraintTop_toTopOf="@id/Facebook_button"
+        app:layout_constraintVertical_bias="0.5"
+        tools:ignore="HardcodedText,MissingConstraints,TextContrastCheck,TextSizeCheck" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:elevation="2dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/icon_facebook"
+        app:layout_constraintBottom_toBottomOf="@id/Facebook_button"
+        app:layout_constraintEnd_toEndOf="@id/Facebook_button"
+        app:layout_constraintHorizontal_bias="0.123"
+        app:layout_constraintStart_toStartOf="@id/Facebook_button"
+        app:layout_constraintTop_toTopOf="@id/Facebook_button"
+        app:layout_constraintVertical_bias="0.5"
+        tools:ignore="ContentDescription,HardcodedText,ImageContrastCheck,MissingConstraints" />
+
+    //Email
+
+    <Button
+        android:id="@+id/Email_button"
+        android:layout_width="328dp"
+        android:layout_height="40dp"
+        android:background="@drawable/continue_with_buttons"
+        android:contentDescription="@string/get_started"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.652"
+        tools:ignore="MissingConstraints,VisualLintButtonSize,DuplicateSpeakableTextCheck,TouchTargetSizeCheck" />
+
+    <TextView
+        android:id="@+id/Email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="85dp"
+        android:layout_marginEnd="90dp"
+        android:elevation="2dp"
+        android:fontFamily="@font/lato"
+        android:fontWeight="600"
+        android:letterSpacing="0.04"
+        android:text="Continue with Email"
+        android:textColor="#262626"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@id/Email_button"
+        app:layout_constraintEnd_toEndOf="@id/Email_button"
+        app:layout_constraintStart_toStartOf="@id/Email_button"
+        app:layout_constraintTop_toTopOf="@id/Email_button"
+        app:layout_constraintVertical_bias="0.5"
+        tools:ignore="HardcodedText,MissingConstraints,TextContrastCheck,TextSizeCheck" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:elevation="2dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/icon_email"
+        app:layout_constraintBottom_toBottomOf="@id/Email_button"
+        app:layout_constraintEnd_toEndOf="@id/Email_button"
+        app:layout_constraintHorizontal_bias="0.123"
+        app:layout_constraintStart_toStartOf="@id/Email_button"
+        app:layout_constraintTop_toTopOf="@id/Email_button"
+        app:layout_constraintVertical_bias="0.5"
+        tools:ignore="ContentDescription,HardcodedText,ImageContrastCheck,MissingConstraints" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="-14dp"
+        tools:ignore="VisualLintBounds" />
+
+    //Phone number
+
+    <RelativeLayout
+        android:id="@+id/number_insert"
+        android:layout_width="328dp"
+        android:layout_height="24dp"
+        android:layout_marginBottom="28dp"
+        app:layout_constraintBottom_toTopOf="@id/button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="TextSizeCheck">
+
+        <ImageView
+            android:id="@+id/ukraine"
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="0dp"
+            android:layout_marginBottom="1dp"
+            android:contentDescription="TODO"
+            android:src="@drawable/ukraine"
+            tools:ignore="ContentDescription,HardcodedText,ImageContrastCheck" />
+
+        <ImageView
+            android:id="@+id/arrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="38dp"
+            android:layout_marginTop="5dp"
+            android:src="@drawable/arrow"
+            tools:ignore="ContentDescription,ImageContrastCheck" />
+
+        <Button
+            android:id="@+id/number_code"
+            android:layout_width="55dp"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:elevation="5dp"
+            android:visibility="invisible"
+            tools:ignore="HardcodedText,TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+        <TextView
+            android:id="@+id/phoneCodeTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="48dp"
+            android:layout_marginTop="0dp"
+            android:layout_toEndOf="@id/ukraine"
+            android:fontFamily="@font/lato_regular"
+            android:letterSpacing="0.04"
+            android:text="+380"
+            android:textColor="#262626"
+            android:textSize="15sp"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:id="@+id/phoneNumberTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="100dp"
+            android:letterSpacing="0.04"
+            android:text="Phone number"
+            android:textColor="#A3A3A3"
+            android:textSize="15sp"
+            tools:ignore="HardcodedText,TextContrastCheck,TextContrastCheck" />
+
+
+    </RelativeLayout>
+
+    <View
+        android:id="@+id/underlineView"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:background="#A3A3A3"
+        app:layout_constraintTop_toBottomOf="@id/number_insert"
+        android:layout_marginTop="7dp"
+        app:layout_constraintEnd_toEndOf="@id/number_insert"
+        app:layout_constraintStart_toStartOf="@id/number_insert"
+        tools:ignore="VisualLintBounds" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="20dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
