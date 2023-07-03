@@ -27,14 +27,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://localhost:7184")
+                .baseUrl("http://10.0.0.2:5289")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
         apiService = retrofit.create(ApiService.class);
 
-        Call<List<Transport>> call = apiService.getDataList();
-        call.enqueue(new Callback<List<Transport>>() {
+        apiService.getDataList().
+        enqueue(new Callback<List<Transport>>() {
             @Override
             public void onResponse(Call<List<Transport>> call, Response<List<Transport>> response) {
                 if (response.isSuccessful()) {
