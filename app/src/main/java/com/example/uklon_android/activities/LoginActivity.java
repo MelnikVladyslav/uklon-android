@@ -42,7 +42,7 @@ public class LoginActivity extends AppCompatActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String phoneNumber = phoneNumberEditText.getText().toString();
+                String phoneNumber = "+380" + phoneNumberEditText.getText().toString();
 
                 //Створювати юзера і додати туди номер
 
