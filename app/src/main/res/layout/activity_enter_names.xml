@@ -4,27 +4,40 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.LoginActivity">
+    tools:context=".activities.EnterNamesActivity">
 
     <EditText
-        android:id="@+id/editTextPhoneNumber"
+        android:id="@+id/editTextFirstName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="232dp"
+        android:autofillHints="+380"
+        android:hint="Enter the first name"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextSurname"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="324dp"
-        android:hint="Enter the phone number"
+        android:hint="Enter the surname"
         android:autofillHints="+380"
-        android:inputType="phone"
+        android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/buttonLogin"
+        android:id="@+id/buttonEnter"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="460dp"
-        android:hint="Login"
+        android:hint="Enter"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"

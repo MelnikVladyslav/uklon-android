@@ -18,6 +18,7 @@ public class LoginActivity extends AppCompatActivity {
     private EditText phoneNumberEditText;
     private Button loginButton;
 
+
     private boolean isValidPhoneNumber(String phoneNumber) {
         Pattern pattern = Pattern.compile("^\\+38[0-9]{10,13}$");
         Matcher matcher = pattern.matcher(phoneNumber);
@@ -33,24 +34,22 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.login_screen);
 
-        phoneNumberEditText = findViewById(R.id.editTextPhoneNumber);
-        loginButton = findViewById(R.id.buttonLogin);
+        phoneNumberEditText = findViewById(R.id.phoneNumberTextView);
+        loginButton = findViewById(R.id.button);
 
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String phoneNumber = phoneNumberEditText.getText().toString();
 
-                if (isValidPhoneNumber(phoneNumber)) {
-                    // Виконати логіку для перевірки номера телефону та входу
-                    // наприклад, відправити OTP-повідомлення на номер телефону та перехід до наступної активності
+                //Створювати юзера і додати туди номер
 
-                    // Приклад перехіду до наступної активності після успішного входу
-                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                if (isValidPhoneNumber(phoneNumber)) {
+                    Intent intent = new Intent(LoginActivity.this, PhoneCodeActivity.class);
                     startActivity(intent);
-                    finish(); // Закрити поточну активність, щоб користувач не міг повернутися назад до сторінки входу
+                    finish();
                 } else {
                     Toast.makeText(LoginActivity.this, "Невірний номер телефону", Toast.LENGTH_SHORT).show();
                 }
