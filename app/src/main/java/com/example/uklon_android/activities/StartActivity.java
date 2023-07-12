@@ -8,6 +8,8 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.uklon_android.R;
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 
 public class StartActivity extends AppCompatActivity {
 
@@ -19,6 +21,8 @@ public class StartActivity extends AppCompatActivity {
         setContentView(R.layout.start_screen);
 
         startButton = findViewById(R.id.button);
+
+
 
         startButton.setOnClickListener(new View.OnClickListener() {
             @Override
