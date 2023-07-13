@@ -40,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
         apiService = apiService.retrofit.create(ApiService.class);
         gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
         gsc = GoogleSignIn.getClient(this,gso);
+
         signOutBtn = findViewById(R.id.signOut);
 
         GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(this);

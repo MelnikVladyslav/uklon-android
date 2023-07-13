@@ -10,6 +10,9 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.uklon_android.R;
+import com.facebook.CallbackManager;
+import com.facebook.FacebookSdk;
+import com.facebook.appevents.AppEventsLogger;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -23,6 +26,8 @@ public class LoginActivity extends AppCompatActivity {
     private EditText phoneNumberEditText;
     private Button loginPhoneButton;
     private Button loginGoogleButton;
+    private Button loginFacebookButton;
+    CallbackManager callbackManager;
     GoogleSignInOptions gso;
     GoogleSignInClient gsc;
 
@@ -47,6 +52,13 @@ public class LoginActivity extends AppCompatActivity {
         phoneNumberEditText = findViewById(R.id.phoneNumberTextView);
         loginPhoneButton = findViewById(R.id.button);
         loginGoogleButton = findViewById(R.id.Google_button);
+        loginGoogleButton = findViewById(R.id.Facebook_button);
+
+        FacebookSdk.sdkInitialize(this);
+        AppEventsLogger.activateApp(getApplication());
+        callbackManager = CallbackManager.Factory.create();
+
+
 
         gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
         gsc = GoogleSignIn.getClient(this,gso);
@@ -82,6 +94,12 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+        loginFacebookButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+            }
+        });
+
     }
 
     void signIn(){
@@ -106,4 +124,5 @@ public class LoginActivity extends AppCompatActivity {
         }
 
     }
+
 }
