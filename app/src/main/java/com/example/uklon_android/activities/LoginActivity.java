@@ -45,7 +45,7 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.login_screen);
 
         phoneNumberEditText = findViewById(R.id.phoneNumberTextView);
-        loginPhoneButton = findViewById(R.id.button);
+        loginPhoneButton = findViewById(R.id.next);
         loginGoogleButton = findViewById(R.id.Google_button);
 
         gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
