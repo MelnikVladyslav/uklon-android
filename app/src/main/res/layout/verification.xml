@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:src="@drawable/arrow_back"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.05"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.084"
+        tools:ignore="ContentDescription,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/lato"
+        android:fontWeight="600"
+        android:letterSpacing="0.04"
+        android:text="Verification"
+        android:textColor="#262626"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.084"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/lato"
+        android:fontWeight="600"
+        android:letterSpacing="0.04"
+        android:text="Enter the code to verify your device"
+        android:textColor="#262626"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.25"
+        tools:ignore="HardcodedText" />
+
+    <LinearLayout
+        android:id="@+id/code_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.35"
+        android:layout_marginEnd="85dp"
+        android:layout_marginStart="85dp">
+
+        <EditText
+            android:id="@+id/editText1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:layout_weight="1"
+            android:autofillHints=""
+            android:backgroundTint="#A3A3A3"
+            android:fontFamily="@font/lato"
+            android:gravity="center"
+            android:imeOptions="actionNext"
+            android:inputType="number"
+            android:lineSpacingExtra="10dp"
+            android:maxLength="1"
+            android:nextFocusDown="@+id/editText3"
+            android:padding="15dp"
+            android:text="2"
+            android:textColor="#262626"
+            android:textSize="15sp"
+            tools:ignore="HardcodedText,LabelFor,SpeakableTextPresentCheck,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
+
+        <EditText
+            android:id="@+id/editText2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:layout_weight="1"
+            android:autofillHints=""
+            android:backgroundTint="#A3A3A3"
+            android:fontFamily="@font/lato"
+            android:gravity="center"
+            android:imeOptions="actionNext"
+            android:inputType="number"
+            android:lineSpacingExtra="10dp"
+            android:maxLength="1"
+            android:nextFocusDown="@+id/editText3"
+            android:padding="15dp"
+            android:text="2"
+            android:textColor="#262626"
+            android:textSize="15sp"
+            tools:ignore="HardcodedText,LabelFor,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+        <EditText
+            android:id="@+id/editText3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:layout_weight="1"
+            android:autofillHints=""
+            android:backgroundTint="#A3A3A3"
+            android:fontFamily="@font/lato"
+            android:gravity="center"
+            android:imeOptions="actionNext"
+            android:inputType="number"
+            android:lineSpacingExtra="10dp"
+            android:maxLength="1"
+            android:nextFocusDown="@+id/editText3"
+            android:padding="15dp"
+            android:text="2"
+            android:textColor="#262626"
+            android:textSize="15sp"
+            tools:ignore="HardcodedText,LabelFor,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+        <EditText
+            android:id="@+id/editText4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="2"
+            android:backgroundTint="#A3A3A3"
+            android:fontFamily="@font/lato"
+            android:gravity="center"
+            android:imeOptions="actionDone"
+            android:inputType="number"
+            android:maxLength="1"
+            android:textColor="#262626"
+            android:textSize="15sp"
+            android:padding="15dp"
+            tools:ignore="HardcodedText,LabelFor,SpeakableTextPresentCheck,TouchTargetSizeCheck"
+            android:autofillHints="" />
+
+    </LinearLayout>
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    tools:ignore="MissingConstraints"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.5"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@id/code_input"
+    android:layout_marginTop="15dp">
+
+
+    <TextView
+        android:id="@+id/receive_code"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/lato"
+        android:letterSpacing="0.04"
+        android:text="Didn't receive the code? "
+        android:textColor="#A3A3A3"
+        android:textSize="12sp"
+        tools:ignore="HardcodedText,TextContrastCheck" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/lato"
+        android:letterSpacing="0.04"
+        android:text="Resend"
+        android:textColor="#7DB828"
+        android:textSize="12sp"
+        tools:ignore="HardcodedText,TextContrastCheck" />
+
+</LinearLayout>
+
+    <Button
+        android:id="@+id/next"
+        android:layout_width="328dp"
+        android:layout_height="40dp"
+        android:background="@drawable/start_button_background"
+        android:textAllCaps="false"
+        android:text="Next"
+        android:textSize="16sp"
+        android:fontFamily="@font/lato"
+        android:fontWeight="600"
+        android:letterSpacing="0.04"
+        android:textColor="#262626"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.946"
+        tools:ignore="DuplicateSpeakableTextCheck,HardcodedText,MissingConstraints,SpeakableTextPresentCheck,TouchTargetSizeCheck,VisualLintButtonSize" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
