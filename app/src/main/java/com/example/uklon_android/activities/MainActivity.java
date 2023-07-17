@@ -2,6 +2,7 @@ package com.example.uklon_android.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -13,12 +14,19 @@ import com.example.uklon_android.DTOs.UserDTO;
 import com.example.uklon_android.R;
 import com.example.uklon_android.classes.User;
 import com.example.uklon_android.interfaces.ApiService;
+import com.facebook.AccessToken;
+import com.facebook.GraphRequest;
+import com.facebook.GraphResponse;
+import com.facebook.login.LoginManager;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -48,36 +56,94 @@ public class MainActivity extends AppCompatActivity {
             sendUser.setEmail(acct.getEmail());
             sendUser.setFirstName(acct.getFamilyName());
             sendUser.setLastName(acct.getGivenName());
+            //found in database
+            apiService.foundOrCreate(sendUser).
+                    enqueue(new Callback<User>()
+                    {
+                        @Override
+                        public void onResponse(Call<User> call, Response<User> response) {
+                            if (response.isSuccessful()) {
+                                correctUser = response.body();
+                                TextView textView = findViewById(R.id.textView);
+                                StringBuilder stringBuilder = new StringBuilder();
+                                stringBuilder.append(correctUser.getFirstName() + " " + correctUser.getLastName()).append("\n").append(correctUser.getPhoneNumber());
+                                textView.setText(stringBuilder.toString());
+                            }
+                            else{
+                                Toast.makeText(MainActivity.this, "Помилка: " + response.message(), Toast.LENGTH_SHORT).show();
+                            }
+                        }
+
+                        @Override
+                        public void onFailure(Call<User> call, Throwable t) {
+                            Toast.makeText(MainActivity.this, "Помилка: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    });
         }
 
-        //found in database
-        apiService.foundOrCreate(sendUser).
-                enqueue(new Callback<User>()
-                {
-                    @Override
-                    public void onResponse(Call<User> call, Response<User> response) {
-                        if (response.isSuccessful()) {
-                            correctUser = response.body();
-                            TextView textView = findViewById(R.id.textView);
-                            StringBuilder stringBuilder = new StringBuilder();
-                            stringBuilder.append(correctUser.getFirstName() + " " + correctUser.getLastName()).append("\n").append(correctUser.getPhoneNumber());
-                            textView.setText(stringBuilder.toString());
-                        }
-                        else{
-                            Toast.makeText(MainActivity.this, "Помилка: " + response.message(), Toast.LENGTH_SHORT).show();
-                        }
-                    }
+        AccessToken accessToken = AccessToken.getCurrentAccessToken();
+        boolean isLoggedIn = accessToken != null && !accessToken.isExpired();
 
-                    @Override
-                    public void onFailure(Call<User> call, Throwable t) {
-                        Toast.makeText(MainActivity.this, "Помилка: " + t.getMessage(), Toast.LENGTH_SHORT).show();
-                    }
-                });
+
+        if(isLoggedIn){
+            GraphRequest request = GraphRequest.newMeRequest(
+                    accessToken,
+                    new GraphRequest.GraphJSONObjectCallback() {
+                        @Override
+                        public void onCompleted(
+                                JSONObject object,
+                                GraphResponse response) {
+                            try {
+                                Log.d("json token", object.toString());
+                                Log.d("first name", object.getString("first_name"));
+                                sendUser.setFirstName(object.getString("first_name"));
+                                sendUser.setLastName(object.getString("last_name"));
+                                sendUser.setEmail(object.getString("email"));
+                                //found in database
+                                apiService.foundOrCreate(sendUser).
+                                        enqueue(new Callback<User>()
+                                        {
+                                            @Override
+                                            public void onResponse(Call<User> call, Response<User> response) {
+                                                if (response.isSuccessful()) {
+                                                    correctUser = response.body();
+                                                    TextView textView = findViewById(R.id.textView);
+                                                    StringBuilder stringBuilder = new StringBuilder();
+                                                    stringBuilder.append(correctUser.getFirstName() + " " + correctUser.getLastName()).append("\n").append(correctUser.getPhoneNumber());
+                                                    textView.setText(stringBuilder.toString());
+                                                }
+                                                else{
+                                                    Toast.makeText(MainActivity.this, "Помилка: " + response.message(), Toast.LENGTH_SHORT).show();
+                                                }
+                                            }
+
+                                            @Override
+                                            public void onFailure(Call<User> call, Throwable t) {
+                                                Toast.makeText(MainActivity.this, "Помилка: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+                                            }
+                                        });
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    });
+
+            Bundle parameters = new Bundle();
+            parameters.putString("fields", "first_name,last_name,email");
+            request.setParameters(parameters);
+            request.executeAsync();
+        }
 
         signOutBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                signOut();
+                if(gsc != null) {
+                    signOut();
+                }
+                if(isLoggedIn)
+                {
+                    signFacebook();
+                }
             }
         });
 
@@ -91,5 +157,11 @@ public class MainActivity extends AppCompatActivity {
                 finish();
             }
         });
+    }
+
+    void signFacebook(){
+        LoginManager.getInstance().logOut();
+        startActivity(new Intent(MainActivity.this, LoginActivity.class));
+        finish();
     }
 }
