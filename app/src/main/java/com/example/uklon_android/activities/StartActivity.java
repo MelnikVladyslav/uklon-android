@@ -20,7 +20,7 @@ public class StartActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.start_screen);
 
-        startButton = findViewById(R.id.button);
+        startButton = findViewById(R.id.next);
 
 
 

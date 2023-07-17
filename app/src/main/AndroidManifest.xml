@@ -18,6 +18,11 @@
         android:theme="@style/Theme.Uklonfrontend"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
+        <meta-data android:name="com.facebook.sdk.ClientToken" android:value="6c72d4e2d174db3d1e5eb38069c09b0c" />
+
 
         <activity
             android:name=".activities.StartActivity"
