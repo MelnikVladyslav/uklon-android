@@ -388,7 +388,9 @@
             android:text="  Phone number"
             android:textColor="#A3A3A3"
             android:textSize="15sp"
+            app:layout_constraintStart_toEndof="@id/phoneCodeTextView"
             tools:ignore="Autofill,HardcodedText,LabelFor,TextContrastCheck,TextContrastCheck,TextFields,TouchTargetSizeCheck" />
+
 
     </RelativeLayout>
 

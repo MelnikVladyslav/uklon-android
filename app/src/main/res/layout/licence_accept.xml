@@ -7,6 +7,7 @@
 
 
     <ImageButton
+        android:id="@+id/imageButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@android:color/transparent"
@@ -20,16 +21,124 @@
         tools:ignore="ContentDescription,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
     <ImageView
+        android:id="@+id/accept_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:contentDescription="image description"
         android:scaleType="fitXY"
+        android:src="@drawable/licence_accept"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.07"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.175"
+        tools:ignore="HardcodedText,MissingConstraints,ImageContrastCheck" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/lato_regular"
+        android:letterSpacing="0.04"
+        android:text="Accept Drive Terms \n&amp; Review Privacy \nNotice"
+        android:textColor="#262626"
+        android:textSize="24sp"
+        app:layout_constraintStart_toEndOf="@id/accept_image"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.179"
+        android:layout_marginStart="16dp"
+        tools:ignore="HardcodedText,MissingConstraints,VisualLintBounds" />
+
+
+
+    <TextView
+        android:id="@+id/text1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/lato_regular"
+        android:letterSpacing="0.04"
+        android:text="By selecting 'I Agree' below, I have reviewed and agree to the"
+        android:textColor="#262626"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.31"
+        tools:ignore="HardcodedText,TextContrastCheck" />
+
+    <TextView
+        android:id="@+id/text2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/lato_regular"
+        android:letterSpacing="0.04"
+        android:text="Terms of Use"
+        android:textColor="#7DB828"
+        android:textSize="12sp"
+        app:layout_constraintTop_toBottomOf="@id/text1"
+        app:layout_constraintStart_toStartOf="@id/text1"
+        tools:ignore="HardcodedText,TextContrastCheck" />
+
+    <TextView
+        android:id="@+id/text3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/lato_regular"
+        android:letterSpacing="0.04"
+        android:text=" and acknowledge the "
+        android:textColor="#262626"
+        android:textSize="12sp"
+        app:layout_constraintTop_toBottomOf="@id/text1"
+        app:layout_constraintStart_toEndOf="@id/text2"
+        tools:ignore="HardcodedText,TextContrastCheck" />
+
+    <TextView
+        android:id="@+id/text4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/lato_regular"
+        android:letterSpacing="0.04"
+        android:text="Privacy Notice."
+        android:textColor="#7DB828"
+        android:textSize="12sp"
+        app:layout_constraintTop_toBottomOf="@id/text1"
+        app:layout_constraintStart_toEndOf="@id/text3"
+        tools:ignore="HardcodedText,TextContrastCheck" />
+    <TextView
+        android:id="@+id/text5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/lato_regular"
+        android:letterSpacing="0.04"
+        android:text="I am at least 18 years of age"
+        android:textColor="#262626"
+        android:textSize="12sp"
+        app:layout_constraintTop_toBottomOf="@id/text2"
+        app:layout_constraintStart_toStartOf="@id/text2"
+        tools:ignore="HardcodedText,TextContrastCheck" />
+
+    <Button
+        android:id="@+id/next"
+        android:layout_width="328dp"
+        android:layout_height="40dp"
+        android:background="@drawable/start_button_background"
+        android:fontFamily="@font/lato"
+        android:fontWeight="600"
+        android:letterSpacing="0.04"
+        android:text="I agree"
+        android:textAllCaps="false"
+        android:textColor="#262626"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.13"
-        tools:ignore="HardcodedText,MissingConstraints,ImageContrastCheck" />
+        app:layout_constraintVertical_bias="0.946"
+        tools:ignore="HardcodedText,TouchTargetSizeCheck,VisualLintButtonSize" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
