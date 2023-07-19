@@ -15,14 +15,24 @@ public class GpsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_gps);
+        setContentView(R.layout.location_accept);
 
-        Button btnEnableGPS = findViewById(R.id.btnEnableGPS);
+        Button btnEnableGPS = findViewById(R.id.next);
         btnEnableGPS.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Відкрити налаштування для увімкнення GPS
                 Intent intent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+                startActivity(intent);
+            }
+        });
+
+        Button btnskip = findViewById(R.id.skip);
+        btnskip.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Відкрити налаштування для увімкнення GPS
+                Intent intent = new Intent(GpsActivity.this, MainActivity.class);
                 startActivity(intent);
             }
         });

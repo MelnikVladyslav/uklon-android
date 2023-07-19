@@ -1,18 +1,18 @@
 package com.example.uklon_android.activities;
 
+import android.Manifest;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.location.Location;
 import android.location.LocationManager;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
 import com.example.uklon_android.DTOs.UserDTO;
 import com.example.uklon_android.R;
@@ -26,6 +26,17 @@ import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.location.LocationCallback;
+import com.google.android.gms.location.LocationRequest;
+import com.google.android.gms.location.LocationResult;
+import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 
@@ -40,7 +51,11 @@ public class MainActivity extends AppCompatActivity {
     public ApiService apiService;
     GoogleSignInOptions gso;
     GoogleSignInClient gsc;
-    Button signOutBtn;
+    private GoogleMap googleMap;
+    private SupportMapFragment mapFragment;
+    private FusedLocationProviderClient fusedLocationClient;
+    private LocationRequest locationRequest;
+    private LocationCallback locationCallback;
     User correctUser = new User();
     UserDTO sendUser = new UserDTO();
 
@@ -54,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
         gsc = GoogleSignIn.getClient(this,gso);
         LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
 
-        signOutBtn = findViewById(R.id.signOut);
+        //signOutBtn = findViewById(R.id.signOut);
 
         GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(this);
         if(acct!=null){
@@ -69,10 +84,6 @@ public class MainActivity extends AppCompatActivity {
                         public void onResponse(Call<User> call, Response<User> response) {
                             if (response.isSuccessful()) {
                                 correctUser = response.body();
-                                TextView textView = findViewById(R.id.textView);
-                                StringBuilder stringBuilder = new StringBuilder();
-                                stringBuilder.append(correctUser.getFirstName() + " " + correctUser.getLastName()).append("\n").append(correctUser.getPhoneNumber());
-                                textView.setText(stringBuilder.toString());
                             }
                             else{
                                 Toast.makeText(MainActivity.this, "Помилка: " + response.message(), Toast.LENGTH_SHORT).show();
@@ -98,8 +109,6 @@ public class MainActivity extends AppCompatActivity {
                                 JSONObject object,
                                 GraphResponse response) {
                             try {
-                                Log.d("json token", object.toString());
-                                Log.d("first name", object.getString("first_name"));
                                 sendUser.setFirstName(object.getString("first_name"));
                                 sendUser.setLastName(object.getString("last_name"));
                                 sendUser.setEmail(object.getString("email"));
@@ -111,10 +120,6 @@ public class MainActivity extends AppCompatActivity {
                                             public void onResponse(Call<User> call, Response<User> response) {
                                                 if (response.isSuccessful()) {
                                                     correctUser = response.body();
-                                                    TextView textView = findViewById(R.id.textView);
-                                                    StringBuilder stringBuilder = new StringBuilder();
-                                                    stringBuilder.append(correctUser.getFirstName() + " " + correctUser.getLastName()).append("\n").append(correctUser.getPhoneNumber());
-                                                    textView.setText(stringBuilder.toString());
                                                 }
                                                 else{
                                                     Toast.makeText(MainActivity.this, "Помилка: " + response.message(), Toast.LENGTH_SHORT).show();
@@ -138,7 +143,8 @@ public class MainActivity extends AppCompatActivity {
             request.executeAsync();
         }
 
-        signOutBtn.setOnClickListener(new View.OnClickListener() {
+        //sign out
+        /*signOutBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(gsc != null) {
@@ -149,7 +155,7 @@ public class MainActivity extends AppCompatActivity {
                     signFacebook();
                 }
             }
-        });
+        });*/
 
         locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         if (!locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
@@ -169,6 +175,46 @@ public class MainActivity extends AppCompatActivity {
             builder.create().show();
         }
 
+
+        mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.mapFragment);
+        mapFragment.getMapAsync(new OnMapReadyCallback() {
+            @Override
+            public void onMapReady(GoogleMap map) {
+                googleMap = map;
+                // Налаштування карт, робота з мапою
+
+                // Ініціалізація FusedLocationProviderClient
+                fusedLocationClient = LocationServices.getFusedLocationProviderClient(MainActivity.this);
+
+                // Налаштування LocationRequest для отримання місцезнаходження
+                locationRequest = new LocationRequest();
+                locationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
+                locationRequest.setInterval(5000);
+                locationRequest.setFastestInterval(2000);
+
+                // Створення LocationCallback для отримання змін місцезнаходження
+                locationCallback = new LocationCallback() {
+                    @Override
+                    public void onLocationResult(LocationResult locationResult) {
+                        if (locationResult != null) {
+                            Location location = locationResult.getLastLocation();
+                            // Отримання координат місцезнаходження і оновлення мапи
+                            double latitude = location.getLatitude();
+                            double longitude = location.getLongitude();
+                            LatLng currentLatLng = new LatLng(latitude, longitude);
+                            googleMap.addMarker(new MarkerOptions().position(currentLatLng).title("Ваше місцезнаходження"));
+                            googleMap.moveCamera(CameraUpdateFactory.newLatLng(currentLatLng));
+                            float zoomLevel = 18.0f;
+                            googleMap.animateCamera(CameraUpdateFactory.zoomTo(zoomLevel));
+                        }
+                    }
+                };
+
+                // Запуск отримання місцезнаходження
+                startLocationUpdates();
+            }
+        });
+
     }
 
     void signOut(){
@@ -185,5 +231,20 @@ public class MainActivity extends AppCompatActivity {
         LoginManager.getInstance().logOut();
         startActivity(new Intent(MainActivity.this, LoginActivity.class));
         finish();
+    }
+
+    private void startLocationUpdates() {
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED &&
+                ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            // Перевірка дозволів на місцезнаходження
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION}, 404);
+            return;
+        }
+
+        fusedLocationClient.requestLocationUpdates(locationRequest, locationCallback, null);
+    }
+
+    private void stopLocationUpdates() {
+        fusedLocationClient.removeLocationUpdates(locationCallback);
     }
 }
