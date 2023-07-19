@@ -43,7 +43,6 @@
         android:background="@drawable/start_button_background"
         android:contentDescription="@string/get_started"
         android:elevation="2dp"
-        android:text="@string/Get_started"
         android:textAllCaps="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

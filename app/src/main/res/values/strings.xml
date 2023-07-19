@@ -1,9 +1,9 @@
 <resources>
-    <string name="app_name">Drive</string>
+    <string name="app_name">uklon-frontend</string>
     <string name="image_description">image description</string>
     <string name="button">Button</string>
     <string name="Start">Button</string>
     <string name="get_started">Get started</string>
     <string name="Get_started" />
-    <string name="facebook_app_id">821961982483209</string>
+    <string name="skip">Skip</string>
 </resources>
