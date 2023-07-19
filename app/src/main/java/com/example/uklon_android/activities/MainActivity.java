@@ -1,6 +1,9 @@
 package com.example.uklon_android.activities;
 
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -8,6 +11,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.uklon_android.DTOs.UserDTO;
@@ -48,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
         apiService = apiService.retrofit.create(ApiService.class);
         gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
         gsc = GoogleSignIn.getClient(this,gso);
+        LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
 
         signOutBtn = findViewById(R.id.signOut);
 
@@ -83,7 +88,6 @@ public class MainActivity extends AppCompatActivity {
 
         AccessToken accessToken = AccessToken.getCurrentAccessToken();
         boolean isLoggedIn = accessToken != null && !accessToken.isExpired();
-
 
         if(isLoggedIn){
             GraphRequest request = GraphRequest.newMeRequest(
@@ -146,6 +150,24 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+
+        locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        if (!locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
+            // GPS вимкнений, відобразити сповіщення або запропонувати користувачеві увімкнути GPS
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setTitle("Увімкнути GPS");
+            builder.setMessage("Ваш GPS вимкнений, увімкнути його?");
+            builder.setPositiveButton("Так", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    // Відкрити налаштування для увімкнення GPS
+                    Intent intent = new Intent(MainActivity.this, GpsActivity.class);
+                    startActivity(intent);
+                }
+            });
+            builder.setNegativeButton("Ні", null);
+            builder.create().show();
+        }
 
     }
 
