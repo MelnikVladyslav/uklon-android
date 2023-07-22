@@ -8,6 +8,10 @@ import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.PopupWindow;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
@@ -36,6 +40,7 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -56,8 +61,11 @@ public class MainActivity extends AppCompatActivity {
     private FusedLocationProviderClient fusedLocationClient;
     private LocationRequest locationRequest;
     private LocationCallback locationCallback;
+    private Button showMenuButton;
     User correctUser = new User();
     UserDTO sendUser = new UserDTO();
+
+    Marker myLocationMarker;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,8 +76,6 @@ public class MainActivity extends AppCompatActivity {
         gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
         gsc = GoogleSignIn.getClient(this,gso);
         LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-
-        //signOutBtn = findViewById(R.id.signOut);
 
         GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(this);
         if(acct!=null){
@@ -143,20 +149,7 @@ public class MainActivity extends AppCompatActivity {
             request.executeAsync();
         }
 
-        //sign out
-        /*signOutBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(gsc != null) {
-                    signOut();
-                }
-                if(isLoggedIn)
-                {
-                    signFacebook();
-                }
-            }
-        });*/
-
+        //location and map
         locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         if (!locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
             // GPS вимкнений, відобразити сповіщення або запропонувати користувачеві увімкнути GPS
@@ -174,7 +167,6 @@ public class MainActivity extends AppCompatActivity {
             builder.setNegativeButton("Ні", null);
             builder.create().show();
         }
-
 
         mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.mapFragment);
         mapFragment.getMapAsync(new OnMapReadyCallback() {
@@ -202,7 +194,16 @@ public class MainActivity extends AppCompatActivity {
                             double latitude = location.getLatitude();
                             double longitude = location.getLongitude();
                             LatLng currentLatLng = new LatLng(latitude, longitude);
-                            googleMap.addMarker(new MarkerOptions().position(currentLatLng).title("Ваше місцезнаходження"));
+                            if (myLocationMarker == null) {
+                                // Якщо маркер ще не створений, створюємо його
+                                MarkerOptions markerOptions = new MarkerOptions()
+                                        .position(currentLatLng)
+                                        .title("Моє розташування");
+                                myLocationMarker = googleMap.addMarker(markerOptions);
+                            } else {
+                                // Інакше оновлюємо координати маркера
+                                myLocationMarker.setPosition(currentLatLng);
+                            }
                             googleMap.moveCamera(CameraUpdateFactory.newLatLng(currentLatLng));
                             float zoomLevel = 18.0f;
                             googleMap.animateCamera(CameraUpdateFactory.zoomTo(zoomLevel));
@@ -215,7 +216,48 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        showMenuButton = findViewById(R.id.button);
+        showMenuButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Показати попап-меню при натисканні кнопки
+                View popupView = getLayoutInflater().inflate(R.layout.popup_menu_layout, null);
+                PopupWindow popupWindow = new PopupWindow(popupView, ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+
+                // Знаходження кнопок в меню
+                Button btnOption1 = popupView.findViewById(R.id.btnOption1);
+                Button btnSignOut = popupView.findViewById(R.id.BtnSign);
+
+                // Обробка натискання кнопок
+                // Profile
+                btnOption1.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        // Обробка натискання на опцію 1
+                        popupWindow.dismiss(); // Закриття меню після натискання
+                    }
+                });
+
+                //sign out
+                btnSignOut.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                           if(gsc != null) {
+                               signOut();
+                           }
+                           if(isLoggedIn)
+                           {
+                               signFacebook();
+                           }
+                    }
+                });
+
+                // Відображення меню
+                popupWindow.showAsDropDown(v);
+            }
+        });
     }
+
 
     void signOut(){
         gsc.signOut().addOnCompleteListener(new OnCompleteListener<Void>() {
