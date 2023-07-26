@@ -1,5 +1,7 @@
 package com.example.uklon_android.classes;
 
+import java.util.List;
+
 public class User {
     private String id;
     private String firstName;
@@ -7,8 +9,9 @@ public class User {
     private String email;
     private String password;
     private String phoneNumber;
-    public Roles role;
+    private Roles role;
     private String token;
+    private List<Order> orderList;
 
     public String getId() {
         return id;
@@ -72,5 +75,11 @@ public class User {
         this.token = token;
     }
 
+    public List<Order> getOrders() {
+        return orderList;
+    }
 
+    public void setOrders(List<Order> orderList) {
+        this.orderList = orderList;
+    }
 }

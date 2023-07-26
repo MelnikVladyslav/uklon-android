@@ -12,6 +12,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.PUT;
+import retrofit2.http.Path;
 
 public interface ApiService {
     Retrofit retrofit = new Retrofit.Builder()
@@ -24,4 +26,7 @@ public interface ApiService {
 
     @POST("/api/login/found-or-create-user")
     Call<User> foundOrCreate(@Body UserDTO user);
+
+    @PUT("/api/login/update-user/{id}")
+    Call<User> updateUser(@Body UserDTO user, @Path("id")String id);
 }
