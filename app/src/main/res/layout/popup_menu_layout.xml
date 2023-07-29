@@ -14,6 +14,18 @@
         android:text="Профіль"/>
 
     <Button
+        android:id="@+id/btnScan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Додати картку"/>
+
+    <Button
+        android:id="@+id/btnPay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Оплата карткою"/>
+
+    <Button
         android:id="@+id/BtnSign"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

@@ -1,8 +1,9 @@
 package com.example.uklon_android.classes;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class User {
+public class User implements Serializable {
     private String id;
     private String firstName;
     private String lastName;
@@ -12,6 +13,7 @@ public class User {
     private Roles role;
     private String token;
     private List<Order> orderList;
+    private List<Card> cardList;
 
     public String getId() {
         return id;
@@ -81,5 +83,13 @@ public class User {
 
     public void setOrders(List<Order> orderList) {
         this.orderList = orderList;
+    }
+
+    public List<Card> getCards() {
+        return cardList;
+    }
+
+    public void setCards(List<Card> cardList) {
+        this.cardList = cardList;
     }
 }

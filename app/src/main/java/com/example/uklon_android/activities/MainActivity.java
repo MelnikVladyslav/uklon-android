@@ -7,22 +7,30 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.PopupWindow;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
+import com.example.uklon_android.DTOs.CardDTO;
+import com.example.uklon_android.DTOs.UserDTO;
 import com.example.uklon_android.R;
+import com.example.uklon_android.classes.Card;
+import com.example.uklon_android.classes.User;
+import com.example.uklon_android.interfaces.ApiService;
 import com.facebook.AccessToken;
 import com.facebook.GraphRequest;
 import com.facebook.GraphResponse;
 import com.facebook.login.LoginManager;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.location.FusedLocationProviderClient;
@@ -40,28 +48,69 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 
+import org.json.JSONException;
 import org.json.JSONObject;
+
+import io.card.payment.CardIOActivity;
+import io.card.payment.CreditCard;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
 
+    public ApiService apiService;
     private GoogleMap googleMap;
     private SupportMapFragment mapFragment;
     private FusedLocationProviderClient fusedLocationClient;
     private LocationRequest locationRequest;
     private LocationCallback locationCallback;
     private Button showMenuButton;
+    private static final int SCAN_REQUEST_CODE = 101;
+    User correctUser = new User();
+    UserDTO sendUser = new UserDTO();
+    CardDTO newCard = new CardDTO();
     GoogleSignInClient gsc;
     GoogleSignInOptions gso;
     Marker myLocationMarker;
+    Uri urlAvatar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        apiService = apiService.retrofit.create(ApiService.class);
         gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
         gsc = GoogleSignIn.getClient(this,gso);
         LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+
+        GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(this);
+        if(acct!=null){
+            sendUser.setEmail(acct.getEmail());
+            sendUser.setFirstName(acct.getFamilyName());
+            sendUser.setLastName(acct.getGivenName());
+            //found in database
+            apiService.foundOrCreate(sendUser).
+                    enqueue(new Callback<User>()
+                    {
+                        @Override
+                        public void onResponse(Call<User> call, Response<User> response) {
+                            if (response.isSuccessful()) {
+                                correctUser = response.body();
+                                urlAvatar = acct.getPhotoUrl();
+                            }
+                            else{
+                                Toast.makeText(MainActivity.this, "Помилка: " + response.message(), Toast.LENGTH_SHORT).show();
+                            }
+                        }
+
+                        @Override
+                        public void onFailure(Call<User> call, Throwable t) {
+                            Toast.makeText(MainActivity.this, "Помилка: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    });
+        }
 
         //location and map
         locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
@@ -140,11 +189,42 @@ public class MainActivity extends AppCompatActivity {
                         @Override
                         public void onCompleted(
                                 JSONObject object,
-                                GraphResponse response){}
+                                GraphResponse response) {
+                            try {
+                                sendUser.setFirstName(object.getString("first_name"));
+                                sendUser.setLastName(object.getString("last_name"));
+                                sendUser.setEmail(object.getString("email"));
+                                String imageUrl = object.getJSONObject("picture")
+                                        .getJSONObject("data")
+                                        .getString("url");
+                                //found in database
+                                apiService.foundOrCreate(sendUser).
+                                        enqueue(new Callback<User>()
+                                        {
+                                            @Override
+                                            public void onResponse(Call<User> call, Response<User> response) {
+                                                if (response.isSuccessful()) {
+                                                    correctUser = response.body();
+                                                    urlAvatar = Uri.parse(imageUrl);
+                                                }
+                                                else{
+                                                    Toast.makeText(MainActivity.this, "Помилка: " + response.message(), Toast.LENGTH_SHORT).show();
+                                                }
+                                            }
+
+                                            @Override
+                                            public void onFailure(Call<User> call, Throwable t) {
+                                                Toast.makeText(MainActivity.this, "Помилка: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+                                            }
+                                        });
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                        }
                     });
 
             Bundle parameters = new Bundle();
-            parameters.putString("fields", "first_name,last_name,email");
+            parameters.putString("fields", "first_name,last_name,email,picture");
             request.setParameters(parameters);
             request.executeAsync();
         }
@@ -159,15 +239,28 @@ public class MainActivity extends AppCompatActivity {
 
                 // Знаходження кнопок в меню
                 Button btnOption1 = popupView.findViewById(R.id.btnOption1);
+                Button btnScanCard = popupView.findViewById(R.id.btnScan);
                 Button btnSignOut = popupView.findViewById(R.id.BtnSign);
+                Button btnPay = popupView.findViewById(R.id.btnPay);
 
                 // Обробка натискання кнопок
                 // Profile
                 btnOption1.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        startActivity(new Intent(MainActivity.this, ProfileActivity.class));
+                        Intent intent = new Intent(MainActivity.this, ProfileActivity.class);
+                        intent.putExtra("user", correctUser);
+                        intent.putExtra("uriImg", urlAvatar);
+                        startActivity(intent);
                         finish();
+                    }
+                });
+
+                // Scan card
+                btnScanCard.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        scanCard();
                     }
                 });
 
@@ -185,12 +278,62 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
 
+                //pay
+                btnPay.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(MainActivity.this, PayActivity.class);
+                        startActivity(intent);
+                        finish();
+                    }
+                });
+
                 // Відображення меню
                 popupWindow.showAsDropDown(v);
             }
         });
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == SCAN_REQUEST_CODE) {
+            if (data != null && data.hasExtra(CardIOActivity.EXTRA_SCAN_RESULT)) {
+                CreditCard scanResult = data.getParcelableExtra(CardIOActivity.EXTRA_SCAN_RESULT);
+
+                // Николи не передавайте свій cardNumber напряму через ненадійні додатки.
+                newCard.setNumber(scanResult.getRedactedCardNumber());
+
+                newCard.setUserId(correctUser.getId());
+
+
+                apiService.addCard(newCard).enqueue(new Callback<Card>() {
+                    @Override
+                    public void onResponse(Call<Card> call, Response<Card> response) {
+                        Toast.makeText(MainActivity.this, "Картку додано " + response.hashCode(), Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void onFailure(Call<Card> call, Throwable t) {
+                        Toast.makeText(MainActivity.this, "Помилка: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+            }
+        }
+    }
+
+    public void scanCard() {
+        Intent scanIntent = new Intent(this, CardIOActivity.class);
+
+        // встановіть потрібні налаштування
+        scanIntent.putExtra(CardIOActivity.EXTRA_REQUIRE_EXPIRY, true);
+        scanIntent.putExtra(CardIOActivity.EXTRA_REQUIRE_CVV, false);
+        scanIntent.putExtra(CardIOActivity.EXTRA_REQUIRE_CARDHOLDER_NAME, true);
+
+        // почати сканування
+        startActivityForResult(scanIntent, SCAN_REQUEST_CODE);
+    }
 
     void signOut(){
         gsc.signOut().addOnCompleteListener(new OnCompleteListener<Void>() {

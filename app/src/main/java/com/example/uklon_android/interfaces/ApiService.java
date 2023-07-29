@@ -1,6 +1,8 @@
 package com.example.uklon_android.interfaces;
 
+import com.example.uklon_android.DTOs.CardDTO;
 import com.example.uklon_android.DTOs.UserDTO;
+import com.example.uklon_android.classes.Card;
 import com.example.uklon_android.classes.Transport;
 import com.example.uklon_android.classes.User;
 
@@ -26,6 +28,9 @@ public interface ApiService {
 
     @POST("/api/login/found-or-create-user")
     Call<User> foundOrCreate(@Body UserDTO user);
+
+    @POST("/api/cards/add-card")
+    Call<Card> addCard(@Body CardDTO card);
 
     @PUT("/api/login/update-user/{id}")
     Call<User> updateUser(@Body UserDTO user, @Path("id")String id);
