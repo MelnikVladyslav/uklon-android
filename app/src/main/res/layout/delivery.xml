@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:src="@drawable/arrow_back"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.05"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.08"
+        tools:ignore="ContentDescription,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+    <ImageView
+        android:id="@+id/DeliveryIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:src="@drawable/icon_delivery"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.1"
+        tools:ignore="ContentDescription,SpeakableTextPresentCheck,TouchTargetSizeCheck,ImageContrastCheck" />
+    <TextView
+        android:id="@+id/DelivryText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="9dp"
+        android:background="@null"
+        android:fontFamily="@font/lato"
+        android:letterSpacing="0.04"
+        android:text="Delivery"
+        android:textColor="#262626"
+        android:textSize="24sp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.48"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/DeliveryIcon"
+        tools:ignore="HardcodedText"
+        />
+
+
+    <RelativeLayout
+        android:id="@+id/delivery"
+        android:layout_width="328dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/skip_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/DelivryText"
+        tools:ignore="TextSizeCheck">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/box"
+            android:layout_marginStart="10dp"
+            android:layout_centerVertical="true"
+            android:background="@null"
+            android:fontFamily="@font/lato_regular"
+            android:letterSpacing="0.04"
+            android:text="We deliver small-sizes items and \n cargoes up to 20kg"
+            android:textColor="#262626"
+            android:textSize="14sp"
+            tools:ignore="HardcodedText" />
+
+        <ImageView
+            android:id="@+id/box"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/box"
+            android:layout_marginStart="20dp"
+            tools:ignore="ContentDescription,HardcodedText,ImageContrastCheck" />
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/order"
+        android:layout_width="328dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/skip_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/delivery"
+        tools:ignore="TextSizeCheck">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/house"
+            android:layout_marginStart="10dp"
+            android:layout_centerVertical="true"
+            android:background="@null"
+            android:fontFamily="@font/lato_regular"
+            android:letterSpacing="0.04"
+            android:text="Order delivery to the entrance or \neven to the apartment door "
+            android:textColor="#262626"
+            android:textSize="14sp"
+            tools:ignore="HardcodedText" />
+
+        <ImageView
+            android:id="@+id/house"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/house"
+            android:layout_marginStart="20dp"
+            tools:ignore="ContentDescription,HardcodedText,ImageContrastCheck" />
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/Send"
+        android:layout_width="328dp"
+        android:layout_height="40dp"
+        android:background="@drawable/start_button_background"
+        android:fontFamily="@font/lato"
+        android:letterSpacing="0.04"
+        android:text="Send"
+        android:textAllCaps="false"
+        android:textColor="#262626"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.88"
+        tools:ignore="HardcodedText,TouchTargetSizeCheck,VisualLintButtonSize" />
+
+    <Button
+        android:id="@+id/Resepient"
+        android:layout_width="328dp"
+        android:layout_height="40dp"
+        android:background="@drawable/skip_button"
+        android:fontFamily="@font/lato"
+        android:letterSpacing="0.04"
+        android:text="I’m a recipient"
+        android:textAllCaps="false"
+        android:textColor="#262626"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.95"
+        tools:ignore="HardcodedText,TouchTargetSizeCheck,VisualLintButtonSize" />
+</androidx.constraintlayout.widget.ConstraintLayout>
