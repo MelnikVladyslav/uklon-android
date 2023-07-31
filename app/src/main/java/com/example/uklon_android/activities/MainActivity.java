@@ -242,6 +242,7 @@ public class MainActivity extends AppCompatActivity {
                 Button btnScanCard = popupView.findViewById(R.id.btnScan);
                 Button btnSignOut = popupView.findViewById(R.id.BtnSign);
                 Button btnPay = popupView.findViewById(R.id.btnPay);
+                Button btnRegDr = popupView.findViewById(R.id.btnRegDr);
 
                 // Обробка натискання кнопок
                 // Profile
@@ -283,6 +284,17 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         Intent intent = new Intent(MainActivity.this, PayActivity.class);
+                        startActivity(intent);
+                        finish();
+                    }
+                });
+
+                //register driver
+                btnRegDr.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(MainActivity.this, RegDriverActivity.class);
+                        intent.putExtra("user", correctUser);
                         startActivity(intent);
                         finish();
                     }

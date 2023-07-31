@@ -34,4 +34,7 @@ public interface ApiService {
 
     @PUT("/api/login/update-user/{id}")
     Call<User> updateUser(@Body UserDTO user, @Path("id")String id);
+
+    @PUT("/api/login/register-driver")
+    Call<User> registerDriver(@Body UserDTO user);
 }
