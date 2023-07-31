@@ -26,6 +26,12 @@
         android:text="Оплата карткою"/>
 
     <Button
+        android:id="@+id/btnRegDr"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Стати водієм"/>
+
+    <Button
         android:id="@+id/BtnSign"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
