@@ -1,5 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <style name="linearlayout_pop_up_menu_horizontal">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingEnd">100dp</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:paddingTop">7dp</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:paddingBottom">7dp</item>
+        <item name="android:layout_marginBottom">15dp</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+    <style name="linearlayout_pop_up_menu_horizontal_margin_top_0" parent="linearlayout_pop_up_menu_horizontal">
+        <item name="android:layout_marginTop">0dp</item>
+    </style>
+
+    <style name="imageview_popup_menu">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginEnd">15dp</item>
+    </style>
+
+    <style name="textview_popup_menu">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">@font/lato</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textColor">#262626</item>
+        <item name="android:textSize">16sp</item>
+    </style>
 
 </resources>
