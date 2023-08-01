@@ -308,13 +308,6 @@
         app:layout_constraintVertical_bias="0.5"
         tools:ignore="ContentDescription,HardcodedText,ImageContrastCheck,MissingConstraints" />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_begin="-14dp"
-        tools:ignore="VisualLintBounds" />
 
     //Phone number
 
@@ -388,6 +381,7 @@
             android:text="  Phone number"
             android:textColor="#A3A3A3"
             android:textSize="15sp"
+            app:layout_constraintStart_toEndof="@id/phoneCodeTextView"
             tools:ignore="Autofill,HardcodedText,LabelFor,TextContrastCheck,TextContrastCheck,TextFields,TouchTargetSizeCheck" />
 
 
@@ -405,19 +399,5 @@
         app:layout_constraintStart_toStartOf="@id/number_insert"
         app:layout_constraintTop_toBottomOf="@id/number_insert"
         tools:ignore="VisualLintBounds" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_begin="20dp" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_begin="16dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
