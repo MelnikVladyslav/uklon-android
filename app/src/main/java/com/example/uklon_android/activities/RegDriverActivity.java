@@ -90,6 +90,9 @@ public class RegDriverActivity extends AppCompatActivity {
                 apiService.addCard(newCard).enqueue(new Callback<Card>() {
                     @Override
                     public void onResponse(Call<Card> call, Response<Card> response) {
+                        Intent intent = new Intent(RegDriverActivity.this, MainActivity.class);
+                        startActivity(intent);
+                        finish();
                         Toast.makeText(RegDriverActivity.this, "Картку додано " + response.hashCode(), Toast.LENGTH_SHORT).show();
                     }
 
