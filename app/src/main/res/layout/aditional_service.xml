@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingHorizontal="16dp"
+        android:paddingTop="45dp"
+        android:paddingBottom="40dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            tools:ignore="UselessParent">
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/arrow_back"
+                tools:ignore="ContentDescription,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/lato"
+                android:gravity="center_horizontal"
+                android:letterSpacing="0.04"
+                android:paddingEnd="25dp"
+                android:text="Additional services"
+                android:textAllCaps="false"
+                android:textColor="#262626"
+                android:textSize="20sp"
+                tools:ignore="HardcodedText,InefficientWeight,RtlSymmetry" />
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingBottom="20dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/lato_regular"
+                    android:letterSpacing="0.04"
+                    android:text="I’m riding with a pet"
+                    android:textAllCaps="false"
+                    android:textColor="#262626"
+                    android:textSize="14sp"
+                    tools:ignore="HardcodedText,InefficientWeight,RtlSymmetry" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:fontFamily="@font/lato"
+                    android:letterSpacing="0.04"
+                    android:text="+20 ₴ "
+                    android:textAllCaps="false"
+                    android:textColor="#848484"
+                    android:textSize="14sp"
+                    tools:ignore="HardcodedText,InefficientWeight,RtlSymmetry" />
+
+            </LinearLayout>
+
+            <ImageButton
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:background="@drawable/about_green"
+                tools:ignore="ContentDescription" />
+
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@drawable/line_with_borders" />
+
+        <LinearLayout style="@style/aditional_service_linearlayout">
+
+            <TextView
+                style="@style/Black_textView"
+                android:text="Silence in car" />
+
+            <TextView
+                style="@style/Grey_Bold_textview"
+                android:text="Free of charge"
+                tools:ignore="HardcodedText,InefficientWeight,RtlSymmetry" />
+        </LinearLayout>
+
+        <View style="@style/View_aditional_service" />
+
+        <LinearLayout style="@style/aditional_service_linearlayout">
+
+            <TextView
+                style="@style/Black_textView"
+                android:text="English speaking driver" />
+
+            <TextView
+                style="@style/Grey_Bold_textview"
+                android:text="+10 ₴"
+                tools:ignore="HardcodedText,InefficientWeight,RtlSymmetry" />
+        </LinearLayout>
+
+        <View style="@style/View_aditional_service" />
+
+        <LinearLayout style="@style/aditional_service_linearlayout">
+
+            <TextView
+                style="@style/Black_textView"
+                android:text="Non-smoking driver" />
+
+            <TextView
+                style="@style/Grey_Bold_textview"
+                android:text="Free of charge"
+                tools:ignore="HardcodedText,InefficientWeight,RtlSymmetry" />
+        </LinearLayout>
+
+        <View style="@style/View_aditional_service" />
+
+        <LinearLayout style="@style/aditional_service_linearlayout">
+
+            <TextView
+                style="@style/Black_textView"
+                android:text="Air conditioning" />
+
+            <TextView
+                style="@style/Grey_Bold_textview"
+                android:text="Free of charge"
+                tools:ignore="HardcodedText,InefficientWeight,RtlSymmetry" />
+        </LinearLayout>
+
+        <View style="@style/View_aditional_service" />
+
+        <LinearLayout
+            style="@style/aditional_service_linearlayout"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/Black_textView"
+                    android:text="Extra luggage"
+                    tools:ignore="HardcodedText,InefficientWeight,RtlSymmetry" />
+
+                <TextView
+                    style="@style/Grey_Bold_textview"
+                    android:text="+30 ₴"
+                    tools:ignore="HardcodedText,InefficientWeight,RtlSymmetry" />
+
+            </LinearLayout>
+
+            <ImageButton
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="63dp"
+                android:background="@drawable/about_green"
+                tools:ignore="ContentDescription" />
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/Send"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="138dp"
+        android:paddingVertical="16dp"
+        android:background="@drawable/start_button_background"
+        android:fontFamily="@font/lato"
+        android:letterSpacing="0.04"
+        android:text="Done"
+        android:textAllCaps="false"
+        android:textColor="#262626"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.95"
+        tools:ignore="HardcodedText,TouchTargetSizeCheck,VisualLintButtonSize" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
