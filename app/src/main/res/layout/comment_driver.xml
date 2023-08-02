@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingHorizontal="16dp"
+        android:paddingTop="45dp">
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/arrow_back"
+            tools:ignore="ContentDescription,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="30dp"
+            android:paddingBottom="10dp">
+
+            <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/coment_icon"
+            android:layout_marginEnd="20dp"/>
+
+            <TextView
+              style="@style/Grey_regular_textview"
+                android:text="Comment for driver"
+                tools:ignore="HardcodedText,InefficientWeight,RtlSymmetry" />
+
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#A3A3A3" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingStart="44dp">
+
+                    <TextView
+                        style="@style/Grey_regular_textview"
+                        android:text="Wait near ..."
+                        android:paddingBottom="20dp"
+                        android:layout_marginTop="30dp"/>
+                    <View style="@style/View_aditional_service" />
+
+                    <TextView
+                        style="@style/Grey_regular_textview"
+                        android:text="Driver through ..."
+                        android:paddingVertical="20dp" />
+                    <View style="@style/View_aditional_service" />
+                    <TextView
+                        style="@style/Grey_regular_textview"
+                        android:text="Need change :"
+                        android:paddingVertical="20dp" />
+                    <View style="@style/View_aditional_service" />
+                    <TextView
+                        style="@style/Grey_regular_textview"
+                        android:text="Don't call me, please "
+                        android:paddingVertical="20dp" />
+                    <View style="@style/View_aditional_service" />
+
+
+                </LinearLayout>
+
+
+
+
+
+
+
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/Send"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="138dp"
+        android:paddingVertical="16dp"
+        android:background="@drawable/start_button_background"
+        android:fontFamily="@font/lato"
+        android:letterSpacing="0.04"
+        android:text="Done"
+        android:textAllCaps="false"
+        android:textColor="#262626"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.95"
+        tools:ignore="HardcodedText,TouchTargetSizeCheck,VisualLintButtonSize" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

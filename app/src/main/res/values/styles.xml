@@ -62,4 +62,10 @@
         <item name="android:background">@drawable/line_with_borders</item>
     </style>
 
+    <style name="Grey_regular_textview" parent="TextViewPrimary">
+        <item name="android:textSize">15sp</item>
+        <item name="android:fontFamily">@font/lato_regular</item>
+        <item name="android:textColor">#A3A3A3</item>
+    </style>
+
 </resources>
