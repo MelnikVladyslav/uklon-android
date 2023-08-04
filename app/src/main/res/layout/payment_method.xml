@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingHorizontal="16dp"
+        android:paddingTop="45dp"
+        android:paddingBottom="40dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            tools:ignore="UselessParent">
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/arrow_back"
+                tools:ignore="ContentDescription,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/lato"
+                android:gravity="center_horizontal"
+                android:letterSpacing="0.04"
+                android:paddingEnd="25dp"
+                android:text="Payment type"
+                android:textAllCaps="false"
+                android:textColor="#262626"
+                android:textSize="20sp"
+                tools:ignore="HardcodedText,InefficientWeight,RtlSymmetry" />
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:paddingEnd="4dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingBottom="20dp">
+
+            <ImageView
+                style="@style/imageview_peyment_method"
+                android:background="@drawable/drive_cash"
+              />
+            <LinearLayout
+              style="@style/payment_method_linear_layout">
+
+                <TextView
+                  style="@style/Black_bigger_textView"
+                    android:text="Drive cash"
+                    tools:ignore="HardcodedText,InefficientWeight,RtlSymmetry" />
+
+                <TextView
+                   style="@style/Grey_regular_smaller_textview"
+                    android:text="UAH 60.00"
+                    tools:ignore="HardcodedText,InefficientWeight,RtlSymmetry" />
+
+            </LinearLayout>
+
+            <RadioButton
+               style="@style/peyment_method_radiobutton" />
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@drawable/line_with_borders" />
+
+        <LinearLayout
+            style="@style/peyment_method_horizontal_linearlayout">
+
+            <ImageView
+                style="@style/imageview_peyment_method"
+                android:background="@drawable/google_pay"
+                />
+                <TextView
+                    style="@style/Black_bigger_textView"
+                    android:text="Drive cash"
+                    android:layout_weight="1"
+                    tools:ignore="HardcodedText,InefficientWeight,RtlSymmetry" />
+
+            <RadioButton
+                style="@style/peyment_method_radiobutton" />
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@drawable/line_with_borders" />
+
+        <LinearLayout
+            style="@style/peyment_method_horizontal_linearlayout">
+
+            <ImageView
+                style="@style/imageview_peyment_method"
+                android:background="@drawable/cash"
+                />
+            <TextView
+                style="@style/Black_bigger_textView"
+                android:text="Cash"
+                android:layout_weight="1"
+                tools:ignore="HardcodedText,InefficientWeight,RtlSymmetry" />
+
+            <RadioButton
+                style="@style/peyment_method_radiobutton" />
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@drawable/line_with_borders" />
+
+
+        <LinearLayout
+           style="@style/peyment_method_horizontal_linearlayout">
+
+            <ImageView
+                style="@style/imageview_peyment_method"
+                android:background="@drawable/credit_card_payment_method"
+                />
+            <TextView
+                style="@style/Black_bigger_textView"
+                android:text="Add debit/credit card"
+                android:layout_weight="1"
+                tools:ignore="HardcodedText,InefficientWeight,RtlSymmetry" />
+
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@drawable/line_with_borders" />
+
+
+
+
+
+
+
+
+
+    </LinearLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+    <Button
+        android:id="@+id/Send"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="138dp"
+        android:paddingVertical="16dp"
+        android:background="@drawable/start_button_background"
+        android:fontFamily="@font/lato"
+        android:letterSpacing="0.04"
+        android:text="Done"
+        android:textAllCaps="false"
+        android:textColor="#262626"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.95"
+        tools:ignore="HardcodedText,TouchTargetSizeCheck,VisualLintButtonSize" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
