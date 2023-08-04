@@ -21,6 +21,7 @@
         tools:ignore="ContentDescription,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
     <Button
+        android:id="@+id/skip"
         android:layout_width="60dp"
         android:layout_height="36dp"
         android:background="@drawable/skip_button"

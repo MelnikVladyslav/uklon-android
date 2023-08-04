@@ -5,6 +5,8 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.location.Address;
+import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationManager;
 import android.net.Uri;
@@ -12,7 +14,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.PopupWindow;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
@@ -47,9 +52,14 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.bottomsheet.BottomSheetDialog;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.io.IOException;
+import java.util.List;
+import java.util.Locale;
 
 import io.card.payment.CardIOActivity;
 import io.card.payment.CreditCard;
@@ -65,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
     private FusedLocationProviderClient fusedLocationClient;
     private LocationRequest locationRequest;
     private LocationCallback locationCallback;
-    private Button showMenuButton;
+    private ImageButton showMenuButton;
     private static final int SCAN_REQUEST_CODE = 101;
     User correctUser = new User();
     UserDTO sendUser = new UserDTO();
@@ -74,12 +84,18 @@ public class MainActivity extends AppCompatActivity {
     GoogleSignInOptions gso;
     Marker myLocationMarker;
     Uri urlAvatar;
+    Geocoder geocoder;
+    Location location;
+    double latitude;
+    double longitude;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        geocoder = new Geocoder(this, Locale.getDefault());
         apiService = apiService.retrofit.create(ApiService.class);
         gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
         gsc = GoogleSignIn.getClient(this,gso);
@@ -152,10 +168,10 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onLocationResult(LocationResult locationResult) {
                         if (locationResult != null) {
-                            Location location = locationResult.getLastLocation();
+                            location = locationResult.getLastLocation();
                             // Отримання координат місцезнаходження і оновлення мапи
-                            double latitude = location.getLatitude();
-                            double longitude = location.getLongitude();
+                            latitude = location.getLatitude();
+                            longitude = location.getLongitude();
                             LatLng currentLatLng = new LatLng(latitude, longitude);
                             if (myLocationMarker == null) {
                                 // Якщо маркер ще не створений, створюємо його
@@ -304,6 +320,15 @@ public class MainActivity extends AppCompatActivity {
                 popupWindow.showAsDropDown(v);
             }
         });
+
+        // Знаходимо макет bottom_sheet_layout.xml
+        View bottomSheet = findViewById(R.id.popup_menu_main);
+        bottomSheet.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showBottomSheetDialog();
+            }
+        });
     }
 
     @Override
@@ -332,6 +357,59 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
             }
+        }
+    }
+
+    private void showBottomSheetDialog() {
+        BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(this);
+        if (bottomSheetDialog.isShowing() == false) {
+            // Створюємо новий BottomSheetDialog
+            bottomSheetDialog = new BottomSheetDialog(this);
+            bottomSheetDialog.setContentView(R.layout.bottom_menu);
+
+            Button extranceBtn = bottomSheetDialog.findViewById(R.id.btnExtr);
+            TextView pointStart = bottomSheetDialog.findViewById(R.id.pointStart);
+            EditText pointEnd = bottomSheetDialog.findViewById(R.id.where_to_go);
+            ImageButton btnAddHome = bottomSheetDialog.findViewById(R.id.addHome);
+            ImageButton btnAddWork = bottomSheetDialog.findViewById(R.id.addWork);
+            ImageButton btnLike = bottomSheetDialog.findViewById(R.id.Like);
+            ImageButton btnDelivery = bottomSheetDialog.findViewById(R.id.delivery);
+            ImageButton btnDriver = bottomSheetDialog.findViewById(R.id.driver);
+            ImageButton btnInterCity = bottomSheetDialog.findViewById(R.id.intercity);
+
+            latitude = location.getLatitude();
+            longitude = location.getLongitude();
+
+            try {
+                List<Address> addresses = geocoder.getFromLocation(latitude, longitude, 1);
+
+                if (addresses != null && addresses.size() > 0) {
+                    Address address = addresses.get(0);
+                    String streetName = address.getThoroughfare(); // Назва вулиці
+                    String houseNumber = address.getSubThoroughfare(); // Номер будинку
+
+                    // Використовуйте streetName та houseNumber за потреби
+                    pointStart.setText(streetName + " ," + houseNumber);
+                } else {
+                    // Адресу не знайдено
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+
+
+            // Налаштовуємо анімацію для відкриття та закриття BottomSheetDialog
+            // Ви можете змінити анімацію на ваш смак
+            bottomSheetDialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
+
+            // Показуємо BottomSheetDialog
+            bottomSheetDialog.show();
+        } else {
+            // Закриваємо BottomSheetDialog
+            bottomSheetDialog.dismiss();
+            // Встановлюємо змінну bottomSheetDialog як null, щоб після закриття він знову міг з'явитися
+            bottomSheetDialog = null;
         }
     }
 
