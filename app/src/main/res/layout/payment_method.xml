@@ -43,6 +43,7 @@
 
         </LinearLayout>
 
+
 <RadioGroup
     android:id="@+id/rd"
     android:layout_width="wrap_content"
@@ -74,11 +75,10 @@
                     tools:ignore="HardcodedText,InefficientWeight,RtlSymmetry" />
 
             </LinearLayout>
-
             <RadioButton
                 android:id="@+id/DC"
                style="@style/peyment_method_radiobutton" />
-        </LinearLayout>
+             </LinearLayout>
         <View
             android:layout_width="match_parent"
             android:layout_height="2dp"
@@ -86,17 +86,15 @@
 
         <LinearLayout
             style="@style/peyment_method_horizontal_linearlayout">
-
             <ImageView
                 style="@style/imageview_peyment_method"
                 android:background="@drawable/google_pay"
                 />
-                <TextView
+            <TextView
                     style="@style/Black_bigger_textView"
                     android:text="Drive cash"
                     android:layout_weight="1"
                     tools:ignore="HardcodedText,InefficientWeight,RtlSymmetry" />
-
             <RadioButton
                 style="@style/peyment_method_radiobutton" />
         </LinearLayout>
@@ -126,8 +124,7 @@
             android:layout_width="match_parent"
             android:layout_height="2dp"
             android:background="@drawable/line_with_borders" />
-
-
+ </RadioGroup>
         <LinearLayout
             android:id="@+id/addCard"
            style="@style/peyment_method_horizontal_linearlayout">
