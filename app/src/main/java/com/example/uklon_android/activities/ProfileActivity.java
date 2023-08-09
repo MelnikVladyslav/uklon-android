@@ -3,6 +3,7 @@ package com.example.uklon_android.activities;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -15,6 +16,7 @@ import com.example.uklon_android.DTOs.UserDTO;
 import com.example.uklon_android.R;
 import com.example.uklon_android.classes.User;
 import com.example.uklon_android.interfaces.ApiService;
+import com.squareup.picasso.Picasso;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -52,7 +54,11 @@ public class ProfileActivity extends AppCompatActivity {
         lastNameEdT.setText(correctUser.getLastName());
         emailEdT.setText(correctUser.getEmail());
         phoneNumEdT.setText(correctUser.getPhoneNumber());
-        avatarImg.setImageURI((Uri) getIntent().getSerializableExtra("uriImg"));
+
+        //Avatar
+        String urlAv = (String) getIntent().getSerializableExtra("uriImg");
+        Log.d("urlAv", urlAv);
+        Picasso.get().load(urlAv).into(avatarImg);
 
         backBtn.setOnClickListener(new View.OnClickListener()
         {

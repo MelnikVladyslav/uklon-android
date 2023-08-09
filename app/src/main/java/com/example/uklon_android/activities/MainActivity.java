@@ -11,11 +11,14 @@ import android.location.Location;
 import android.location.LocationManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -23,13 +26,14 @@ import android.widget.Toast;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.uklon_android.DTOs.CardDTO;
 import com.example.uklon_android.DTOs.UserDTO;
 import com.example.uklon_android.R;
-import com.example.uklon_android.classes.Card;
 import com.example.uklon_android.classes.User;
 import com.example.uklon_android.interfaces.ApiService;
+import com.example.uklon_android.interfaces.PlacesAdapter;
 import com.facebook.AccessToken;
 import com.facebook.GraphRequest;
 import com.facebook.GraphResponse;
@@ -48,21 +52,29 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MapStyleOptions;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.libraries.places.api.Places;
+import com.google.android.libraries.places.api.model.Place;
+import com.google.android.libraries.places.api.model.PlaceLikelihood;
+import com.google.android.libraries.places.api.net.FindCurrentPlaceRequest;
+import com.google.android.libraries.places.api.net.FindCurrentPlaceResponse;
+import com.google.android.libraries.places.api.net.PlacesClient;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
+import com.squareup.picasso.Picasso;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
 
-import io.card.payment.CardIOActivity;
-import io.card.payment.CreditCard;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -76,10 +88,9 @@ public class MainActivity extends AppCompatActivity {
     private LocationRequest locationRequest;
     private LocationCallback locationCallback;
     private ImageButton showMenuButton;
-    private static final int SCAN_REQUEST_CODE = 101;
+    private static final int LOCATION_REQUEST = 500;
     User correctUser = new User();
     UserDTO sendUser = new UserDTO();
-    CardDTO newCard = new CardDTO();
     GoogleSignInClient gsc;
     GoogleSignInOptions gso;
     Marker myLocationMarker;
@@ -88,35 +99,83 @@ public class MainActivity extends AppCompatActivity {
     Location location;
     double latitude;
     double longitude;
-
+    LatLng currentLatLng;
+    String addressStrStart;
+    String addressStrEnd;
+    List<String> placeNames = new ArrayList<>();
+    private RecyclerView recyclerView;
+    private PlacesAdapter placesAdapter;
+    PlacesClient placesClient;
+    String ApiKey = "AIzaSyD3XTBjDPC3c5VrztOIBq1WVWvuxTGXd2E";
+    boolean isExpanded = false;
+    String imageUrl;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        Places.initialize(getApplicationContext(), ApiKey);
+        placesClient = Places.createClient(this);
+        List<String> placesList = new ArrayList<>(); // Список місць
+        placesAdapter = new PlacesAdapter(placesList);
         geocoder = new Geocoder(this, Locale.getDefault());
         apiService = apiService.retrofit.create(ApiService.class);
         gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
-        gsc = GoogleSignIn.getClient(this,gso);
+        gsc = GoogleSignIn.getClient(this, gso);
         LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        addressStrEnd = (String) getIntent().getSerializableExtra("endAdress");
+
+        // Здійснюємо запит до Google Places API за допомогою PlacesClient
+        List<Place.Field> placeFields = Arrays.asList(Place.Field.NAME);
+        FindCurrentPlaceRequest requestPlace = FindCurrentPlaceRequest.newInstance(placeFields);
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            return;
+        }
+        Task<FindCurrentPlaceResponse> placeResponseTask = placesClient.findCurrentPlace(requestPlace);
+        placeResponseTask.addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                FindCurrentPlaceResponse response = task.getResult();
+                Log.d("result: ", response.getPlaceLikelihoods().toString());
+                if (response != null) {
+                    List<PlaceLikelihood> placeLikelihoods = response.getPlaceLikelihoods();
+                    for (PlaceLikelihood placeLikelihood : placeLikelihoods) {
+                        Log.d("places: ", placeLikelihood.getPlace().toString());
+                        Place place = placeLikelihood.getPlace();
+                        placeNames.add(place.getName().toString());
+                    }
+                    Log.d("List place name: ", placeNames.toString());
+                    placesAdapter.setPlaces(placeNames);
+                }
+            } else {
+                Exception exception = task.getException();
+                if (exception != null) {
+                    Log.e("MainActivity", "Error fetching places: " + exception.getMessage());
+                }
+            }
+        });
 
         GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(this);
-        if(acct!=null){
+        if (acct != null) {
             sendUser.setEmail(acct.getEmail());
             sendUser.setFirstName(acct.getFamilyName());
             sendUser.setLastName(acct.getGivenName());
             //found in database
             apiService.foundOrCreate(sendUser).
-                    enqueue(new Callback<User>()
-                    {
+                    enqueue(new Callback<User>() {
                         @Override
                         public void onResponse(Call<User> call, Response<User> response) {
                             if (response.isSuccessful()) {
                                 correctUser = response.body();
                                 urlAvatar = acct.getPhotoUrl();
-                            }
-                            else{
+                            } else {
                                 Toast.makeText(MainActivity.this, "Помилка: " + response.message(), Toast.LENGTH_SHORT).show();
                             }
                         }
@@ -153,6 +212,7 @@ public class MainActivity extends AppCompatActivity {
             public void onMapReady(GoogleMap map) {
                 googleMap = map;
                 // Налаштування карт, робота з мапою
+                googleMap.setMapStyle(MapStyleOptions.loadRawResourceStyle(MainActivity.this, R.raw.map));
 
                 // Ініціалізація FusedLocationProviderClient
                 fusedLocationClient = LocationServices.getFusedLocationProviderClient(MainActivity.this);
@@ -172,7 +232,7 @@ public class MainActivity extends AppCompatActivity {
                             // Отримання координат місцезнаходження і оновлення мапи
                             latitude = location.getLatitude();
                             longitude = location.getLongitude();
-                            LatLng currentLatLng = new LatLng(latitude, longitude);
+                            currentLatLng = new LatLng(latitude, longitude);
                             if (myLocationMarker == null) {
                                 // Якщо маркер ще не створений, створюємо його
                                 MarkerOptions markerOptions = new MarkerOptions()
@@ -190,6 +250,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                 };
 
+
                 // Запуск отримання місцезнаходження
                 startLocationUpdates();
             }
@@ -198,7 +259,7 @@ public class MainActivity extends AppCompatActivity {
         AccessToken accessToken = AccessToken.getCurrentAccessToken();
         boolean isLoggedIn = accessToken != null && !accessToken.isExpired();
 
-        if(isLoggedIn){
+        if (isLoggedIn) {
             GraphRequest request = GraphRequest.newMeRequest(
                     accessToken,
                     new GraphRequest.GraphJSONObjectCallback() {
@@ -210,20 +271,18 @@ public class MainActivity extends AppCompatActivity {
                                 sendUser.setFirstName(object.getString("first_name"));
                                 sendUser.setLastName(object.getString("last_name"));
                                 sendUser.setEmail(object.getString("email"));
-                                String imageUrl = object.getJSONObject("picture")
+                                imageUrl = object.getJSONObject("picture")
                                         .getJSONObject("data")
                                         .getString("url");
                                 //found in database
                                 apiService.foundOrCreate(sendUser).
-                                        enqueue(new Callback<User>()
-                                        {
+                                        enqueue(new Callback<User>() {
                                             @Override
                                             public void onResponse(Call<User> call, Response<User> response) {
                                                 if (response.isSuccessful()) {
                                                     correctUser = response.body();
                                                     urlAvatar = Uri.parse(imageUrl);
-                                                }
-                                                else{
+                                                } else {
                                                     Toast.makeText(MainActivity.this, "Помилка: " + response.message(), Toast.LENGTH_SHORT).show();
                                                 }
                                             }
@@ -249,75 +308,86 @@ public class MainActivity extends AppCompatActivity {
         showMenuButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Показати попап-меню при натисканні кнопки
                 View popupView = getLayoutInflater().inflate(R.layout.popup_menu_layout, null);
-                PopupWindow popupWindow = new PopupWindow(popupView, ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                    // Показати попап-меню при натисканні кнопки
+                    PopupWindow popupWindow = new PopupWindow(popupView, ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
 
-                // Знаходження кнопок в меню
-                Button btnOption1 = popupView.findViewById(R.id.btnOption1);
-                Button btnScanCard = popupView.findViewById(R.id.btnScan);
-                Button btnSignOut = popupView.findViewById(R.id.BtnSign);
-                Button btnPay = popupView.findViewById(R.id.btnPay);
-                Button btnRegDr = popupView.findViewById(R.id.btnRegDr);
+                    // Знаходження кнопок в меню
+                    ImageButton btnOption1 = popupView.findViewById(R.id.btnOption1);
+                    ImageButton btnSelCity = popupView.findViewById(R.id.selCityBtn);
+                    LinearLayout btnSignOut = popupView.findViewById(R.id.BtnSign);
+                    ImageView avatar = popupView.findViewById(R.id.avatar);
+                    LinearLayout btnRegDr = popupView.findViewById(R.id.btnRegDr);
 
-                // Обробка натискання кнопок
-                // Profile
-                btnOption1.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Intent intent = new Intent(MainActivity.this, ProfileActivity.class);
-                        intent.putExtra("user", correctUser);
-                        intent.putExtra("uriImg", urlAvatar);
-                        startActivity(intent);
-                        finish();
+                    //Avatar
+                    if(acct != null)
+                    {
+                        Picasso.get().load(acct.getPhotoUrl()).into(avatar);
+                        urlAvatar = acct.getPhotoUrl();
                     }
-                });
-
-                // Scan card
-                btnScanCard.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        scanCard();
+                    if(isLoggedIn)
+                    {
+                        Picasso.get().load(imageUrl).into(avatar);
+                        urlAvatar = Uri.parse(imageUrl);
                     }
-                });
 
-                //sign out
-                btnSignOut.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                           if(gsc != null) {
-                               signOut();
-                           }
-                           if(isLoggedIn)
-                           {
-                               signFacebook();
-                           }
-                    }
-                });
+                    // Обробка натискання кнопок
+                    // Profile
+                    TextView nameUser = popupView.findViewById(R.id.nameUser);
+                    nameUser.setText(correctUser.getFirstName());
+                    btnOption1.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent intent = new Intent(MainActivity.this, ProfileActivity.class);
+                            intent.putExtra("user", correctUser);
+                            intent.putExtra("uriImg", urlAvatar.toString());
+                            startActivity(intent);
+                            finish();
+                        }
+                    });
 
-                //pay
-                btnPay.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Intent intent = new Intent(MainActivity.this, PayActivity.class);
-                        startActivity(intent);
-                        finish();
-                    }
-                });
+                    //sign out
+                    btnSignOut.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            if (gsc != null) {
+                                signOut();
+                            }
+                            if (isLoggedIn) {
+                                signFacebook();
+                            }
+                        }
+                    });
 
-                //register driver
-                btnRegDr.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Intent intent = new Intent(MainActivity.this, RegDriverActivity.class);
-                        intent.putExtra("user", correctUser);
-                        startActivity(intent);
-                        finish();
-                    }
-                });
+                    //register driver
+                    btnRegDr.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent intent = new Intent(MainActivity.this, RegDriverActivity.class);
+                            intent.putExtra("user", correctUser);
+                            startActivity(intent);
+                            finish();
+                        }
+                    });
 
-                // Відображення меню
-                popupWindow.showAsDropDown(v);
+                    //select city
+                    btnSelCity.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Intent intent = new Intent(MainActivity.this, SelCityActivity.class);
+                            startActivity(intent);
+                        }
+                    });
+
+                if(!isExpanded) {
+                    // Відображення меню
+                    popupWindow.showAsDropDown(v);
+                }
+                else {
+                    popupWindow.dismiss();
+                }
+
+                isExpanded = !isExpanded;
             }
         });
 
@@ -329,35 +399,6 @@ public class MainActivity extends AppCompatActivity {
                 showBottomSheetDialog();
             }
         });
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        if (requestCode == SCAN_REQUEST_CODE) {
-            if (data != null && data.hasExtra(CardIOActivity.EXTRA_SCAN_RESULT)) {
-                CreditCard scanResult = data.getParcelableExtra(CardIOActivity.EXTRA_SCAN_RESULT);
-
-                // Николи не передавайте свій cardNumber напряму через ненадійні додатки.
-                newCard.setNumber(scanResult.getRedactedCardNumber());
-
-                newCard.setUserId(correctUser.getId());
-
-
-                apiService.addCard(newCard).enqueue(new Callback<Card>() {
-                    @Override
-                    public void onResponse(Call<Card> call, Response<Card> response) {
-                        Toast.makeText(MainActivity.this, "Картку додано " + response.hashCode(), Toast.LENGTH_SHORT).show();
-                    }
-
-                    @Override
-                    public void onFailure(Call<Card> call, Throwable t) {
-                        Toast.makeText(MainActivity.this, "Помилка: " + t.getMessage(), Toast.LENGTH_SHORT).show();
-                    }
-                });
-            }
-        }
     }
 
     private void showBottomSheetDialog() {
@@ -387,9 +428,10 @@ public class MainActivity extends AppCompatActivity {
                     Address address = addresses.get(0);
                     String streetName = address.getThoroughfare(); // Назва вулиці
                     String houseNumber = address.getSubThoroughfare(); // Номер будинку
+                    addressStrStart = streetName + " ," + houseNumber;
 
                     // Використовуйте streetName та houseNumber за потреби
-                    pointStart.setText(streetName + " ," + houseNumber);
+                    pointStart.setText(addressStrStart);
                 } else {
                     // Адресу не знайдено
                 }
@@ -397,7 +439,65 @@ public class MainActivity extends AppCompatActivity {
                 e.printStackTrace();
             }
 
+            ImageButton showRouteButton = bottomSheetDialog.findViewById(R.id.showRouteButton); // Замість R.id.showRouteButton вкажіть ID вашої кнопки для показу маршруту
 
+            showRouteButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(MainActivity.this, WhereToGoActivity.class);
+                    intent.putExtra("lat", latitude);
+                    intent.putExtra("lon", longitude);
+                    intent.putExtra("startLoc", addressStrStart);
+                    intent.putExtra("user", correctUser);
+                    startActivity(intent);
+                }
+            });
+
+            recyclerView = bottomSheetDialog.findViewById(R.id.recyclerView);
+            recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
+            recyclerView.setAdapter(placesAdapter);
+
+            if (addressStrEnd != null)
+            {
+                pointEnd.setText(addressStrEnd);
+            }
+
+            btnDelivery.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(MainActivity.this, DeliveryActivity.class);
+                    intent.putExtra("onePoint", addressStrStart);
+                    intent.putExtra("user", correctUser);
+                    if(addressStrEnd != null)
+                    {
+                        intent.putExtra("twoPoint", addressStrEnd);
+                    }
+                    startActivity(intent);
+                }
+            });
+
+            btnDriver.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(MainActivity.this, EnterTypeAutoActivity.class);
+                    intent.putExtra("onePoint", addressStrStart);
+                    intent.putExtra("user", correctUser);
+                    if(addressStrEnd != null)
+                    {
+                        intent.putExtra("twoPoint", addressStrEnd);
+                    }
+                    startActivity(intent);
+                }
+            });
+
+            btnInterCity.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(MainActivity.this, SelCitActivity.class);
+                    intent.putExtra("user", correctUser);
+                    startActivity(intent);
+                }
+            });
 
             // Налаштовуємо анімацію для відкриття та закриття BottomSheetDialog
             // Ви можете змінити анімацію на ваш смак
@@ -411,18 +511,6 @@ public class MainActivity extends AppCompatActivity {
             // Встановлюємо змінну bottomSheetDialog як null, щоб після закриття він знову міг з'явитися
             bottomSheetDialog = null;
         }
-    }
-
-    public void scanCard() {
-        Intent scanIntent = new Intent(this, CardIOActivity.class);
-
-        // встановіть потрібні налаштування
-        scanIntent.putExtra(CardIOActivity.EXTRA_REQUIRE_EXPIRY, true);
-        scanIntent.putExtra(CardIOActivity.EXTRA_REQUIRE_CVV, false);
-        scanIntent.putExtra(CardIOActivity.EXTRA_REQUIRE_CARDHOLDER_NAME, true);
-
-        // почати сканування
-        startActivityForResult(scanIntent, SCAN_REQUEST_CODE);
     }
 
     void signOut(){
