@@ -7,7 +7,7 @@
 
 
     <ImageButton
-        android:id="@+id/imageButton"
+        android:id="@+id/btnBackDel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@android:color/transparent"
@@ -131,7 +131,7 @@
     </RelativeLayout>
 
     <Button
-        android:id="@+id/Send"
+        android:id="@+id/SendDel"
         android:layout_width="328dp"
         android:layout_height="40dp"
         android:background="@drawable/start_button_background"

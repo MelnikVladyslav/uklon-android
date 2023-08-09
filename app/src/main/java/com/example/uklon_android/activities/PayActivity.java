@@ -23,6 +23,9 @@ public class PayActivity extends AppCompatActivity {
     private static final int REQUEST_CODE_PAYMENT = 1;
     private static final String PAYPAL_CLIENT_ID = "ASmywcHfa6i5ev-wG8Qhiqb4SjgHbQBeOdJVMP5apfPCC9TPgpBas9vE62fOH9x15WJefBGpN1Cn1TXL";
 
+    int price;
+    BigDecimal priceInUsd;
+
     private static PayPalConfiguration config = new PayPalConfiguration()
             .environment(PayPalConfiguration.ENVIRONMENT_SANDBOX) // Замініть на ENVIRONMENT_PRODUCTION для реальних транзакцій
             .clientId(PAYPAL_CLIENT_ID);
@@ -31,6 +34,9 @@ public class PayActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pay);
+        price = (int) getIntent().getSerializableExtra("price");
+
+        priceInUsd = BigDecimal.valueOf(price / 38);
 
         Intent intent = new Intent(this, PayPalService.class);
         intent.putExtra(PayPalService.EXTRA_PAYPAL_CONFIGURATION, config);
@@ -42,7 +48,7 @@ public class PayActivity extends AppCompatActivity {
 
     private void makePayment() {
         // Загальна сума платежу
-        BigDecimal amount = new BigDecimal("10.00");
+        BigDecimal amount = priceInUsd;
 
         PayPalPayment payment = new PayPalPayment(amount, "USD", "Payment for your service",
                 PayPalPayment.PAYMENT_INTENT_ORDER);

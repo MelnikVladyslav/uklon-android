@@ -2,6 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
@@ -22,6 +26,48 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".activities.SelCityActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.InfoInterCityActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.SelCitActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.EnterTypeAutoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.PayTActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.ComActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.ASActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.InfoStOrderActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.DelPayActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.InfoDelActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.RecepDelActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.SendDelActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.DeliveryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.WhereToGoActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.RegDriverActivity"
             android:exported="false" />
         <activity
@@ -33,6 +79,12 @@
         <activity
             android:name=".activities.GpsActivity"
             android:exported="false" />
+        <activity
+            android:name=".activities.WhereToGoDrActivity"
+            android:label="WhereToGoDrActivity" />
+        <activity
+            android:name=".activities.InfoDrActivity"
+            android:label="InfoDrActivity" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
