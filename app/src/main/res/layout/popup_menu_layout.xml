@@ -20,8 +20,11 @@
           android:paddingBottom="40dp"
           tools:ignore="UseCompoundDrawables,UselessParent">
          <ImageView
-             android:layout_width="wrap_content"
-             android:layout_height="wrap_content"
+             android:id="@+id/avatar"
+             android:layout_width="50dp"
+             android:layout_height="50dp"
+             android:scaleType="centerCrop"
+             android:adjustViewBounds="true"
              android:background="@drawable/user_icon"
              tools:ignore="ContentDescription" />
          <LinearLayout
@@ -32,6 +35,7 @@
              android:paddingEnd="40dp">
 
             <TextView
+                android:id="@+id/nameUser"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/lato"
@@ -56,6 +60,7 @@
 
          </LinearLayout>
          <ImageButton
+             android:id="@+id/btnOption1"
              android:layout_width="wrap_content"
              android:layout_height="wrap_content"
              android:background="@drawable/arrow_right"
@@ -113,6 +118,7 @@
 
          </LinearLayout>
          <ImageButton
+             android:id="@+id/selCityBtn"
              android:layout_width="wrap_content"
              android:layout_height="wrap_content"
              android:background="@drawable/arrow_right"
@@ -207,5 +213,37 @@
              tools:ignore="HardcodedText"/>
 
       </LinearLayout>
+
+   <LinearLayout
+       android:id="@+id/btnRegDr"
+       style="@style/linearlayout_pop_up_menu_horizontal_margin_top_0"
+       tools:ignore="UseCompoundDrawables">
+
+      <ImageView
+          style="@style/imageview_popup_menu"
+          android:background="@drawable/about"
+          tools:ignore="ContentDescription" />
+      <TextView
+          style="@style/textview_popup_menu"
+          android:text="Register driver"
+          tools:ignore="HardcodedText"/>
+
+   </LinearLayout>
+
+   <LinearLayout
+       android:id="@+id/BtnSign"
+       style="@style/linearlayout_pop_up_menu_horizontal_margin_top_0"
+       tools:ignore="UseCompoundDrawables">
+
+      <ImageButton
+          style="@style/imageview_popup_menu"
+          android:background="@drawable/about"
+          tools:ignore="ContentDescription" />
+      <TextView
+          style="@style/textview_popup_menu"
+          android:text="Exit"
+          tools:ignore="HardcodedText"/>
+
+   </LinearLayout>
 
    </LinearLayout>

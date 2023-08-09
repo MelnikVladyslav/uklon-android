@@ -30,7 +30,7 @@
             android:background="@drawable/coment_icon"
             android:layout_marginEnd="20dp"/>
 
-            <TextView
+            <EditText
               style="@style/Grey_regular_textview"
                 android:text="Comment for driver"
                 tools:ignore="HardcodedText,InefficientWeight,RtlSymmetry" />
@@ -50,24 +50,24 @@
                     android:orientation="vertical"
                     android:paddingStart="44dp">
 
-                    <TextView
+                    <EditText
                         style="@style/Grey_regular_textview"
                         android:text="Wait near ..."
                         android:paddingBottom="20dp"
                         android:layout_marginTop="30dp"/>
                     <View style="@style/View_aditional_service" />
 
-                    <TextView
+                    <EditText
                         style="@style/Grey_regular_textview"
                         android:text="Driver through ..."
                         android:paddingVertical="20dp" />
                     <View style="@style/View_aditional_service" />
-                    <TextView
+                    <EditText
                         style="@style/Grey_regular_textview"
                         android:text="Need change :"
                         android:paddingVertical="20dp" />
                     <View style="@style/View_aditional_service" />
-                    <TextView
+                    <EditText
                         style="@style/Grey_regular_textview"
                         android:text="Don't call me, please "
                         android:paddingVertical="20dp" />

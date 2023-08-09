@@ -2,10 +2,9 @@ package com.example.uklon_android.classes;
 
 public class Transport {
     private int id;
-    private String model;
-    public Types type;
-    public float price;
-    public String description;
+    private String model = "";
+    public int type = 1;
+    public String description = "";
     public String urlImg;
 
     public int getId() {
@@ -24,13 +23,7 @@ public class Transport {
         this.model = model;
     }
 
-    public void setPrice(float price) {
-        this.price = price;
-    }
 
-    public float getPrice() {
-        return price;
-    }
 
     public String getDescription() {
         return description;
@@ -40,11 +33,11 @@ public class Transport {
         this.description = description;
     }
 
-    public Types getType() {
+    public int getType() {
         return type;
     }
 
-    public void setType(Types type) {
+    public void setType(int type) {
         this.type = type;
     }
 

@@ -13,7 +13,6 @@
       android:layout_height="match_parent"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
-      tools:ignore="FragmentTagUsage"
       tools:layout_editor_absoluteY="-84dp" />
 
   <ImageButton
@@ -72,6 +71,7 @@
       android:layout_marginEnd="16dp"
       android:layout_marginBottom="20dp"
       tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
+
 
   <RelativeLayout
       android:id="@+id/popup_menu_main"

@@ -20,6 +20,7 @@
             tools:ignore="UselessParent">
 
             <ImageButton
+                android:id="@+id/back"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/arrow_back"
@@ -42,7 +43,10 @@
 
         </LinearLayout>
 
-
+<RadioGroup
+    android:id="@+id/rd"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -72,6 +76,7 @@
             </LinearLayout>
 
             <RadioButton
+                android:id="@+id/DC"
                style="@style/peyment_method_radiobutton" />
         </LinearLayout>
         <View
@@ -114,6 +119,7 @@
                 tools:ignore="HardcodedText,InefficientWeight,RtlSymmetry" />
 
             <RadioButton
+                android:id="@+id/C"
                 style="@style/peyment_method_radiobutton" />
         </LinearLayout>
         <View
@@ -123,6 +129,7 @@
 
 
         <LinearLayout
+            android:id="@+id/addCard"
            style="@style/peyment_method_horizontal_linearlayout">
 
             <ImageView
@@ -136,10 +143,12 @@
                 tools:ignore="HardcodedText,InefficientWeight,RtlSymmetry" />
 
         </LinearLayout>
+</RadioGroup>
         <View
             android:layout_width="match_parent"
             android:layout_height="2dp"
-            android:background="@drawable/line_with_borders" />
+            android:background="@drawable/line_with_borders" >
+        </View>
 
 
 

@@ -6,8 +6,8 @@ import java.util.List;
 public class Order {
     private int id;
     private float totalPrice;
-    private Date date;
-    private User user;
+    private Date date = new Date();
+    private String userId;
     public String type;
     public String startPoint;
     public String endPoint;
@@ -61,12 +61,12 @@ public class Order {
         this.endPoint = endPoint;
     }
 
-    public User getUser() {
-        return user;
+    public String getUser() {
+        return userId;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUser(String User) {
+        this.userId = userId;
     }
 
     public List<Transport> getTransports() {

@@ -21,6 +21,7 @@
             tools:ignore="UselessParent">
 
             <ImageButton
+                android:id="@+id/backASBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/arrow_back"
@@ -53,6 +54,7 @@
             android:paddingBottom="20dp">
 
             <LinearLayout
+                android:id="@+id/RWP"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
@@ -112,7 +114,9 @@
 
         <View style="@style/View_aditional_service" />
 
-        <LinearLayout style="@style/aditional_service_linearlayout">
+        <LinearLayout
+            android:id="@+id/ED"
+            style="@style/aditional_service_linearlayout">
 
             <TextView
                 style="@style/Black_textView"
@@ -159,6 +163,7 @@
             android:orientation="horizontal">
 
             <LinearLayout
+                android:id="@+id/EL"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
@@ -185,6 +190,16 @@
 
 
         </LinearLayout>
+
+        <TextView
+            android:id="@+id/TP"
+            style="@style/Black_textView"
+            android:text="Total price: "
+            tools:ignore="HardcodedText,InefficientWeight,RtlSymmetry"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"/>
+
 
     </LinearLayout>
 

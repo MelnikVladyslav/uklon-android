@@ -3,7 +3,9 @@ package com.example.uklon_android.interfaces;
 import com.example.uklon_android.DTOs.CardDTO;
 import com.example.uklon_android.DTOs.UserDTO;
 import com.example.uklon_android.classes.Card;
+import com.example.uklon_android.classes.Order;
 import com.example.uklon_android.classes.Transport;
+import com.example.uklon_android.classes.Types;
 import com.example.uklon_android.classes.User;
 
 import java.util.List;
@@ -19,7 +21,7 @@ import retrofit2.http.Path;
 
 public interface ApiService {
     Retrofit retrofit = new Retrofit.Builder()
-            .baseUrl("http://10.0.2.2:5289")
+            .baseUrl("https://uklon.itstep.click")
             .addConverterFactory(GsonConverterFactory.create())
             .build();
 
@@ -37,4 +39,13 @@ public interface ApiService {
 
     @PUT("/api/login/register-driver")
     Call<User> registerDriver(@Body UserDTO user);
+
+    @POST("/api/order/create-order")
+    Call<Order> createOrder(@Body Order order);
+
+    @GET("/api/order/get-orders/{id}")
+    Call<List<Order>> getOrders(@Path("id")String id);
+
+    @GET("/api/types/get-types")
+    Call<List<Types>> getTypes();
 }
