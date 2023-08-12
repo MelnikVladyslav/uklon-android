@@ -53,11 +53,13 @@
        android:orientation="horizontal"
        android:layout_marginTop="105dp"
        android:gravity="center_vertical"
-       android:paddingStart="10dp">
+       android:paddingStart="10dp"
+       tools:ignore="RtlSymmetry">
        <ImageView
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"
-           android:background="@drawable/where_to_go"/>
+           android:background="@drawable/where_to_go"
+           tools:ignore="ContentDescription" />
 
 
        <LinearLayout
@@ -79,7 +81,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="10dp"
-        android:background="@drawable/location_icon"/>
+        android:background="@drawable/location_icon"
+        tools:ignore="ContentDescription" />
     <EditText
         android:id="@+id/startPos"
         android:layout_width="match_parent"
@@ -107,7 +110,8 @@
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
                    android:layout_marginEnd="10dp"
-                   android:background="@drawable/arrow_right_grey"/>
+                   android:background="@drawable/arrow_right_grey"
+                   tools:ignore="ContentDescription" />
                <EditText
                     android:id="@+id/endAdress"
                    android:layout_width="match_parent"
@@ -138,30 +142,55 @@
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             android:orientation="vertical"
-            tools:ignore="MissingConstraints" />
+            tools:ignore="MissingConstraints,ObsoleteLayoutParam" />
+
+
+
+
+
+
+
+
+
 
 
     </LinearLayout>
-
-    <Button
-        android:id="@+id/Send"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingHorizontal="138dp"
-        android:paddingVertical="16dp"
-        android:background="@drawable/start_button_background"
-        android:fontFamily="@font/lato"
-        android:letterSpacing="0.04"
-        android:text="Done"
-        android:textAllCaps="false"
-        android:textColor="#262626"
-        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.95"
-        tools:ignore="HardcodedText,TouchTargetSizeCheck,VisualLintButtonSize" />
+        android:paddingHorizontal="16dp"
+        android:orientation="vertical">
+
+    <View
+        style="@style/View_aditional_service"
+        android:layout_marginBottom="8dp" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+           android:layout_marginBottom="8dp">
+
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/fluent_location"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+               style="@style/Black_bigger_textView"
+               android:layout_marginStart="10dp"
+                android:text="Set location on map"
+                />
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
