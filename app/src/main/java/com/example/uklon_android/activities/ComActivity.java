@@ -11,7 +11,7 @@ public class ComActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.comment_driver);
+        setContentView(R.layout.comment);
 
     }
 }

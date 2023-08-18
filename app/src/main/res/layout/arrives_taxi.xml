@@ -64,7 +64,6 @@
             android:layout_height="wrap_content"
             android:layout_alignTop="@id/popup_menu_main"
             android:background="@drawable/grey_line"
-
             tools:ignore="ContentDescription,NotSibling,ObsoleteLayoutParam,ImageContrastCheck" />
 
         <TextView
@@ -73,69 +72,135 @@
             android:layout_marginTop="15dp"
             android:fontFamily="@font/lato"
             android:letterSpacing="0.04"
-            android:text="Drive has accepted your order..."
+            android:text="Arrives in 4 min"
             android:textColor="#262626"
             android:textSize="20sp"
             tools:ignore="HardcodedText" />
 
-        <TextView
-            style="@style/Grey_Bold_textview"
-            android:layout_marginTop="15dp"
-            android:text="Driver"
-            android:textSize="16sp"
-            tools:ignore="HardcodedText" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/Grey_Bold_textview"
+                android:text="Kia Sportage, white"
+                android:textSize="16sp"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                style="@style/Black_textView"
+                android:layout_marginStart="10dp"
+                android:background="@drawable/skip_button"
+                android:paddingHorizontal="15dp"
+                android:paddingVertical="7dp"
+                android:text="BK8455HE"
+                tools:ignore="HardcodedText" />
+        </LinearLayout>
+
+        <View
+            style="@style/View_aditional_service"
+            android:layout_marginVertical="20dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="40dp">
+            android:gravity="center"
+            android:orientation="horizontal"
+            tools:ignore="DisableBaselineAlignment">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-
-                android:background="@drawable/skip_button"
-                android:fontFamily="@font/lato_regular"
-                android:paddingHorizontal="15dp"
-                android:paddingVertical="7dp"
-                android:text="Payment type"
-                android:textColor="#848484"
-                android:textSize="13sp"
-                tools:ignore="HardcodedText,TextContrastCheck" />
-
-            <View
+            <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_weight="1" />
-
-
-            <TextView
-                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/skip_button"
-                android:fontFamily="@font/lato_regular"
-                android:paddingHorizontal="15dp"
-                android:paddingVertical="7dp"
-                android:text="10 min, 4.5 km"
-                android:textColor="#848484"
-                android:textSize="13sp"
-                tools:ignore="HardcodedText,TextContrastCheck" />
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:background="@drawable/oleg"
+                    tools:ignore="ContentDescription,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/lato_regular"
+                    android:text="Oleg"
+                    android:textColor="#262626"
+                    android:textSize="12sp"
+                    tools:ignore="HardcodedText" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/icon_telephone"
+                    tools:ignore="ContentDescription,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/lato_regular"
+                    android:text="Contact"
+                    android:textColor="#262626"
+                    android:textSize="12sp"
+                    tools:ignore="HardcodedText" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="10dp"
+                    android:background="@drawable/icon_share"
+                    tools:ignore="ContentDescription,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/lato_regular"
+                    android:text="Share"
+                    android:textColor="#262626"
+                    android:textSize="12sp"
+                    tools:ignore="HardcodedText" />
+
+            </LinearLayout>
+
 
         </LinearLayout>
 
 
         <View
             style="@style/View_aditional_service"
-            android:layout_marginTop="20dp" />
+            android:layout_marginVertical="20dp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
             android:fontFamily="@font/lato_regular"
             android:lineHeight="16sp"
             android:paddingHorizontal="15dp"
-            android:paddingVertical="15dp"
             android:text="Cancel ride"
             android:textColor="#AE2012"
             android:textSize="15sp"
@@ -143,12 +208,11 @@
 
         <View
             style="@style/View_aditional_service"
-            android:layout_marginTop="5dp" />
+            android:layout_marginVertical="20dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
             android:gravity="center_vertical"
             android:orientation="horizontal">
 
@@ -183,7 +247,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/lato_regular"
-                android:text="145 ₴"
+                android:text="68 ₴ "
                 android:textColor="#262626"
                 android:textSize="32sp"
                 tools:ignore="HardcodedText" />

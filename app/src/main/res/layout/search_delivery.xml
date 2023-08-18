@@ -81,7 +81,7 @@
         <TextView
             style="@style/Grey_Bold_textview"
             android:layout_marginTop="15dp"
-            android:text="Driver"
+            android:text="Delivery"
             android:textSize="16sp"
             tools:ignore="HardcodedText" />
 
@@ -183,7 +183,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/lato_regular"
-                android:text="145 ₴"
+                android:text="104 ₴ "
                 android:textColor="#262626"
                 android:textSize="32sp"
                 tools:ignore="HardcodedText" />
