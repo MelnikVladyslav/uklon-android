@@ -79,9 +79,13 @@
 
             <RadioButton
                 android:id="@+id/DC"
+<<<<<<< HEAD
                 style="@style/peyment_method_radiobutton"
                 tools:ignore="DuplicateSpeakableTextCheck,TouchTargetSizeCheck" />
              </LinearLayout>
+=======
+               style="@style/peyment_method_radiobutton" />
+>>>>>>> parent of 58c4d8d (Merge pull request #21 from MelnikVladyslav/main)
         </LinearLayout>
         <View
             android:layout_width="match_parent"
@@ -94,8 +98,13 @@
             <ImageView
                 style="@style/imageview_peyment_method"
                 android:background="@drawable/google_pay"
+<<<<<<< HEAD
                 android:importantForAccessibility="no" />
             <TextView
+=======
+                />
+                <TextView
+>>>>>>> parent of 58c4d8d (Merge pull request #21 from MelnikVladyslav/main)
                     style="@style/Black_bigger_textView"
                     android:text="Drive cash"
                     android:layout_weight="1"
