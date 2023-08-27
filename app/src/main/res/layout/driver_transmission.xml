@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.MainActivity">
+
+    <fragment
+        android:id="@+id/mapFragment"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="-84dp"
+        tools:ignore="FragmentTagUsage" />
+
+    <ImageButton
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/popup_menu_open"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.05"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.03"
+        tools:ignore="ContentDescription,SpeakableTextPresentCheck,ImageContrastCheck,TouchTargetSizeCheck" />
+
+    <TextView
+        android:id="@+id/city_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/lato"
+        android:letterSpacing="0.04"
+        android:text="Rivne"
+        android:textColor="#262626"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.445"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.04"
+        tools:ignore="HardcodedText" />
+
+    <ImageButton
+        android:id="@+id/arrow_down"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:background="@drawable/arrow_down"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/city_name"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.04"
+        tools:ignore="ContentDescription,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="500dp"
+    android:orientation="vertical"
+    android:elevation="15dp"
+    android:background="#FFFFFF"
+    android:paddingHorizontal="16dp"
+    android:paddingTop="40dp"
+
+    android:gravity="center_horizontal"
+   app:layout_constraintBottom_toBottomOf="parent">
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/taxi_driver"/>
+    
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/lato"
+        android:textSize="24sp"
+        android:textColor="#262626"
+        android:text="Driver"
+        android:layout_marginTop="20dp"/>
+
+
+    <TextView
+        style="@style/Grey_regular_smaller_textview"
+        android:text="Drives your car"
+        android:layout_marginTop="7dp"/>
+
+    <TextView
+        style="@style/Black_bigger_textView"
+        android:text="Ride on your own car"
+        android:layout_marginTop="15dp"/>
+
+    <TextView
+        style="@style/Grey_regular_smaller_textview"
+        android:text="With the help of drive"
+        android:layout_marginTop="7dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/lato"
+        android:textSize="20sp"
+        android:textColor="#262626"
+        android:text="What’s your transmission type?"
+        android:layout_marginTop="35dp"
+        android:letterSpacing="0.04"/>
+
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <TextView
+                style="@style/Black_bigger_textView"
+                android:text="Automatic"
+                android:layout_weight="1"
+                />
+
+            <RadioButton
+                style="@style/peyment_method_radiobutton"
+                android:checked="true"/>
+        </LinearLayout>
+
+        <View
+            style="@style/View_aditional_service"
+           android:layout_marginTop="7dp"
+            android:layout_marginBottom="10dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <TextView
+                style="@style/Black_bigger_textView"
+                android:text="Manual"
+                android:layout_weight="1"
+                />
+
+            <RadioButton
+                style="@style/peyment_method_radiobutton" />
+        </LinearLayout>
+    </RadioGroup>
+
+
+    <Button
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@drawable/start_button_background"
+        android:fontFamily="@font/lato"
+        android:letterSpacing="0.04"
+        android:text="Continue"
+        android:textAllCaps="false"
+        android:textColor="#262626"
+        android:textSize="16sp"
+        android:layout_marginTop="20dp"
+        tools:ignore="HardcodedText,TouchTargetSizeCheck,VisualLintButtonSize" />
+
+
+
+
+
+
+</LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

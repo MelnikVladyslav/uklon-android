@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingHorizontal="16dp"
+    android:paddingTop="45dp"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/arrow_back"
+            tools:ignore="ContentDescription,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+        <TextView
+            android:layout_weight="1"
+            android:gravity="center"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/lato"
+            android:textSize="20sp"
+            android:textColor="#262626"
+            android:text="Delivery"
+            android:layout_marginEnd="30dp"
+            tools:ignore="HardcodedText" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/lato"
+        android:textSize="32sp"
+        android:textColor="#262626"
+        android:text="68 ₴ "
+        android:layout_marginTop="40dp"
+        tools:ignore="HardcodedText" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/door_icon"
+            tools:ignore="ContentDescription,ImageContrastCheck" />
+
+
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="10dp"
+            tools:ignore="RtlSymmetry">
+
+            <TextView
+                style="@style/Black_bigger_textView"
+                android:text="Door to door"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                style="@style/Grey_regular_smaller_textview"
+                android:layout_marginTop="4dp"
+                android:text="+ 20 ₴ for each recipient"
+                tools:ignore="HardcodedText,TextContrastCheck" />
+        </LinearLayout>
+
+        <CheckBox
+            style="@style/checkbox_custom"
+            android:checked="true"
+            tools:ignore="TouchTargetSizeCheck" />
+    </LinearLayout>
+
+
+    <View
+        style="@style/View_aditional_service"
+        android:layout_marginVertical="18dp"/>
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/lato"
+        android:textSize="20sp"
+        android:textColor="#262626"
+        android:text="Sender"
+
+        tools:ignore="HardcodedText" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/location_green_icon"
+            tools:ignore="ContentDescription,ImageContrastCheck" />
+
+
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="10dp"
+            tools:ignore="RtlSymmetry">
+
+            <TextView
+                style="@style/Grey_regular_smaller_textview"
+                android:text="Address"
+                tools:ignore="HardcodedText,TextContrastCheck" />
+
+
+            <TextView
+                style="@style/Black_bigger_textView"
+                android:text="Gregory Skovorody, Street 19"
+                android:textSize="13sp"
+                android:layout_marginTop="4dp"
+                tools:ignore="HardcodedText" />
+        </LinearLayout>
+
+        <Button
+            style="@style/Black_bigger_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="28dp"
+            android:background="@drawable/skip_button"
+            android:stateListAnimator="@null"
+            android:text="Entrance"
+            android:textSize="13sp"
+            tools:ignore="HardcodedText,TouchTargetSizeCheck" />
+
+    </LinearLayout>
+    <View
+        style="@style/View_aditional_service"
+        android:layout_marginVertical="18dp"
+        android:layout_marginStart="20dp"/>
+
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:layout_marginStart="22dp">
+
+       <TextView
+           style="@style/order_grey_text"
+           android:text="Entrance, floor, apartment"
+           android:textColor="#A3A3A3"
+           tools:ignore="HardcodedText,TextContrastCheck" />
+   </LinearLayout>
+    <View
+        style="@style/View_aditional_service"
+        android:layout_marginVertical="18dp"
+        android:layout_marginStart="20dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/icon_person"
+            tools:ignore="ContentDescription" />
+
+
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="10dp"
+            tools:ignore="RtlSymmetry">
+
+            <TextView
+                style="@style/Grey_regular_smaller_textview"
+                android:text="Phone number and name"
+                tools:ignore="HardcodedText,TextContrastCheck" />
+
+            <TextView
+                style="@style/Black_bigger_textView"
+                android:text="+380569220303, Jonah "
+                android:textSize="13sp"
+                android:layout_marginTop="4dp"
+                tools:ignore="HardcodedText" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+    <View
+        style="@style/View_aditional_service"
+        android:layout_marginVertical="18dp"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/lato"
+        android:textSize="20sp"
+        android:textColor="#262626"
+        android:text="Recipient"
+        tools:ignore="HardcodedText" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/arrow_right_green"
+            tools:ignore="ContentDescription,ImageContrastCheck" />
+
+
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="10dp"
+            tools:ignore="RtlSymmetry">
+
+            <TextView
+                style="@style/Grey_regular_smaller_textview"
+                android:text="Address"
+                tools:ignore="HardcodedText,TextContrastCheck" />
+
+
+            <TextView
+                style="@style/Black_bigger_textView"
+                android:text="Gregory Skovorody, Street 19, Rivne"
+                android:textSize="13sp"
+                android:layout_marginTop="4dp"
+                tools:ignore="HardcodedText" />
+        </LinearLayout>
+    </LinearLayout>
+    <View
+        style="@style/View_aditional_service"
+        android:layout_marginVertical="18dp"
+        android:layout_marginStart="18dp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp">
+
+        <TextView
+            style="@style/Black_bigger_textView"
+            android:text="Entrance 5, floor 23 "
+            android:textSize="13sp"
+            tools:ignore="HardcodedText" />
+    </LinearLayout>
+
+    <View
+        style="@style/View_aditional_service"
+        android:layout_marginVertical="18dp"
+        android:layout_marginStart="18dp"/>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/icon_person"
+            tools:ignore="ContentDescription" />
+
+
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="10dp"
+            tools:ignore="RtlSymmetry">
+
+            <TextView
+                style="@style/Grey_regular_smaller_textview"
+                android:text="Phone number and name"
+                tools:ignore="HardcodedText,TextContrastCheck" />
+
+            <TextView
+                style="@style/Black_bigger_textView"
+                android:text="+380569220303, Monica"
+                android:textSize="13sp"
+                android:layout_marginTop="4dp"
+                tools:ignore="HardcodedText" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <Button
+        style="@style/textview_popup_menu"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/start_button_background"
+        android:letterSpacing="0.04"
+        android:text="Continue"
+        tools:ignore="HardcodedText,TouchTargetSizeCheck,VisualLintButtonSize" />
+</LinearLayout>
