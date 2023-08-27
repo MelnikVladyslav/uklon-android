@@ -44,7 +44,6 @@
 
         </LinearLayout>
 
-
 <RadioGroup
     android:id="@+id/rd"
     android:layout_width="wrap_content"
@@ -83,6 +82,7 @@
                 style="@style/peyment_method_radiobutton"
                 tools:ignore="DuplicateSpeakableTextCheck,TouchTargetSizeCheck" />
              </LinearLayout>
+        </LinearLayout>
         <View
             android:layout_width="match_parent"
             android:layout_height="2dp"
@@ -90,6 +90,7 @@
 
         <LinearLayout
             style="@style/peyment_method_horizontal_linearlayout">
+
             <ImageView
                 style="@style/imageview_peyment_method"
                 android:background="@drawable/google_pay"
@@ -131,7 +132,8 @@
             android:layout_width="match_parent"
             android:layout_height="2dp"
             android:background="@drawable/line_with_borders" />
- </RadioGroup>
+
+
         <LinearLayout
             android:id="@+id/addCard"
            style="@style/peyment_method_horizontal_linearlayout"
