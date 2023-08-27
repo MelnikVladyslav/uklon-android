@@ -44,6 +44,7 @@
 
         </LinearLayout>
 
+
 <RadioGroup
     android:id="@+id/rd"
     android:layout_width="wrap_content"
@@ -79,14 +80,9 @@
 
             <RadioButton
                 android:id="@+id/DC"
-<<<<<<< HEAD
                 style="@style/peyment_method_radiobutton"
                 tools:ignore="DuplicateSpeakableTextCheck,TouchTargetSizeCheck" />
              </LinearLayout>
-=======
-               style="@style/peyment_method_radiobutton" />
-        </LinearLayout>
->>>>>>> parent of 58c4d8d (Merge pull request #21 from MelnikVladyslav/main)
         <View
             android:layout_width="match_parent"
             android:layout_height="2dp"
@@ -94,17 +90,11 @@
 
         <LinearLayout
             style="@style/peyment_method_horizontal_linearlayout">
-
             <ImageView
                 style="@style/imageview_peyment_method"
                 android:background="@drawable/google_pay"
-<<<<<<< HEAD
                 android:importantForAccessibility="no" />
             <TextView
-=======
-                />
-                <TextView
->>>>>>> parent of 58c4d8d (Merge pull request #21 from MelnikVladyslav/main)
                     style="@style/Black_bigger_textView"
                     android:text="Drive cash"
                     android:layout_weight="1"
@@ -141,8 +131,7 @@
             android:layout_width="match_parent"
             android:layout_height="2dp"
             android:background="@drawable/line_with_borders" />
-
-
+ </RadioGroup>
         <LinearLayout
             android:id="@+id/addCard"
            style="@style/peyment_method_horizontal_linearlayout"
