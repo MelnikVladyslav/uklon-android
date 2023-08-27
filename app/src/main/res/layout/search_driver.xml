@@ -200,12 +200,7 @@
             android:layout_marginTop="20dp"
             android:orientation="horizontal">
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="37dp"
-                android:background="@drawable/order"
-                tools:ignore="ContentDescription,ImageContrastCheck" />
+
 
             <LinearLayout
                 android:layout_width="wrap_content"
