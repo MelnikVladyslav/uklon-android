@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_gravity="center_horizontal"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="match_parent">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -21,7 +20,6 @@
             tools:ignore="UselessParent">
 
             <ImageButton
-                android:id="@+id/back"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/arrow_back"
@@ -44,14 +42,7 @@
 
         </LinearLayout>
 
-<<<<<<< HEAD
-<RadioGroup
-    android:id="@+id/rd"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
-=======
 
->>>>>>> parent of bdc893b (radiogroup added to select payment method)
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -59,41 +50,29 @@
             android:paddingEnd="4dp"
             android:gravity="center_vertical"
             android:orientation="horizontal"
-            android:paddingBottom="20dp"
-            tools:ignore="RtlSymmetry">
+            android:paddingBottom="20dp">
 
             <ImageView
                 style="@style/imageview_peyment_method"
                 android:background="@drawable/drive_cash"
-                tools:ignore="ContentDescription" />
+                />
             <LinearLayout
-              style="@style/payment_method_linear_layout">
+                style="@style/payment_method_linear_layout">
 
                 <TextView
-                  style="@style/Black_bigger_textView"
+                    style="@style/Black_bigger_textView"
                     android:text="Drive cash"
                     tools:ignore="HardcodedText,InefficientWeight,RtlSymmetry" />
 
                 <TextView
                     style="@style/Grey_regular_smaller_textview"
                     android:text="UAH 60.00"
-                    tools:ignore="HardcodedText,InefficientWeight,RtlSymmetry,TextContrastCheck" />
+                    tools:ignore="HardcodedText,InefficientWeight,RtlSymmetry" />
 
             </LinearLayout>
 
             <RadioButton
-<<<<<<< HEAD
-                android:id="@+id/DC"
-<<<<<<< HEAD
-                style="@style/peyment_method_radiobutton"
-                tools:ignore="DuplicateSpeakableTextCheck,TouchTargetSizeCheck" />
-             </LinearLayout>
-=======
-               style="@style/peyment_method_radiobutton" />
->>>>>>> parent of 58c4d8d (Merge pull request #21 from MelnikVladyslav/main)
-=======
-               style="@style/peyment_method_radiobutton" />
->>>>>>> parent of bdc893b (radiogroup added to select payment method)
+                style="@style/peyment_method_radiobutton" />
         </LinearLayout>
         <View
             android:layout_width="match_parent"
@@ -106,26 +85,15 @@
             <ImageView
                 style="@style/imageview_peyment_method"
                 android:background="@drawable/google_pay"
-<<<<<<< HEAD
-<<<<<<< HEAD
-                android:importantForAccessibility="no" />
+                />
             <TextView
-=======
-                />
-                <TextView
->>>>>>> parent of 58c4d8d (Merge pull request #21 from MelnikVladyslav/main)
-=======
-                />
-                <TextView
->>>>>>> parent of bdc893b (radiogroup added to select payment method)
-                    style="@style/Black_bigger_textView"
-                    android:text="Drive cash"
-                    android:layout_weight="1"
-                    tools:ignore="HardcodedText,InefficientWeight,RtlSymmetry" />
+                style="@style/Black_bigger_textView"
+                android:text="Drive cash"
+                android:layout_weight="1"
+                tools:ignore="HardcodedText,InefficientWeight,RtlSymmetry" />
 
             <RadioButton
-                style="@style/peyment_method_radiobutton"
-                tools:ignore="TouchTargetSizeCheck" />
+                style="@style/peyment_method_radiobutton" />
         </LinearLayout>
         <View
             android:layout_width="match_parent"
@@ -138,7 +106,7 @@
             <ImageView
                 style="@style/imageview_peyment_method"
                 android:background="@drawable/cash"
-                tools:ignore="ContentDescription" />
+                />
             <TextView
                 style="@style/Black_bigger_textView"
                 android:text="Cash"
@@ -146,9 +114,7 @@
                 tools:ignore="HardcodedText,InefficientWeight,RtlSymmetry" />
 
             <RadioButton
-                android:id="@+id/C"
-                style="@style/peyment_method_radiobutton"
-                tools:ignore="TouchTargetSizeCheck" />
+                style="@style/peyment_method_radiobutton" />
         </LinearLayout>
         <View
             android:layout_width="match_parent"
@@ -157,14 +123,12 @@
 
 
         <LinearLayout
-            android:id="@+id/addCard"
-           style="@style/peyment_method_horizontal_linearlayout"
-            tools:ignore="UseCompoundDrawables">
+            style="@style/peyment_method_horizontal_linearlayout">
 
             <ImageView
                 style="@style/imageview_peyment_method"
                 android:background="@drawable/credit_card_payment_method"
-                tools:ignore="ContentDescription" />
+                />
             <TextView
                 style="@style/Black_bigger_textView"
                 android:text="Add debit/credit card"
@@ -175,23 +139,48 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="2dp"
-            android:background="@drawable/line_with_borders" >
-        </View>
+            android:background="@drawable/line_with_borders" />
+
+
+
+
+
 
 
 
 
     </LinearLayout>
 
+
+
+
+
+
+
+
+
+
+
+
     <Button
-        style="@style/textview_popup_menu"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_marginHorizontal="86dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:id="@+id/Send"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="138dp"
+        android:paddingVertical="16dp"
         android:background="@drawable/start_button_background"
+        android:fontFamily="@font/lato"
         android:letterSpacing="0.04"
-        android:text="Add promocode"
-        android:layout_marginBottom="40dp"
+        android:text="Done"
+        android:textAllCaps="false"
+        android:textColor="#262626"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.95"
         tools:ignore="HardcodedText,TouchTargetSizeCheck,VisualLintButtonSize" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
