@@ -44,10 +44,14 @@
 
         </LinearLayout>
 
+<<<<<<< HEAD
 <RadioGroup
     android:id="@+id/rd"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content">
+=======
+
+>>>>>>> parent of bdc893b (radiogroup added to select payment method)
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -78,6 +82,7 @@
             </LinearLayout>
 
             <RadioButton
+<<<<<<< HEAD
                 android:id="@+id/DC"
 <<<<<<< HEAD
                 style="@style/peyment_method_radiobutton"
@@ -86,6 +91,9 @@
 =======
                style="@style/peyment_method_radiobutton" />
 >>>>>>> parent of 58c4d8d (Merge pull request #21 from MelnikVladyslav/main)
+=======
+               style="@style/peyment_method_radiobutton" />
+>>>>>>> parent of bdc893b (radiogroup added to select payment method)
         </LinearLayout>
         <View
             android:layout_width="match_parent"
@@ -99,12 +107,17 @@
                 style="@style/imageview_peyment_method"
                 android:background="@drawable/google_pay"
 <<<<<<< HEAD
+<<<<<<< HEAD
                 android:importantForAccessibility="no" />
             <TextView
 =======
                 />
                 <TextView
 >>>>>>> parent of 58c4d8d (Merge pull request #21 from MelnikVladyslav/main)
+=======
+                />
+                <TextView
+>>>>>>> parent of bdc893b (radiogroup added to select payment method)
                     style="@style/Black_bigger_textView"
                     android:text="Drive cash"
                     android:layout_weight="1"
