@@ -40,8 +40,6 @@
                 android:textColor="#262626"
                 android:textSize="20sp"
                 tools:ignore="HardcodedText,InefficientWeight,RtlSymmetry" />
-
-
         </LinearLayout>
 
 
@@ -153,9 +151,6 @@
             android:layout_height="2dp"
             android:background="@drawable/line_with_borders" >
         </View>
-
-
-
 
     </LinearLayout>
 
