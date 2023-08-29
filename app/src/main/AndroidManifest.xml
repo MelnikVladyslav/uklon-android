@@ -29,40 +29,7 @@
             android:name=".activities.SelCityActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.InfoInterCityActivity"
-            android:exported="false" />
-        <activity
-            android:name=".activities.SelCitActivity"
-            android:exported="false" />
-        <activity
-            android:name=".activities.EnterTypeAutoActivity"
-            android:exported="false" />
-        <activity
             android:name=".activities.PayTActivity"
-            android:exported="false" />
-        <activity
-            android:name=".activities.ComActivity"
-            android:exported="false" />
-        <activity
-            android:name=".activities.ASActivity"
-            android:exported="false" />
-        <activity
-            android:name=".activities.InfoStOrderActivity"
-            android:exported="false" />
-        <activity
-            android:name=".activities.DelPayActivity"
-            android:exported="false" />
-        <activity
-            android:name=".activities.InfoDelActivity"
-            android:exported="false" />
-        <activity
-            android:name=".activities.RecepDelActivity"
-            android:exported="false" />
-        <activity
-            android:name=".activities.SendDelActivity"
-            android:exported="false" />
-        <activity
-            android:name=".activities.DeliveryActivity"
             android:exported="false" />
         <activity
             android:name=".activities.WhereToGoActivity"
@@ -82,9 +49,6 @@
         <activity
             android:name=".activities.WhereToGoDrActivity"
             android:label="WhereToGoDrActivity" />
-        <activity
-            android:name=".activities.InfoDrActivity"
-            android:label="InfoDrActivity" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"

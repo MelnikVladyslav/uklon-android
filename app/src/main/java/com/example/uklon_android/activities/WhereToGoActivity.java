@@ -50,8 +50,6 @@ public class WhereToGoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.where_to_go);
 
-        latitude = (double) getIntent().getSerializableExtra("lat");
-        longitude = (double) getIntent().getSerializableExtra("lon");
         curAdress = (String) getIntent().getSerializableExtra("startLoc");
         correctUser = (User) getIntent().getSerializableExtra("user");
 

@@ -445,8 +445,6 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(MainActivity.this, WhereToGoActivity.class);
-                    intent.putExtra("lat", latitude);
-                    intent.putExtra("lon", longitude);
                     intent.putExtra("startLoc", addressStrStart);
                     intent.putExtra("user", correctUser);
                     startActivity(intent);
@@ -462,7 +460,7 @@ public class MainActivity extends AppCompatActivity {
                 pointEnd.setText(addressStrEnd);
             }
 
-            btnDelivery.setOnClickListener(new View.OnClickListener() {
+            /*btnDelivery.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     Intent intent = new Intent(MainActivity.this, DeliveryActivity.class);
@@ -497,7 +495,7 @@ public class MainActivity extends AppCompatActivity {
                     intent.putExtra("user", correctUser);
                     startActivity(intent);
                 }
-            });
+            });*/
 
             // Налаштовуємо анімацію для відкриття та закриття BottomSheetDialog
             // Ви можете змінити анімацію на ваш смак
