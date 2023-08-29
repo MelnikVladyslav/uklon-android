@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="@drawable/white_rounded_top_corners"
+        android:orientation="vertical"
+        android:elevation="15dp"
+        android:gravity="center_horizontal"
+        android:paddingHorizontal="13dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="26dp">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/dark_grey_line_2"
+            tools:ignore="ContentDescription,ImageContrastCheck,ObsoleteLayoutParam" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp"
+            android:gravity="center_vertical"
+            tools:ignore="UseCompoundDrawables">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/gallery"
+                android:layout_marginEnd="63dp"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+               style="@style/Black_bigger_textView"
+                android:text="Choose from gallery"
+                android:fontFamily="@font/lato"
+                tools:ignore="HardcodedText" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="24dp"
+            android:gravity="center_vertical"
+            tools:ignore="UseCompoundDrawables">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/take_photo"
+                android:layout_marginEnd="63dp"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                style="@style/Black_bigger_textView"
+                android:text="Take a photo"
+                android:fontFamily="@font/lato"
+                tools:ignore="HardcodedText" />
+
+        </LinearLayout>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
