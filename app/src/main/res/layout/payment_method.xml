@@ -42,93 +42,146 @@
 
         </LinearLayout>
 
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
-            android:paddingEnd="4dp"
-            android:gravity="center_vertical"
             android:orientation="horizontal"
-            android:paddingBottom="20dp">
+            android:layout_marginTop="50dp"
+            android:paddingEnd="2dp"
+            tools:ignore="DisableBaselineAlignment,RtlSymmetry">
 
-            <ImageView
-                style="@style/imageview_peyment_method"
-                android:background="@drawable/drive_cash"
-                />
             <LinearLayout
-                style="@style/payment_method_linear_layout">
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
 
-                <TextView
-                    style="@style/Black_bigger_textView"
-                    android:text="Drive cash"
-                    tools:ignore="HardcodedText,InefficientWeight,RtlSymmetry" />
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingBottom="20dp">
 
-                <TextView
-                    style="@style/Grey_regular_smaller_textview"
-                    android:text="UAH 60.00"
-                    tools:ignore="HardcodedText,InefficientWeight,RtlSymmetry" />
+                    <ImageView
+                        style="@style/imageview_peyment_method"
+                        android:background="@drawable/drive_cash"
+                        tools:ignore="ContentDescription" />
+                    <LinearLayout
+                        style="@style/payment_method_linear_layout"
+                        >
+                        <TextView
+                            style="@style/Black_bigger_textView"
+                            android:text="Drive cash"
+                            tools:ignore="HardcodedText,InefficientWeight,RtlSymmetry" />
 
+                        <TextView
+                            style="@style/Grey_regular_smaller_textview"
+                            android:text="UAH 60.00"
+                            tools:ignore="HardcodedText,InefficientWeight,RtlSymmetry,TextContrastCheck" />
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="@drawable/line_with_borders" />
+
+                <LinearLayout
+                    style="@style/peyment_method_horizontal_linearlayout"
+                    tools:ignore="UseCompoundDrawables">
+
+                    <ImageView
+                        style="@style/imageview_peyment_method"
+                        android:background="@drawable/google_pay"
+                        tools:ignore="ContentDescription" />
+                    <TextView
+                        style="@style/Black_bigger_textView"
+                        android:text="Drive cash"
+                        android:layout_weight="1"
+                        tools:ignore="HardcodedText,InefficientWeight,RtlSymmetry" />
+
+
+                </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="@drawable/line_with_borders" />
+
+                <LinearLayout
+                    style="@style/peyment_method_horizontal_linearlayout"
+                    tools:ignore="UseCompoundDrawables">
+
+                    <ImageView
+                        style="@style/imageview_peyment_method"
+                        android:background="@drawable/cash"
+                        tools:ignore="ContentDescription" />
+                    <TextView
+                        style="@style/Black_bigger_textView"
+                        android:text="Cash"
+                        android:layout_weight="1"
+                        tools:ignore="HardcodedText,InefficientWeight,RtlSymmetry" />
+
+
+
+
+                </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="@drawable/line_with_borders" />
             </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_marginStart="-2dp">
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    tools:ignore="UselessParent">
 
-            <RadioButton
-                style="@style/peyment_method_radiobutton" />
+                    <RadioButton
+                        style="@style/peyment_method_radiobutton"
+                        android:layout_weight="1"
+                        tools:ignore="DuplicateSpeakableTextCheck,TouchTargetSizeCheck" />
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:layout_marginBottom="5.5dp"
+                        android:background="@drawable/line_with_borders" />
+
+                    <RadioButton
+                        style="@style/peyment_method_radiobutton"
+                        android:layout_weight="1"
+                        tools:ignore="TouchTargetSizeCheck" />
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:layout_marginBottom="5.5dp"
+                        android:background="@drawable/line_with_borders" />
+
+                    <RadioButton
+                        style="@style/peyment_method_radiobutton"
+                        android:layout_weight="1"
+                        tools:ignore="TouchTargetSizeCheck" />
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:background="@drawable/line_with_borders" />
+                </RadioGroup>
+            </LinearLayout>
         </LinearLayout>
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:background="@drawable/line_with_borders" />
-
         <LinearLayout
-            style="@style/peyment_method_horizontal_linearlayout">
-
-            <ImageView
-                style="@style/imageview_peyment_method"
-                android:background="@drawable/google_pay"
-                />
-            <TextView
-                style="@style/Black_bigger_textView"
-                android:text="Drive cash"
-                android:layout_weight="1"
-                tools:ignore="HardcodedText,InefficientWeight,RtlSymmetry" />
-
-            <RadioButton
-                style="@style/peyment_method_radiobutton" />
-        </LinearLayout>
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:background="@drawable/line_with_borders" />
-
-        <LinearLayout
-            style="@style/peyment_method_horizontal_linearlayout">
-
-            <ImageView
-                style="@style/imageview_peyment_method"
-                android:background="@drawable/cash"
-                />
-            <TextView
-                style="@style/Black_bigger_textView"
-                android:text="Cash"
-                android:layout_weight="1"
-                tools:ignore="HardcodedText,InefficientWeight,RtlSymmetry" />
-
-            <RadioButton
-                style="@style/peyment_method_radiobutton" />
-        </LinearLayout>
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:background="@drawable/line_with_borders" />
-
-
-        <LinearLayout
-            style="@style/peyment_method_horizontal_linearlayout">
+            style="@style/peyment_method_horizontal_linearlayout"
+            tools:ignore="UseCompoundDrawables">
 
             <ImageView
                 style="@style/imageview_peyment_method"
                 android:background="@drawable/credit_card_payment_method"
-                />
+                tools:ignore="ContentDescription" />
             <TextView
                 style="@style/Black_bigger_textView"
                 android:text="Add debit/credit card"
@@ -140,24 +193,7 @@
             android:layout_width="match_parent"
             android:layout_height="2dp"
             android:background="@drawable/line_with_borders" />
-
-
-
-
-
-
-
-
-
     </LinearLayout>
-
-
-
-
-
-
-
-
 
 
 
