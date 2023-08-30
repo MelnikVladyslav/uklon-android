@@ -26,6 +26,27 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".activities.VerificationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.TripsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.OTActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.SearchTaxiActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.ADSActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.ComActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.OrderTaxiActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.SelCityActivity"
             android:exported="false" />
         <activity
@@ -47,8 +68,8 @@
             android:name=".activities.GpsActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.WhereToGoDrActivity"
-            android:label="WhereToGoDrActivity" />
+            android:name=".activities.PayMActivity"
+            android:label="PayMActivity" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"

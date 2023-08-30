@@ -116,7 +116,7 @@ public class WhereToGoActivity extends AppCompatActivity {
         btnDone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(WhereToGoActivity.this, InfoStOrderActivity.class);
+                Intent intent = new Intent(WhereToGoActivity.this, OrderTaxiActivity.class);
                 intent.putExtra("onePoint", startEdit.getText().toString());
                 intent.putExtra("user", correctUser);
                 intent.putExtra("twoPoint", endEdit.getText().toString());

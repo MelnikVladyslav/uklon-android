@@ -1,6 +1,7 @@
 package com.example.uklon_android.interfaces;
 
 import com.example.uklon_android.DTOs.CardDTO;
+import com.example.uklon_android.DTOs.PhoneNumberVerificationDto;
 import com.example.uklon_android.DTOs.UserDTO;
 import com.example.uklon_android.classes.Card;
 import com.example.uklon_android.classes.Order;
@@ -28,11 +29,17 @@ public interface ApiService {
     @GET("/api/transports")
     Call<List<Transport>> getDataList();
 
+    @GET("/api/login/get-users")
+    Call<List<User>> getUsers();
+
     @POST("/api/login/found-or-create-user")
     Call<User> foundOrCreate(@Body UserDTO user);
 
     @POST("/api/cards/add-card")
     Call<Card> addCard(@Body CardDTO card);
+
+    @GET("/api/cards/get-cards")
+    Call<List<Card>> getCard();
 
     @PUT("/api/login/update-user/{id}")
     Call<User> updateUser(@Body UserDTO user, @Path("id")String id);
@@ -43,9 +50,12 @@ public interface ApiService {
     @POST("/api/order/create-order")
     Call<Order> createOrder(@Body Order order);
 
-    @GET("/api/order/get-orders/{id}")
-    Call<List<Order>> getOrders(@Path("id")String id);
+    @GET("/api/order/get-orders")
+    Call<List<Order>> getOrders();
 
     @GET("/api/types/get-types")
     Call<List<Types>> getTypes();
+
+    @POST("/api/verif-phone")
+    Call<Boolean> verifPhone(@Body PhoneNumberVerificationDto phoneDTO);
 }

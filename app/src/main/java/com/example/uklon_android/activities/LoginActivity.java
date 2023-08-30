@@ -40,7 +40,7 @@ public class LoginActivity extends AppCompatActivity {
 
 
     private boolean isValidPhoneNumber(String phoneNumber) {
-        Pattern pattern = Pattern.compile("^\\[0-9]{10,13}$");
+        Pattern pattern = Pattern.compile("^\\+?[0-9]{10,13}$");
         Matcher matcher = pattern.matcher(phoneNumber);
         boolean isValid = matcher.matches();
 
@@ -90,10 +90,8 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String phoneNumber = "+380" + phoneNumberEditText.getText().toString();
 
-                //Створювати юзера і додати туди номер
-
                 if (isValidPhoneNumber(phoneNumber)) {
-                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                    Intent intent = new Intent(LoginActivity.this, VerificationActivity.class);
                     startActivity(intent);
                     finish();
                 } else {

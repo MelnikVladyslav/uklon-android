@@ -153,9 +153,15 @@
             tools:ignore="MissingConstraints">
         </View>
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/listCards"/>
+
     </LinearLayout>
 
     <Button
+        android:id="@+id/Send"
         style="@style/textview_popup_menu"
         android:layout_width="match_parent"
         android:layout_height="40dp"
@@ -163,7 +169,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         android:background="@drawable/start_button_background"
         android:letterSpacing="0.04"
-        android:text="Add promocode"
+        android:text="Next"
         android:layout_marginBottom="40dp"
         tools:ignore="HardcodedText,TouchTargetSizeCheck,VisualLintButtonSize" />
 </androidx.constraintlayout.widget.ConstraintLayout>

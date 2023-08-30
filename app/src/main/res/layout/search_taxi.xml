@@ -16,18 +16,6 @@
         tools:ignore="FragmentTagUsage"
         tools:layout_editor_absoluteY="-84dp" />
 
-    <ImageButton
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/popup_menu_open"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.05"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.03"
-        tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
 
 
 
@@ -79,6 +67,7 @@
          android:textColor="#262626"/>
 
      <TextView
+         android:id="@+id/typeName"
            style="@style/Grey_Bold_textview"
          android:layout_marginTop="15dp"
             android:textSize="16sp"
@@ -127,6 +116,7 @@
             android:layout_marginTop="20dp" />
 
         <TextView
+            android:id="@+id/CancelOrder"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/lato_regular"
@@ -177,6 +167,7 @@
             </LinearLayout>
 
             <TextView
+                android:id="@+id/price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="68 ₴ "
@@ -216,9 +207,11 @@
                     />
 
                 <TextView
+                    android:id="@+id/startPoint"
                     style="@style/Black_bigger_textView"
                     android:text="Gregory Skovorody Street 19"/>
                 <TextView
+                    android:id="@+id/endPoint"
                     style="@style/Black_bigger_textView"
                     android:text="Kyivska Street, 40"
                     android:layout_marginTop="13dp"

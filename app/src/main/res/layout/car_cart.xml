@@ -4,31 +4,60 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-
-    <TextView
-        android:id="@+id/placeNameTextView"
+    <LinearLayout
+        android:id="@+id/typeEnter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="-2dp" />
+        android:background="@drawable/white_rounded_shadow"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingStart="13dp"
+        android:paddingTop="8dp"
+        android:paddingEnd="8dp"
+        android:paddingBottom="13dp"
+        tools:ignore="MissingConstraints">
 
-    <TextView
-        android:id="@+id/Price"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="41dp" />
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|right"
+            android:background="@drawable/icon_about"
+            tools:ignore="ContentDescription,RtlHardcoded" />
 
-    <Button
-        android:id="@+id/Enter"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="72dp"
-        tools:ignore="MissingConstraints" />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-5dp"
+            android:layout_marginEnd="3.5dp"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/standard"
+            tools:ignore="ContentDescription" />
+
+
+        <TextView
+            android:id="@+id/placeNameTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:fontFamily="@font/lato"
+            android:text="Standard"
+            android:textAllCaps="false"
+            android:textColor="#262626"
+            android:textSize="13sp"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:id="@+id/Price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/lato_regular"
+            android:text="68 ₴ (5 min)"
+            android:textAllCaps="false"
+            android:textColor="#848484"
+            android:textSize="13sp"
+
+            tools:ignore="HardcodedText" />
+
+
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
