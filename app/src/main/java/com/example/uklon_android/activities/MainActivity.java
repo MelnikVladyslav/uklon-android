@@ -29,6 +29,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.uklon_android.DTOs.PhoneNumberVerificationDto;
 import com.example.uklon_android.DTOs.UserDTO;
 import com.example.uklon_android.R;
 import com.example.uklon_android.classes.User;
@@ -74,6 +75,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
+import java.util.Objects;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -109,6 +111,9 @@ public class MainActivity extends AppCompatActivity {
     String ApiKey = "AIzaSyD3XTBjDPC3c5VrztOIBq1WVWvuxTGXd2E";
     boolean isExpanded = false;
     String imageUrl;
+    PhoneNumberVerificationDto currentPhoneDTO;
+    String tokenCurUser = "";
+    List<User> listUser = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -302,6 +307,48 @@ public class MainActivity extends AppCompatActivity {
             parameters.putString("fields", "first_name,last_name,email,picture");
             request.setParameters(parameters);
             request.executeAsync();
+        }
+
+        if(getIntent().getSerializableExtra("phoneDTO") != null)
+        {
+            currentPhoneDTO = (PhoneNumberVerificationDto) getIntent().getSerializableExtra("phoneDTO");
+            if(currentPhoneDTO.getPhoneNumber() != null) {
+                apiService.loginPhone(currentPhoneDTO).enqueue(new Callback<String>() {
+                    @Override
+                    public void onResponse(Call<String> call, Response<String> response) {
+                        tokenCurUser = response.body();
+
+                        apiService.getUsers().enqueue(new Callback<List<User>>() {
+                            @Override
+                            public void onResponse(Call<List<User>> call, Response<List<User>> response) {
+                                listUser = response.body();
+
+                                for (User user : listUser) {
+                                    if(Objects.equals(user.getToken(), tokenCurUser))
+                                    {
+                                        correctUser = user;
+                                    }
+                                }
+                            }
+
+                            @Override
+                            public void onFailure(Call<List<User>> call, Throwable t) {
+
+                            }
+                        });
+                    }
+
+                    @Override
+                    public void onFailure(Call<String> call, Throwable t) {
+
+                    }
+                });
+            }
+        }
+
+        if(getIntent().getSerializableExtra("user") != null)
+        {
+            correctUser = (User) getIntent().getSerializableExtra("user");
         }
 
         showMenuButton = findViewById(R.id.button);

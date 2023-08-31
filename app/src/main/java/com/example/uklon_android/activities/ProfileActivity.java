@@ -7,7 +7,9 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -26,34 +28,30 @@ public class ProfileActivity extends AppCompatActivity {
 
     public ApiService apiService;
     User correctUser = new User();
-    UserDTO sendUser = new UserDTO();
-    Button backBtn;
-    Button uploadBtn;
+    ImageButton backBtn;
     ImageView avatarImg;
-    EditText firstNameEdT;
-    EditText lastNameEdT;
-    EditText emailEdT;
-    EditText phoneNumEdT;
+    TextView firstNameEdT;
+    TextView emailEdT;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_profile);
+        setContentView(R.layout.profile_main);
 
         apiService = apiService.retrofit.create(ApiService.class);
         correctUser = (User) getIntent().getSerializableExtra("user");
 
         backBtn = findViewById(R.id.back);
-        uploadBtn = findViewById(R.id.update);
+        //uploadBtn = findViewById(R.id.update);
         avatarImg = findViewById(R.id.avatar);
         firstNameEdT = findViewById(R.id.firstName);
-        lastNameEdT = findViewById(R.id.lastName);
-        emailEdT = findViewById(R.id.email);
-        phoneNumEdT = findViewById(R.id.phoneNumber);
         firstNameEdT.setText(correctUser.getFirstName());
-        lastNameEdT.setText(correctUser.getLastName());
+        emailEdT = findViewById(R.id.email);
         emailEdT.setText(correctUser.getEmail());
-        phoneNumEdT.setText(correctUser.getPhoneNumber());
+        /*lastNameEdT = findViewById(R.id.lastName);
+        phoneNumEdT = findViewById(R.id.phoneNumber);
+        lastNameEdT.setText(correctUser.getLastName());
+        phoneNumEdT.setText(correctUser.getPhoneNumber());*/
 
         //Avatar
         if(getIntent().getSerializableExtra("uriImg") != null) {
@@ -70,7 +68,7 @@ public class ProfileActivity extends AppCompatActivity {
             }
         });
 
-        uploadBtn.setOnClickListener(new View.OnClickListener()
+        /*uploadBtn.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View view) {
@@ -101,6 +99,6 @@ public class ProfileActivity extends AppCompatActivity {
                             }
                         });
             }
-        });
+        });*/
     }
 }

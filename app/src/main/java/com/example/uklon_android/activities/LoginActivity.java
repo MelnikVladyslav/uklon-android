@@ -11,6 +11,8 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.uklon_android.R;
+import com.example.uklon_android.classes.User;
+import com.example.uklon_android.interfaces.ApiService;
 import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
@@ -25,9 +27,17 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.Task;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class LoginActivity extends AppCompatActivity {
     private EditText phoneNumberEditText;
     private Button loginPhoneButton;
@@ -37,6 +47,9 @@ public class LoginActivity extends AppCompatActivity {
     private CallbackManager callbackManager;
     GoogleSignInOptions gso;
     GoogleSignInClient gsc;
+    List<User> listUser = new ArrayList<>();
+    ApiService apiService;
+    User correctUser = new User();
 
 
     private boolean isValidPhoneNumber(String phoneNumber) {
@@ -55,6 +68,7 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_screen);
+        apiService = apiService.retrofit.create(ApiService.class);
 
         phoneNumberEditText = findViewById(R.id.phoneNumberTextView);
         loginPhoneButton = findViewById(R.id.next);
@@ -85,15 +99,47 @@ public class LoginActivity extends AppCompatActivity {
             finish();
         }
 
+
+
         loginPhoneButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String phoneNumber = "+380" + phoneNumberEditText.getText().toString();
+                String phoneNumber = "380" + phoneNumberEditText.getText().toString();
 
                 if (isValidPhoneNumber(phoneNumber)) {
-                    Intent intent = new Intent(LoginActivity.this, VerificationActivity.class);
-                    startActivity(intent);
-                    finish();
+                    apiService.getUsers().enqueue(new Callback<List<User>>() {
+                        @Override
+                        public void onResponse(Call<List<User>> call, Response<List<User>> response) {
+                            listUser = response.body();
+
+                            for (User user:listUser) {
+                                if(Objects.equals(user.getPhoneNumber(), phoneNumber))
+                                {
+                                    correctUser = user;
+                                }
+                            }
+
+                            if(correctUser == null)
+                            {
+                                Intent intent = new Intent(LoginActivity.this, VerificationActivity.class);
+                                intent.putExtra("phone", phoneNumber);
+                                startActivity(intent);
+                                finish();
+                            }
+                            if(correctUser != null)
+                            {
+                                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                                intent.putExtra("user", correctUser);
+                                startActivity(intent);
+                                finish();
+                            }
+                        }
+
+                        @Override
+                        public void onFailure(Call<List<User>> call, Throwable t) {
+
+                        }
+                    });
                 } else {
                     Toast.makeText(LoginActivity.this, "Невірний номер телефону", Toast.LENGTH_SHORT).show();
                 }
