@@ -16,29 +16,17 @@
         tools:ignore="FragmentTagUsage"
         tools:layout_editor_absoluteY="-84dp" />
 
-    <ImageButton
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/popup_menu_open"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.05"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.03"
-        tools:ignore="ContentDescription,SpeakableTextPresentCheck,ImageContrastCheck,TouchTargetSizeCheck" />
 
 
     <Button
-        android:id="@+id/find_my_location_button"
+        android:id="@+id/ok"
         android:layout_width="60dp"
         android:layout_height="36dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="20dp"
         android:background="@drawable/white_rounded"
         android:fontFamily="@font/lato_regular"
-        android:text="Hide"
+        android:text="Ok"
         android:textAllCaps="false"
         android:textColor="#A3A3A3"
         android:textSize="14sp"
@@ -49,7 +37,7 @@
     <LinearLayout
         android:id="@+id/menu_search_driver"
         android:layout_width="match_parent"
-        android:layout_height="450dp"
+        android:layout_height="500dp"
         android:background="@drawable/white_rounded_top_corners"
         android:elevation="15dp"
         android:gravity="center_horizontal"
@@ -85,6 +73,7 @@
             android:orientation="horizontal">
 
             <TextView
+                android:id="@+id/NameTr"
                 style="@style/Grey_Bold_textview"
                 android:text="Kia Sportage, white"
                 android:textSize="16sp"
@@ -119,6 +108,7 @@
                 android:orientation="vertical">
 
                 <ImageButton
+                    android:id="@+id/avatarDr"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
@@ -126,6 +116,7 @@
                     tools:ignore="ContentDescription,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
                 <TextView
+                    android:id="@+id/nameDr"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/lato_regular"
@@ -196,6 +187,7 @@
             android:layout_marginVertical="20dp" />
 
         <TextView
+            android:id="@+id/CancelOrder"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/lato_regular"
@@ -244,6 +236,7 @@
             </LinearLayout>
 
             <TextView
+                android:id="@+id/textPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/lato_regular"
@@ -279,11 +272,13 @@
                     tools:ignore="HardcodedText,TextContrastCheck" />
 
                 <TextView
+                    android:id="@+id/startPoint"
                     style="@style/Black_bigger_textView"
                     android:text="Gregory Skovorody Street 19"
                     tools:ignore="HardcodedText" />
 
                 <TextView
+                    android:id="@+id/endPoint"
                     style="@style/Black_bigger_textView"
                     android:layout_marginTop="13dp"
                     android:text="Kyivska Street, 40"

@@ -2,6 +2,7 @@ package com.example.uklon_android.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -39,7 +40,7 @@ public class LoginActivity extends AppCompatActivity {
 
 
     private boolean isValidPhoneNumber(String phoneNumber) {
-        Pattern pattern = Pattern.compile("^\\[0-9]{10,13}$");
+        Pattern pattern = Pattern.compile("^\\+?[0-9]{10,13}$");
         Matcher matcher = pattern.matcher(phoneNumber);
         boolean isValid = matcher.matches();
 
@@ -89,10 +90,8 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String phoneNumber = "+380" + phoneNumberEditText.getText().toString();
 
-                //Створювати юзера і додати туди номер
-
                 if (isValidPhoneNumber(phoneNumber)) {
-                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                    Intent intent = new Intent(LoginActivity.this, VerificationActivity.class);
                     startActivity(intent);
                     finish();
                 } else {
@@ -162,6 +161,7 @@ public class LoginActivity extends AppCompatActivity {
                 finish();
             } catch (ApiException e) {
                 Toast.makeText(LoginActivity.this, "Помилка відправки", Toast.LENGTH_SHORT).show();
+                Log.d("Ex: ", e.getMessage());
             }
         }
 

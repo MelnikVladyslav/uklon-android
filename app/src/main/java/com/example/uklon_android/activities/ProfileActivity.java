@@ -56,9 +56,10 @@ public class ProfileActivity extends AppCompatActivity {
         phoneNumEdT.setText(correctUser.getPhoneNumber());
 
         //Avatar
-        String urlAv = (String) getIntent().getSerializableExtra("uriImg");
-        Log.d("urlAv", urlAv);
-        Picasso.get().load(urlAv).into(avatarImg);
+        if(getIntent().getSerializableExtra("uriImg") != null) {
+            String urlAv = (String) getIntent().getSerializableExtra("uriImg");
+            Picasso.get().load(urlAv).into(avatarImg);
+        }
 
         backBtn.setOnClickListener(new View.OnClickListener()
         {

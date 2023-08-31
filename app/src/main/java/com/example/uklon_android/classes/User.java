@@ -10,7 +10,7 @@ public class User implements Serializable {
     private String email;
     private String password;
     private String phoneNumber;
-    private Roles role;
+    private String roleId;
     private String token;
     private List<Order> orderList;
     private List<Card> cardList;
@@ -61,12 +61,12 @@ public class User implements Serializable {
         this.password = password;
     }
 
-    public Roles getRole() {
-        return role;
+    public String getRole() {
+        return roleId;
     }
 
-    public void setRole(Roles role) {
-        this.role = role;
+    public void setRole(String roleId) {
+        this.roleId = roleId;
     }
 
     public String getToken() {

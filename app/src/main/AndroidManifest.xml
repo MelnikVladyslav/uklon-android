@@ -26,43 +26,31 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".activities.SelCityActivity"
+            android:name=".activities.VerificationActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.InfoInterCityActivity"
+            android:name=".activities.TripsActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.SelCitActivity"
+            android:name=".activities.OTActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.EnterTypeAutoActivity"
+            android:name=".activities.SearchTaxiActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.PayTActivity"
+            android:name=".activities.ADSActivity"
             android:exported="false" />
         <activity
             android:name=".activities.ComActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.ASActivity"
+            android:name=".activities.OrderTaxiActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.InfoStOrderActivity"
+            android:name=".activities.SelCityActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.DelPayActivity"
-            android:exported="false" />
-        <activity
-            android:name=".activities.InfoDelActivity"
-            android:exported="false" />
-        <activity
-            android:name=".activities.RecepDelActivity"
-            android:exported="false" />
-        <activity
-            android:name=".activities.SendDelActivity"
-            android:exported="false" />
-        <activity
-            android:name=".activities.DeliveryActivity"
+            android:name=".activities.PayTActivity"
             android:exported="false" />
         <activity
             android:name=".activities.WhereToGoActivity"
@@ -80,11 +68,8 @@
             android:name=".activities.GpsActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.WhereToGoDrActivity"
-            android:label="WhereToGoDrActivity" />
-        <activity
-            android:name=".activities.InfoDrActivity"
-            android:label="InfoDrActivity" />
+            android:name=".activities.PayMActivity"
+            android:label="PayMActivity" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"

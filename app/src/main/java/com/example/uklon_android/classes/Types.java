@@ -1,8 +1,9 @@
 package com.example.uklon_android.classes;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Types {
+public class Types implements Serializable {
     public int id;
     public String name;
     public float price;

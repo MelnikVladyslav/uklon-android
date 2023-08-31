@@ -3,7 +3,7 @@ package com.example.uklon_android.classes;
 public class Card {
     private int id;
     private String number;
-    private User user;
+    private String userId;
 
     public int getId() {
         return id;
@@ -21,11 +21,11 @@ public class Card {
         this.number = number;
     }
 
-    public User getUser() {
-        return user;
+    public String getUser() {
+        return userId;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUser(String userId) {
+        this.userId = userId;
     }
 }
