@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingHorizontal="16dp"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:paddingTop="22dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        >
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/arrow_back"
+            tools:ignore="ContentDescription,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+        <TextView
+            style="@style/textview_popup_menu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginEnd="28dp"
+            android:gravity="center"
+            android:letterSpacing="0.04"
+            android:text="Profile"
+            android:textSize="20sp"
+            tools:ignore="HardcodedText,InefficientWeight,RtlSymmetry" />
+
+    </LinearLayout>
+
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginStart="17dp"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/profile_image_change"
+        tools:ignore="ContentDescription,ImageContrastCheck,SpeakableTextPresentCheck" />
+    <TextView
+        style="@style/textview_popup_menu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="15dp"
+        android:letterSpacing="0.04"
+        android:text="Monica"
+        android:textSize="20sp"
+        tools:ignore="HardcodedText,InefficientWeight,RtlSymmetry" />
+
+    <TextView
+        style="@style/Grey_regular_textview"
+        android:layout_marginTop="5dp"
+        android:text="Monica85@gmail.com"
+        tools:ignore="HardcodedText,TextContrastCheck" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="start|center_vertical"
+        android:layout_marginTop="40dp"
+        tools:ignore="UseCompoundDrawables">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/person_icon"
+            android:layout_marginEnd="10dp"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            style="@style/Black_textView"
+            android:text="Personal data"
+            tools:ignore="HardcodedText" />
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="start|center_vertical"
+        android:layout_marginTop="20dp"
+        tools:ignore="UseCompoundDrawables">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/heart_black_smaller"
+            android:layout_marginEnd="10dp"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            style="@style/Black_textView"
+            android:text="Selected addresses"
+            tools:ignore="HardcodedText" />
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="start|center_vertical"
+        android:layout_marginTop="20dp"
+        tools:ignore="UseCompoundDrawables">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/blacklist_icon"
+            android:layout_marginEnd="10dp"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            style="@style/Black_textView"
+            android:text="Blacklist"
+            tools:ignore="HardcodedText" />
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="start|center_vertical"
+        android:layout_marginTop="20dp"
+        tools:ignore="UseCompoundDrawables">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/settings"
+            android:layout_marginEnd="10dp"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            style="@style/Black_textView"
+            android:text="Settings"
+            tools:ignore="HardcodedText" />
+
+
+    </LinearLayout>
+    <View
+        style="@style/View_aditional_service"
+        android:layout_marginTop="20dp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="start|center_vertical"
+        android:layout_marginTop="20dp"
+        tools:ignore="UseCompoundDrawables">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/message"
+            android:layout_marginEnd="10dp"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            style="@style/Black_textView"
+            android:text="Send feedback"
+            tools:ignore="HardcodedText" />
+
+
+    </LinearLayout>
+    <View
+        style="@style/View_aditional_service"
+        android:layout_marginTop="20dp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="start|center_vertical"
+        android:layout_marginTop="20dp"
+        tools:ignore="UseCompoundDrawables">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/lock_outline"
+            android:layout_marginEnd="10dp"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            style="@style/Black_textView"
+            android:text="Change password"
+            tools:ignore="HardcodedText" />
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="start|center_vertical"
+        android:layout_marginTop="20dp"
+        tools:ignore="UseCompoundDrawables">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/garbage_can_red"
+            android:layout_marginEnd="10dp"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            style="@style/Black_textView"
+            android:textColor="#AE2012"
+            android:text="Delete account"
+            tools:ignore="HardcodedText" />
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="start|center_vertical"
+        android:layout_marginTop="20dp"
+        tools:ignore="UseCompoundDrawables">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/log_out"
+            android:layout_marginEnd="10dp"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            style="@style/Black_textView"
+            android:text="Go out"
+            tools:ignore="HardcodedText" />
+
+
+    </LinearLayout>
+
+
+
+</LinearLayout>
