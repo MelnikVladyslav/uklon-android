@@ -1,5 +1,7 @@
 package com.example.uklon_android.activities;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -8,12 +10,10 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.uklon_android.R;
 import com.example.uklon_android.classes.User;
 
-public class ASActivity extends AppCompatActivity {
+public class ADSActivity extends AppCompatActivity {
 
     int prAS = 0;
     ImageButton backBtn;
@@ -39,7 +39,7 @@ public class ASActivity extends AppCompatActivity {
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(ASActivity.this, InfoStOrderActivity.class);
+                Intent intent = new Intent(ADSActivity.this, OrderTaxiActivity.class);
                 startActivity(intent);
             }
         });
@@ -93,8 +93,9 @@ public class ASActivity extends AppCompatActivity {
         doneBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(ASActivity.this, InfoStOrderActivity.class);
+                Intent intent = new Intent(ADSActivity.this, OrderTaxiActivity.class);
                 intent.putExtra("priceAS", prAS);
+                intent.putExtra("price", (float) getIntent().getSerializableExtra("price"));
                 intent.putExtra("user", (User) getIntent().getSerializableExtra("user"));
                 intent.putExtra("onePoint", (String) getIntent().getSerializableExtra("onePoint"));
                 intent.putExtra("twoPoint", (String) getIntent().getSerializableExtra("twoPoint"));

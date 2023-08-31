@@ -176,7 +176,7 @@ public class MainActivity extends AppCompatActivity {
                                 correctUser = response.body();
                                 urlAvatar = acct.getPhotoUrl();
                             } else {
-                                Toast.makeText(MainActivity.this, "Помилка: " + response.message(), Toast.LENGTH_SHORT).show();
+                                Toast.makeText(MainActivity.this, "Помилка обробки: " + response.message(), Toast.LENGTH_SHORT).show();
                             }
                         }
 
@@ -318,6 +318,8 @@ public class MainActivity extends AppCompatActivity {
                     LinearLayout btnSignOut = popupView.findViewById(R.id.BtnSign);
                     ImageView avatar = popupView.findViewById(R.id.avatar);
                     LinearLayout btnRegDr = popupView.findViewById(R.id.btnRegDr);
+                    LinearLayout lltypePay = popupView.findViewById(R.id.typePay);
+                    LinearLayout lltrips = popupView.findViewById(R.id.Trips);
 
                     //Avatar
                     if(acct != null)
@@ -340,7 +342,9 @@ public class MainActivity extends AppCompatActivity {
                         public void onClick(View v) {
                             Intent intent = new Intent(MainActivity.this, ProfileActivity.class);
                             intent.putExtra("user", correctUser);
-                            intent.putExtra("uriImg", urlAvatar.toString());
+                            if(urlAvatar != null) {
+                                intent.putExtra("uriImg", urlAvatar.toString());
+                            }
                             startActivity(intent);
                             finish();
                         }
@@ -375,6 +379,26 @@ public class MainActivity extends AppCompatActivity {
                         @Override
                         public void onClick(View view) {
                             Intent intent = new Intent(MainActivity.this, SelCityActivity.class);
+                            startActivity(intent);
+                        }
+                    });
+
+                    //type payment
+                    lltypePay.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Intent intent = new Intent(MainActivity.this, PayMActivity.class);
+                            intent.putExtra("user", correctUser);
+                            startActivity(intent);
+                        }
+                    });
+
+                    //trips
+                    lltrips.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Intent intent = new Intent(MainActivity.this, TripsActivity.class);
+                            intent.putExtra("userId", correctUser.getId());
                             startActivity(intent);
                         }
                     });
@@ -445,8 +469,6 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(MainActivity.this, WhereToGoActivity.class);
-                    intent.putExtra("lat", latitude);
-                    intent.putExtra("lon", longitude);
                     intent.putExtra("startLoc", addressStrStart);
                     intent.putExtra("user", correctUser);
                     startActivity(intent);
@@ -462,7 +484,7 @@ public class MainActivity extends AppCompatActivity {
                 pointEnd.setText(addressStrEnd);
             }
 
-            btnDelivery.setOnClickListener(new View.OnClickListener() {
+            /*btnDelivery.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     Intent intent = new Intent(MainActivity.this, DeliveryActivity.class);
@@ -497,7 +519,7 @@ public class MainActivity extends AppCompatActivity {
                     intent.putExtra("user", correctUser);
                     startActivity(intent);
                 }
-            });
+            });*/
 
             // Налаштовуємо анімацію для відкриття та закриття BottomSheetDialog
             // Ви можете змінити анімацію на ваш смак

@@ -5,7 +5,7 @@ public class Transport {
     private String model = "";
     public int type = 1;
     public String description = "";
-    public String urlImg;
+    public String urlImg = "https://cdn2.rcstatic.com/images/rc-guides/Economy_Cars/stan.jpg";
 
     public int getId() {
         return id;
