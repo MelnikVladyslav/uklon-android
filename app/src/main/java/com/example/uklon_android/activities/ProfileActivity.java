@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -32,6 +33,8 @@ public class ProfileActivity extends AppCompatActivity {
     ImageView avatarImg;
     TextView firstNameEdT;
     TextView emailEdT;
+    LinearLayout llPerData;
+    String urlAv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,20 +45,17 @@ public class ProfileActivity extends AppCompatActivity {
         correctUser = (User) getIntent().getSerializableExtra("user");
 
         backBtn = findViewById(R.id.back);
-        //uploadBtn = findViewById(R.id.update);
         avatarImg = findViewById(R.id.avatar);
         firstNameEdT = findViewById(R.id.firstName);
         firstNameEdT.setText(correctUser.getFirstName());
         emailEdT = findViewById(R.id.email);
+        llPerData = findViewById(R.id.PersonalData);
         emailEdT.setText(correctUser.getEmail());
-        /*lastNameEdT = findViewById(R.id.lastName);
-        phoneNumEdT = findViewById(R.id.phoneNumber);
-        lastNameEdT.setText(correctUser.getLastName());
-        phoneNumEdT.setText(correctUser.getPhoneNumber());*/
+
 
         //Avatar
         if(getIntent().getSerializableExtra("uriImg") != null) {
-            String urlAv = (String) getIntent().getSerializableExtra("uriImg");
+            urlAv = (String) getIntent().getSerializableExtra("uriImg");
             Picasso.get().load(urlAv).into(avatarImg);
         }
 
@@ -68,37 +68,17 @@ public class ProfileActivity extends AppCompatActivity {
             }
         });
 
-        /*uploadBtn.setOnClickListener(new View.OnClickListener()
-        {
+        llPerData.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                sendUser.setFirstName(firstNameEdT.getText().toString());
-                sendUser.setLastName(lastNameEdT.getText().toString());
-                sendUser.setEmail(emailEdT.getText().toString());
-                sendUser.setPhoneNumber(phoneNumEdT.getText().toString());
-                apiService.updateUser(sendUser, correctUser.getId()).
-                        enqueue(new Callback<User>()
-                        {
-                            @Override
-                            public void onResponse(Call<User> call, Response<User> response) {
-                                if (response.isSuccessful()) {
-                                    correctUser = response.body();
-                                    firstNameEdT.setText(correctUser.getFirstName());
-                                    lastNameEdT.setText(correctUser.getLastName());
-                                    emailEdT.setText(correctUser.getEmail());
-                                    phoneNumEdT.setText(correctUser.getPhoneNumber());
-                                }
-                                else{
-                                    Toast.makeText(ProfileActivity.this, "Помилка: " + response.message(), Toast.LENGTH_SHORT).show();
-                                }
-                            }
-
-                            @Override
-                            public void onFailure(Call<User> call, Throwable t) {
-                                Toast.makeText(ProfileActivity.this, "Помилка: " + t.getMessage(), Toast.LENGTH_SHORT).show();
-                            }
-                        });
+                Intent intent = new Intent(ProfileActivity.this, PersonalDataActivity.class);
+                intent.putExtra("user", correctUser);
+                if(urlAv != null) {
+                    intent.putExtra("uriImg", urlAv.toString());
+                }
+                startActivity(intent);
             }
-        });*/
+        });
+
     }
 }
