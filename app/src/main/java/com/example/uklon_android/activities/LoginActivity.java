@@ -43,6 +43,7 @@ public class LoginActivity extends AppCompatActivity {
     private Button loginPhoneButton;
     private Button loginGoogleButton;
     private Button loginFacebookButton;
+    private Button loginEmailButton;
 
     private CallbackManager callbackManager;
     GoogleSignInOptions gso;
@@ -74,6 +75,7 @@ public class LoginActivity extends AppCompatActivity {
         loginPhoneButton = findViewById(R.id.next);
         loginGoogleButton = findViewById(R.id.Google_button);
         loginFacebookButton = findViewById(R.id.Facebook_button);
+        loginEmailButton = findViewById(R.id.Email_button);
 
         callbackManager = CallbackManager.Factory.create();
         FacebookSdk.setClientToken("6c72d4e2d174db3d1e5eb38069c09b0c");
@@ -99,7 +101,14 @@ public class LoginActivity extends AppCompatActivity {
             finish();
         }
 
-
+        loginEmailButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(LoginActivity.this,EmailActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
         loginPhoneButton.setOnClickListener(new View.OnClickListener() {
             @Override
