@@ -7,7 +7,10 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -26,38 +29,33 @@ public class ProfileActivity extends AppCompatActivity {
 
     public ApiService apiService;
     User correctUser = new User();
-    UserDTO sendUser = new UserDTO();
-    Button backBtn;
-    Button uploadBtn;
+    ImageButton backBtn;
     ImageView avatarImg;
-    EditText firstNameEdT;
-    EditText lastNameEdT;
-    EditText emailEdT;
-    EditText phoneNumEdT;
+    TextView firstNameEdT;
+    TextView emailEdT;
+    LinearLayout llPerData;
+    String urlAv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_profile);
+        setContentView(R.layout.profile_main);
 
         apiService = apiService.retrofit.create(ApiService.class);
         correctUser = (User) getIntent().getSerializableExtra("user");
 
         backBtn = findViewById(R.id.back);
-        uploadBtn = findViewById(R.id.update);
         avatarImg = findViewById(R.id.avatar);
         firstNameEdT = findViewById(R.id.firstName);
-        lastNameEdT = findViewById(R.id.lastName);
-        emailEdT = findViewById(R.id.email);
-        phoneNumEdT = findViewById(R.id.phoneNumber);
         firstNameEdT.setText(correctUser.getFirstName());
-        lastNameEdT.setText(correctUser.getLastName());
+        emailEdT = findViewById(R.id.email);
+        llPerData = findViewById(R.id.PersonalData);
         emailEdT.setText(correctUser.getEmail());
-        phoneNumEdT.setText(correctUser.getPhoneNumber());
+
 
         //Avatar
         if(getIntent().getSerializableExtra("uriImg") != null) {
-            String urlAv = (String) getIntent().getSerializableExtra("uriImg");
+            urlAv = (String) getIntent().getSerializableExtra("uriImg");
             Picasso.get().load(urlAv).into(avatarImg);
         }
 
@@ -70,37 +68,17 @@ public class ProfileActivity extends AppCompatActivity {
             }
         });
 
-        uploadBtn.setOnClickListener(new View.OnClickListener()
-        {
+        llPerData.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                sendUser.setFirstName(firstNameEdT.getText().toString());
-                sendUser.setLastName(lastNameEdT.getText().toString());
-                sendUser.setEmail(emailEdT.getText().toString());
-                sendUser.setPhoneNumber(phoneNumEdT.getText().toString());
-                apiService.updateUser(sendUser, correctUser.getId()).
-                        enqueue(new Callback<User>()
-                        {
-                            @Override
-                            public void onResponse(Call<User> call, Response<User> response) {
-                                if (response.isSuccessful()) {
-                                    correctUser = response.body();
-                                    firstNameEdT.setText(correctUser.getFirstName());
-                                    lastNameEdT.setText(correctUser.getLastName());
-                                    emailEdT.setText(correctUser.getEmail());
-                                    phoneNumEdT.setText(correctUser.getPhoneNumber());
-                                }
-                                else{
-                                    Toast.makeText(ProfileActivity.this, "Помилка: " + response.message(), Toast.LENGTH_SHORT).show();
-                                }
-                            }
-
-                            @Override
-                            public void onFailure(Call<User> call, Throwable t) {
-                                Toast.makeText(ProfileActivity.this, "Помилка: " + t.getMessage(), Toast.LENGTH_SHORT).show();
-                            }
-                        });
+                Intent intent = new Intent(ProfileActivity.this, PersonalDataActivity.class);
+                intent.putExtra("user", correctUser);
+                if(urlAv != null) {
+                    intent.putExtra("uriImg", urlAv.toString());
+                }
+                startActivity(intent);
             }
         });
+
     }
 }

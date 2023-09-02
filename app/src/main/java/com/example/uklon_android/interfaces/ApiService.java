@@ -58,4 +58,10 @@ public interface ApiService {
 
     @POST("/api/verif-phone")
     Call<Boolean> verifPhone(@Body PhoneNumberVerificationDto phoneDTO);
+
+    @POST("api/login/login-phone")
+    Call<String> loginPhone(@Body PhoneNumberVerificationDto phoneDTO);
+
+    @POST("api/login/login-email")
+    Call<String> loginEmail(@Body PhoneNumberVerificationDto phoneDTO);
 }

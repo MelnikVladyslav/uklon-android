@@ -15,6 +15,7 @@
         android:gravity="center"
         >
         <ImageButton
+            android:id="@+id/back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/arrow_back"
@@ -36,6 +37,7 @@
 
 
     <ImageButton
+        android:id="@+id/avatar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
@@ -44,6 +46,7 @@
         android:background="@drawable/profile_image_change"
         tools:ignore="ContentDescription,ImageContrastCheck,SpeakableTextPresentCheck" />
     <TextView
+        android:id="@+id/firstName"
         style="@style/textview_popup_menu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -55,6 +58,7 @@
         tools:ignore="HardcodedText,InefficientWeight,RtlSymmetry" />
 
     <TextView
+        android:id="@+id/email"
         style="@style/Grey_regular_textview"
         android:layout_marginTop="5dp"
         android:text="Monica85@gmail.com"
@@ -62,6 +66,7 @@
 
 
     <LinearLayout
+        android:id="@+id/PersonalData"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"

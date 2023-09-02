@@ -1,6 +1,8 @@
 package com.example.uklon_android.DTOs;
 
-public class PhoneNumberVerificationDto {
+import java.io.Serializable;
+
+public class PhoneNumberVerificationDto implements Serializable {
     private String phoneNumber = "";
     private String email = "";
     private String Password = "";
