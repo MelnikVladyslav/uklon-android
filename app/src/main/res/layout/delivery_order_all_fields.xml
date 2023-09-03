@@ -5,6 +5,7 @@
     android:layout_height="match_parent"
     android:paddingHorizontal="16dp"
     android:paddingTop="45dp"
+    android:background="@color/white"
     android:gravity="center_horizontal"
     android:orientation="vertical">
 
@@ -21,30 +22,30 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/arrow_back"
-            tools:ignore="ContentDescription,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+            tools:ignore="ContentDescription,SpeakableTextPresentCheck,TouchTargetSizeCheck,ImageContrastCheck" />
 
         <TextView
-            android:layout_weight="1"
-            android:gravity="center"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/lato"
-            android:textSize="20sp"
-            android:textColor="#262626"
-            android:text="Delivery"
             android:layout_marginEnd="30dp"
-            tools:ignore="HardcodedText" />
+            android:layout_weight="1"
+            android:fontFamily="@font/lato"
+            android:gravity="center"
+            android:text="Delivery"
+            android:textColor="#262626"
+            android:textSize="20sp"
+            tools:ignore="HardcodedText,TextContrastCheck" />
     </LinearLayout>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/lato"
-        android:textSize="32sp"
-        android:textColor="#262626"
-        android:text="68 ₴ "
         android:layout_marginTop="40dp"
-        tools:ignore="HardcodedText" />
+        android:fontFamily="@font/lato"
+        android:text="68 ₴ "
+        android:textColor="#262626"
+        android:textSize="32sp"
+        tools:ignore="HardcodedText,TextContrastCheck" />
 
 
     <LinearLayout
@@ -73,7 +74,7 @@
             <TextView
                 style="@style/Black_bigger_textView"
                 android:text="Door to door"
-                tools:ignore="HardcodedText" />
+                tools:ignore="HardcodedText,TextContrastCheck" />
 
             <TextView
                 style="@style/Grey_regular_smaller_textview"
@@ -98,11 +99,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="@font/lato"
-        android:textSize="20sp"
-        android:textColor="#262626"
         android:text="Sender"
+        android:textColor="#262626"
+        android:textSize="20sp"
 
-        tools:ignore="HardcodedText" />
+        tools:ignore="HardcodedText,TextContrastCheck" />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -134,10 +135,10 @@
 
             <TextView
                 style="@style/Black_bigger_textView"
+                android:layout_marginTop="4dp"
                 android:text="Gregory Skovorody, Street 19"
                 android:textSize="13sp"
-                android:layout_marginTop="4dp"
-                tools:ignore="HardcodedText" />
+                tools:ignore="HardcodedText,TextContrastCheck" />
         </LinearLayout>
 
         <Button
@@ -183,7 +184,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/icon_person"
-            tools:ignore="ContentDescription" />
+            tools:ignore="ContentDescription,ImageContrastCheck" />
 
 
         <LinearLayout
@@ -201,10 +202,10 @@
 
             <TextView
                 style="@style/Black_bigger_textView"
+                android:layout_marginTop="4dp"
                 android:text="+380569220303, Jonah "
                 android:textSize="13sp"
-                android:layout_marginTop="4dp"
-                tools:ignore="HardcodedText" />
+                tools:ignore="HardcodedText,TextContrastCheck" />
 
         </LinearLayout>
 
@@ -213,14 +214,15 @@
     <View
         style="@style/View_aditional_service"
         android:layout_marginVertical="18dp"/>
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="@font/lato"
-        android:textSize="20sp"
-        android:textColor="#262626"
         android:text="Recipient"
-        tools:ignore="HardcodedText" />
+        android:textColor="#262626"
+        android:textSize="20sp"
+        tools:ignore="HardcodedText,TextContrastCheck" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -253,10 +255,10 @@
 
             <TextView
                 style="@style/Black_bigger_textView"
+                android:layout_marginTop="4dp"
                 android:text="Gregory Skovorody, Street 19, Rivne"
                 android:textSize="13sp"
-                android:layout_marginTop="4dp"
-                tools:ignore="HardcodedText" />
+                tools:ignore="HardcodedText,TextContrastCheck" />
         </LinearLayout>
     </LinearLayout>
     <View
@@ -272,7 +274,7 @@
             style="@style/Black_bigger_textView"
             android:text="Entrance 5, floor 23 "
             android:textSize="13sp"
-            tools:ignore="HardcodedText" />
+            tools:ignore="HardcodedText,TextContrastCheck" />
     </LinearLayout>
 
     <View
@@ -293,7 +295,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/icon_person"
-            tools:ignore="ContentDescription" />
+            tools:ignore="ContentDescription,ImageContrastCheck" />
 
 
         <LinearLayout
@@ -311,10 +313,10 @@
 
             <TextView
                 style="@style/Black_bigger_textView"
+                android:layout_marginTop="4dp"
                 android:text="+380569220303, Monica"
                 android:textSize="13sp"
-                android:layout_marginTop="4dp"
-                tools:ignore="HardcodedText" />
+                tools:ignore="HardcodedText,TextContrastCheck" />
 
         </LinearLayout>
 
@@ -324,6 +326,7 @@
     <Button
         style="@style/textview_popup_menu"
         android:layout_width="match_parent"
+        android:gravity="center"
         android:layout_height="40dp"
         android:layout_marginTop="20dp"
         android:background="@drawable/start_button_background"
