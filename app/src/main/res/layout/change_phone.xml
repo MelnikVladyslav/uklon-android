@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:paddingHorizontal="16dp"
+    android:paddingTop="45dp"
+    android:paddingBottom="40dp"
+    android:orientation="vertical"
+    android:gravity="center_horizontal">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        tools:ignore="UselessParent">
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/arrow_back"
+            tools:ignore="ContentDescription,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+        <TextView
+            style="@style/textview_popup_menu"
+            android:layout_weight="1"
+            android:layout_marginEnd="28dp"
+            android:gravity="center"
+            android:text="Change phone number "
+            android:textSize="20sp"
+            tools:ignore="HardcodedText,InefficientWeight,RtlSymmetry" />
+
+    </LinearLayout>
+
+    <TextView
+        style="@style/textview_popup_menu"
+        android:layout_marginTop="100dp"
+        android:textAlignment="center"
+        android:text="SMS with the confirmation code will be delivered to this number"
+        tools:ignore="HardcodedText" />
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+        
+        <TextView
+            style="@style/Black_bigger_textView"
+            android:text="+380"
+            tools:ignore="HardcodedText" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            android:background="@drawable/arrow"
+            tools:ignore="ContentDescription,ImageContrastCheck,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+    <EditText
+        style="@style/Grey_regular_textview"
+        android:layout_weight="1"
+        android:layout_marginStart="10dp"
+        android:background="@null"
+        android:text="XXXXXXXXXXX"
+        android:textAlignment="textStart"
+        tools:ignore="Autofill,HardcodedText,InefficientWeight,LabelFor,TextContrastCheck,TextFields,TouchTargetSizeCheck,VisualLintTextFieldSize" />
+    </LinearLayout>
+    
+   
+    <View
+        style="@style/View_aditional_service"
+        android:layout_height="1dp"
+        android:background="#A3A3A3"
+        android:layout_marginTop="8dp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+    <Button
+        style="@style/textview_popup_menu"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@drawable/start_button_background"
+        android:text="Change password"
+        tools:ignore="HardcodedText,TouchTargetSizeCheck,VisualLintButtonSize" />
+
+
+</LinearLayout>
