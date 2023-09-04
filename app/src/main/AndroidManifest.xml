@@ -30,6 +30,15 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".activities.OrderDelActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.DelMainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.DeliveryActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.EnterNameActivity"
             android:exported="false" />
         <activity
@@ -55,6 +64,12 @@
             android:exported="false" />
         <activity
             android:name=".activities.ComActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.ADSDActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.ComDActivity"
             android:exported="false" />
         <activity
             android:name=".activities.OrderTaxiActivity"
@@ -83,6 +98,9 @@
         <activity
             android:name=".activities.PayMActivity"
             android:label="PayMActivity" />
+        <activity
+            android:name=".activities.PayDActivity"
+            android:label="PayDActivity" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"

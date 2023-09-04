@@ -58,6 +58,9 @@ public class WhereToGoActivity extends AppCompatActivity {
         btnBack = findViewById(R.id.backToMain);
         btnDone = findViewById(R.id.Send);
         startEdit.setText(curAdress);
+        if(getIntent().getSerializableExtra("twoPoint") != null) {
+            endEdit.setText((String) getIntent().getSerializableExtra("twoPoint"));
+        }
 
         Places.initialize(getApplicationContext(), ApiKey);
         placesClient = Places.createClient(this);

@@ -18,6 +18,7 @@
 
 
         <ImageButton
+            android:id="@+id/back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/arrow_back"
@@ -37,6 +38,7 @@
     </LinearLayout>
 
     <TextView
+        android:id="@+id/Price"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/lato"
@@ -83,6 +85,7 @@
         </LinearLayout>
 
         <CheckBox
+            android:id="@+id/dtd"
             style="@style/checkbox_custom"
             android:checked="true"
             tools:ignore="TouchTargetSizeCheck" />
@@ -133,6 +136,7 @@
 
 
             <TextView
+                android:id="@+id/pointStart"
                 style="@style/Black_bigger_textView"
                 android:text="Gregory Skovorody, Street 19"
                 android:textSize="13sp"
@@ -200,6 +204,7 @@
                 tools:ignore="HardcodedText,TextContrastCheck" />
 
             <TextView
+                android:id="@+id/sendUser"
                 style="@style/Black_bigger_textView"
                 android:text="+380569220303, Jonah "
                 android:textSize="13sp"
@@ -252,6 +257,7 @@
 
 
             <TextView
+                android:id="@+id/endPoint"
                 style="@style/Black_bigger_textView"
                 android:text="Gregory Skovorody, Street 19, Rivne"
                 android:textSize="13sp"
@@ -310,6 +316,7 @@
                 tools:ignore="HardcodedText,TextContrastCheck" />
 
             <TextView
+                android:id="@+id/recUser"
                 style="@style/Black_bigger_textView"
                 android:text="+380569220303, Monica"
                 android:textSize="13sp"
@@ -322,6 +329,7 @@
     </LinearLayout>
 
     <Button
+        android:id="@+id/next"
         style="@style/textview_popup_menu"
         android:layout_width="match_parent"
         android:layout_height="40dp"
