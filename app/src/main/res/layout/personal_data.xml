@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:paddingHorizontal="16dp"
+    android:paddingTop="45dp"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        tools:ignore="UselessParent">
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/arrow_back"
+            tools:ignore="ContentDescription,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+        <TextView
+            style="@style/textview_popup_menu"
+            android:layout_weight="1"
+            android:layout_marginEnd="28dp"
+            android:gravity="center"
+            android:letterSpacing="0.04"
+            android:text="Personal data"
+            android:textSize="20sp"
+            tools:ignore="HardcodedText,InefficientWeight,RtlSymmetry" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:gravity="center_vertical"
+        tools:ignore="UseCompoundDrawables">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/icon_person"
+            tools:ignore="ContentDescription" />
+        
+        <TextView
+            style="@style/Black_textView"
+            android:text="Monica"
+            android:layout_marginStart="10dp"
+            tools:ignore="HardcodedText" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical"
+        tools:ignore="UseCompoundDrawables">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/calendar"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            style="@style/Grey_regular_textview"
+            android:layout_marginStart="10dp"
+            android:text="Date of birth"
+            android:textSize="14sp"
+            tools:ignore="HardcodedText,TextContrastCheck" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical"
+        tools:ignore="UseCompoundDrawables">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/icon_gender"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            style="@style/Grey_regular_textview"
+            android:layout_marginStart="10dp"
+            android:text="Gender"
+            android:textSize="14sp"
+            tools:ignore="HardcodedText,TextContrastCheck" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical"
+        tools:ignore="UseCompoundDrawables">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/icon_phone"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            style="@style/Black_textView"
+            android:text="+380967022172"
+            android:layout_marginStart="10dp"
+            tools:ignore="HardcodedText" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical"
+        tools:ignore="UseCompoundDrawables">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/lock_outline"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            style="@style/Black_textView"
+            android:text="Change password"
+            android:layout_marginStart="10dp"
+            tools:ignore="HardcodedText" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical"
+        tools:ignore="UseCompoundDrawables">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/icon_email_outline"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            style="@style/Black_textView"
+            android:text="Monica85@gmail.com"
+            android:layout_marginStart="10dp"
+            tools:ignore="HardcodedText" />
+
+    </LinearLayout>
+    <View
+        style="@style/View_aditional_service"
+        android:layout_height="1dp"
+        android:layout_marginVertical="30dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+
+
+        <TextView
+            style="@style/textview_popup_menu"
+            android:text="Additional Information"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            style="@style/Grey_Bold_textview"
+            android:text="To personalize your trips"
+            android:layout_marginTop="5dp"
+            tools:ignore="HardcodedText" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:gravity="center_vertical">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/icon_baby"
+            tools:ignore="ContentDescription" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:layout_marginStart="10dp"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/Black_textView"
+                android:text="Do you have children under the age of 10?"
+                android:fontFamily="@font/lato"
+                tools:ignore="HardcodedText" />
+            <TextView
+                style="@style/Grey_Bold_textview"
+                android:text="Choose your answer"
+                android:textSize="14sp"
+                android:layout_marginTop="5dp"
+                tools:ignore="HardcodedText" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/icon_car"
+            tools:ignore="ContentDescription" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:layout_marginStart="10dp"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/Black_textView"
+                android:text="Do you have a car?"
+                android:fontFamily="@font/lato"
+                tools:ignore="HardcodedText" />
+            <TextView
+                style="@style/Grey_Bold_textview"
+                android:text="Choose your answer"
+                android:textSize="14sp"
+                android:layout_marginTop="5dp"
+                tools:ignore="HardcodedText" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/icon_paw_outline"
+            tools:ignore="ContentDescription" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:layout_marginStart="10dp"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/Black_textView"
+                android:text="Do you have pets?"
+                android:fontFamily="@font/lato"
+                tools:ignore="HardcodedText" />
+            <TextView
+                style="@style/Grey_Bold_textview"
+                android:text="Choose your answer"
+                android:textSize="14sp"
+                android:layout_marginTop="5dp"
+                tools:ignore="HardcodedText" />
+        </LinearLayout>
+    </LinearLayout>
+
+
+
+
+
+
+
+</LinearLayout>

@@ -52,7 +52,8 @@
         app:layout_constraintStart_toStartOf="@id/next"
         app:layout_constraintTop_toTopOf="@id/next"
         app:layout_constraintVertical_bias="0.5"
-        tools:ignore="HardcodedText,MissingConstraints,TextContrastCheck,TextSizeCheck" />
+        tools:ignore="HardcodedText,MissingConstraints,TextContrastCheck,TextSizeCheck"
+        tools:targetApi="o" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -93,7 +94,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.392"
-            tools:ignore="HardcodedText,MissingConstraints,TextContrastCheck,TextSizeCheck" />
+            tools:ignore="HardcodedText,MissingConstraints,TextContrastCheck,TextSizeCheck,UnusedAttribute" />
 
         <View
             android:layout_width="0dp"
@@ -140,7 +141,7 @@
         app:layout_constraintTop_toTopOf="@id/Google_button"
         app:layout_constraintVertical_bias="0.5"
 
-        tools:ignore="HardcodedText,MissingConstraints,TextContrastCheck,TextSizeCheck" />
+        tools:ignore="HardcodedText,MissingConstraints,TextContrastCheck,TextSizeCheck,UnusedAttribute" />
 
     <ImageView
         android:layout_width="wrap_content"
@@ -191,7 +192,7 @@
         app:layout_constraintStart_toStartOf="@id/Apple_button"
         app:layout_constraintTop_toTopOf="@id/Apple_button"
         app:layout_constraintVertical_bias="0.5"
-        tools:ignore="HardcodedText,MissingConstraints,TextContrastCheck,TextSizeCheck" />
+        tools:ignore="HardcodedText,MissingConstraints,TextContrastCheck,TextSizeCheck,UnusedAttribute" />
 
     <ImageView
         android:layout_width="wrap_content"
@@ -241,7 +242,7 @@
         app:layout_constraintStart_toStartOf="@id/Facebook_button"
         app:layout_constraintTop_toTopOf="@id/Facebook_button"
         app:layout_constraintVertical_bias="0.5"
-        tools:ignore="HardcodedText,MissingConstraints,TextContrastCheck,TextSizeCheck" />
+        tools:ignore="HardcodedText,MissingConstraints,TextContrastCheck,TextSizeCheck,UnusedAttribute" />
 
     <ImageView
         android:layout_width="wrap_content"
@@ -292,7 +293,7 @@
         app:layout_constraintStart_toStartOf="@id/Email_button"
         app:layout_constraintTop_toTopOf="@id/Email_button"
         app:layout_constraintVertical_bias="0.5"
-        tools:ignore="HardcodedText,MissingConstraints,TextContrastCheck,TextSizeCheck" />
+        tools:ignore="HardcodedText,MissingConstraints,TextContrastCheck,TextSizeCheck,UnusedAttribute" />
 
     <ImageView
         android:layout_width="wrap_content"
