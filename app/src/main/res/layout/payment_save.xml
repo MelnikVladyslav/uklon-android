@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingHorizontal="16dp"
+    android:paddingTop="45dp"
+    android:paddingBottom="40dp"
+    android:orientation="vertical">
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        tools:ignore="UselessParent">
+
+        <ImageButton
+            android:id="@+id/back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/arrow_back"
+            tools:ignore="ContentDescription,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/lato"
+            android:gravity="center_horizontal"
+            android:letterSpacing="0.04"
+            android:paddingEnd="25dp"
+            android:text="Payment type"
+            android:textAllCaps="false"
+            android:textColor="#262626"
+            android:textSize="20sp"
+            tools:ignore="HardcodedText,InefficientWeight,RtlSymmetry" />
+    </LinearLayout>
+
+    <TextView
+        style="@style/order_grey_text"
+        android:layout_marginTop="95dp"
+        android:text="Drive cash"
+        android:textSize="16sp"
+        tools:ignore="HardcodedText,TextContrastCheck" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            style="@style/imageview_peyment_method"
+            android:background="@drawable/drive_cash"
+            tools:ignore="ContentDescription" />
+        <LinearLayout
+            style="@style/payment_method_linear_layout"
+            >
+            <TextView
+                style="@style/Black_bigger_textView"
+                android:text="Drive cash"
+                tools:ignore="HardcodedText,InefficientWeight,RtlSymmetry" />
+            <TextView
+                style="@style/Grey_regular_smaller_textview"
+                android:layout_marginTop="5dp"
+                android:text="UAH 0.00"
+                tools:ignore="HardcodedText,InefficientWeight,RtlSymmetry,TextContrastCheck" />
+
+
+
+        </LinearLayout>
+        <CheckBox
+            style="@style/checkbox_custom"
+            tools:ignore="TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
+
+
+    </LinearLayout>
+    <View
+        style="@style/View_aditional_service"
+        android:layout_marginVertical="30dp"/>
+    <TextView
+        style="@style/order_grey_text"
+        android:text="Payment type"
+        android:textSize="16sp"
+        tools:ignore="HardcodedText,TextContrastCheck" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        tools:ignore="DisableBaselineAlignment">
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <LinearLayout
+                style="@style/peyment_method_horizontal_linearlayout"
+                tools:ignore="UseCompoundDrawables">
+
+                <ImageView
+                    style="@style/imageview_peyment_method"
+                    android:background="@drawable/google_pay"
+                    tools:ignore="ContentDescription" />
+                <TextView
+                    style="@style/Black_bigger_textView"
+                    android:text="Drive cash"
+                    android:layout_weight="1"
+                    tools:ignore="HardcodedText,InefficientWeight,RtlSymmetry" />
+            </LinearLayout>
+            <LinearLayout
+                style="@style/peyment_method_horizontal_linearlayout"
+                tools:ignore="UseCompoundDrawables">
+
+                <ImageView
+                    style="@style/imageview_peyment_method"
+                    android:background="@drawable/cash"
+                    tools:ignore="ContentDescription" />
+                <TextView
+                    style="@style/Black_bigger_textView"
+                    android:text="Cash"
+                    android:layout_weight="1"
+                    tools:ignore="HardcodedText,InefficientWeight,RtlSymmetry" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginStart="-2dp"
+            android:orientation="vertical">
+
+            <RadioGroup
+                android:id="@+id/rd"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:ignore="UselessParent">
+
+                <RadioButton
+                    android:id="@+id/DC"
+                    style="@style/peyment_method_radiobutton"
+                    android:layout_weight="1"
+                    android:checked="true"
+                    tools:ignore="DuplicateSpeakableTextCheck,TouchTargetSizeCheck" />
+
+
+                <RadioButton
+                    style="@style/peyment_method_radiobutton"
+                    android:layout_weight="1"
+                    tools:ignore="TouchTargetSizeCheck" />
+
+
+            </RadioGroup>
+        </LinearLayout>
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/addCard"
+        style="@style/peyment_method_horizontal_linearlayout"
+        tools:ignore="UseCompoundDrawables">
+
+        <ImageView
+            style="@style/imageview_peyment_method"
+            android:background="@drawable/credit_card_payment_method"
+            tools:ignore="ContentDescription" />
+        <TextView
+            style="@style/Black_bigger_textView"
+            android:text="Add debit/credit card"
+            android:layout_weight="1"
+            tools:ignore="HardcodedText,InefficientWeight,RtlSymmetry" />
+
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+    <Button
+        style="@style/textview_popup_menu"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@drawable/start_button_background"
+        android:text="Save"
+        tools:ignore="HardcodedText,TouchTargetSizeCheck,VisualLintButtonSize" />
+
+
+</LinearLayout>

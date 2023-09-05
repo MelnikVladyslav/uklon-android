@@ -123,9 +123,6 @@
                         android:layout_weight="1"
                         tools:ignore="HardcodedText,InefficientWeight,RtlSymmetry" />
 
-
-
-
                 </LinearLayout>
                 <View
                     android:layout_width="match_parent"
@@ -176,6 +173,7 @@
                 </RadioGroup>
             </LinearLayout>
         </LinearLayout>
+
         <LinearLayout
             android:id="@+id/addCard"
             style="@style/peyment_method_horizontal_linearlayout"
@@ -207,14 +205,12 @@
 
     <Button
         android:id="@+id/Send"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingHorizontal="138dp"
-        android:paddingVertical="16dp"
+        android:layout_width="188dp"
+        android:layout_height="40dp"
         android:background="@drawable/start_button_background"
         android:fontFamily="@font/lato"
         android:letterSpacing="0.04"
-        android:text="Done"
+        android:text="Add promocode"
         android:textAllCaps="false"
         android:textColor="#262626"
         android:textSize="16sp"
