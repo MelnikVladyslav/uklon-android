@@ -74,7 +74,8 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/taxi_driver"/>
+        android:background="@drawable/taxi_driver"
+        tools:ignore="ContentDescription,ImageContrastCheck" />
     
     <TextView
         android:layout_width="wrap_content"
@@ -83,23 +84,27 @@
         android:textSize="24sp"
         android:textColor="#262626"
         android:text="Driver"
-        android:layout_marginTop="20dp"/>
+        android:layout_marginTop="20dp"
+        tools:ignore="HardcodedText" />
 
 
     <TextView
         style="@style/Grey_regular_smaller_textview"
+        android:layout_marginTop="7dp"
         android:text="Drives your car"
-        android:layout_marginTop="7dp"/>
+        tools:ignore="HardcodedText,TextContrastCheck" />
 
     <TextView
         style="@style/Black_bigger_textView"
         android:text="Ride on your own car"
-        android:layout_marginTop="15dp"/>
+        android:layout_marginTop="15dp"
+        tools:ignore="HardcodedText" />
 
     <TextView
         style="@style/Grey_regular_smaller_textview"
+        android:layout_marginTop="7dp"
         android:text="With the help of drive"
-        android:layout_marginTop="7dp"/>
+        tools:ignore="HardcodedText,TextContrastCheck" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -109,54 +114,74 @@
         android:textColor="#262626"
         android:text="What’s your transmission type?"
         android:layout_marginTop="35dp"
-        android:letterSpacing="0.04"/>
+        android:letterSpacing="0.04"
+        tools:ignore="HardcodedText" />
 
 
-    <RadioGroup
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp">
+        android:orientation="horizontal"
+        android:layout_marginTop="20dp"
+        tools:ignore="DisableBaselineAlignment">
 
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical">
+            android:orientation="vertical"
+            android:gravity="center_vertical"
+            tools:ignore="InefficientWeight">
 
             <TextView
                 style="@style/Black_bigger_textView"
                 android:text="Automatic"
                 android:layout_weight="1"
-                />
+                tools:ignore="HardcodedText,NestedWeights" />
 
-            <RadioButton
-                style="@style/peyment_method_radiobutton"
-                android:checked="true"/>
-        </LinearLayout>
-
-        <View
-            style="@style/View_aditional_service"
-           android:layout_marginTop="7dp"
-            android:layout_marginBottom="10dp"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical">
+            <View
+                style="@style/View_aditional_service"
+                android:layout_marginVertical="15dp"/>
 
             <TextView
                 style="@style/Black_bigger_textView"
                 android:text="Manual"
                 android:layout_weight="1"
-                />
+                tools:ignore="HardcodedText" />
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_vertical">
+
+            <RadioGroup
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:ignore="UselessParent">
+            <RadioButton
+                style="@style/peyment_method_radiobutton"
+                android:checked="true"
+                tools:ignore="TouchTargetSizeCheck" />
+
+            <View
+                style="@style/View_aditional_service"
+                android:layout_marginVertical="9dp"
+                android:layout_marginStart="-1dp"
+                tools:ignore="VisualLintBounds" />
 
             <RadioButton
-                style="@style/peyment_method_radiobutton" />
-        </LinearLayout>
-    </RadioGroup>
+                style="@style/peyment_method_radiobutton"
+                tools:ignore="TouchTargetSizeCheck" />
 
+            </RadioGroup>
+
+        </LinearLayout>
+    </LinearLayout>
 
     <Button
         android:gravity="center"

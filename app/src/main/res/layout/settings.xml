@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:paddingHorizontal="16dp"
+    android:paddingTop="45dp"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        tools:ignore="UselessParent">
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/arrow_back"
+            tools:ignore="ContentDescription,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+        <TextView
+            style="@style/textview_popup_menu"
+            android:layout_weight="1"
+            android:layout_marginEnd="28dp"
+            android:gravity="center"
+            android:text="Settings"
+            android:textSize="20sp"
+            tools:ignore="HardcodedText,InefficientWeight,RtlSymmetry" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="33dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+            <LinearLayout
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+
+                <TextView
+                    style="@style/Black_textView"
+                    android:text="Order reports"
+                    android:fontFamily="@font/lato"
+                    tools:ignore="HardcodedText" />
+                <TextView
+                    style="@style/Grey_Bold_textview"
+                    android:text="Receive to email"
+                    android:textSize="14sp"
+                    android:layout_marginTop="5dp"
+                    tools:ignore="HardcodedText" />
+            </LinearLayout>
+
+        <CheckBox
+            style="@style/checkbox_custom"
+            tools:ignore="TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
+
+    </LinearLayout>
+    <View
+        style="@style/View_aditional_service"
+        android:layout_marginVertical="20dp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/Black_textView"
+                android:text="Ride status changes"
+                android:fontFamily="@font/lato"
+                tools:ignore="HardcodedText" />
+            <TextView
+                style="@style/Grey_Bold_textview"
+                android:text="Phone Vibration"
+                android:textSize="14sp"
+                android:layout_marginTop="5dp"
+                tools:ignore="HardcodedText" />
+        </LinearLayout>
+        <CheckBox
+            style="@style/checkbox_custom"
+            android:checked="true"
+            tools:ignore="TouchTargetSizeCheck" />
+
+    </LinearLayout>
+    <View
+        style="@style/View_aditional_service"
+        android:layout_marginVertical="20dp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+
+        <TextView
+            style="@style/Black_textView"
+            android:text="Advertising messages"
+            android:fontFamily="@font/lato"
+            tools:ignore="HardcodedText" />
+        <TextView
+            style="@style/Grey_Bold_textview"
+            android:text="Get in the app"
+            android:textSize="14sp"
+            android:layout_marginTop="5dp"
+            tools:ignore="HardcodedText" />
+    </LinearLayout>
+    <View
+        style="@style/View_aditional_service"
+        android:layout_marginVertical="20dp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+
+        <TextView
+            style="@style/Black_textView"
+            android:text="Additional services by default"
+            android:fontFamily="@font/lato"
+            tools:ignore="HardcodedText" />
+        <TextView
+            style="@style/Grey_Bold_textview"
+            android:text="Customise"
+            android:textSize="14sp"
+            android:layout_marginTop="15dp"
+            tools:ignore="HardcodedText" />
+    </LinearLayout>
+    <View
+        style="@style/View_aditional_service"
+        android:layout_marginVertical="20dp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+
+        <TextView
+            style="@style/Black_textView"
+            android:text="Language"
+            android:fontFamily="@font/lato"
+            tools:ignore="HardcodedText" />
+        <TextView
+            style="@style/Grey_Bold_textview"
+            android:text="English"
+            android:textSize="14sp"
+            android:layout_marginTop="15dp"
+            tools:ignore="HardcodedText" />
+    </LinearLayout>
+    <View
+        style="@style/View_aditional_service"
+        android:layout_marginVertical="20dp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+            <TextView
+                style="@style/Black_textView"
+                android:layout_weight="1"
+                android:text="Light mode"
+                android:fontFamily="@font/lato"
+                tools:ignore="HardcodedText"
+                android:layout_width="0dp" />
+            <CheckBox
+            style="@style/checkbox_custom"
+            tools:ignore="TouchTargetSizeCheck" />
+
+    </LinearLayout>
+</LinearLayout>
