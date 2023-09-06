@@ -515,8 +515,13 @@ public class MainActivity extends AppCompatActivity {
             showRouteButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    addressStrEnd = String.valueOf(pointEnd.getText());
                     Intent intent = new Intent(MainActivity.this, WhereToGoActivity.class);
                     intent.putExtra("startLoc", addressStrStart);
+                    if(addressStrEnd != null)
+                    {
+                        intent.putExtra("twoPoint", addressStrEnd);
+                    }
                     intent.putExtra("user", correctUser);
                     startActivity(intent);
                 }
@@ -531,9 +536,10 @@ public class MainActivity extends AppCompatActivity {
                 pointEnd.setText(addressStrEnd);
             }
 
-            /*btnDelivery.setOnClickListener(new View.OnClickListener() {
+            btnDelivery.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    addressStrEnd = String.valueOf(pointEnd.getText());
                     Intent intent = new Intent(MainActivity.this, DeliveryActivity.class);
                     intent.putExtra("onePoint", addressStrStart);
                     intent.putExtra("user", correctUser);
@@ -548,6 +554,7 @@ public class MainActivity extends AppCompatActivity {
             btnDriver.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    addressStrEnd = String.valueOf(pointEnd.getText());
                     Intent intent = new Intent(MainActivity.this, EnterTypeAutoActivity.class);
                     intent.putExtra("onePoint", addressStrStart);
                     intent.putExtra("user", correctUser);
@@ -559,7 +566,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
 
-            btnInterCity.setOnClickListener(new View.OnClickListener() {
+            /*btnInterCity.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     Intent intent = new Intent(MainActivity.this, SelCitActivity.class);

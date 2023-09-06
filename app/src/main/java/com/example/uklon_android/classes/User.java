@@ -12,6 +12,7 @@ public class User implements Serializable {
     private String phoneNumber;
     private String roleId;
     private String token;
+    private String url;
     private List<Order> orderList;
     private List<Card> cardList;
 
@@ -60,7 +61,6 @@ public class User implements Serializable {
     public void setPassword(String password) {
         this.password = password;
     }
-
     public String getRole() {
         return roleId;
     }
@@ -68,13 +68,19 @@ public class User implements Serializable {
     public void setRole(String roleId) {
         this.roleId = roleId;
     }
-
     public String getToken() {
         return token;
     }
 
     public void setToken(String token) {
         this.token = token;
+    }
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 
     public List<Order> getOrders() {

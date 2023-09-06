@@ -30,6 +30,21 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".activities.DriverMainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.EnterTypeAutoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.OrderDelActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.DelMainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.DeliveryActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.EnterNameActivity"
             android:exported="false" />
         <activity
@@ -48,13 +63,28 @@
             android:name=".activities.OTActivity"
             android:exported="false" />
         <activity
+            android:name=".activities.ODrActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.SearchTaxiActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.SearchDriverActivity"
             android:exported="false" />
         <activity
             android:name=".activities.ADSActivity"
             android:exported="false" />
         <activity
             android:name=".activities.ComActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.ComDrActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.ADSDActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.ComDActivity"
             android:exported="false" />
         <activity
             android:name=".activities.OrderTaxiActivity"
@@ -66,7 +96,13 @@
             android:name=".activities.PayTActivity"
             android:exported="false" />
         <activity
+            android:name=".activities.PayDrActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.WhereToGoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.WhereToGoDriverActivity"
             android:exported="false" />
         <activity
             android:name=".activities.RegDriverActivity"
@@ -83,6 +119,9 @@
         <activity
             android:name=".activities.PayMActivity"
             android:label="PayMActivity" />
+        <activity
+            android:name=".activities.PayDActivity"
+            android:label="PayDActivity" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
