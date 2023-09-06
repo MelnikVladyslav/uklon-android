@@ -30,7 +30,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class WhereToGoActivity extends AppCompatActivity {
+public class WhereToGoDriverActivity extends AppCompatActivity {
 
     List<String> placeNames = new ArrayList<>();
     private RecyclerView recyclerView;
@@ -48,9 +48,9 @@ public class WhereToGoActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.where_to_go);
+        setContentView(R.layout.driver_where_to_go);
 
-        curAdress = (String) getIntent().getSerializableExtra("startLoc");
+        curAdress = (String) getIntent().getSerializableExtra("onePoint");
         correctUser = (User) getIntent().getSerializableExtra("user");
 
         startEdit = findViewById(R.id.startPos);
@@ -111,7 +111,7 @@ public class WhereToGoActivity extends AppCompatActivity {
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(WhereToGoActivity.this, MainActivity.class);
+                Intent intent = new Intent(WhereToGoDriverActivity.this, EnterTypeAutoActivity.class);
                 startActivity(intent);
             }
         });
@@ -119,7 +119,7 @@ public class WhereToGoActivity extends AppCompatActivity {
         btnDone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(WhereToGoActivity.this, OrderTaxiActivity.class);
+                Intent intent = new Intent(WhereToGoDriverActivity.this, DriverMainActivity.class);
                 intent.putExtra("onePoint", startEdit.getText().toString());
                 intent.putExtra("user", correctUser);
                 intent.putExtra("twoPoint", endEdit.getText().toString());
