@@ -160,10 +160,12 @@
             android:gravity="center_vertical">
 
             <RadioGroup
+                android:id="@+id/radioGroup"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 tools:ignore="UselessParent">
             <RadioButton
+                android:id="@+id/automatic"
                 style="@style/peyment_method_radiobutton"
                 android:checked="true"
                 tools:ignore="TouchTargetSizeCheck" />
@@ -175,6 +177,7 @@
                 tools:ignore="VisualLintBounds" />
 
             <RadioButton
+                android:id="@+id/manual"
                 style="@style/peyment_method_radiobutton"
                 tools:ignore="TouchTargetSizeCheck" />
 
@@ -184,6 +187,7 @@
     </LinearLayout>
 
     <Button
+        android:id="@+id/next"
         android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="40dp"

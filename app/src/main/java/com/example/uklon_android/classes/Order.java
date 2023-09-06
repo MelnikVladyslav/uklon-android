@@ -8,9 +8,10 @@ public class Order {
     private float totalPrice;
     private Date date = new Date();
     private String userId;
-    public String type;
-    public String startPoint;
-    public String endPoint;
+    private String type;
+    private String startPoint;
+    private String endPoint;
+    private int rating;
     private List<Transport> transportList;
 
     public int getId() {
@@ -67,6 +68,13 @@ public class Order {
 
     public void setUser(String User) {
         this.userId = userId;
+    }
+    public int getRating() {
+        return rating;
+    }
+
+    public void setRating(int rating) {
+        this.rating = rating;
     }
 
     public List<Transport> getTransports() {

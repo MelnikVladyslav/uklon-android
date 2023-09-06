@@ -1,21 +1,24 @@
 package com.example.uklon_android.activities;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+
 import com.example.uklon_android.R;
+import com.example.uklon_android.classes.Order;
+import com.example.uklon_android.classes.Transport;
+import com.example.uklon_android.classes.Types;
 import com.example.uklon_android.classes.User;
+import com.example.uklon_android.interfaces.ApiService;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationCallback;
 import com.google.android.gms.location.LocationRequest;
@@ -30,16 +33,24 @@ import com.google.android.gms.maps.model.MapStyleOptions;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-public class DelMainActivity extends AppCompatActivity {
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.List;
+import java.util.Objects;
 
-    ImageButton btnBack;
-    TextView tvPrice;
-    LinearLayout llTypePay, llCom, llADS;
-    Button btnNext;
-    String startPoint, endPoint;
-    User correctUser = new User();
-    float price = 100;
-    float priceADS = 0;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+public class ODrActivity extends AppCompatActivity {
+
+    TextView tvCancel, tvNameTr, tvNameDr, tvPrice, tvStartP, tvEndP;
+    Button btnOk;
+    String onePoint, twoPoint, nameTr;
+    User correctUser = new User(), driver = new User();
+    Transport transport = new Transport();
+    Types curType = new Types();
+    float price = 0;
     private GoogleMap googleMap;
     private SupportMapFragment mapFragment;
     private FusedLocationProviderClient fusedLocationClient;
@@ -50,94 +61,24 @@ public class DelMainActivity extends AppCompatActivity {
     double longitude;
     LatLng currentLatLng;
     Marker myLocationMarker;
+    ApiService apiService;
+    int idT = 0;
+    Order order = new Order();
+    List<Transport> trs = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.delivery_main);
+        setContentView(R.layout.arrives_taxi);
 
-        btnBack = findViewById(R.id.button);
-        tvPrice = findViewById(R.id.price);
-        llTypePay = findViewById(R.id.typePay);
-        llCom = findViewById(R.id.comment);
-        llADS = findViewById(R.id.ads);
-        btnNext = findViewById(R.id.next);
-
-        startPoint = (String) getIntent().getSerializableExtra("onePoint");
-        endPoint = (String) getIntent().getSerializableExtra("twoPoint");
-        correctUser = (User) getIntent().getSerializableExtra("user");
-
-        tvPrice.setText(String.valueOf(price));
-        if(getIntent().getSerializableExtra("price") != null)
-        {
-            price = (float) getIntent().getSerializableExtra("price");
-            tvPrice.setText(String.valueOf(price));
-        }
-        if (getIntent().getSerializableExtra("priceAS") != null) {
-            if ((int) getIntent().getSerializableExtra("priceAS") != 0) {
-                int p = (int) getIntent().getSerializableExtra("priceAS");
-                if (priceADS <= p) {
-                    priceADS = p;
-                    price += priceADS;
-                }
-                if (priceADS > p) {
-                    priceADS = p;
-                    price -= priceADS;
-                }
-                tvPrice.setText(String.valueOf(price));
-            }
-        }
-
-        llTypePay.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(DelMainActivity.this, PayDActivity.class);
-                intent.putExtra("user", (User) getIntent().getSerializableExtra("user"));
-                intent.putExtra("price", price);
-                startActivity(intent);
-            }
-        });
-
-        llCom.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(DelMainActivity.this, ComDActivity.class);
-                intent.putExtra("price", price);
-                startActivity(intent);
-            }
-        });
-
-        llADS.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(DelMainActivity.this, ADSDActivity.class);
-                intent.putExtra("user", (User) getIntent().getSerializableExtra("user"));
-                intent.putExtra("price", price);
-                intent.putExtra("onePoint", (String) getIntent().getSerializableExtra("onePoint"));
-                intent.putExtra("twoPoint", (String) getIntent().getSerializableExtra("twoPoint"));
-                startActivity(intent);
-            }
-        });
-
-        btnBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(DelMainActivity.this, DeliveryActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        btnNext.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(DelMainActivity.this, OrderDelActivity.class);
-                intent.putExtra("onePoint", startPoint);
-                intent.putExtra("twoPoint", endPoint);
-                intent.putExtra("price", price);
-                intent.putExtra("user", correctUser);
-                startActivity(intent);
-            }
-        });
+        apiService = apiService.retrofit.create(ApiService.class);
+        tvCancel = findViewById(R.id.CancelOrder);
+        tvNameTr = findViewById(R.id.NameTr);
+        tvNameDr = findViewById(R.id.nameDr);
+        tvPrice = findViewById(R.id.textPrice);
+        tvStartP = findViewById(R.id.startPoint);
+        tvEndP = findViewById(R.id.endPoint);
+        btnOk = findViewById(R.id.ok);
 
         mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.mapFragment);
         mapFragment.getMapAsync(new OnMapReadyCallback() {
@@ -145,10 +86,10 @@ public class DelMainActivity extends AppCompatActivity {
             public void onMapReady(GoogleMap map) {
                 googleMap = map;
                 // Налаштування карт, робота з мапою
-                googleMap.setMapStyle(MapStyleOptions.loadRawResourceStyle(DelMainActivity.this, R.raw.map));
+                googleMap.setMapStyle(MapStyleOptions.loadRawResourceStyle(ODrActivity.this, R.raw.map));
 
                 // Ініціалізація FusedLocationProviderClient
-                fusedLocationClient = LocationServices.getFusedLocationProviderClient(DelMainActivity.this);
+                fusedLocationClient = LocationServices.getFusedLocationProviderClient(ODrActivity.this);
 
                 // Налаштування LocationRequest для отримання місцезнаходження
                 locationRequest = new LocationRequest();
@@ -188,6 +129,60 @@ public class DelMainActivity extends AppCompatActivity {
                 startLocationUpdates();
             }
         });
+
+        tvCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ODrActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        nameTr = String.valueOf(tvNameTr.getText());
+        onePoint = (String) getIntent().getSerializableExtra("onePoint");
+        twoPoint = (String) getIntent().getSerializableExtra("twoPoint");
+        correctUser = (User) getIntent().getSerializableExtra("user");
+        driver = (User) getIntent().getSerializableExtra("driver");
+        price = (float) getIntent().getSerializableExtra("price");
+        curType = (Types) getIntent().getSerializableExtra("type");
+
+        tvStartP.setText(onePoint);
+        tvEndP.setText(twoPoint);
+        tvPrice.setText(String.valueOf(price));
+        tvNameDr.setText(String.valueOf(driver.getFirstName()));
+
+        transport = new Transport();
+        transport.setModel(nameTr);
+        transport.setDescription("car");
+        transport.setType(1);
+        trs.add(transport);
+
+        order.setTransports(trs);
+        order.setPrice(price);
+        order.setType("Driver");
+        order.setStartPoint(onePoint);
+        order.setEndPoint(twoPoint);
+        order.setDate(Calendar.getInstance().getTime());
+        order.setUser(correctUser.getId());
+
+        btnOk.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                apiService.createOrder(order).enqueue(new Callback<Order>() {
+                    @Override
+                    public void onResponse(Call<Order> call, Response<Order> response) {
+                        Intent intent = new Intent(ODrActivity.this, MainActivity.class);
+                        startActivity(intent);
+                    }
+
+                    @Override
+                    public void onFailure(Call<Order> call, Throwable t) {
+                        Log.d("Error", t.getMessage());
+                    }
+                });
+            }
+        });
+
     }
 
     private void startLocationUpdates() {

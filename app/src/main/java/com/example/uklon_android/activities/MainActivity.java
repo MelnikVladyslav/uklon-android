@@ -551,9 +551,10 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
 
-            /*btnDriver.setOnClickListener(new View.OnClickListener() {
+            btnDriver.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    addressStrEnd = String.valueOf(pointEnd.getText());
                     Intent intent = new Intent(MainActivity.this, EnterTypeAutoActivity.class);
                     intent.putExtra("onePoint", addressStrStart);
                     intent.putExtra("user", correctUser);
@@ -565,7 +566,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
 
-            btnInterCity.setOnClickListener(new View.OnClickListener() {
+            /*btnInterCity.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     Intent intent = new Intent(MainActivity.this, SelCitActivity.class);
