@@ -344,6 +344,38 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
             }
+            if(currentPhoneDTO.getEmail() != null) {
+                apiService.loginEmail(currentPhoneDTO).enqueue(new Callback<String>() {
+                    @Override
+                    public void onResponse(Call<String> call, Response<String> response) {
+                        tokenCurUser = response.body();
+
+                        apiService.getUsers().enqueue(new Callback<List<User>>() {
+                            @Override
+                            public void onResponse(Call<List<User>> call, Response<List<User>> response) {
+                                listUser = response.body();
+
+                                for (User user : listUser) {
+                                    if(Objects.equals(user.getToken(), tokenCurUser))
+                                    {
+                                        correctUser = user;
+                                    }
+                                }
+                            }
+
+                            @Override
+                            public void onFailure(Call<List<User>> call, Throwable t) {
+
+                            }
+                        });
+                    }
+
+                    @Override
+                    public void onFailure(Call<String> call, Throwable t) {
+
+                    }
+                });
+            }
         }
 
         if(getIntent().getSerializableExtra("user") != null)
@@ -566,14 +598,14 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
 
-            /*btnInterCity.setOnClickListener(new View.OnClickListener() {
+            btnInterCity.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     Intent intent = new Intent(MainActivity.this, SelCitActivity.class);
                     intent.putExtra("user", correctUser);
                     startActivity(intent);
                 }
-            });*/
+            });
 
             // Налаштовуємо анімацію для відкриття та закриття BottomSheetDialog
             // Ви можете змінити анімацію на ваш смак

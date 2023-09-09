@@ -69,11 +69,10 @@ public class ODrActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.arrives_taxi);
+        setContentView(R.layout.arrives_driver);
 
         apiService = apiService.retrofit.create(ApiService.class);
         tvCancel = findViewById(R.id.CancelOrder);
-        tvNameTr = findViewById(R.id.NameTr);
         tvNameDr = findViewById(R.id.nameDr);
         tvPrice = findViewById(R.id.textPrice);
         tvStartP = findViewById(R.id.startPoint);
@@ -152,7 +151,7 @@ public class ODrActivity extends AppCompatActivity {
         tvNameDr.setText(String.valueOf(driver.getFirstName()));
 
         transport = new Transport();
-        transport.setModel(nameTr);
+        transport.setModel("Driver");
         transport.setDescription("car");
         transport.setType(1);
         trs.add(transport);

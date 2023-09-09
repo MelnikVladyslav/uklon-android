@@ -12,7 +12,7 @@ public class User implements Serializable {
     private String phoneNumber;
     private String roleId;
     private String token;
-    private String url;
+    private String url = "";
     private List<Order> orderList;
     private List<Card> cardList;
 
@@ -75,6 +75,7 @@ public class User implements Serializable {
     public void setToken(String token) {
         this.token = token;
     }
+
     public String getUrl() {
         return url;
     }

@@ -1,8 +1,5 @@
 package com.example.uklon_android.activities;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -12,6 +9,9 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
 import com.example.uklon_android.R;
 import com.example.uklon_android.classes.Order;
@@ -35,15 +35,13 @@ import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
-import java.util.Objects;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class OTActivity extends AppCompatActivity {
+public class OInterActivity extends AppCompatActivity {
 
     TextView tvCancel, tvNameTr, tvNameDr, tvPrice, tvStartP, tvEndP;
     Button btnOk;
@@ -70,11 +68,10 @@ public class OTActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.arrives_taxi);
+        setContentView(R.layout.arrives_intercity);
 
         apiService = apiService.retrofit.create(ApiService.class);
         tvCancel = findViewById(R.id.CancelOrder);
-        tvNameTr = findViewById(R.id.NameTr);
         tvNameDr = findViewById(R.id.nameDr);
         tvPrice = findViewById(R.id.textPrice);
         tvStartP = findViewById(R.id.startPoint);
@@ -87,10 +84,10 @@ public class OTActivity extends AppCompatActivity {
             public void onMapReady(GoogleMap map) {
                 googleMap = map;
                 // Налаштування карт, робота з мапою
-                googleMap.setMapStyle(MapStyleOptions.loadRawResourceStyle(OTActivity.this, R.raw.map));
+                googleMap.setMapStyle(MapStyleOptions.loadRawResourceStyle(OInterActivity.this, R.raw.map));
 
                 // Ініціалізація FusedLocationProviderClient
-                fusedLocationClient = LocationServices.getFusedLocationProviderClient(OTActivity.this);
+                fusedLocationClient = LocationServices.getFusedLocationProviderClient(OInterActivity.this);
 
                 // Налаштування LocationRequest для отримання місцезнаходження
                 locationRequest = new LocationRequest();
@@ -134,7 +131,7 @@ public class OTActivity extends AppCompatActivity {
         tvCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(OTActivity.this, MainActivity.class);
+                Intent intent = new Intent(OInterActivity.this, MainActivity.class);
                 startActivity(intent);
             }
         });
@@ -153,41 +150,18 @@ public class OTActivity extends AppCompatActivity {
         tvNameDr.setText(String.valueOf(driver.getFirstName()));
 
         transport = new Transport();
-        transport.setModel(nameTr);
-        transport.setDescription("Taxi car");
-        if (curType.getName() != null)
-        {
-            apiService.getTypes().enqueue(new Callback<List<Types>>() {
-                @Override
-                public void onResponse(Call<List<Types>> call, Response<List<Types>> response) {
-                    List<Types> types = response.body();
-
-                    for (Types type: types)
-                    {
-                        if(Objects.equals(curType.getName(), type.getName()))
-                        {
-                            idT = type.getId();
-                            transport.setId(idT);
-                        }
-                    }
-                }
-
-                @Override
-                public void onFailure(Call<List<Types>> call, Throwable t) {
-
-                }
-            });
-        }
+        transport.setModel("Inter car");
+        transport.setDescription("car");
+        transport.setType(1);
         trs.add(transport);
 
         order.setTransports(trs);
         order.setPrice(price);
-        order.setType("Taxi");
+        order.setType("Intercity");
         order.setStartPoint(onePoint);
         order.setEndPoint(twoPoint);
         order.setDate(Calendar.getInstance().getTime());
         order.setUser(correctUser.getId());
-        order.setRating(5);
 
         btnOk.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -195,7 +169,7 @@ public class OTActivity extends AppCompatActivity {
                 apiService.createOrder(order).enqueue(new Callback<Order>() {
                     @Override
                     public void onResponse(Call<Order> call, Response<Order> response) {
-                        Intent intent = new Intent(OTActivity.this, MainActivity.class);
+                        Intent intent = new Intent(OInterActivity.this, MainActivity.class);
                         startActivity(intent);
                     }
 

@@ -171,6 +171,7 @@ public class OrderTaxiActivity extends AppCompatActivity implements CarCardsAdap
             public void onClick(View view) {
                 Intent intent = new Intent(OrderTaxiActivity.this, PayTActivity.class);
                 intent.putExtra("user", (User) getIntent().getSerializableExtra("user"));
+                intent.putExtra("price", price);
                 startActivity(intent);
             }
         });
@@ -179,6 +180,7 @@ public class OrderTaxiActivity extends AppCompatActivity implements CarCardsAdap
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(OrderTaxiActivity.this, ComActivity.class);
+                intent.putExtra("user", (User) getIntent().getSerializableExtra("user"));
                 intent.putExtra("price", price);
                 startActivity(intent);
             }

@@ -57,7 +57,7 @@ public class EmailActivity extends AppCompatActivity {
 
                         if(corUser == null)
                         {
-                            Intent intent = new Intent(EmailActivity.this, EnterNameActivity.class);
+                            Intent intent = new Intent(EmailActivity.this, VerificationEmailActivity.class);
                             intent.putExtra("phoneDTO", phoneDTO);
                             startActivity(intent);
                         }

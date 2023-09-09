@@ -30,6 +30,12 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".activities.SearchInterActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.InterMainActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.DriverMainActivity"
             android:exported="false" />
         <activity
@@ -87,6 +93,9 @@
             android:name=".activities.ComDActivity"
             android:exported="false" />
         <activity
+            android:name=".activities.ComInterActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.OrderTaxiActivity"
             android:exported="false" />
         <activity
@@ -94,6 +103,9 @@
             android:exported="false" />
         <activity
             android:name=".activities.PayTActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.PayInterActivity"
             android:exported="false" />
         <activity
             android:name=".activities.PayDrActivity"
