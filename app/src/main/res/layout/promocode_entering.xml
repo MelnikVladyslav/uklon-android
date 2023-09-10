@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingHorizontal="16dp"
+    android:paddingTop="45dp"
+    android:paddingBottom="40dp"
+    android:orientation="vertical">
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        tools:ignore="UselessParent">
+
+        <ImageButton
+            android:id="@+id/back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/arrow_back"
+            tools:ignore="ContentDescription,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/lato"
+            android:gravity="center_horizontal"
+            android:letterSpacing="0.04"
+            android:paddingEnd="25dp"
+            android:text="Enter promo code"
+            android:textAllCaps="false"
+            android:textColor="#262626"
+            android:textSize="20sp"
+            tools:ignore="HardcodedText,InefficientWeight,RtlSymmetry" />
+    </LinearLayout>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="20dp"
+    android:padding="8dp"
+    android:orientation="vertical"
+    android:background="@drawable/green_border">
+
+    <TextView
+        style="@style/Grey_regular_textview"
+        android:text="Promotion"
+        android:textSize="10sp"
+        tools:ignore="HardcodedText,SmallSp,TextContrastCheck" />
+
+    <EditText
+        style="@style/Black_textView"
+        android:textSize="12sp"
+        android:layout_marginTop="2dp"
+        android:background="@null"
+        tools:ignore="Autofill,LabelFor,TextFields" />
+
+
+
+
+</LinearLayout>
+    <TextView
+        style="@style/Grey_regular_textview"
+        android:text="The promo code will be applied to the next trip"
+        android:textSize="10sp"
+        android:layout_marginTop="10dp"
+        tools:ignore="HardcodedText,SmallSp,TextContrastCheck" />
+
+
+
+
+  <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+    <Button
+        style="@style/textview_popup_menu"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@drawable/start_button_background"
+        android:text="Confirm the code"
+        tools:ignore="HardcodedText,TouchTargetSizeCheck,VisualLintButtonSize" />
+</LinearLayout>

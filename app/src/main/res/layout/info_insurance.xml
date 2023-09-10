@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingHorizontal="16dp"
+    android:paddingTop="45dp"
+    android:paddingBottom="40dp"
+    android:orientation="vertical"
+    android:gravity="center_horizontal">
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        tools:ignore="UselessParent">
+
+        <ImageButton
+            android:id="@+id/back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/arrow_back"
+            tools:ignore="ContentDescription,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/lato"
+            android:gravity="center_horizontal"
+            android:letterSpacing="0.04"
+            android:paddingEnd="25dp"
+            android:text="Insurance"
+            android:textAllCaps="false"
+            android:textColor="#262626"
+            android:textSize="20sp"
+            tools:ignore="HardcodedText,InefficientWeight,RtlSymmetry" />
+    </LinearLayout>
+
+
+    <TextView
+        style="@style/Black_textView"
+        android:lineSpacingExtra="3sp"
+        android:layout_marginTop="33dp"
+        android:text="Each trip is insured for up to 1,000,000*.
+*It is implied that the life and health of the passenger and the driver are insured. The total amount of the insurance payment for one road accident cannot exceed 1,000,000 (one million) hryvnias for all persons in the event of the death of several insured persons as a result of such an accident,"
+        tools:ignore="HardcodedText,VisualLintLongText" />
+
+    <TextView
+        style="@style/Black_textView"
+        android:lineSpacingExtra="3sp"
+        android:layout_marginTop="15dp"
+        android:text='How to report an accident\nYou can find the "Report an accident" button on the found car screen or in the order details in History, in the Help section.'
+       tools:ignore="HardcodedText,VisualLintLongText" />
+
+    <TextView
+        style="@style/Grey_regular_textview"
+        android:lineSpacingExtra="3sp"
+        android:textSize="14sp"
+        android:text='Licenses of the State Financial Services Company "ARX Life Insurance" series AE 284381 dated February 11, 2014.'
+        android:layout_marginTop="15dp"
+        tools:ignore="HardcodedText,VisualLintLongText" />
+
+
+</LinearLayout>

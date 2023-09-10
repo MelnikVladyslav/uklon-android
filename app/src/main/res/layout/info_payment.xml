@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingHorizontal="16dp"
+    android:paddingTop="45dp"
+    android:paddingBottom="40dp"
+    android:orientation="vertical"
+    android:gravity="center_horizontal">
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        tools:ignore="UselessParent">
+
+        <ImageButton
+            android:id="@+id/back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/arrow_back"
+            tools:ignore="ContentDescription,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/lato"
+            android:gravity="center_horizontal"
+            android:letterSpacing="0.04"
+            android:paddingEnd="25dp"
+            android:text="Payment"
+            android:textAllCaps="false"
+            android:textColor="#262626"
+            android:textSize="20sp"
+            tools:ignore="HardcodedText,InefficientWeight,RtlSymmetry" />
+    </LinearLayout>
+
+
+    <TextView
+        style="@style/Black_textView"
+        android:lineSpacingExtra="3sp"
+        android:layout_marginTop="33dp"
+        android:text="Calculation of cost\nIf the route is changed or there is a long wait, the cost of the trip is recalculated according to the tariffs. In case of payment by card, the difference will be debited from the card."
+        tools:ignore="HardcodedText,VisualLintLongText" />
+
+    <TextView
+        style="@style/Black_textView"
+        android:lineSpacingExtra="3sp"
+        android:layout_marginTop="15dp"
+        android:text="Payment by card\nIn case of payment by card, funds are reserved after the car is found. In case of cancellation of the order, the funds reserved in your account will be available again in the near future."
+        tools:ignore="HardcodedText,VisualLintLongText" />
+
+    <TextView
+        style="@style/Black_textView"
+        android:lineSpacingExtra="3sp"
+        android:text="Order cancellation\nIf you cancel the order after submitting the car due to your fault, including if you did not leave at the specified address, your card will be charged for the cost of delivering the car depending on its class in accordance with the tariffs."
+        android:layout_marginTop="15dp"
+        tools:ignore="HardcodedText,VisualLintLongText" />
+
+
+</LinearLayout>

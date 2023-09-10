@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:paddingHorizontal="16dp"
+    android:paddingTop="45dp"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        >
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/arrow_back"
+            tools:ignore="ContentDescription,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+        <TextView
+            style="@style/textview_popup_menu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginEnd="28dp"
+            android:gravity="center"
+            android:letterSpacing="0.04"
+            android:text="Favorites"
+            android:textSize="20sp"
+            tools:ignore="HardcodedText,InefficientWeight,RtlSymmetry" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="32dp"
+        tools:ignore="UseCompoundDrawables">
+
+
+        <TextView
+            style="@style/textview_popup_menu"
+            android:layout_weight="1"
+            android:fontFamily="@font/lato_regular"
+            android:text="Add din"
+            tools:ignore="HardcodedText,InefficientWeight" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/house_small"
+            tools:ignore="ContentDescription" />
+
+
+
+    </LinearLayout>
+    <View
+        style="@style/View_aditional_service"
+        android:layout_marginTop="5dp"
+        android:background="#A3A3A3" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="32dp"
+        tools:ignore="UseCompoundDrawables">
+
+
+        <TextView
+            style="@style/textview_popup_menu"
+            android:layout_weight="1"
+            android:fontFamily="@font/lato_regular"
+            android:text="Add a job"
+            tools:ignore="HardcodedText,InefficientWeight" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/suitcase"
+            tools:ignore="ContentDescription" />
+
+
+
+    </LinearLayout>
+    <View
+        style="@style/View_aditional_service"
+        android:layout_marginTop="5dp"
+        android:background="#A3A3A3" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="32dp"
+        tools:ignore="UseCompoundDrawables">
+
+
+        <TextView
+            style="@style/textview_popup_menu"
+            android:layout_weight="1"
+            android:fontFamily="@font/lato_regular"
+            android:text="Add to favorites"
+            tools:ignore="HardcodedText,InefficientWeight" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/heart_black_smaller"
+            tools:ignore="ContentDescription" />
+
+
+
+    </LinearLayout>
+    <View
+        style="@style/View_aditional_service"
+        android:layout_marginTop="5dp"
+        android:background="#A3A3A3" />
+
+
+
+</LinearLayout>
