@@ -7,6 +7,7 @@ public class UserDTO {
     private String email = "";
     private String password = "";
     private String phoneNumber = "";
+    private String url = "";
 
     public String getId() {
         return id;
@@ -52,5 +53,13 @@ public class UserDTO {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 }

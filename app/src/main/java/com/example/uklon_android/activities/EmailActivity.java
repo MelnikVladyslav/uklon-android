@@ -31,10 +31,10 @@ public class EmailActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_email);
+        setContentView(R.layout.enter_email);
 
         editEmail = findViewById(R.id.editEmail);
-        btnNext = findViewById(R.id.Next);
+        btnNext = findViewById(R.id.next);
         apiService = apiService.retrofit.create(ApiService.class);
 
         btnNext.setOnClickListener(new View.OnClickListener() {
@@ -57,7 +57,7 @@ public class EmailActivity extends AppCompatActivity {
 
                         if(corUser == null)
                         {
-                            Intent intent = new Intent(EmailActivity.this, EnterNameActivity.class);
+                            Intent intent = new Intent(EmailActivity.this, VerificationEmailActivity.class);
                             intent.putExtra("phoneDTO", phoneDTO);
                             startActivity(intent);
                         }

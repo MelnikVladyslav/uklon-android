@@ -29,7 +29,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class PayDActivity extends AppCompatActivity {
+public class PayInterActivity extends AppCompatActivity {
 
     RadioButton DC, C;
     LinearLayout SC;
@@ -56,8 +56,7 @@ public class PayDActivity extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(PayDActivity.this, DelMainActivity.class);
-                intent.putExtra("user", (User) getIntent().getSerializableExtra("user"));
+                Intent intent = new Intent(PayInterActivity.this, InterMainActivity.class);
                 intent.putExtra("price", (float) getIntent().getSerializableExtra("price"));
                 startActivity(intent);
             }
@@ -106,7 +105,7 @@ public class PayDActivity extends AppCompatActivity {
         done.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(PayDActivity.this, DelMainActivity.class);
+                Intent intent = new Intent(PayInterActivity.this, InterMainActivity.class);
                 intent.putExtra("price", (float) getIntent().getSerializableExtra("price"));
                 startActivity(intent);
             }
@@ -115,7 +114,7 @@ public class PayDActivity extends AppCompatActivity {
         SC.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                    Intent scanIntent = new Intent(PayDActivity.this, CardIOActivity.class);
+                    Intent scanIntent = new Intent(PayInterActivity.this, CardIOActivity.class);
 
                     // встановіть потрібні налаштування
                     scanIntent.putExtra(CardIOActivity.EXTRA_REQUIRE_EXPIRY, true);
@@ -146,12 +145,12 @@ public class PayDActivity extends AppCompatActivity {
                 apiService.addCard(newCard).enqueue(new Callback<Card>() {
                     @Override
                     public void onResponse(Call<Card> call, Response<Card> response) {
-                        Toast.makeText(PayDActivity.this, "Картку додано " + response.hashCode(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(PayInterActivity.this, "Картку додано " + response.hashCode(), Toast.LENGTH_SHORT).show();
                     }
 
                     @Override
                     public void onFailure(Call<Card> call, Throwable t) {
-                        Toast.makeText(PayDActivity.this, "Помилка: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(PayInterActivity.this, "Помилка: " + t.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });
 

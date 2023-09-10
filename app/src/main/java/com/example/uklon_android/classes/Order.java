@@ -11,7 +11,7 @@ public class Order {
     private String type;
     private String startPoint;
     private String endPoint;
-    private int rating;
+    private int rating = 5;
     private List<Transport> transportList;
 
     public int getId() {

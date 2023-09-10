@@ -9,13 +9,9 @@ import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.uklon_android.R;
-import com.example.uklon_android.classes.Order;
-import com.example.uklon_android.classes.Transport;
 import com.example.uklon_android.classes.Types;
 import com.example.uklon_android.classes.User;
 import com.example.uklon_android.interfaces.ApiService;
@@ -34,8 +30,6 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
@@ -43,15 +37,15 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class OTActivity extends AppCompatActivity {
+public class SearchInterActivity extends AppCompatActivity {
 
-    TextView tvCancel, tvNameTr, tvNameDr, tvPrice, tvStartP, tvEndP;
-    Button btnOk;
-    String onePoint, twoPoint, nameTr;
+    String onePoint, twoPoint;
     User correctUser = new User(), driver = new User();
-    Transport transport = new Transport();
-    Types curType = new Types();
     float price = 0;
+    Types curType = new Types();
+    TextView tvTypeName, tvPrice, tvStartP, tvEndPoint;
+    List<User> listUsers = new ArrayList<>();
+    ApiService apiService;
     private GoogleMap googleMap;
     private SupportMapFragment mapFragment;
     private FusedLocationProviderClient fusedLocationClient;
@@ -62,24 +56,20 @@ public class OTActivity extends AppCompatActivity {
     double longitude;
     LatLng currentLatLng;
     Marker myLocationMarker;
-    ApiService apiService;
-    int idT = 0;
-    Order order = new Order();
-    List<Transport> trs = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.arrives_taxi);
+        setContentView(R.layout.search_intercity);
+
+
+        onePoint = (String) getIntent().getSerializableExtra("onePoint");
+        twoPoint = (String) getIntent().getSerializableExtra("twoPoint");
+        price = (float) getIntent().getSerializableExtra("price");
+        correctUser = (User) getIntent().getSerializableExtra("user");
+        curType = (Types) getIntent().getSerializableExtra("type");
 
         apiService = apiService.retrofit.create(ApiService.class);
-        tvCancel = findViewById(R.id.CancelOrder);
-        tvNameTr = findViewById(R.id.NameTr);
-        tvNameDr = findViewById(R.id.nameDr);
-        tvPrice = findViewById(R.id.textPrice);
-        tvStartP = findViewById(R.id.startPoint);
-        tvEndP = findViewById(R.id.endPoint);
-        btnOk = findViewById(R.id.ok);
 
         mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.mapFragment);
         mapFragment.getMapAsync(new OnMapReadyCallback() {
@@ -87,10 +77,10 @@ public class OTActivity extends AppCompatActivity {
             public void onMapReady(GoogleMap map) {
                 googleMap = map;
                 // Налаштування карт, робота з мапою
-                googleMap.setMapStyle(MapStyleOptions.loadRawResourceStyle(OTActivity.this, R.raw.map));
+                googleMap.setMapStyle(MapStyleOptions.loadRawResourceStyle(SearchInterActivity.this, R.raw.map));
 
                 // Ініціалізація FusedLocationProviderClient
-                fusedLocationClient = LocationServices.getFusedLocationProviderClient(OTActivity.this);
+                fusedLocationClient = LocationServices.getFusedLocationProviderClient(SearchInterActivity.this);
 
                 // Налаштування LocationRequest для отримання місцезнаходження
                 locationRequest = new LocationRequest();
@@ -131,79 +121,44 @@ public class OTActivity extends AppCompatActivity {
             }
         });
 
-        tvCancel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(OTActivity.this, MainActivity.class);
-                startActivity(intent);
-            }
-        });
+        tvTypeName = findViewById(R.id.typeName);
+        tvPrice = findViewById(R.id.price);
+        tvStartP = findViewById(R.id.startPoint);
+        tvEndPoint = findViewById(R.id.endPoint);
 
-        nameTr = String.valueOf(tvNameTr.getText());
-        onePoint = (String) getIntent().getSerializableExtra("onePoint");
-        twoPoint = (String) getIntent().getSerializableExtra("twoPoint");
-        correctUser = (User) getIntent().getSerializableExtra("user");
-        driver = (User) getIntent().getSerializableExtra("driver");
-        price = (float) getIntent().getSerializableExtra("price");
-        curType = (Types) getIntent().getSerializableExtra("type");
-
-        tvStartP.setText(onePoint);
-        tvEndP.setText(twoPoint);
         tvPrice.setText(String.valueOf(price));
-        tvNameDr.setText(String.valueOf(driver.getFirstName()));
+        tvStartP.setText(onePoint);
+        tvEndPoint.setText(twoPoint);
 
-        transport = new Transport();
-        transport.setModel(nameTr);
-        transport.setDescription("Taxi car");
-        if (curType.getName() != null)
-        {
-            apiService.getTypes().enqueue(new Callback<List<Types>>() {
-                @Override
-                public void onResponse(Call<List<Types>> call, Response<List<Types>> response) {
-                    List<Types> types = response.body();
-
-                    for (Types type: types)
-                    {
-                        if(Objects.equals(curType.getName(), type.getName()))
-                        {
-                            idT = type.getId();
-                            transport.setId(idT);
-                        }
-                    }
-                }
-
-                @Override
-                public void onFailure(Call<List<Types>> call, Throwable t) {
-
-                }
-            });
-        }
-        trs.add(transport);
-
-        order.setTransports(trs);
-        order.setPrice(price);
-        order.setType("Taxi");
-        order.setStartPoint(onePoint);
-        order.setEndPoint(twoPoint);
-        order.setDate(Calendar.getInstance().getTime());
-        order.setUser(correctUser.getId());
-        order.setRating(5);
-
-        btnOk.setOnClickListener(new View.OnClickListener() {
+        apiService.getUsers().enqueue(new Callback<List<User>>() {
             @Override
-            public void onClick(View view) {
-                apiService.createOrder(order).enqueue(new Callback<Order>() {
-                    @Override
-                    public void onResponse(Call<Order> call, Response<Order> response) {
-                        Intent intent = new Intent(OTActivity.this, MainActivity.class);
-                        startActivity(intent);
-                    }
+            public void onResponse(Call<List<User>> call, Response<List<User>> response) {
+                listUsers = response.body();
 
-                    @Override
-                    public void onFailure(Call<Order> call, Throwable t) {
-                        Log.d("Error", t.getMessage());
+                for (User user: listUsers) {
+                    if (Objects.equals(user.getRole(), "Driver"))
+                    {
+                        driver = user;
+                        Log.d("Name driver: ", driver.getFirstName());
                     }
-                });
+                }
+
+                if(driver != null)
+                {
+                    Intent intent = new Intent(SearchInterActivity.this, ODrActivity.class);
+                    intent.putExtra("onePoint", onePoint);
+                    intent.putExtra("twoPoint", twoPoint);
+                    intent.putExtra("user", correctUser);
+                    intent.putExtra("driver", driver);
+                    intent.putExtra("price", price);
+                    intent.putExtra("type", curType);
+                    startActivity(intent);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<User>> call, Throwable t) {
+                Log.d("Error", t.getMessage());
             }
         });
 
@@ -219,4 +174,5 @@ public class OTActivity extends AppCompatActivity {
 
         fusedLocationClient.requestLocationUpdates(locationRequest, locationCallback, null);
     }
+
 }

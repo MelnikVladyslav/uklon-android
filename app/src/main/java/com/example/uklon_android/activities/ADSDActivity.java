@@ -40,6 +40,7 @@ public class ADSDActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(ADSDActivity.this, DelMainActivity.class);
+                intent.putExtra("user", (User) getIntent().getSerializableExtra("user"));
                 startActivity(intent);
             }
         });

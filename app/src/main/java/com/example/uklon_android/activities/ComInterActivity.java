@@ -11,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.uklon_android.R;
 import com.example.uklon_android.classes.User;
 
-public class ComDActivity extends AppCompatActivity {
+public class ComInterActivity extends AppCompatActivity {
 
     ImageButton btnBack;
     Button btnNext;
@@ -27,7 +27,7 @@ public class ComDActivity extends AppCompatActivity {
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(ComDActivity.this, DelMainActivity.class);
+                Intent intent = new Intent(ComInterActivity.this, InterMainActivity.class);
                 intent.putExtra("user", (User) getIntent().getSerializableExtra("user"));
                 intent.putExtra("price", (float) getIntent().getSerializableExtra("price"));
                 startActivity(intent);
@@ -37,7 +37,7 @@ public class ComDActivity extends AppCompatActivity {
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(ComDActivity.this, DelMainActivity.class);
+                Intent intent = new Intent(ComInterActivity.this, InterMainActivity.class);
                 intent.putExtra("user", (User) getIntent().getSerializableExtra("user"));
                 intent.putExtra("price", (float) getIntent().getSerializableExtra("price"));
                 startActivity(intent);

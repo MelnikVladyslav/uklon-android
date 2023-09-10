@@ -26,9 +26,6 @@ public interface ApiService {
             .addConverterFactory(GsonConverterFactory.create())
             .build();
 
-    @GET("/api/transports")
-    Call<List<Transport>> getDataList();
-
     @GET("/api/login/get-users")
     Call<List<User>> getUsers();
 
@@ -57,7 +54,10 @@ public interface ApiService {
     Call<List<Types>> getTypes();
 
     @POST("/api/verif-phone")
-    Call<Boolean> verifPhone(@Body PhoneNumberVerificationDto phoneDTO);
+    Call<Integer> verifPhone(@Body PhoneNumberVerificationDto phoneDTO);
+
+    @POST("/api/verif-email")
+    Call<Integer> verifEmail(@Body PhoneNumberVerificationDto phoneDTO);
 
     @POST("api/login/login-phone")
     Call<String> loginPhone(@Body PhoneNumberVerificationDto phoneDTO);

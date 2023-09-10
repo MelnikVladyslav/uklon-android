@@ -102,6 +102,7 @@ public class DelMainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(DelMainActivity.this, ComDActivity.class);
+                intent.putExtra("user", (User) getIntent().getSerializableExtra("user"));
                 intent.putExtra("price", price);
                 startActivity(intent);
             }

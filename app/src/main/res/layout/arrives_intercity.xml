@@ -16,29 +16,17 @@
         tools:ignore="FragmentTagUsage"
         tools:layout_editor_absoluteY="-84dp" />
 
-    <ImageButton
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/popup_menu_open"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.05"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.03"
-        tools:ignore="ContentDescription,SpeakableTextPresentCheck,ImageContrastCheck,TouchTargetSizeCheck" />
 
 
     <Button
-        android:id="@+id/find_my_location_button"
+        android:id="@+id/ok"
         android:layout_width="60dp"
         android:layout_height="36dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="20dp"
         android:background="@drawable/white_rounded"
         android:fontFamily="@font/lato_regular"
-        android:text="Hide"
+        android:text="Ok"
         android:textAllCaps="false"
         android:textColor="#A3A3A3"
         android:textSize="14sp"
@@ -49,7 +37,7 @@
     <LinearLayout
         android:id="@+id/menu_search_driver"
         android:layout_width="match_parent"
-        android:layout_height="450dp"
+        android:layout_height="500dp"
         android:background="@drawable/white_rounded_top_corners"
         android:elevation="15dp"
         android:gravity="center_horizontal"
@@ -64,7 +52,6 @@
             android:layout_height="wrap_content"
             android:layout_alignTop="@id/popup_menu_main"
             android:background="@drawable/grey_line"
-
             tools:ignore="ContentDescription,NotSibling,ObsoleteLayoutParam,ImageContrastCheck" />
 
         <TextView
@@ -73,70 +60,116 @@
             android:layout_marginTop="15dp"
             android:fontFamily="@font/lato"
             android:letterSpacing="0.04"
-            android:text="Drive has accepted your order..."
+            android:text="Arrives in 4 min"
             android:textColor="#262626"
             android:textSize="20sp"
             tools:ignore="HardcodedText" />
 
-        <TextView
-            android:id="@+id/typeName"
-            style="@style/Grey_Bold_textview"
-            android:layout_marginTop="15dp"
-            android:text="Intercity"
-            android:textSize="16sp"
-            tools:ignore="HardcodedText" />
+
+        <View
+            style="@style/View_aditional_service"
+            android:layout_marginVertical="20dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="40dp">
+            android:gravity="center"
+            android:orientation="horizontal"
+            tools:ignore="DisableBaselineAlignment">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-
-                android:background="@drawable/skip_button"
-                android:fontFamily="@font/lato_regular"
-                android:paddingHorizontal="15dp"
-                android:paddingVertical="7dp"
-                android:text="Payment type"
-                android:textColor="#848484"
-                android:textSize="13sp"
-                tools:ignore="HardcodedText,TextContrastCheck" />
-
-            <View
+            <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_weight="1" />
-
-
-            <TextView
-                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/skip_button"
-                android:fontFamily="@font/lato_regular"
-                android:paddingHorizontal="15dp"
-                android:paddingVertical="7dp"
-                android:text="10 min, 4.5 km"
-                android:textColor="#848484"
-                android:textSize="13sp"
-                tools:ignore="HardcodedText,TextContrastCheck" />
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <ImageButton
+                    android:id="@+id/avatarDr"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:background="@drawable/oleg"
+                    tools:ignore="ContentDescription,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+                <TextView
+                    android:id="@+id/nameDr"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/lato_regular"
+                    android:text="Oleg"
+                    android:textColor="#262626"
+                    android:textSize="12sp"
+                    tools:ignore="HardcodedText" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/icon_telephone"
+                    tools:ignore="ContentDescription,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/lato_regular"
+                    android:text="Contact"
+                    android:textColor="#262626"
+                    android:textSize="12sp"
+                    tools:ignore="HardcodedText" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="10dp"
+                    android:background="@drawable/icon_share"
+                    tools:ignore="ContentDescription,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/lato_regular"
+                    android:text="Share"
+                    android:textColor="#262626"
+                    android:textSize="12sp"
+                    tools:ignore="HardcodedText" />
+
+            </LinearLayout>
+
 
         </LinearLayout>
 
 
         <View
             style="@style/View_aditional_service"
-            android:layout_marginTop="20dp" />
+            android:layout_marginVertical="20dp" />
 
         <TextView
+            android:id="@+id/CancelOrder"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
             android:fontFamily="@font/lato_regular"
             android:lineHeight="16sp"
             android:paddingHorizontal="15dp"
-            android:paddingVertical="15dp"
             android:text="Cancel ride"
             android:textColor="#AE2012"
             android:textSize="15sp"
@@ -144,12 +177,11 @@
 
         <View
             style="@style/View_aditional_service"
-            android:layout_marginTop="5dp" />
+            android:layout_marginVertical="20dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
             android:gravity="center_vertical"
             android:orientation="horizontal">
 
@@ -181,11 +213,11 @@
             </LinearLayout>
 
             <TextView
-                android:id="@+id/price"
+                android:id="@+id/textPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/lato_regular"
-                android:text="1095 ₴"
+                android:text="68 ₴ "
                 android:textColor="#262626"
                 android:textSize="32sp"
                 tools:ignore="HardcodedText" />
@@ -219,14 +251,14 @@
                 <TextView
                     android:id="@+id/startPoint"
                     style="@style/Black_bigger_textView"
-                    android:text="Lutsk Railway Station"
+                    android:text="Gregory Skovorody Street 19"
                     tools:ignore="HardcodedText" />
 
                 <TextView
                     android:id="@+id/endPoint"
                     style="@style/Black_bigger_textView"
                     android:layout_marginTop="13dp"
-                    android:text="Gregory Skovorody Street 19"
+                    android:text="Kyivska Street, 40"
                     tools:ignore="HardcodedText" />
 
             </LinearLayout>

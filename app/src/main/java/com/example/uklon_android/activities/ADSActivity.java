@@ -40,6 +40,7 @@ public class ADSActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(ADSActivity.this, OrderTaxiActivity.class);
+                intent.putExtra("user", (User) getIntent().getSerializableExtra("user"));
                 startActivity(intent);
             }
         });
