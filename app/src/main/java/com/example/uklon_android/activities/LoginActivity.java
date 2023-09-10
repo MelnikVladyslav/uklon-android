@@ -120,6 +120,7 @@ public class LoginActivity extends AppCompatActivity {
                         @Override
                         public void onResponse(Call<List<User>> call, Response<List<User>> response) {
                             listUser = response.body();
+                            correctUser = null;
 
                             for (User user:listUser) {
                                 if(Objects.equals(user.getPhoneNumber(), phoneNumber))

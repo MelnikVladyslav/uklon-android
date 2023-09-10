@@ -102,6 +102,9 @@
             android:name=".activities.SelCityActivity"
             android:exported="false" />
         <activity
+            android:name=".activities.SelCitActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.PayTActivity"
             android:exported="false" />
         <activity

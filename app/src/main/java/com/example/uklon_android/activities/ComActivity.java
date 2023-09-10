@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 
 import com.example.uklon_android.R;
+import com.example.uklon_android.classes.User;
 
 public class ComActivity extends AppCompatActivity {
 
@@ -27,6 +28,7 @@ public class ComActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(ComActivity.this, OrderTaxiActivity.class);
+                intent.putExtra("user", (User) getIntent().getSerializableExtra("user"));
                 intent.putExtra("price", (float) getIntent().getSerializableExtra("price"));
                 startActivity(intent);
             }
@@ -36,6 +38,7 @@ public class ComActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(ComActivity.this, OrderTaxiActivity.class);
+                intent.putExtra("user", (User) getIntent().getSerializableExtra("user"));
                 intent.putExtra("price", (float) getIntent().getSerializableExtra("price"));
                 startActivity(intent);
             }

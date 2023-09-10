@@ -57,6 +57,7 @@ public class PayDActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(PayDActivity.this, DelMainActivity.class);
+                intent.putExtra("user", (User) getIntent().getSerializableExtra("user"));
                 intent.putExtra("price", (float) getIntent().getSerializableExtra("price"));
                 startActivity(intent);
             }
