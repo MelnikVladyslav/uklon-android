@@ -236,20 +236,4 @@
 
    </LinearLayout>
 
-   <LinearLayout
-       android:id="@+id/BtnSign"
-       style="@style/linearlayout_pop_up_menu_horizontal_margin_top_0"
-       tools:ignore="UseCompoundDrawables">
-
-      <ImageButton
-          style="@style/imageview_popup_menu"
-          android:background="@drawable/about"
-          tools:ignore="ContentDescription,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
-      <TextView
-          style="@style/textview_popup_menu"
-          android:text="Exit"
-          tools:ignore="HardcodedText"/>
-
-   </LinearLayout>
-
    </LinearLayout>

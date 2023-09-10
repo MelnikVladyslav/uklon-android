@@ -81,7 +81,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements PlacesAdapter.OnPlaceClickListener {
 
     public ApiService apiService;
     private GoogleMap googleMap;
@@ -123,7 +123,7 @@ public class MainActivity extends AppCompatActivity {
         Places.initialize(getApplicationContext(), ApiKey);
         placesClient = Places.createClient(this);
         List<String> placesList = new ArrayList<>(); // Список місць
-        placesAdapter = new PlacesAdapter(placesList);
+        placesAdapter = new PlacesAdapter(placesList, MainActivity.this);
         geocoder = new Geocoder(this, Locale.getDefault());
         apiService = apiService.retrofit.create(ApiService.class);
         gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
@@ -394,7 +394,6 @@ public class MainActivity extends AppCompatActivity {
                     // Знаходження кнопок в меню
                     ImageButton btnOption1 = popupView.findViewById(R.id.btnOption1);
                     ImageButton btnSelCity = popupView.findViewById(R.id.selCityBtn);
-                    LinearLayout btnSignOut = popupView.findViewById(R.id.BtnSign);
                     ImageView avatar = popupView.findViewById(R.id.avatar);
                     LinearLayout btnRegDr = popupView.findViewById(R.id.btnRegDr);
                     LinearLayout lltypePay = popupView.findViewById(R.id.typePay);
@@ -426,19 +425,6 @@ public class MainActivity extends AppCompatActivity {
                             }
                             startActivity(intent);
                             finish();
-                        }
-                    });
-
-                    //sign out
-                    btnSignOut.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            if (gsc != null) {
-                                signOut();
-                            }
-                            if (isLoggedIn) {
-                                signFacebook();
-                            }
                         }
                     });
 
@@ -524,6 +510,11 @@ public class MainActivity extends AppCompatActivity {
             latitude = location.getLatitude();
             longitude = location.getLongitude();
 
+            if(addressStrEnd != null)
+            {
+                pointEnd.setText(addressStrEnd);
+            }
+
             try {
                 List<Address> addresses = geocoder.getFromLocation(latitude, longitude, 1);
 
@@ -562,11 +553,6 @@ public class MainActivity extends AppCompatActivity {
             recyclerView = bottomSheetDialog.findViewById(R.id.recyclerView);
             recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
             recyclerView.setAdapter(placesAdapter);
-
-            if (addressStrEnd != null)
-            {
-                pointEnd.setText(addressStrEnd);
-            }
 
             btnDelivery.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -621,22 +607,6 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    void signOut(){
-        gsc.signOut().addOnCompleteListener(new OnCompleteListener<Void>() {
-            @Override
-            public void onComplete(Task<Void> task) {
-                startActivity(new Intent(MainActivity.this, LoginActivity.class));
-                finish();
-            }
-        });
-    }
-
-    void signFacebook(){
-        LoginManager.getInstance().logOut();
-        startActivity(new Intent(MainActivity.this, LoginActivity.class));
-        finish();
-    }
-
     private void startLocationUpdates() {
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED &&
                 ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
@@ -650,5 +620,12 @@ public class MainActivity extends AppCompatActivity {
 
     private void stopLocationUpdates() {
         fusedLocationClient.removeLocationUpdates(locationCallback);
+    }
+
+    @Override
+    public void onPlaceClick(String selectedPlace) {
+        if(selectedPlace != null) {
+            addressStrEnd = selectedPlace;
+        }
     }
 }

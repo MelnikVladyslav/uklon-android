@@ -46,8 +46,8 @@ public class SelCitActivity extends AppCompatActivity {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
-        btnNext.findViewById(R.id.Send);
-        edEnterName.findViewById(R.id.nameCity);
+        btnNext = findViewById(R.id.Done);
+        edEnterName = findViewById(R.id.nameCity);
 
         GeoNamesApiService geoNamesApiService = retrofit.create(GeoNamesApiService.class);
         recyclerView = findViewById(R.id.recyclerView);
@@ -93,6 +93,7 @@ public class SelCitActivity extends AppCompatActivity {
                 intent.putExtra("user", (User) getIntent().getSerializableExtra("user"));
                 intent.putExtra("startPoint", startCity);
                 intent.putExtra("endPoint", String.valueOf(edEnterName.getText()));
+                startActivity(intent);
             }
         });
 

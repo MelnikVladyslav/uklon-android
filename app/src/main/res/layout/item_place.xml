@@ -36,7 +36,8 @@
             tools:ignore="HardcodedText"
             android:layout_weight="1"/>
 
-        <ImageView
+        <ImageButton
+            android:id="@+id/click"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end|center_vertical"

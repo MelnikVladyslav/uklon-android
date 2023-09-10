@@ -3,6 +3,8 @@ package com.example.uklon_android.interfaces;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -17,9 +19,11 @@ public class PlacesAdapter extends RecyclerView.Adapter<PlacesAdapter.PlaceViewH
     private List<String> places;
 
     private String nameCurPlace;
+    private OnPlaceClickListener placeClickListener;
 
-    public PlacesAdapter(List<String> places) {
+    public PlacesAdapter(List<String> places, OnPlaceClickListener listener) {
         this.places = places;
+        this.placeClickListener = listener;
     }
 
     @NonNull
@@ -43,6 +47,16 @@ public class PlacesAdapter extends RecyclerView.Adapter<PlacesAdapter.PlaceViewH
                 nameCurPlace = content;
                 // Тепер ви можете зробити те, що потрібно зі змінною savedContent
                 // Наприклад, вивести її на екран, обробити її тощо.
+            }
+        });
+
+        holder.btnClick.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                nameCurPlace = places.get(position);
+                if (placeClickListener != null) {
+                    placeClickListener.onPlaceClick(nameCurPlace);
+                }
             }
         });
     }
@@ -72,13 +86,20 @@ public class PlacesAdapter extends RecyclerView.Adapter<PlacesAdapter.PlaceViewH
         return nameCurPlace;
     }
 
+    public interface OnPlaceClickListener
+    {
+        void onPlaceClick(String selectedPlace);
+    }
+
     static class PlaceViewHolder extends RecyclerView.ViewHolder {
 
         TextView placeNameTextView;
+        ImageButton btnClick;
 
         public PlaceViewHolder(@NonNull View itemView) {
             super(itemView);
             placeNameTextView = itemView.findViewById(R.id.placeNameTextView);
+            btnClick = itemView.findViewById(R.id.click);
         }
     }
 }

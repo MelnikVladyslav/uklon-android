@@ -30,7 +30,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class WhereToGoDriverActivity extends AppCompatActivity {
+public class WhereToGoDriverActivity extends AppCompatActivity implements PlacesAdapter.OnPlaceClickListener {
 
     List<String> placeNames = new ArrayList<>();
     private RecyclerView recyclerView;
@@ -65,7 +65,7 @@ public class WhereToGoDriverActivity extends AppCompatActivity {
         Places.initialize(getApplicationContext(), ApiKey);
         placesClient = Places.createClient(this);
         List<String> placesList = new ArrayList<>(); // Список місць
-        placesAdapter = new PlacesAdapter(placesList);
+        placesAdapter = new PlacesAdapter(placesList, WhereToGoDriverActivity.this);
 
         // Здійснюємо запит до Google Places API за допомогою PlacesClient
         List<Place.Field> placeFields = Arrays.asList(Place.Field.NAME);
@@ -127,5 +127,12 @@ public class WhereToGoDriverActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    public void onPlaceClick(String selectedPlace) {
+        if(selectedPlace != null) {
+            endEdit.setText(selectedPlace);
+        }
     }
 }
