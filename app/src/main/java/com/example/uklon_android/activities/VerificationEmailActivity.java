@@ -123,7 +123,7 @@ public class VerificationEmailActivity extends AppCompatActivity {
 
                 if(Objects.equals(code, codeEnter))
                 {
-                    Intent intent = new Intent(VerificationEmailActivity.this, MainActivity.class);
+                    Intent intent = new Intent(VerificationEmailActivity.this, EnterPassEmailActivity.class);
                     intent.putExtra("phoneDTO", phoneDTO);
                     startActivity(intent);
                 }
