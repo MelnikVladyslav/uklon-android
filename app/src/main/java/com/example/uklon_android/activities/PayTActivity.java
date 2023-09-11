@@ -58,6 +58,7 @@ public class PayTActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(PayTActivity.this, OrderTaxiActivity.class);
                 intent.putExtra("price", (float) getIntent().getSerializableExtra("price"));
+                intent.putExtra("user", (User) getIntent().getSerializableExtra("user"));
                 startActivity(intent);
             }
         });
@@ -107,6 +108,7 @@ public class PayTActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(PayTActivity.this, OrderTaxiActivity.class);
                 intent.putExtra("price", (float) getIntent().getSerializableExtra("price"));
+                intent.putExtra("user", (User) getIntent().getSerializableExtra("user"));
                 startActivity(intent);
             }
         });

@@ -140,6 +140,15 @@
             android:orientation="vertical"
             tools:ignore="MissingConstraints" />
 
+        <TextView
+            android:id="@+id/loading"
+            android:visibility="invisible"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Loading...."
+            android:textSize="24dp"
+            android:layout_gravity="center"/>
+
 
     </LinearLayout>
 

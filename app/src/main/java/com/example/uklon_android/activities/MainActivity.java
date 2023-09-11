@@ -131,41 +131,6 @@ public class MainActivity extends AppCompatActivity implements PlacesAdapter.OnP
         LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         addressStrEnd = (String) getIntent().getSerializableExtra("endAdress");
 
-        // Здійснюємо запит до Google Places API за допомогою PlacesClient
-        List<Place.Field> placeFields = Arrays.asList(Place.Field.NAME);
-        FindCurrentPlaceRequest requestPlace = FindCurrentPlaceRequest.newInstance(placeFields);
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            // TODO: Consider calling
-            //    ActivityCompat#requestPermissions
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for ActivityCompat#requestPermissions for more details.
-            return;
-        }
-        Task<FindCurrentPlaceResponse> placeResponseTask = placesClient.findCurrentPlace(requestPlace);
-        placeResponseTask.addOnCompleteListener(task -> {
-            if (task.isSuccessful()) {
-                FindCurrentPlaceResponse response = task.getResult();
-                Log.d("result: ", response.getPlaceLikelihoods().toString());
-                if (response != null) {
-                    List<PlaceLikelihood> placeLikelihoods = response.getPlaceLikelihoods();
-                    for (PlaceLikelihood placeLikelihood : placeLikelihoods) {
-                        Log.d("places: ", placeLikelihood.getPlace().toString());
-                        Place place = placeLikelihood.getPlace();
-                        placeNames.add(place.getName().toString());
-                    }
-                    Log.d("List place name: ", placeNames.toString());
-                    placesAdapter.setPlaces(placeNames);
-                }
-            } else {
-                Exception exception = task.getException();
-                if (exception != null) {
-                    Log.e("MainActivity", "Error fetching places: " + exception.getMessage());
-                }
-            }
-        });
 
         GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(this);
         if (acct != null) {
@@ -506,6 +471,48 @@ public class MainActivity extends AppCompatActivity implements PlacesAdapter.OnP
             ImageButton btnDelivery = bottomSheetDialog.findViewById(R.id.delivery);
             ImageButton btnDriver = bottomSheetDialog.findViewById(R.id.driver);
             ImageButton btnInterCity = bottomSheetDialog.findViewById(R.id.intercity);
+
+            TextView tvLoad = bottomSheetDialog.findViewById(R.id.loading);
+            tvLoad.setVisibility(View.VISIBLE);
+
+            // Здійснюємо запит до Google Places API за допомогою PlacesClient
+            List<Place.Field> placeFields = Arrays.asList(Place.Field.NAME);
+            FindCurrentPlaceRequest requestPlace = FindCurrentPlaceRequest.newInstance(placeFields);
+            if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                // TODO: Consider calling
+                //    ActivityCompat#requestPermissions
+                // here to request the missing permissions, and then overriding
+                //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+                //                                          int[] grantResults)
+                // to handle the case where the user grants the permission. See the documentation
+                // for ActivityCompat#requestPermissions for more details.
+                return;
+            }
+            Task<FindCurrentPlaceResponse> placeResponseTask = placesClient.findCurrentPlace(requestPlace);
+            placeResponseTask.addOnCompleteListener(task -> {
+                if (task.isSuccessful()) {
+                    FindCurrentPlaceResponse response = task.getResult();
+                    Log.d("result: ", response.getPlaceLikelihoods().toString());
+                    if (response != null) {
+                        List<PlaceLikelihood> placeLikelihoods = response.getPlaceLikelihoods();
+                        for (PlaceLikelihood placeLikelihood : placeLikelihoods) {
+                            Log.d("places: ", placeLikelihood.getPlace().toString());
+                            Place place = placeLikelihood.getPlace();
+                            placeNames.add(place.getName().toString());
+                        }
+                        Log.d("List place name: ", placeNames.toString());
+                        placesAdapter.setPlaces(placeNames);
+
+                        tvLoad.setVisibility(View.GONE);
+                    }
+                } else {
+                    Exception exception = task.getException();
+                    if (exception != null) {
+                        Log.e("MainActivity", "Error fetching places: " + exception.getMessage());
+                    }
+                }
+            });
+
 
             latitude = location.getLatitude();
             longitude = location.getLongitude();

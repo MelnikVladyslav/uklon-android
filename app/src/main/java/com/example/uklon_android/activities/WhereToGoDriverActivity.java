@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
@@ -18,6 +19,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.uklon_android.R;
 import com.example.uklon_android.classes.User;
 import com.example.uklon_android.interfaces.PlacesAdapter;
+import com.example.uklon_android.interfaces.PlacesTwoAdapter;
 import com.google.android.gms.tasks.Task;
 import com.google.android.libraries.places.api.Places;
 import com.google.android.libraries.places.api.model.Place;
@@ -30,11 +32,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class WhereToGoDriverActivity extends AppCompatActivity implements PlacesAdapter.OnPlaceClickListener {
+public class WhereToGoDriverActivity extends AppCompatActivity implements PlacesTwoAdapter.OnPlaceClickListener {
 
     List<String> placeNames = new ArrayList<>();
     private RecyclerView recyclerView;
-    private PlacesAdapter placesAdapter;
+    private PlacesTwoAdapter placesAdapter;
     double latitude,longitude;
     String curAdress;
     PlacesClient placesClient;
@@ -65,7 +67,10 @@ public class WhereToGoDriverActivity extends AppCompatActivity implements Places
         Places.initialize(getApplicationContext(), ApiKey);
         placesClient = Places.createClient(this);
         List<String> placesList = new ArrayList<>(); // Список місць
-        placesAdapter = new PlacesAdapter(placesList, WhereToGoDriverActivity.this);
+        placesAdapter = new PlacesTwoAdapter(placesList, WhereToGoDriverActivity.this);
+
+        TextView tvLoad = findViewById(R.id.loading);
+        tvLoad.setVisibility(View.VISIBLE);
 
         // Здійснюємо запит до Google Places API за допомогою PlacesClient
         List<Place.Field> placeFields = Arrays.asList(Place.Field.NAME);
@@ -99,6 +104,8 @@ public class WhereToGoDriverActivity extends AppCompatActivity implements Places
                     recyclerView = findViewById(R.id.recyclerView);
                     recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
                     recyclerView.setAdapter(placesAdapter);
+
+                    tvLoad.setVisibility(View.GONE);
                 }
             } else {
                 Exception exception = task.getException();

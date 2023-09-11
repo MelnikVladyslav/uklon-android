@@ -137,7 +137,7 @@ public class ODrActivity extends AppCompatActivity {
             }
         });
 
-        nameTr = String.valueOf(tvNameTr.getText());
+        nameTr = "Driver car";
         onePoint = (String) getIntent().getSerializableExtra("onePoint");
         twoPoint = (String) getIntent().getSerializableExtra("twoPoint");
         correctUser = (User) getIntent().getSerializableExtra("user");
