@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="bottom"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/grey_rounded_top_corners"
+        android:elevation="15dp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingHorizontal="16dp"
+       android:paddingBottom="24dp"
+        android:paddingTop="14dp"
+        tools:ignore="MissingConstraints,UselessParent,TextSizeCheck">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/dark_grey_line_2"
+            tools:ignore="ContentDescription,ImageContrastCheck,ObsoleteLayoutParam" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp"
+            android:gravity="center_vertical"
+            tools:ignore="UseCompoundDrawables">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/icon_facebook_support"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                style="@style/Black_bigger_textView"
+                android:text="Facebook Messenger"
+                android:layout_marginStart="11dp"
+                tools:ignore="HardcodedText" />
+
+        </LinearLayout>
+        <View
+            style="@style/View_aditional_service"
+            android:layout_height="1dp"
+            android:background="#A3A3A3"
+            android:layout_marginVertical="10dp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            tools:ignore="UseCompoundDrawables">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/icon_viber"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                style="@style/Black_bigger_textView"
+                android:text="Viber"
+                android:layout_marginStart="13dp"
+                tools:ignore="HardcodedText" />
+
+        </LinearLayout>
+        <View
+            style="@style/View_aditional_service"
+            android:layout_height="1dp"
+            android:background="#A3A3A3"
+            android:layout_marginVertical="10dp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            tools:ignore="UseCompoundDrawables">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/icon_telegram"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                style="@style/Black_bigger_textView"
+                android:text="Telegram"
+                android:layout_marginStart="11dp"
+                tools:ignore="HardcodedText" />
+
+        </LinearLayout>
+        <View
+            style="@style/View_aditional_service"
+            android:layout_height="1dp"
+            android:background="#A3A3A3"
+            android:layout_marginVertical="10dp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            tools:ignore="UseCompoundDrawables">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/icon_telephone_outline"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                style="@style/Black_bigger_textView"
+                android:text="To call"
+                android:layout_marginStart="13dp"
+                tools:ignore="HardcodedText" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>
