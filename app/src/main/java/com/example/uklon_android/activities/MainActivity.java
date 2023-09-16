@@ -360,7 +360,6 @@ public class MainActivity extends AppCompatActivity implements PlacesAdapter.OnP
                     ImageButton btnOption1 = popupView.findViewById(R.id.btnOption1);
                     ImageButton btnSelCity = popupView.findViewById(R.id.selCityBtn);
                     ImageView avatar = popupView.findViewById(R.id.avatar);
-                    LinearLayout btnRegDr = popupView.findViewById(R.id.btnRegDr);
                     LinearLayout lltypePay = popupView.findViewById(R.id.typePay);
                     LinearLayout lltrips = popupView.findViewById(R.id.Trips);
 
@@ -388,17 +387,6 @@ public class MainActivity extends AppCompatActivity implements PlacesAdapter.OnP
                             if(urlAvatar != null) {
                                 intent.putExtra("uriImg", urlAvatar.toString());
                             }
-                            startActivity(intent);
-                            finish();
-                        }
-                    });
-
-                    //register driver
-                    btnRegDr.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            Intent intent = new Intent(MainActivity.this, RegDriverActivity.class);
-                            intent.putExtra("user", correctUser);
                             startActivity(intent);
                             finish();
                         }

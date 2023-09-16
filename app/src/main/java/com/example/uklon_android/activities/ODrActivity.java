@@ -13,6 +13,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
+import com.example.uklon_android.DTOs.OrderDTO;
 import com.example.uklon_android.R;
 import com.example.uklon_android.classes.Order;
 import com.example.uklon_android.classes.Transport;
@@ -63,7 +64,7 @@ public class ODrActivity extends AppCompatActivity {
     Marker myLocationMarker;
     ApiService apiService;
     int idT = 0;
-    Order order = new Order();
+    OrderDTO order = new OrderDTO();
     List<Transport> trs = new ArrayList<>();
 
     @Override
@@ -167,15 +168,15 @@ public class ODrActivity extends AppCompatActivity {
         btnOk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                apiService.createOrder(order).enqueue(new Callback<Order>() {
+                apiService.createOrder(order).enqueue(new Callback<OrderDTO>() {
                     @Override
-                    public void onResponse(Call<Order> call, Response<Order> response) {
+                    public void onResponse(Call<OrderDTO> call, Response<OrderDTO> response) {
                         Intent intent = new Intent(ODrActivity.this, MainActivity.class);
                         startActivity(intent);
                     }
 
                     @Override
-                    public void onFailure(Call<Order> call, Throwable t) {
+                    public void onFailure(Call<OrderDTO> call, Throwable t) {
                         Log.d("Error", t.getMessage());
                     }
                 });

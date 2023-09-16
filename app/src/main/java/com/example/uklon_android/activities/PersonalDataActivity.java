@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.example.uklon_android.DTOs.UserDTO;
@@ -30,41 +31,31 @@ public class PersonalDataActivity extends AppCompatActivity {
     public ApiService apiService;
     User correctUser = new User();
     UserDTO sendUser = new UserDTO();
-    Button backBtn;
-    Button uploadBtn;
-    ImageButton avatarImg;
+    ImageButton backBtn;
+    LinearLayout uploadBtn;
     EditText firstNameEdT;
     EditText lastNameEdT;
     EditText emailEdT;
     EditText phoneNumEdT;
     String urlAv;
-    private static final int PICK_IMAGE_REQUEST = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_personal_data);
+        setContentView(R.layout.personal_data);
 
         apiService = apiService.retrofit.create(ApiService.class);
         correctUser = (User) getIntent().getSerializableExtra("user");
 
         backBtn = findViewById(R.id.back);
         uploadBtn = findViewById(R.id.update);
-        avatarImg = findViewById(R.id.avatar);
         firstNameEdT = findViewById(R.id.firstName);
         firstNameEdT.setText(correctUser.getFirstName());
         emailEdT = findViewById(R.id.email);
         emailEdT.setText(correctUser.getEmail());
-        lastNameEdT = findViewById(R.id.lastName);
         phoneNumEdT = findViewById(R.id.phoneNumber);
         lastNameEdT.setText(correctUser.getLastName());
         phoneNumEdT.setText(correctUser.getPhoneNumber());
-
-        //Avatar
-        if(getIntent().getSerializableExtra("uriImg") != null) {
-            urlAv = (String) getIntent().getSerializableExtra("uriImg");
-            Picasso.get().load(urlAv).into(avatarImg);
-        }
 
         backBtn.setOnClickListener(new View.OnClickListener()
         {
@@ -72,17 +63,7 @@ public class PersonalDataActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(PersonalDataActivity.this, ProfileActivity.class);
                 intent.putExtra("user", correctUser);
-                if(urlAv != null) {
-                    intent.putExtra("uriImg", urlAv.toString());
-                }
                 startActivity(intent);
-            }
-        });
-
-        avatarImg.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                pickImageFromGallery(view);
             }
         });
 
@@ -91,7 +72,6 @@ public class PersonalDataActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 sendUser.setFirstName(firstNameEdT.getText().toString());
-                sendUser.setLastName(lastNameEdT.getText().toString());
                 sendUser.setEmail(emailEdT.getText().toString());
                 sendUser.setPhoneNumber(phoneNumEdT.getText().toString());
                 sendUser.setUrl(urlAv);
@@ -106,9 +86,6 @@ public class PersonalDataActivity extends AppCompatActivity {
                                     lastNameEdT.setText(correctUser.getLastName());
                                     emailEdT.setText(correctUser.getEmail());
                                     phoneNumEdT.setText(correctUser.getPhoneNumber());
-                                    if(correctUser.getUrl() != null) {
-                                        Picasso.get().load(correctUser.getUrl()).into(avatarImg);
-                                    }
                                 }
                                 else{
                                     Toast.makeText(PersonalDataActivity.this, "Помилка: " + response.message(), Toast.LENGTH_SHORT).show();
@@ -122,34 +99,5 @@ public class PersonalDataActivity extends AppCompatActivity {
                         });
             }
         });
-    }
-
-    public void pickImageFromGallery(View view) {
-        Intent intent = new Intent(Intent.ACTION_PICK,
-                android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-        startActivityForResult(intent, PICK_IMAGE_REQUEST);
-    }
-
-    private String getPathFromUri(Uri contentUri) {
-        String[] projection = { MediaStore.Images.Media.DATA };
-        Cursor cursor = getContentResolver().query(contentUri, projection, null, null, null);
-        int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
-        cursor.moveToFirst();
-        return cursor.getString(column_index);
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null) {
-            Uri selectedImageUri = data.getData();
-
-            // Отримайте фактичний шлях до вибраної фотографії і використовуйте його
-            String imagePath = getPathFromUri(selectedImageUri);
-            // Тут ви можете робити що завгодно з вибраною фотографією, наприклад, відображати її у віджеті ImageView
-            avatarImg.setImageURI(selectedImageUri);
-            urlAv = imagePath;
-        }
     }
 }

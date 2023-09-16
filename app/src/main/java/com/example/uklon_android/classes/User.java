@@ -15,6 +15,7 @@ public class User implements Serializable {
     private String url = "";
     private List<Order> orderList;
     private List<Card> cardList;
+    private List<SelAdress> adressesList;
 
     public String getId() {
         return id;
@@ -98,5 +99,12 @@ public class User implements Serializable {
 
     public void setCards(List<Card> cardList) {
         this.cardList = cardList;
+    }
+    public List<SelAdress> getAdressesLists() {
+        return adressesList;
+    }
+
+    public void setAdressesLists(List<SelAdress> adressesList) {
+        this.adressesList = adressesList;
     }
 }
