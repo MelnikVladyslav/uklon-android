@@ -121,7 +121,7 @@ public class VerificationActivity extends AppCompatActivity {
                 codeEnter = Integer.parseInt(concatenatedNumbers);
 
                 if(Objects.equals(code, codeEnter)) {
-                    Intent intent = new Intent(VerificationActivity.this, MainActivity.class);
+                    Intent intent = new Intent(VerificationActivity.this, EnterPassActivity.class);
                     intent.putExtra("phoneDTO", phoneDTO);
                     startActivity(intent);
                 }

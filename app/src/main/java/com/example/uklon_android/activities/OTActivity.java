@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.uklon_android.DTOs.OrderDTO;
 import com.example.uklon_android.R;
 import com.example.uklon_android.classes.Order;
 import com.example.uklon_android.classes.Transport;
@@ -38,6 +39,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
+import java.util.Random;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -64,7 +66,7 @@ public class OTActivity extends AppCompatActivity {
     Marker myLocationMarker;
     ApiService apiService;
     int idT = 0;
-    Order order = new Order();
+    OrderDTO order = new OrderDTO();
     List<Transport> trs = new ArrayList<>();
 
     @Override
@@ -152,7 +154,10 @@ public class OTActivity extends AppCompatActivity {
         tvPrice.setText(String.valueOf(price));
         tvNameDr.setText(String.valueOf(driver.getFirstName()));
 
+        Random r = new Random();
+
         transport = new Transport();
+        transport.setId(r.nextInt());
         transport.setModel(nameTr);
         transport.setDescription("Taxi car");
         if (curType.getName() != null)
@@ -167,7 +172,7 @@ public class OTActivity extends AppCompatActivity {
                         if(Objects.equals(curType.getName(), type.getName()))
                         {
                             idT = type.getId();
-                            transport.setId(idT);
+                            transport.setType(idT);
                         }
                     }
                 }
@@ -186,21 +191,24 @@ public class OTActivity extends AppCompatActivity {
         order.setStartPoint(onePoint);
         order.setEndPoint(twoPoint);
         order.setDate(Calendar.getInstance().getTime());
+        Log.d("Date: ", String.valueOf(Calendar.getInstance().getTime()));
         order.setUser(correctUser.getId());
+        Log.d("User id: ", correctUser.getId());
         order.setRating(5);
 
         btnOk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                apiService.createOrder(order).enqueue(new Callback<Order>() {
+                apiService.createOrder(order).enqueue(new Callback<OrderDTO>() {
                     @Override
-                    public void onResponse(Call<Order> call, Response<Order> response) {
+                    public void onResponse(Call<OrderDTO> call, Response<OrderDTO> response) {
+                        Log.d("responce code: ", String.valueOf(response.code()));
                         Intent intent = new Intent(OTActivity.this, MainActivity.class);
                         startActivity(intent);
                     }
 
                     @Override
-                    public void onFailure(Call<Order> call, Throwable t) {
+                    public void onFailure(Call<OrderDTO> call, Throwable t) {
                         Log.d("Error", t.getMessage());
                     }
                 });

@@ -13,6 +13,7 @@ import android.widget.Checkable;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.example.uklon_android.DTOs.OrderDTO;
 import com.example.uklon_android.R;
 import com.example.uklon_android.classes.Order;
 import com.example.uklon_android.classes.Transport;
@@ -40,7 +41,7 @@ public class OrderDelActivity extends AppCompatActivity {
     User correctUser = new User();
     Transport transport = new Transport();
     List<Transport> trs = new ArrayList<>();
-    Order order = new Order();
+    OrderDTO order = new OrderDTO();
     ApiService apiService;
 
     @SuppressLint("SetTextI18n")
@@ -85,15 +86,15 @@ public class OrderDelActivity extends AppCompatActivity {
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                apiService.createOrder(order).enqueue(new Callback<Order>() {
+                apiService.createOrder(order).enqueue(new Callback<OrderDTO>() {
                     @Override
-                    public void onResponse(Call<Order> call, Response<Order> response) {
+                    public void onResponse(Call<OrderDTO> call, Response<OrderDTO> response) {
                         Intent intent = new Intent(OrderDelActivity.this, MainActivity.class);
                         startActivity(intent);
                     }
 
                     @Override
-                    public void onFailure(Call<Order> call, Throwable t) {
+                    public void onFailure(Call<OrderDTO> call, Throwable t) {
                         Log.d("Error", t.getMessage());
                     }
                 });

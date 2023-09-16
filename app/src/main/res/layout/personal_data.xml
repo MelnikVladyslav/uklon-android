@@ -14,6 +14,7 @@
         android:gravity="center"
         tools:ignore="UselessParent">
         <ImageButton
+            android:id="@+id/back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/arrow_back"
@@ -44,7 +45,8 @@
             android:background="@drawable/icon_person"
             tools:ignore="ContentDescription" />
         
-        <TextView
+        <EditText
+            android:id="@+id/firstName"
             style="@style/Black_textView"
             android:text="Monica"
             android:layout_marginStart="10dp"
@@ -106,7 +108,8 @@
             android:background="@drawable/icon_phone"
             tools:ignore="ContentDescription" />
 
-        <TextView
+        <EditText
+            android:id="@+id/phoneNumber"
             style="@style/Black_textView"
             android:text="+380967022172"
             android:layout_marginStart="10dp"
@@ -146,9 +149,31 @@
             android:background="@drawable/icon_email_outline"
             tools:ignore="ContentDescription" />
 
-        <TextView
+        <EditText
+            android:id="@+id/email"
             style="@style/Black_textView"
             android:text="Monica85@gmail.com"
+            android:layout_marginStart="10dp"
+            tools:ignore="HardcodedText" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/update"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        tools:ignore="UseCompoundDrawables">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/icon_email_outline"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            style="@style/Black_textView"
+            android:text="Update"
             android:layout_marginStart="10dp"
             tools:ignore="HardcodedText" />
 

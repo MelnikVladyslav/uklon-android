@@ -1,6 +1,7 @@
 package com.example.uklon_android.interfaces;
 
 import com.example.uklon_android.DTOs.CardDTO;
+import com.example.uklon_android.DTOs.OrderDTO;
 import com.example.uklon_android.DTOs.PhoneNumberVerificationDto;
 import com.example.uklon_android.DTOs.UserDTO;
 import com.example.uklon_android.classes.Card;
@@ -8,16 +9,26 @@ import com.example.uklon_android.classes.Order;
 import com.example.uklon_android.classes.Transport;
 import com.example.uklon_android.classes.Types;
 import com.example.uklon_android.classes.User;
+import com.google.maps.internal.ApiResponse;
 
+import java.lang.reflect.Type;
 import java.util.List;
 
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
+import okhttp3.ResponseBody;
 import retrofit2.Call;
+import retrofit2.CallAdapter;
+import retrofit2.Callback;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.Body;
+import retrofit2.http.DELETE;
 import retrofit2.http.GET;
+import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
+import retrofit2.http.Part;
 import retrofit2.http.Path;
 
 public interface ApiService {
@@ -45,7 +56,7 @@ public interface ApiService {
     Call<User> registerDriver(@Body UserDTO user);
 
     @POST("/api/order/create-order")
-    Call<Order> createOrder(@Body Order order);
+    Call<OrderDTO> createOrder(@Body OrderDTO order);
 
     @GET("/api/order/get-orders")
     Call<List<Order>> getOrders();
@@ -59,9 +70,16 @@ public interface ApiService {
     @POST("/api/verif-email")
     Call<Integer> verifEmail(@Body PhoneNumberVerificationDto phoneDTO);
 
-    @POST("api/login/login-phone")
+    @POST("/api/login/login-phone")
     Call<String> loginPhone(@Body PhoneNumberVerificationDto phoneDTO);
 
-    @POST("api/login/login-email")
+    @POST("/api/login/login-email")
     Call<String> loginEmail(@Body PhoneNumberVerificationDto phoneDTO);
+
+    @DELETE("/api/deleteuser")
+    Call deleteUser(String userId);
+
+    @Multipart
+    @POST("/api/login/upload-photo")
+    Call<ResponseBody> uploadPhoto(@Part MultipartBody.Part imageFile, @Part("userId") RequestBody userId);
 }

@@ -220,20 +220,4 @@
 
       </LinearLayout>
 
-   <LinearLayout
-       android:id="@+id/btnRegDr"
-       style="@style/linearlayout_pop_up_menu_horizontal_margin_top_0"
-       tools:ignore="UseCompoundDrawables">
-
-      <ImageView
-          style="@style/imageview_popup_menu"
-          android:background="@drawable/about"
-          tools:ignore="ContentDescription" />
-      <TextView
-          style="@style/textview_popup_menu"
-          android:text="Register driver"
-          tools:ignore="HardcodedText"/>
-
-   </LinearLayout>
-
    </LinearLayout>

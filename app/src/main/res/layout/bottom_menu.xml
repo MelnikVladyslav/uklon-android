@@ -177,6 +177,15 @@
             android:paddingEnd="15dp"
             tools:ignore="MissingConstraints,NotSibling,RtlSymmetry" />
 
+        <TextView
+            android:id="@+id/loading"
+            android:visibility="invisible"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/recyclerView"
+            android:text="Loading...."
+            android:textSize="24dp"
+            android:layout_gravity="center"/>
 
         <LinearLayout
             android:layout_width="match_parent"
