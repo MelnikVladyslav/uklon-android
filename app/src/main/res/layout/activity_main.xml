@@ -1,94 +1,97 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activities.MainActivity">
+
 
   <fragment
       android:id="@+id/mapFragment"
       android:name="com.google.android.gms.maps.SupportMapFragment"
       android:layout_width="match_parent"
       android:layout_height="match_parent"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintStart_toStartOf="parent" />
+      tools:ignore="FragmentTagUsage" />
 
-  <ImageButton
-      android:id="@+id/button"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:background="@drawable/popup_menu_open"
-      app:layout_constraintBottom_toBottomOf="parent"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintHorizontal_bias="0.05"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toTopOf="parent"
-      app:layout_constraintVertical_bias="0.03"
-      tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
 
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical">
+
+        <ImageButton
+            android:id="@+id/button"
+            style="@style/wrap_content"
+            android:layout_marginStart="16dp"
+            android:background="@drawable/popup_menu_open"
+            tools:ignore="ContentDescription,SpeakableTextPresentCheck,ImageContrastCheck" />
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center"
+    android:layout_marginEnd="56dp">
   <TextView
-      android:id="@+id/city_name"
+      style="@style/bold_20"
       android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:fontFamily="@font/lato"
-      android:letterSpacing="0.04"
+      android:theme="@style/black_to_light_grey"
       android:text="Rivne"
-      android:textColor="#262626"
-      android:textSize="20sp"
-      app:layout_constraintBottom_toBottomOf="parent"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintHorizontal_bias="0.445"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toTopOf="parent"
-      app:layout_constraintVertical_bias="0.04"
       tools:ignore="HardcodedText" />
-
   <ImageButton
       android:id="@+id/arrow_down"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
+      style="@style/wrap_content"
+      android:theme="@style/black_to_light_tint"
       android:background="@drawable/arrow_down"
-      app:layout_constraintStart_toEndOf="@id/city_name"
-      app:layout_constraintBottom_toBottomOf="parent"
-      app:layout_constraintTop_toTopOf="parent"
-      app:layout_constraintVertical_bias="0.04"
       android:layout_marginStart="5dp"
       tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
+</LinearLayout>
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="bottom|right"
+        tools:ignore="RtlHardcoded">
+
+
+      <ImageButton
+          android:id="@+id/find_my_location_button"
+          style="@style/wrap_content"
+          android:theme="@style/white_rounded_to_dark_grey"
+          android:src="@drawable/find_my_location"
+          android:padding="6.4dp"
+          android:layout_marginEnd="16dp"
+          android:layout_marginBottom="20dp"
+          tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
+    </LinearLayout>
 
 
 
-  <ImageButton
-      android:id="@+id/find_my_location_button"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:background="@drawable/white_rounded"
-      android:src="@drawable/find_my_location"
-      android:padding="6.4dp"
-      app:layout_constraintBottom_toTopOf="@id/popup_menu_main"
-      app:layout_constraintEnd_toEndOf="@id/popup_menu_main"
-      android:layout_marginEnd="16dp"
-      android:layout_marginBottom="20dp"
-      tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
+    <LinearLayout
+        android:id="@+id/popup_menu_main"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:elevation="15dp"
+        android:gravity="center_horizontal"
+        android:theme="@style/white_rounded_top_corners_to_dark_grey">
 
 
-  <RelativeLayout
-      android:id="@+id/popup_menu_main"
-      android:layout_width="match_parent"
-      android:layout_height="30dp"
-      android:elevation="15dp"
-      android:background="@drawable/white_rounded_top_corners"
-      app:layout_constraintBottom_toBottomOf="parent">
+      <ImageView
+          style="@style/wrap_content"
+          android:background="@drawable/grey_line"
+          android:layout_marginTop="13dp"
+          tools:ignore="ContentDescription,NotSibling" />
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/grey_line"
-        android:layout_alignTop="@id/popup_menu_main"
-        android:layout_marginTop="13dp"
-        android:layout_centerHorizontal="true"
-        tools:ignore="ContentDescription,NotSibling" />
-
-
-  </RelativeLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+  </LinearLayout>
+</FrameLayout>

@@ -32,7 +32,7 @@
         <TextView
             style="@style/Black_bigger_textView"
             android:layout_width="match_parent"
-            android:fontFamily="@font/lato"
+            android:fontFamily="@font/lato_700"
             android:gravity="center"
             android:text="Male"
             tools:ignore="HardcodedText" />
@@ -45,7 +45,7 @@
         <TextView
             style="@style/Black_bigger_textView"
             android:layout_width="match_parent"
-            android:fontFamily="@font/lato"
+            android:fontFamily="@font/lato_700"
             android:gravity="center"
             android:text="Female"
             tools:ignore="HardcodedText" />
@@ -58,7 +58,7 @@
         <TextView
             style="@style/Black_bigger_textView"
             android:layout_width="match_parent"
-            android:fontFamily="@font/lato"
+            android:fontFamily="@font/lato_700"
             android:gravity="center"
             android:text="Other"
             tools:ignore="HardcodedText" />

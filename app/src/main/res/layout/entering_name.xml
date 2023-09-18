@@ -47,7 +47,7 @@
         android:layout_marginTop="50dp"
         android:background="@null"
         android:hint="Please enter first name"
-        android:textColor="#A3A3A3"
+        android:textColorHint="#A3A3A3"
         android:theme="@style/black_to_light_grey"
         tools:ignore="Autofill,HardcodedText,TextFields,TouchTargetSizeCheck" />
     <View
@@ -63,7 +63,7 @@
         android:layout_marginTop="35dp"
         android:background="@null"
         android:hint="Please enter surname"
-        android:textColor="#A3A3A3"
+        android:textColorHint="#A3A3A3"
         android:theme="@style/black_to_light_grey"
         tools:ignore="Autofill,HardcodedText,TextFields,TouchTargetSizeCheck" />
     <View

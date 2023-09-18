@@ -37,7 +37,7 @@
 
     <TextView
         style="@style/Black_bigger_textView"
-        android:fontFamily="@font/lato"
+        android:fontFamily="@font/lato_700"
         android:text="Add to favorites"
         android:layout_width="match_parent"
         android:gravity="center_horizontal"

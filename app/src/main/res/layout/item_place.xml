@@ -23,7 +23,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:gravity="center_vertical"
-            android:fontFamily="@font/lato_regular"
+            android:fontFamily="@font/lato_400"
             android:letterSpacing="0.04"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"

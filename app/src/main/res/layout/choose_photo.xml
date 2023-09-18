@@ -41,7 +41,7 @@
             <TextView
                style="@style/Black_bigger_textView"
                 android:text="Choose from gallery"
-                android:fontFamily="@font/lato"
+                android:fontFamily="@font/lato_700"
                 tools:ignore="HardcodedText" />
 
         </LinearLayout>
@@ -63,7 +63,7 @@
             <TextView
                 style="@style/Black_bigger_textView"
                 android:text="Take a photo"
-                android:fontFamily="@font/lato"
+                android:fontFamily="@font/lato_700"
                 tools:ignore="HardcodedText" />
 
         </LinearLayout>
