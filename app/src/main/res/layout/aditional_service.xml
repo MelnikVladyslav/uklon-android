@@ -98,7 +98,7 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="2dp"
-            android:background="@drawable/line_with_borders" />
+            android:background="@drawable/line_light_grey" />
 
         <LinearLayout style="@style/aditional_service_linearlayout">
 

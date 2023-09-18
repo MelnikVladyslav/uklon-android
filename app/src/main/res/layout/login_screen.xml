@@ -1,402 +1,219 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    style="@style/ScreenBackground"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:paddingHorizontal="16dp"
     tools:ignore="ExtraText">
 
     <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="156dp"
-        android:layout_height="49dp"
-        android:contentDescription="image description"
-        android:scaleType="fitXY"
-        android:src="@drawable/drive_logo"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.105"
-        tools:ignore="HardcodedText,MissingConstraints,ImageContrastCheck" />
+        style="@style/wrap_content"
+        android:layout_marginTop="53dp"
+        android:theme="@style/drive_logo_change"
+        tools:ignore="ContentDescription" />
 
-    <Button
-        android:id="@+id/next"
-        android:layout_width="328dp"
-        android:layout_height="40dp"
-        android:background="@drawable/start_button_background"
-        android:textAllCaps="false"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.32"
-        tools:ignore="MissingConstraints,VisualLintButtonSize,DuplicateSpeakableTextCheck,TouchTargetSizeCheck,SpeakableTextPresentCheck" />
-
-    <TextView
-        android:id="@+id/Continue"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:elevation="2dp"
-        android:fontFamily="@font/lato"
-        android:fontWeight="600"
-        android:letterSpacing="0.04"
-        android:text="Continue"
-        android:textColor="#262626"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="@id/next"
-        app:layout_constraintEnd_toEndOf="@id/next"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="@id/next"
-        app:layout_constraintTop_toTopOf="@id/next"
-        app:layout_constraintVertical_bias="0.5"
-        tools:ignore="HardcodedText,MissingConstraints,TextContrastCheck,TextSizeCheck"
-        tools:targetApi="o" />
+    //Phone number
 
     <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="371dp"
-        android:layout_height="18dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
         android:gravity="center_vertical"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.392"
-        tools:ignore="TextSizeCheck">
+        android:paddingHorizontal="8dp">
 
-        <View
-            android:layout_width="0dp"
-            android:layout_height="1dp"
-            android:layout_marginStart="23dp"
-            android:layout_weight="1"
-            android:background="#A3A3A3" />
+        <LinearLayout
+            style="@style/wrap_content"
+            android:layout_marginEnd="10dp"
+            android:gravity="center_vertical"
+            android:paddingEnd="15dp"
+            tools:ignore="RtlSymmetry">
+
+            <ImageView
+                style="@style/wrap_content"
+                android:background="@drawable/ukraine"
+                tools:ignore="ContentDescription,ImageContrastCheck" />
+
+            <ImageView
+                style="@style/wrap_content"
+                android:layout_marginStart="9dp"
+                android:background="@drawable/arrow"
+                android:theme="@style/arrow_down_change"
+                tools:ignore="ContentDescription,ImageContrastCheck" />
+        </LinearLayout>
 
         <TextView
-            android:id="@+id/or"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:elevation="2dp"
-            android:fontFamily="@font/lato"
-            android:fontWeight="600"
-            android:letterSpacing="0.04"
-            android:paddingHorizontal="7dp"
-            android:text="or"
-            android:textColor="#A3A3A3"
-            android:textSize="14sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.392"
-            tools:ignore="HardcodedText,MissingConstraints,TextContrastCheck,TextSizeCheck,UnusedAttribute" />
+            style="@style/regular_15"
+            android:text="+380"
+            android:theme="@style/black_to_light_grey"
+            tools:ignore="HardcodedText" />
+
+        <EditText
+            style="@style/regular_15"
+            android:layout_marginStart="-1dp"
+            android:background="@null"
+            android:hint="  Phone number"
+            android:theme="@style/edittext_change"
+            tools:ignore="Autofill,HardcodedText,TextFields,TextContrastCheck,TouchTargetSizeCheck" />
+
+    </LinearLayout>
+
+    <View
+        style="@style/line"
+        android:layout_marginTop="7dp"
+        android:theme="@style/line_color_changes" />
+
+    <Button
+        style="@style/green_button"
+        android:layout_marginTop="20dp"
+        android:text="Continue"
+        android:theme="@style/black_to_light_grey"
+        tools:ignore="HardcodedText,VisualLintButtonSize" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:orientation="horizontal">
 
         <View
-            android:layout_width="0dp"
-            android:layout_height="1dp"
-            android:layout_marginEnd="23dp"
+            style="@style/line"
             android:layout_weight="1"
-            android:background="#A3A3A3" />
+            android:theme="@style/line_color_changes" />
+
+        <TextView
+            style="@style/bold_14"
+            android:layout_marginHorizontal="7dp"
+            android:text="or"
+            android:theme="@style/grey_to_dark_grey"
+            tools:ignore="HardcodedText,TextContrastCheck" />
+
+        <View
+            style="@style/line"
+            android:layout_weight="1"
+            android:theme="@style/line_color_changes" />
 
     </LinearLayout>
 
     //Google
 
-    <Button
+    <LinearLayout
         android:id="@+id/Google_button"
-        android:layout_width="328dp"
+        android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:background="@drawable/continue_with_buttons"
-        android:contentDescription="@string/get_started"
-        android:textAllCaps="false"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.45"
-        tools:ignore="MissingConstraints,VisualLintButtonSize,DuplicateSpeakableTextCheck,TouchTargetSizeCheck" />
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:theme="@style/grey_layout_changes"
+        tools:ignore="UseCompoundDrawables">
 
-    <TextView
-        android:id="@+id/Google"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="85dp"
-        android:layout_marginEnd="79dp"
-        android:elevation="2dp"
-        android:fontFamily="@font/lato"
-        android:fontWeight="600"
-        android:letterSpacing="0.04"
-        android:text="Continue with Google"
-        android:textColor="#262626"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="@id/Google_button"
-        app:layout_constraintEnd_toEndOf="@id/Google_button"
-        app:layout_constraintStart_toStartOf="@id/Google_button"
-        app:layout_constraintTop_toTopOf="@id/Google_button"
-        app:layout_constraintVertical_bias="0.5"
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="38dp"
+            android:src="@drawable/icon_google"
+            tools:ignore="ContentDescription" />
 
-        tools:ignore="HardcodedText,MissingConstraints,TextContrastCheck,TextSizeCheck,UnusedAttribute" />
+        <TextView
+            android:id="@+id/Google"
+            style="@style/bold_16"
+            android:layout_marginEnd="49dp"
+            android:text="Continue with Google"
+            android:theme="@style/black_to_light_grey"
+            tools:ignore="HardcodedText" />
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:elevation="2dp"
-        android:scaleType="fitXY"
-        android:src="@drawable/icon_google"
-        app:layout_constraintBottom_toBottomOf="@id/Google_button"
-        app:layout_constraintEnd_toEndOf="@id/Google_button"
-        app:layout_constraintHorizontal_bias="0.123"
-        app:layout_constraintStart_toStartOf="@id/Google_button"
-        app:layout_constraintTop_toTopOf="@id/Google_button"
-        app:layout_constraintVertical_bias="0.5"
-        tools:ignore="ContentDescription,HardcodedText,ImageContrastCheck,MissingConstraints" />
+    </LinearLayout>
 
     //Apple
 
-    <Button
+    <LinearLayout
         android:id="@+id/Apple_button"
-        android:layout_width="328dp"
+        android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:background="@drawable/continue_with_buttons"
-        android:contentDescription="@string/get_started"
-        android:textAllCaps="false"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.517"
-        tools:ignore="MissingConstraints,VisualLintButtonSize,DuplicateSpeakableTextCheck,TouchTargetSizeCheck" />
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:theme="@style/grey_layout_changes"
+        tools:ignore="UseCompoundDrawables">
 
-    <TextView
-        android:id="@+id/Apple"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="83dp"
-        android:layout_marginEnd="86dp"
-        android:elevation="2dp"
-        android:fontFamily="@font/lato"
-        android:fontWeight="600"
-        android:letterSpacing="0.04"
-        android:text="Continue with Apple"
-        android:textColor="#262626"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="@id/Apple_button"
-        app:layout_constraintEnd_toEndOf="@id/Apple_button"
-        app:layout_constraintStart_toStartOf="@id/Apple_button"
-        app:layout_constraintTop_toTopOf="@id/Apple_button"
-        app:layout_constraintVertical_bias="0.5"
-        tools:ignore="HardcodedText,MissingConstraints,TextContrastCheck,TextSizeCheck,UnusedAttribute" />
+        <ImageView
+            style="@style/wrap_content"
+            android:layout_marginEnd="38dp"
+            android:background="@drawable/icon_apple"
+            android:theme="@style/black_to_light_tint"
+            tools:ignore="ContentDescription" />
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:elevation="2dp"
-        android:scaleType="fitXY"
-        android:src="@drawable/icon_apple"
-        app:layout_constraintBottom_toBottomOf="@id/Apple_button"
-        app:layout_constraintEnd_toEndOf="@id/Apple_button"
-        app:layout_constraintHorizontal_bias="0.123"
-        app:layout_constraintStart_toStartOf="@id/Apple_button"
-        app:layout_constraintTop_toTopOf="@id/Apple_button"
-        app:layout_constraintVertical_bias="0.5"
-        tools:ignore="ContentDescription,HardcodedText,ImageContrastCheck,MissingConstraints" />
+        <TextView
+            style="@style/bold_16"
+            android:layout_marginEnd="59dp"
+            android:text="Continue with Apple"
+            android:theme="@style/black_to_light_grey"
+            tools:ignore="HardcodedText" />
+
+    </LinearLayout>
 
     //Facebook
 
-    <Button
+    <LinearLayout
         android:id="@+id/Facebook_button"
-        android:layout_width="328dp"
+        android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:background="@drawable/continue_with_buttons"
-        android:textAllCaps="false"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.585"
-        tools:ignore="MissingConstraints,VisualLintButtonSize,DuplicateSpeakableTextCheck,TouchTargetSizeCheck,SpeakableTextPresentCheck" />
-
-    <TextView
-        android:id="@+id/Facebook"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="88dp"
-        android:layout_marginEnd="61dp"
-        android:elevation="2dp"
-        android:fontFamily="@font/lato"
-        android:fontWeight="600"
-        android:letterSpacing="0.04"
-        android:text="Continue with Facebook"
-        android:textColor="#262626"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="@id/Facebook_button"
-        app:layout_constraintEnd_toEndOf="@id/Facebook_button"
-        app:layout_constraintStart_toStartOf="@id/Facebook_button"
-        app:layout_constraintTop_toTopOf="@id/Facebook_button"
-        app:layout_constraintVertical_bias="0.5"
-        tools:ignore="HardcodedText,MissingConstraints,TextContrastCheck,TextSizeCheck,UnusedAttribute" />
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:elevation="2dp"
-        android:scaleType="fitXY"
-        android:src="@drawable/icon_facebook"
-        app:layout_constraintBottom_toBottomOf="@id/Facebook_button"
-        app:layout_constraintEnd_toEndOf="@id/Facebook_button"
-        app:layout_constraintHorizontal_bias="0.123"
-        app:layout_constraintStart_toStartOf="@id/Facebook_button"
-        app:layout_constraintTop_toTopOf="@id/Facebook_button"
-        app:layout_constraintVertical_bias="0.5"
-        tools:ignore="ContentDescription,HardcodedText,ImageContrastCheck,MissingConstraints" />
-
-    //Email
-
-    <Button
-        android:id="@+id/Email_button"
-        android:layout_width="328dp"
-        android:layout_height="40dp"
-        android:background="@drawable/continue_with_buttons"
-        android:contentDescription="@string/get_started"
-        android:textAllCaps="false"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.652"
-        tools:ignore="MissingConstraints,VisualLintButtonSize,DuplicateSpeakableTextCheck,TouchTargetSizeCheck" />
-
-    <TextView
-        android:id="@+id/Email"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="85dp"
-        android:layout_marginEnd="90dp"
-        android:elevation="2dp"
-        android:fontFamily="@font/lato"
-        android:fontWeight="600"
-        android:letterSpacing="0.04"
-        android:text="Continue with Email"
-        android:textColor="#262626"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="@id/Email_button"
-        app:layout_constraintEnd_toEndOf="@id/Email_button"
-        app:layout_constraintStart_toStartOf="@id/Email_button"
-        app:layout_constraintTop_toTopOf="@id/Email_button"
-        app:layout_constraintVertical_bias="0.5"
-        tools:ignore="HardcodedText,MissingConstraints,TextContrastCheck,TextSizeCheck,UnusedAttribute" />
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:elevation="2dp"
-        android:scaleType="fitXY"
-        android:src="@drawable/icon_email"
-        app:layout_constraintBottom_toBottomOf="@id/Email_button"
-        app:layout_constraintEnd_toEndOf="@id/Email_button"
-        app:layout_constraintHorizontal_bias="0.123"
-        app:layout_constraintStart_toStartOf="@id/Email_button"
-        app:layout_constraintTop_toTopOf="@id/Email_button"
-        app:layout_constraintVertical_bias="0.5"
-        tools:ignore="ContentDescription,HardcodedText,ImageContrastCheck,MissingConstraints" />
-
-
-    //Phone number
-
-    <RelativeLayout
-        android:id="@+id/number_insert"
-        android:layout_width="328dp"
-        android:layout_height="24dp"
-        android:layout_marginBottom="28dp"
-        app:layout_constraintBottom_toTopOf="@id/next"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="TextSizeCheck">
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:theme="@style/grey_layout_changes"
+        tools:ignore="UseCompoundDrawables">
 
         <ImageView
-            android:id="@+id/ukraine"
-            android:layout_width="wrap_content"
-            android:layout_height="100dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="0dp"
-            android:layout_marginBottom="1dp"
-            android:contentDescription="TODO"
-            android:src="@drawable/ukraine"
-            tools:ignore="ContentDescription,HardcodedText,ImageContrastCheck" />
-
-        <ImageView
-            android:id="@+id/arrow"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="38dp"
-            android:layout_marginTop="5dp"
-            android:src="@drawable/arrow"
-            tools:ignore="ContentDescription,ImageContrastCheck" />
-
-        <Button
-            android:id="@+id/number_code"
-            android:layout_width="55dp"
-            android:layout_height="match_parent"
-            android:background="@color/white"
-            android:elevation="5dp"
-            android:visibility="invisible"
-            tools:ignore="HardcodedText,TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+            style="@style/wrap_content"
+            android:layout_marginEnd="37dp"
+            android:background="@drawable/icon_facebook"
+            tools:ignore="ContentDescription" />
 
         <TextView
-            android:id="@+id/phoneCodeTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginStart="48dp"
-            android:layout_marginTop="0dp"
-            android:layout_toEndOf="@id/ukraine"
-            android:fontFamily="@font/lato_regular"
-            android:letterSpacing="0.04"
-            android:text="+380"
-            android:textColor="#262626"
-            android:textSize="15sp"
+            style="@style/bold_16"
+            android:layout_marginEnd="30dp"
+            android:text="Continue with Facebook"
+            android:theme="@style/black_to_light_grey"
             tools:ignore="HardcodedText" />
 
-        <EditText
-            android:id="@+id/phoneNumberTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
-            android:layout_marginStart="-1dp"
-            android:layout_toEndOf="@+id/phoneCodeTextView"
-            android:background="@null"
-            android:fontFamily="@font/lato"
-            android:letterSpacing="0.04"
-            android:hint="  Phone number"
-            android:textColor="#A3A3A3"
-            android:textSize="15sp"
-            tools:ignore="Autofill,HardcodedText,LabelFor,TextContrastCheck,TextContrastCheck,TextFields,TouchTargetSizeCheck"/>
+    </LinearLayout>
+    //Email
+    <LinearLayout
+        android:id="@+id/Email_button"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:theme="@style/grey_layout_changes"
+        tools:ignore="UseCompoundDrawables">
 
-    </RelativeLayout>
+        <ImageView
+            style="@style/wrap_content"
+            android:layout_marginEnd="37dp"
+            android:theme="@style/black_to_light_tint"
+            android:background="@drawable/icon_email"
+            tools:ignore="ContentDescription" />
 
-    <View
-        android:id="@+id/underlineView"
-        android:layout_width="0dp"
-        android:layout_height="1dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="7dp"
-        android:background="#A3A3A3"
-        app:layout_constraintEnd_toEndOf="@id/number_insert"
-        app:layout_constraintStart_toStartOf="@id/number_insert"
-        app:layout_constraintTop_toBottomOf="@id/number_insert"
-        tools:ignore="VisualLintBounds" />
+        <TextView
+            style="@style/bold_16"
+            android:layout_marginEnd="60dp"
+            android:text="Continue with Email"
+            android:theme="@style/black_to_light_grey"
+            tools:ignore="HardcodedText" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+
+
+
+
+
+
+
+
+
+</LinearLayout>
