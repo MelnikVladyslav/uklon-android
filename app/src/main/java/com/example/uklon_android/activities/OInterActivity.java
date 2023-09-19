@@ -150,13 +150,6 @@ public class OInterActivity extends AppCompatActivity {
         tvPrice.setText(String.valueOf(price));
         tvNameDr.setText(String.valueOf(driver.getFirstName()));
 
-        transport = new Transport();
-        transport.setModel("Inter car");
-        transport.setDescription("car");
-        transport.setType(1);
-        trs.add(transport);
-
-        order.setTransports(trs);
         order.setPrice(price);
         order.setType("Intercity");
         order.setStartPoint(onePoint);

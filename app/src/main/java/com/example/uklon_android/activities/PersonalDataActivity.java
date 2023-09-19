@@ -7,6 +7,7 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -37,7 +38,6 @@ public class PersonalDataActivity extends AppCompatActivity {
     EditText lastNameEdT;
     EditText emailEdT;
     EditText phoneNumEdT;
-    String urlAv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,7 +54,6 @@ public class PersonalDataActivity extends AppCompatActivity {
         emailEdT = findViewById(R.id.email);
         emailEdT.setText(correctUser.getEmail());
         phoneNumEdT = findViewById(R.id.phoneNumber);
-        lastNameEdT.setText(correctUser.getLastName());
         phoneNumEdT.setText(correctUser.getPhoneNumber());
 
         backBtn.setOnClickListener(new View.OnClickListener()
@@ -74,7 +73,9 @@ public class PersonalDataActivity extends AppCompatActivity {
                 sendUser.setFirstName(firstNameEdT.getText().toString());
                 sendUser.setEmail(emailEdT.getText().toString());
                 sendUser.setPhoneNumber(phoneNumEdT.getText().toString());
-                sendUser.setUrl(urlAv);
+                sendUser.setLastName(correctUser.getLastName());
+                sendUser.setPassword(correctUser.getPassword());
+                sendUser.setUrl(correctUser.getUrl());
                 apiService.updateUser(sendUser, correctUser.getId()).
                         enqueue(new Callback<User>()
                         {
@@ -83,7 +84,6 @@ public class PersonalDataActivity extends AppCompatActivity {
                                 if (response.isSuccessful()) {
                                     correctUser = response.body();
                                     firstNameEdT.setText(correctUser.getFirstName());
-                                    lastNameEdT.setText(correctUser.getLastName());
                                     emailEdT.setText(correctUser.getEmail());
                                     phoneNumEdT.setText(correctUser.getPhoneNumber());
                                 }
