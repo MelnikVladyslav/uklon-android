@@ -151,13 +151,6 @@ public class ODrActivity extends AppCompatActivity {
         tvPrice.setText(String.valueOf(price));
         tvNameDr.setText(String.valueOf(driver.getFirstName()));
 
-        transport = new Transport();
-        transport.setModel("Driver");
-        transport.setDescription("car");
-        transport.setType(1);
-        trs.add(transport);
-
-        order.setTransports(trs);
         order.setPrice(price);
         order.setType("Driver");
         order.setStartPoint(onePoint);

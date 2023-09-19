@@ -154,38 +154,7 @@ public class OTActivity extends AppCompatActivity {
         tvPrice.setText(String.valueOf(price));
         tvNameDr.setText(String.valueOf(driver.getFirstName()));
 
-        Random r = new Random();
 
-        transport = new Transport();
-        transport.setId(r.nextInt());
-        transport.setModel(nameTr);
-        transport.setDescription("Taxi car");
-        if (curType.getName() != null)
-        {
-            apiService.getTypes().enqueue(new Callback<List<Types>>() {
-                @Override
-                public void onResponse(Call<List<Types>> call, Response<List<Types>> response) {
-                    List<Types> types = response.body();
-
-                    for (Types type: types)
-                    {
-                        if(Objects.equals(curType.getName(), type.getName()))
-                        {
-                            idT = type.getId();
-                            transport.setType(idT);
-                        }
-                    }
-                }
-
-                @Override
-                public void onFailure(Call<List<Types>> call, Throwable t) {
-
-                }
-            });
-        }
-        trs.add(transport);
-
-        order.setTransports(trs);
         order.setPrice(price);
         order.setType("Taxi");
         order.setStartPoint(onePoint);
@@ -202,7 +171,7 @@ public class OTActivity extends AppCompatActivity {
                 apiService.createOrder(order).enqueue(new Callback<OrderDTO>() {
                     @Override
                     public void onResponse(Call<OrderDTO> call, Response<OrderDTO> response) {
-                        Log.d("responce code: ", String.valueOf(response.code()));
+                        Log.d("responce code: ", String.valueOf(response.code() + " " + response.message()));
                         Intent intent = new Intent(OTActivity.this, MainActivity.class);
                         startActivity(intent);
                     }

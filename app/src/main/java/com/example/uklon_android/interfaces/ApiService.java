@@ -1,8 +1,10 @@
 package com.example.uklon_android.interfaces;
 
 import com.example.uklon_android.DTOs.CardDTO;
+import com.example.uklon_android.DTOs.ChangeDTO;
 import com.example.uklon_android.DTOs.OrderDTO;
 import com.example.uklon_android.DTOs.PhoneNumberVerificationDto;
+import com.example.uklon_android.DTOs.UploadDTO;
 import com.example.uklon_android.DTOs.UserDTO;
 import com.example.uklon_android.classes.Card;
 import com.example.uklon_android.classes.Order;
@@ -25,6 +27,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.Body;
 import retrofit2.http.DELETE;
 import retrofit2.http.GET;
+import retrofit2.http.Headers;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
@@ -55,6 +58,9 @@ public interface ApiService {
     @PUT("/api/login/register-driver")
     Call<User> registerDriver(@Body UserDTO user);
 
+    @PUT("/api/login/change-password")
+    Call<User> changePassword(@Body ChangeDTO changeDTO);
+
     @POST("/api/order/create-order")
     Call<OrderDTO> createOrder(@Body OrderDTO order);
 
@@ -77,9 +83,9 @@ public interface ApiService {
     Call<String> loginEmail(@Body PhoneNumberVerificationDto phoneDTO);
 
     @DELETE("/api/deleteuser")
-    Call deleteUser(String userId);
+    Call deleteUser(@Body UserDTO user);
 
-    @Multipart
+    @Headers("Content-Type:multipart/form-data")
     @POST("/api/login/upload-photo")
-    Call<ResponseBody> uploadPhoto(@Part MultipartBody.Part imageFile, @Part("userId") RequestBody userId);
+    Call<User> uploadPhoto(@Body UploadDTO uploadDTO);
 }
