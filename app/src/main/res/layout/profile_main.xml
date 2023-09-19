@@ -5,155 +5,135 @@
     android:layout_height="match_parent"
     android:paddingHorizontal="16dp"
     android:orientation="vertical"
+    style="@style/ScreenBackground"
     android:gravity="center_horizontal"
-    android:paddingTop="45dp">
+    android:paddingTop="40dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:gravity="center"
-        >
+        android:gravity="center">
         <ImageButton
             android:id="@+id/back"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/wrap_content"
+            android:theme="@style/black_to_light_tint"
             android:background="@drawable/arrow_back"
             tools:ignore="ContentDescription,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
-
         <TextView
-            style="@style/textview_popup_menu"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/bold_20"
+            android:theme="@style/black_to_light_grey"
             android:layout_weight="1"
             android:layout_marginEnd="28dp"
             android:gravity="center"
-            android:letterSpacing="0.04"
             android:text="Profile"
-            android:textSize="20sp"
             tools:ignore="HardcodedText,InefficientWeight,RtlSymmetry" />
-
     </LinearLayout>
-
-
-    <ImageButton
-        android:id="@+id/avatar"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginStart="17dp"
         android:layout_marginTop="40dp"
-        android:background="@drawable/profile_image_change"
-        tools:ignore="ContentDescription,ImageContrastCheck,SpeakableTextPresentCheck" />
+        android:gravity="center_horizontal">
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:background="@drawable/user_profile"
+            tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
+    </LinearLayout>
     <TextView
         android:id="@+id/firstName"
-        style="@style/textview_popup_menu"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
+        style="@style/heavy_20"
+        android:theme="@style/black_to_light_grey"
         android:layout_marginTop="15dp"
-        android:letterSpacing="0.04"
         android:text="Monica"
-        android:textSize="20sp"
         tools:ignore="HardcodedText,InefficientWeight,RtlSymmetry" />
-
     <TextView
         android:id="@+id/email"
-        style="@style/Grey_regular_textview"
+        style="@style/regular_14"
+        android:textColor="#A3A3A3"
         android:layout_marginTop="5dp"
         android:text="Monica85@gmail.com"
         tools:ignore="HardcodedText,TextContrastCheck" />
-
 
     <LinearLayout
         android:id="@+id/PersonalData"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:gravity="start|center_vertical"
+        android:gravity="center_vertical"
         android:layout_marginTop="40dp"
         tools:ignore="UseCompoundDrawables">
-
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/wrap_content"
+            android:theme="@style/black_to_light_tint"
             android:background="@drawable/person_icon"
             android:layout_marginEnd="10dp"
             tools:ignore="ContentDescription" />
-
         <TextView
-            style="@style/Black_textView"
+            style="@style/bold_14"
+            android:theme="@style/black_to_light_grey"
             android:text="Personal data"
             tools:ignore="HardcodedText" />
-
-
     </LinearLayout>
     <LinearLayout
         android:id="@+id/selAdrees"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:gravity="start|center_vertical"
+        android:gravity="center_vertical"
         android:layout_marginTop="20dp"
         tools:ignore="UseCompoundDrawables">
-
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/wrap_content"
+            android:theme="@style/black_to_light_tint"
             android:background="@drawable/heart_black_smaller"
             android:layout_marginEnd="10dp"
             tools:ignore="ContentDescription" />
-
         <TextView
-            style="@style/Black_textView"
+            style="@style/bold_14"
+            android:theme="@style/black_to_light_grey"
             android:text="Selected addresses"
             tools:ignore="HardcodedText" />
-
-
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:gravity="start|center_vertical"
+        android:gravity="center_vertical"
         android:layout_marginTop="20dp"
         tools:ignore="UseCompoundDrawables">
-
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/wrap_content"
+            android:theme="@style/black_to_light_tint"
             android:background="@drawable/blacklist_icon"
             android:layout_marginEnd="10dp"
             tools:ignore="ContentDescription" />
-
         <TextView
-            style="@style/Black_textView"
+            style="@style/bold_14"
+            android:theme="@style/black_to_light_grey"
             android:text="Blacklist"
             tools:ignore="HardcodedText" />
-
-
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:gravity="start|center_vertical"
+        android:gravity="center_vertical"
         android:layout_marginTop="20dp"
         tools:ignore="UseCompoundDrawables">
-
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/wrap_content"
+            android:theme="@style/black_to_light_tint"
             android:background="@drawable/settings"
             android:layout_marginEnd="10dp"
             tools:ignore="ContentDescription" />
-
         <TextView
-            style="@style/Black_textView"
+            style="@style/bold_14"
+            android:theme="@style/black_to_light_grey"
             android:text="Settings"
             tools:ignore="HardcodedText" />
-
-
     </LinearLayout>
     <View
         style="@style/View_aditional_service"
@@ -162,23 +142,20 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:gravity="start|center_vertical"
+        android:gravity="center_vertical"
         android:layout_marginTop="20dp"
         tools:ignore="UseCompoundDrawables">
-
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/wrap_content"
+            android:theme="@style/black_to_light_tint"
             android:background="@drawable/message"
             android:layout_marginEnd="10dp"
             tools:ignore="ContentDescription" />
-
         <TextView
-            style="@style/Black_textView"
+            style="@style/bold_14"
+            android:theme="@style/black_to_light_grey"
             android:text="Send feedback"
             tools:ignore="HardcodedText" />
-
-
     </LinearLayout>
     <View
         style="@style/View_aditional_service"
@@ -188,70 +165,60 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:gravity="start|center_vertical"
+        android:gravity="center_vertical"
         android:layout_marginTop="20dp"
         tools:ignore="UseCompoundDrawables">
-
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/wrap_content"
+            android:theme="@style/black_to_light_tint"
             android:background="@drawable/lock_outline"
             android:layout_marginEnd="10dp"
             tools:ignore="ContentDescription" />
-
         <TextView
-            style="@style/Black_textView"
+            style="@style/bold_14"
+            android:theme="@style/black_to_light_grey"
             android:text="Change password"
             tools:ignore="HardcodedText" />
-
-
     </LinearLayout>
     <LinearLayout
         android:id="@+id/delete"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:gravity="start|center_vertical"
+        android:gravity="center_vertical"
         android:layout_marginTop="20dp"
         tools:ignore="UseCompoundDrawables">
-
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/garbage_can_red"
             android:layout_marginEnd="10dp"
             tools:ignore="ContentDescription" />
-
         <TextView
-            style="@style/Black_textView"
+            style="@style/bold_14"
             android:textColor="#AE2012"
             android:text="Delete account"
             tools:ignore="HardcodedText" />
-
-
     </LinearLayout>
     <LinearLayout
         android:id="@+id/signOut"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:gravity="start|center_vertical"
+        android:gravity="center_vertical"
         android:layout_marginTop="20dp"
         tools:ignore="UseCompoundDrawables">
-
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/wrap_content"
+            android:theme="@style/black_to_light_tint"
             android:background="@drawable/log_out"
             android:layout_marginEnd="10dp"
             tools:ignore="ContentDescription" />
-
         <TextView
-            style="@style/Black_textView"
+            style="@style/bold_14"
+            android:theme="@style/black_to_light_grey"
             android:text="Go out"
             tools:ignore="HardcodedText" />
-
-
     </LinearLayout>
 
 

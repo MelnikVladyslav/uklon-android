@@ -15,6 +15,7 @@
     <style name="light_grey_to_grey_button"><item name="android:background">@drawable/skip_button</item></style>
     <style name="white_rounded_to_dark_grey"><item name="android:background">@drawable/white_rounded</item></style>
     <style name="white_rounded_top_corners_to_dark_grey"><item name="android:background">@drawable/white_rounded_top_corners</item></style>
+    <style name="white_rounded_right_corners_to_dark_grey"><item name="android:background">@drawable/white_rounded_right</item></style>
     <style name="grey_to_dark_grey_rounded"><item name="android:background">@drawable/skip_button</item></style>
     <style name="green_to_light_grey"><item name="android:tint">#7DB828</item></style>
     <style name="white_rounded_black_tint">
