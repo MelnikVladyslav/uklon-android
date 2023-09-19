@@ -48,7 +48,7 @@
                 <TextView
                     style="@style/Black_textView"
                     android:text="Order reports"
-                    android:fontFamily="@font/lato"
+                    android:fontFamily="@font/lato_700"
                     tools:ignore="HardcodedText" />
                 <TextView
                     style="@style/Grey_Bold_textview"
@@ -82,7 +82,7 @@
             <TextView
                 style="@style/Black_textView"
                 android:text="Ride status changes"
-                android:fontFamily="@font/lato"
+                android:fontFamily="@font/lato_700"
                 tools:ignore="HardcodedText" />
             <TextView
                 style="@style/Grey_Bold_textview"
@@ -109,7 +109,7 @@
         <TextView
             style="@style/Black_textView"
             android:text="Advertising messages"
-            android:fontFamily="@font/lato"
+            android:fontFamily="@font/lato_700"
             tools:ignore="HardcodedText" />
         <TextView
             style="@style/Grey_Bold_textview"
@@ -130,7 +130,7 @@
         <TextView
             style="@style/Black_textView"
             android:text="Additional services by default"
-            android:fontFamily="@font/lato"
+            android:fontFamily="@font/lato_700"
             tools:ignore="HardcodedText" />
         <TextView
             style="@style/Grey_Bold_textview"
@@ -151,7 +151,7 @@
         <TextView
             style="@style/Black_textView"
             android:text="Language"
-            android:fontFamily="@font/lato"
+            android:fontFamily="@font/lato_700"
             tools:ignore="HardcodedText" />
         <TextView
             style="@style/Grey_Bold_textview"
@@ -173,7 +173,7 @@
                 style="@style/Black_textView"
                 android:layout_weight="1"
                 android:text="Light mode"
-                android:fontFamily="@font/lato"
+                android:fontFamily="@font/lato_700"
                 tools:ignore="HardcodedText"
                 android:layout_width="0dp" />
             <CheckBox

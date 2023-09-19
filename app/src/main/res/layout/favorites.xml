@@ -45,7 +45,7 @@
         <TextView
             style="@style/textview_popup_menu"
             android:layout_weight="1"
-            android:fontFamily="@font/lato_regular"
+            android:fontFamily="@font/lato_400"
             android:text="Add din"
             tools:ignore="HardcodedText,InefficientWeight" />
 
@@ -73,7 +73,7 @@
         <TextView
             style="@style/textview_popup_menu"
             android:layout_weight="1"
-            android:fontFamily="@font/lato_regular"
+            android:fontFamily="@font/lato_400"
             android:text="Add a job"
             tools:ignore="HardcodedText,InefficientWeight" />
 
@@ -101,7 +101,7 @@
         <TextView
             style="@style/textview_popup_menu"
             android:layout_weight="1"
-            android:fontFamily="@font/lato_regular"
+            android:fontFamily="@font/lato_400"
             android:text="Add to favorites"
             tools:ignore="HardcodedText,InefficientWeight" />
 

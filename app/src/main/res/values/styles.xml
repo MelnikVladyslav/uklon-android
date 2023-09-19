@@ -28,7 +28,7 @@
     <style name="textview_popup_menu">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:fontFamily">@font/lato</item>
+        <item name="android:fontFamily">@font/lato_700</item>
         <item name="android:textAllCaps">false</item>
         <item name="android:letterSpacing">0.04</item>
         <item name="android:textColor">#262626</item>
@@ -47,30 +47,129 @@
     <style name="TextViewPrimary">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:fontFamily">@font/lato_regular</item>
+        <item name="android:fontFamily">@font/lato_400</item>
         <item name="android:letterSpacing">0.04</item>
         <item name="android:textSize">14sp</item>
         <item name="android:textAllCaps">false</item>
     </style>
+        <!--NEW START-->
+        <!--Text Styles-->
+    <style name="regular_12">
+        <item name="android:textSize">12sp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">@font/lato_400</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:letterSpacing">0.04</item>
+    </style>
+    <style name="regular_13">
+        <item name="android:textSize">13sp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">@font/lato_400</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:letterSpacing">0.04</item>
+    </style>
+    <style name="regular_14">
+        <item name="android:textSize">14sp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">@font/lato_400</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:letterSpacing">0.04</item>
+    </style>
+    <style name="regular_15">
+        <item name="android:textSize">15sp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">@font/lato_400</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:letterSpacing">0.04</item>
+    </style>
+    <style name="regular_24">
+        <item name="android:textSize">24sp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">@font/lato_400</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:letterSpacing">0.04</item>
+    </style>
 
+    <style name="semibold_13">
+        <item name="android:textSize">13sp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">@font/lato_500</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:letterSpacing">0.04</item>
+    </style>
+
+    <style name="bold_14">
+        <item name="android:textSize">14sp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">@font/lato_600</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:letterSpacing">0.04</item>
+    </style>
+    <style name="bold_16">
+        <item name="android:textSize">16sp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">@font/lato_600</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:letterSpacing">0.04</item>
+    </style>
+    <style name="bold_20">
+        <item name="android:textSize">20sp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">@font/lato_600</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:letterSpacing">0.04</item>
+    </style>
+    <style name="bold_24">
+        <item name="android:textSize">24sp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">@font/lato_600</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:letterSpacing">0.04</item>
+    </style>
+        <!--End of Text Styles-->
+    <style name="line">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">2dp</item>
+    </style>
+    <style name="green_button">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">40dp</item>
+        <item name="android:background">@drawable/start_button_background</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:fontFamily">@font/lato_600</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:letterSpacing">0.04</item>
+    </style>
+        <!--NEW END-->
     <style name="Black_textView" parent="TextViewPrimary">
         <item name="android:textColor">#262626</item>
     </style>
 
     <style name="Grey_Bold_textview" parent="TextViewPrimary">
-        <item name="android:fontFamily">@font/lato</item>
+        <item name="android:fontFamily">@font/lato_700</item>
         <item name="android:textColor">#848484</item>
     </style>
 
     <style name="View_aditional_service">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">2dp</item>
-        <item name="android:background">@drawable/line_with_borders</item>
+        <item name="android:background">@drawable/line_light_grey</item>
     </style>
 
     <style name="Grey_regular_textview" parent="TextViewPrimary">
         <item name="android:textSize">15sp</item>
-        <item name="android:fontFamily">@font/lato_regular</item>
+        <item name="android:fontFamily">@font/lato_400</item>
         <item name="android:textColor">#A3A3A3</item>
     </style>
 
@@ -137,7 +236,7 @@
     <style name="order_text_black">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:fontFamily">@font/lato</item>
+        <item name="android:fontFamily">@font/lato_700</item>
         <item name="android:letterSpacing">0.04</item>
         <item name="android:textAllCaps">false</item>
         <item name="android:textColor">#262626</item>
@@ -147,7 +246,7 @@
     <style name="order_grey_text">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:fontFamily">@font/lato_regular</item>
+        <item name="android:fontFamily">@font/lato_400</item>
         <item name="android:letterSpacing">0.04</item>
         <item name="android:textAllCaps">false</item>
         <item name="android:textColor">#848484</item>
@@ -156,8 +255,13 @@
 
     <style name="light_grey_text_bold" parent="TextViewPrimary">
         <item name="android:textColor">#F2F2F2</item>
-        <item name="android:fontFamily">@font/lato_regular</item>
+        <item name="android:fontFamily">@font/lato_400</item>
         <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="wrap_content">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
     </style>
 
 

@@ -1,82 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:theme="@style/ScreenBackground"
+    android:paddingHorizontal="16dp"
+    android:paddingBottom="40dp"
+    android:gravity="center_horizontal"
     tools:ignore="MissingClass">
 
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="39dp"
+    android:gravity="center_vertical"
+    android:orientation="horizontal">
 
     <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@android:color/transparent"
-        android:src="@drawable/arrow_back"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.05"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.084"
+       style="@style/wrap_content"
+        android:theme="@style/black_to_light_tint"
+        android:background="@drawable/arrow_back"
         tools:ignore="ContentDescription,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
-
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/lato"
-        android:fontWeight="600"
-        android:letterSpacing="0.04"
+        style="@style/bold_20"
+        android:theme="@style/black_to_light_grey"
+        android:gravity="center_horizontal"
+        android:layout_marginEnd="28dp"
         android:text="Verification"
-        android:textColor="#262626"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.084"
         tools:ignore="HardcodedText" />
+</LinearLayout>
+
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/lato"
-        android:fontWeight="600"
-        android:letterSpacing="0.04"
+        style="@style/bold_16"
+        android:theme="@style/black_to_light_grey"
+        android:layout_marginTop="100dp"
         android:text="Enter the code to verify your device"
-        android:textColor="#262626"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.25"
         tools:ignore="HardcodedText" />
-
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="50dp"
+    android:paddingHorizontal="69dp"
+    android:orientation="vertical">
     <LinearLayout
         android:id="@+id/code_input"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.35"
-        android:layout_marginEnd="85dp"
-        android:layout_marginStart="85dp">
-
+       >
         <EditText
             android:id="@+id/editText1"
+            style="@style/regular_15"
+            android:theme="@style/black_to_light_grey"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="10dp"
             android:layout_weight="1"
             android:autofillHints=""
-            android:backgroundTint="#A3A3A3"
-            android:fontFamily="@font/lato"
             android:gravity="center"
             android:imeOptions="actionNext"
             android:inputType="number"
@@ -84,19 +66,16 @@
             android:maxLength="1"
             android:nextFocusDown="@+id/editText3"
             android:padding="15dp"
-            android:textColor="#262626"
-            android:textSize="15sp"
             tools:ignore="HardcodedText,LabelFor,SpeakableTextPresentCheck,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
-
         <EditText
             android:id="@+id/editText2"
+            style="@style/regular_15"
+            android:theme="@style/black_to_light_grey"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="10dp"
             android:layout_weight="1"
             android:autofillHints=""
-            android:backgroundTint="#A3A3A3"
-            android:fontFamily="@font/lato"
             android:gravity="center"
             android:imeOptions="actionNext"
             android:inputType="number"
@@ -104,19 +83,16 @@
             android:maxLength="1"
             android:nextFocusDown="@+id/editText3"
             android:padding="15dp"
-            android:textColor="#262626"
-            android:textSize="15sp"
             tools:ignore="HardcodedText,LabelFor,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
-
         <EditText
             android:id="@+id/editText3"
+            style="@style/regular_15"
+            android:theme="@style/black_to_light_grey"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="10dp"
             android:layout_weight="1"
             android:autofillHints=""
-            android:backgroundTint="#A3A3A3"
-            android:fontFamily="@font/lato"
             android:gravity="center"
             android:imeOptions="actionNext"
             android:inputType="number"
@@ -124,81 +100,88 @@
             android:maxLength="1"
             android:nextFocusDown="@+id/editText3"
             android:padding="15dp"
-            android:textColor="#262626"
-            android:textSize="15sp"
             tools:ignore="HardcodedText,LabelFor,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
-
         <EditText
             android:id="@+id/editText4"
+            style="@style/regular_15"
+            android:theme="@style/black_to_light_grey"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:backgroundTint="#A3A3A3"
-            android:fontFamily="@font/lato"
             android:gravity="center"
             android:imeOptions="actionDone"
             android:inputType="number"
             android:maxLength="1"
-            android:textColor="#262626"
-            android:textSize="15sp"
             android:padding="15dp"
             tools:ignore="HardcodedText,LabelFor,SpeakableTextPresentCheck,TouchTargetSizeCheck"
             android:autofillHints="" />
 
     </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <View
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="1dp"
+            android:background="@drawable/line_grey"
+            />
+        <View
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="1dp"
+            android:layout_marginStart="10dp"
+            android:background="@drawable/line_grey"
+            />
+        <View
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="1dp"
+            android:layout_marginStart="10dp"
+            android:background="@drawable/line_grey"
+            />
+        <View
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="1dp"
+            android:layout_marginStart="10dp"
+            android:background="@drawable/line_grey"
+            />
+    </LinearLayout>
+
+</LinearLayout>
 <LinearLayout
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    tools:ignore="MissingConstraints"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintHorizontal_bias="0.5"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@id/code_input"
-    android:layout_marginTop="15dp">
-
+    android:layout_marginTop="15dp"
+    android:gravity="center_horizontal">
 
     <TextView
-        android:id="@+id/receive_code"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/lato_regular"
-        android:letterSpacing="0.04"
+        style="@style/regular_12"
         android:text="Didn't receive the code? "
         android:textColor="#A3A3A3"
-        android:textSize="12sp"
         tools:ignore="HardcodedText,TextContrastCheck" />
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/lato_regular"
-        android:letterSpacing="0.04"
+        style="@style/regular_12"
         android:text="Resend"
         android:textColor="#7DB828"
-        android:textSize="12sp"
         tools:ignore="HardcodedText,TextContrastCheck" />
 
 </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
 
     <Button
-        android:id="@+id/next"
-        android:layout_width="328dp"
-        android:layout_height="40dp"
-        android:background="@drawable/start_button_background"
-        android:textAllCaps="false"
+        style="@style/green_button"
         android:text="Next"
-        android:textSize="16sp"
-        android:fontFamily="@font/lato"
-        android:fontWeight="600"
-        android:letterSpacing="0.04"
-        android:textColor="#262626"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.946"
-        tools:ignore="DuplicateSpeakableTextCheck,HardcodedText,MissingConstraints,SpeakableTextPresentCheck,TouchTargetSizeCheck,VisualLintButtonSize" />
+        android:theme="@style/black_to_light_grey"
+        tools:ignore="HardcodedText,TextContrastCheck,VisualLintButtonSize" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

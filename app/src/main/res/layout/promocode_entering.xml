@@ -27,7 +27,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:fontFamily="@font/lato"
+            android:fontFamily="@font/lato_700"
             android:gravity="center_horizontal"
             android:letterSpacing="0.04"
             android:paddingEnd="25dp"

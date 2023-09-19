@@ -101,7 +101,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="105 ₴ "
-                android:fontFamily="@font/lato_regular"
+                android:fontFamily="@font/lato_400"
                 android:textSize="32sp"
                 android:textColor="#262626"
                 tools:ignore="HardcodedText" />
@@ -109,7 +109,7 @@
                 android:layout_width="117dp"
                 android:layout_height="wrap_content"
                 android:background="@drawable/skip_button"
-                android:fontFamily="@font/lato_regular"
+                android:fontFamily="@font/lato_400"
                 android:paddingHorizontal="15dp"
                 android:paddingVertical="7dp"
                 android:text="10 min, 4.5 km"
@@ -147,7 +147,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/lato_regular"
+                    android:fontFamily="@font/lato_400"
                     android:text="Cash"
                     android:textColor="#262626"
                     android:textSize="12sp"
@@ -172,7 +172,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/lato_regular"
+                    android:fontFamily="@font/lato_400"
                     android:text="Comment"
                     android:textColor="#262626"
                     android:textSize="12sp"
@@ -197,7 +197,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/lato_regular"
+                    android:fontFamily="@font/lato_400"
                     android:text="Services"
                     android:textColor="#262626"
                     android:textSize="12sp"

@@ -21,7 +21,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:fontFamily="@font/lato_regular"
+            android:fontFamily="@font/lato_400"
             android:letterSpacing="0.04"
             android:text="Rivne"
             android:layout_marginStart="12dp"

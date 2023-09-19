@@ -46,7 +46,7 @@
                 style="@style/Black_textView"
                 android:layout_weight="1"
                 android:text="Total trips"
-                android:fontFamily="@font/lato"
+                android:fontFamily="@font/lato_700"
                 tools:ignore="HardcodedText,NestedWeights" />
 
             <TextView
@@ -54,7 +54,7 @@
                 android:layout_marginStart="5dp"
                 android:layout_marginTop="15dp"
                 android:layout_weight="1"
-                android:fontFamily="@font/lato"
+                android:fontFamily="@font/lato_700"
                 android:text="0"
                 android:textSize="20sp"
                 tools:ignore="HardcodedText,TextSizeCheck" />
@@ -93,7 +93,7 @@
                 style="@style/Black_textView"
                 android:layout_weight="1"
                 android:text="Completed"
-                android:fontFamily="@font/lato"
+                android:fontFamily="@font/lato_700"
                 tools:ignore="HardcodedText,NestedWeights" />
 
             <TextView
@@ -101,7 +101,7 @@
                 android:layout_marginStart="5dp"
                 android:layout_marginTop="15dp"
                 android:layout_weight="1"
-                android:fontFamily="@font/lato"
+                android:fontFamily="@font/lato_700"
                 android:text="0"
                 android:textSize="20sp"
                 tools:ignore="HardcodedText,TextSizeCheck" />
@@ -140,7 +140,7 @@
                 style="@style/Black_textView"
                 android:layout_weight="1"
                 android:text="Canceled"
-                android:fontFamily="@font/lato"
+                android:fontFamily="@font/lato_700"
                 tools:ignore="HardcodedText,NestedWeights" />
 
             <TextView
@@ -148,7 +148,7 @@
                 android:layout_marginStart="5dp"
                 android:layout_marginTop="15dp"
                 android:layout_weight="1"
-                android:fontFamily="@font/lato"
+                android:fontFamily="@font/lato_700"
                 android:text="0"
                 android:textSize="20sp"
                 tools:ignore="HardcodedText,TextSizeCheck" />
