@@ -1,40 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activities.MainActivity">
-
     <fragment
         android:id="@+id/mapFragment"
         android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="FragmentTagUsage"
-        tools:layout_editor_absoluteY="0dp" />
-
-    <ImageButton
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/arrow_back"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.05"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.03"
-        tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
-
-
+        tools:ignore="FragmentTagUsage" />
+    <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:paddingTop="20dp"
+        android:paddingStart="16dp"
+        android:gravity="top|left"
+        tools:ignore="RtlHardcoded,RtlSymmetry">
+            <ImageButton
+                android:id="@+id/button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/arrow_back"
+                style="@style/white_rounded_black_tint"
+                tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
+    </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/white_rounded_top_corners"
+        style="@style/white_rounded_top_corners_to_dark_grey"
         android:gravity="center_horizontal"
         android:elevation="15dp"
         android:orientation="vertical"
@@ -42,163 +42,120 @@
         android:paddingTop="18dp"
         android:paddingBottom="21dp"
         app:layout_constraintBottom_toBottomOf="parent">
-
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal" />
-
-
-        <View
-            style="@style/View_aditional_service"
-            android:layout_marginTop="25dp"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="10dp"
-            android:gravity="center_vertical">
-
-            <TextView
-                android:id="@+id/priceText"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="0 ₴ "
-                android:fontFamily="@font/lato_400"
-                android:textSize="32sp"
-                android:textColor="#262626"
-                tools:ignore="HardcodedText" />
-
-            <TextView
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/skip_button"
-                android:fontFamily="@font/lato_400"
-                android:paddingHorizontal="15dp"
-                android:paddingVertical="7dp"
-                android:text="10 min, 4.5 km"
-                android:textColor="#848484"
-                android:textSize="13sp"
-                tools:ignore="HardcodedText" />
-
-        </LinearLayout>
-
-        <View
-            style="@style/View_aditional_service"
-            android:layout_marginTop="10dp" />
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:orientation="horizontal"
-            android:gravity="center_horizontal">
-
+                android:orientation="horizontal" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@drawable/line_grey"
+                android:layout_marginTop="25dp"/>
             <LinearLayout
-                android:id="@+id/typePayments"
-                android:layout_width="0dp"
-                android:layout_weight="1"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:gravity="center_horizontal">
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp"
+                android:gravity="center_vertical">
+                <TextView
+                    android:id="@+id/priceText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="0 ₴ "
+                    style="@style/semibold_32"
+                    android:theme="@style/black_to_light_grey"
+                    tools:ignore="HardcodedText" />
+                <TextView
+                    style="@style/regular_13"
+                    android:theme="@style/grey_text_light_grey_background"
+                    android:paddingHorizontal="15dp"
+                    android:paddingVertical="7dp"
+                    android:text="10 min, 4.5 km"
+                    tools:ignore="HardcodedText" />
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@drawable/line_grey"
+                android:layout_marginTop="10dp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal"
+                android:gravity="center_horizontal"
+                tools:ignore="DisableBaselineAlignment">
+                <LinearLayout
+                    android:id="@+id/typePayments"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center_horizontal">
 
-                        <ImageButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                    <ImageButton
+                        style="@style/wrap_content"
+                        android:layout_marginBottom="12dp"
                         android:background="@drawable/cash"
-                        android:layout_marginBottom="12dp" />
-                <TextView
-                    android:layout_width="wrap_content"
+                        tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
+                    <TextView
+                        style="@style/regular_12"
+                        android:theme="@style/black_to_light_grey"
+                        android:text="Cash"
+                        tools:ignore="HardcodedText"
+                        />
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/comm"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/lato_400"
-                    android:text="Cash"
-                    android:textColor="#262626"
-                    android:textSize="12sp"
-                    tools:ignore="HardcodedText"
-                    />
+                    android:orientation="vertical"
+                    android:gravity="center_horizontal">
 
+                    <ImageButton
+                        style="@style/wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:background="@drawable/comment"
+                        android:theme="@style/black_to_light_tint"
+                        tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
+                    <TextView
+                        style="@style/regular_12"
+                        android:theme="@style/black_to_light_grey"
+                        android:text="Comment"
+                        tools:ignore="HardcodedText"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/service"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center_horizontal">
+
+                    <ImageButton
+                        style="@style/wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:background="@drawable/more"
+                        android:theme="@style/black_to_light_tint"
+                        tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
+                    <TextView
+                        style="@style/regular_12"
+                        android:theme="@style/black_to_light_grey"
+                        android:text="Services"
+                        tools:ignore="HardcodedText"/>
+                </LinearLayout>
             </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/comm"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:gravity="center_horizontal">
-
-                <ImageButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/comment"
-                    android:layout_marginBottom="10dp" />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/lato_400"
-                    android:text="Comment"
-                    android:textColor="#262626"
-                    android:textSize="12sp"
-                    tools:ignore="HardcodedText"
-                    />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/service"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:gravity="center_horizontal">
-
-                <ImageButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/more"
-                    android:layout_marginBottom="10dp" />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/lato_400"
-                    android:text="Services"
-                    android:textColor="#262626"
-                    android:textSize="12sp"
-                    tools:ignore="HardcodedText"
-                    />
-
-            </LinearLayout>
-
-
-        </LinearLayout>
-
-
 
         <Button
             android:id="@+id/Next"
-            android:gravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:background="@drawable/start_button_background"
-            android:fontFamily="@font/lato_700"
-            android:letterSpacing="0.04"
-            android:text="Request a ride"
-            android:textAllCaps="false"
-            android:textColor="#262626"
-            android:textSize="16sp"
+            style="@style/green_button"
             android:layout_marginTop="20dp"
-            tools:ignore="HardcodedText,TouchTargetSizeCheck,VisualLintButtonSize" />
-
-
-
+            android:text="Request a ride"
+            android:theme="@style/black_to_light_grey"
+            tools:ignore="HardcodedText,VisualLintButtonSize,TextContrastCheck" />
+        </LinearLayout>
     </LinearLayout>
-
-
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

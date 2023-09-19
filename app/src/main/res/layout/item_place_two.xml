@@ -1,36 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginStart="29dp"
         android:gravity="center_vertical">
 
         <ImageButton
             android:id="@+id/click"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
             android:background="@drawable/recent"
-            android:layout_marginEnd="10dp"/>
+            tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
 
         <TextView
             android:id="@+id/placeNameTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/lato_400"
-            android:letterSpacing="0.04"
+            style="@style/regular_15"
             android:text="Shpanivs'kyi Ln, 2-32"
-            android:textColor="#262626"
-            android:textSize="15sp"
-            android:textAllCaps="false"
-            tools:ignore="HardcodedText"
-            />
-    </LinearLayout>
+            android:theme="@style/black_to_light_grey"
+            tools:ignore="HardcodedText,TextContrastCheck" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="11dp"
+        android:layout_marginBottom="22dp"
+        style="@style/grey_line_to_dark_grey"/>
+</LinearLayout>
