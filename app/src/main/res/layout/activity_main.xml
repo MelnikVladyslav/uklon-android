@@ -5,16 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activities.MainActivity">
-
-
   <fragment
       android:id="@+id/mapFragment"
       android:name="com.google.android.gms.maps.SupportMapFragment"
       android:layout_width="match_parent"
       android:layout_height="match_parent"
       tools:ignore="FragmentTagUsage" />
-
-
   <LinearLayout
       android:layout_width="match_parent"
       android:layout_height="match_parent"
@@ -62,36 +58,29 @@
         android:layout_weight="1"
         android:gravity="bottom|right"
         tools:ignore="RtlHardcoded">
-
-
-      <ImageButton
-          android:id="@+id/find_my_location_button"
-          style="@style/wrap_content"
-          android:theme="@style/white_rounded_to_dark_grey"
-          android:src="@drawable/find_my_location"
-          android:padding="6.4dp"
-          android:layout_marginEnd="16dp"
-          android:layout_marginBottom="20dp"
-          tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
+        <ImageButton
+            android:id="@+id/find_my_location_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/white_rounded_to_dark_grey"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="20dp"
+            android:padding="6.4dp"
+            android:src="@drawable/find_my_location"
+            tools:ignore="ContentDescription,SpeakableTextPresentCheck,ImageContrastCheck" />
     </LinearLayout>
-
-
-
     <LinearLayout
+        style="@style/white_rounded_top_corners_to_dark_grey"
         android:id="@+id/popup_menu_main"
         android:layout_width="match_parent"
         android:layout_height="30dp"
         android:elevation="15dp"
-        android:gravity="center_horizontal"
-        android:theme="@style/white_rounded_top_corners_to_dark_grey">
-
-
-      <ImageView
-          style="@style/wrap_content"
-          android:background="@drawable/grey_line"
-          android:layout_marginTop="13dp"
-          tools:ignore="ContentDescription,NotSibling" />
-
+        android:gravity="center_horizontal">
+        <ImageView
+            style="@style/wrap_content"
+            android:layout_marginTop="13dp"
+            android:background="@drawable/grey_line"
+            tools:ignore="ContentDescription,NotSibling,ImageContrastCheck" />
     </LinearLayout>
   </LinearLayout>
 </FrameLayout>

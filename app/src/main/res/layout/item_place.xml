@@ -6,42 +6,33 @@
 
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@id/popup_menu_main"
-        android:background="@drawable/light_green_rounded"
-        tools:ignore="MissingConstraints,NotSibling"
-        android:layout_marginTop="30dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginEnd="30dp"
-        android:paddingEnd="15dp"
-        android:layout_centerHorizontal="true"
-        android:orientation="horizontal">
+        android:layout_width="258dp"
+        android:layout_height="50dp"
+        style="@style/light_green_to_grey"
+        android:paddingVertical="10dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="15dp"
+        tools:ignore="MissingConstraints">
         <TextView
             android:id="@+id/placeNameTextView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
+            style="@style/regular_13"
+            android:theme="@style/black_to_light_grey"
             android:gravity="center_vertical"
-            android:fontFamily="@font/lato_400"
-            android:letterSpacing="0.04"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp"
-            android:paddingStart="15dp"
-            android:text="rivne"
-            android:textColor="#262626"
-            android:textSize="13sp"
-            android:textAllCaps="false"
-            tools:ignore="HardcodedText"
-            android:layout_weight="1"/>
+            android:text="Gregory Skovorody
+Street 19"
+            android:layout_weight="1"
+            tools:ignore="HardcodedText" />
 
         <ImageButton
             android:id="@+id/click"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end|center_vertical"
+            style="@style/wrap_content"
+            android:layout_marginStart="50dp"
             android:background="@drawable/mdi_recent"
-            tools:ignore="ContentDescription" />
+            android:theme="@style/green_to_light_grey"
+            tools:ignore="ContentDescription,ImageContrastCheck,SpeakableTextPresentCheck" />
 
     </LinearLayout>
 
