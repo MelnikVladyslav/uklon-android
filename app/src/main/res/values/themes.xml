@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <style name="Theme.UklonFrintend" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <item name="colorPrimary">#FFFFFF</item>
+        <item name="colorPrimaryVariant">#F2F2F2</item>
+        <item name="colorOnPrimary">#A3A3A3</item>
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+    </style>
 
     <style name="ScreenBackground"><item name="android:background">#FFFFFF</item></style>
     <style name="line_color_changes"><item name="android:background">@drawable/line_grey</item></style>
