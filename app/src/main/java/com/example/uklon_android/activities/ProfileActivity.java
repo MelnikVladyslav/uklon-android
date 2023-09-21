@@ -58,8 +58,6 @@ public class ProfileActivity extends AppCompatActivity {
     String imagePath;
     private static final int PICK_IMAGE_REQUEST = 1;
 
-    UploadDTO uploadDTO = new UploadDTO();
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -138,6 +136,47 @@ public class ProfileActivity extends AppCompatActivity {
         llDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                UserDTO userDTO = new UserDTO();
+                userDTO.setFirstName(correctUser.getFirstName());
+                userDTO.setLastName(correctUser.getLastName());
+                userDTO.setPassword(correctUser.getPassword());
+                userDTO.setPhoneNumber(correctUser.getPhoneNumber());
+                userDTO.setEmail(correctUser.getEmail());
+                userDTO.setUrl(correctUser.getUrl());
+                /*apiService.deleteUser(userDTO).enqueue(new Callback() {
+                    @Override
+                    public void onResponse(Call call, Response response) {
+                        if(response.body() != null)
+                        {
+                            Intent intent = new Intent(ProfileActivity.this, LoginActivity.class);
+                            startActivity(intent);
+                        }
+                        else {
+                            Log.d("Error: ", response.code() + " " + response.message());
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call call, Throwable t) {
+                        Log.d("Error: ", t.getMessage());
+                    }
+                });*/
+            }
+        });
+
+        llChange.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ProfileActivity.this, ChangePassActivity.class);
+                intent.putExtra("user", correctUser);
+                startActivity(intent);
+            }
+        });
+
+        llSelAdr.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
             }
         });
 
@@ -191,8 +230,6 @@ public class ProfileActivity extends AppCompatActivity {
 
             // Отримайте файл з фактичним шляхом
             File imageFile = new File(imagePath);
-
-            new UploadTask(imageFile, correctUser.getId()).execute();
 
             // Тут ви можете робити що завгодно з вибраною фотографією, наприклад, відображати її у віджеті ImageView
             avatarImg.setImageURI(selectedImageUri);

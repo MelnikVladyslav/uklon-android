@@ -132,7 +132,6 @@ public class MainActivity extends AppCompatActivity implements PlacesAdapter.OnP
         addressStrEnd = (String) getIntent().getSerializableExtra("endAdress");
 
 
-
         GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(this);
         if (acct != null) {
             sendUser.setEmail(acct.getEmail());
@@ -453,7 +452,7 @@ public class MainActivity extends AppCompatActivity implements PlacesAdapter.OnP
 
             Button extranceBtn = bottomSheetDialog.findViewById(R.id.btnExtr);
             TextView pointStart = bottomSheetDialog.findViewById(R.id.pointStart);
-            EditText pointEnd = bottomSheetDialog.findViewById(R.id.NameInput);
+            EditText pointEnd = bottomSheetDialog.findViewById(R.id.where_to_go);
             ImageButton btnAddHome = bottomSheetDialog.findViewById(R.id.addHome);
             ImageButton btnAddWork = bottomSheetDialog.findViewById(R.id.addWork);
             ImageButton btnLike = bottomSheetDialog.findViewById(R.id.Like);

@@ -3,12 +3,10 @@ package com.example.uklon_android.interfaces;
 import com.example.uklon_android.DTOs.CardDTO;
 import com.example.uklon_android.DTOs.OrderDTO;
 import com.example.uklon_android.DTOs.PhoneNumberVerificationDto;
-import com.example.uklon_android.DTOs.SelAdresessDTO;
 import com.example.uklon_android.DTOs.UploadDTO;
 import com.example.uklon_android.DTOs.UserDTO;
 import com.example.uklon_android.classes.Card;
 import com.example.uklon_android.classes.Order;
-import com.example.uklon_android.classes.SelAdress;
 import com.example.uklon_android.classes.Transport;
 import com.example.uklon_android.classes.Types;
 import com.example.uklon_android.classes.User;
@@ -85,10 +83,4 @@ public interface ApiService {
     @Multipart
     @POST("/api/login/upload-photo")
     Call<User> uploadPhoto(@Body UploadDTO uploadDTO);
-
-    @GET
-    Call<List<SelAdress>> getSelAdreses();
-
-    @POST
-    Call addSelAdrees(@Body SelAdresessDTO selAdresessDTO);
 }

@@ -14,7 +14,6 @@
         android:gravity="center"
         >
         <ImageButton
-            android:id="@+id/back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/arrow_back"
@@ -44,15 +43,13 @@
 
 
         <TextView
-            android:id="@+id/tvHome"
             style="@style/textview_popup_menu"
             android:layout_weight="1"
             android:fontFamily="@font/lato_400"
             android:text="Add din"
             tools:ignore="HardcodedText,InefficientWeight" />
 
-        <ImageButton
-            android:id="@+id/addHome"
+        <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/house_small"
@@ -74,15 +71,13 @@
 
 
         <TextView
-            android:id="@+id/tvJob"
             style="@style/textview_popup_menu"
             android:layout_weight="1"
             android:fontFamily="@font/lato_400"
             android:text="Add a job"
             tools:ignore="HardcodedText,InefficientWeight" />
 
-        <ImageButton
-            android:id="@+id/addJob"
+        <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/suitcase"
@@ -104,15 +99,13 @@
 
 
         <TextView
-            android:id="@+id/tvFav"
             style="@style/textview_popup_menu"
             android:layout_weight="1"
             android:fontFamily="@font/lato_400"
             android:text="Add to favorites"
             tools:ignore="HardcodedText,InefficientWeight" />
 
-        <ImageButton
-            android:id="@+id/addFav"
+        <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/heart_black_smaller"
