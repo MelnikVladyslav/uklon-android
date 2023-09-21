@@ -64,41 +64,74 @@
         android:layout_marginTop="5dp"
         android:background="#A3A3A3" />
 
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/recent"
+            tools:ignore="ContentDescription,ImageContrastCheck" />
+
+       <TextView
+          style="@style/Black_bigger_textView"
+           android:text="Henerala Bezruchka Ave, 5"
+           android:layout_marginStart="10dp"
+           tools:ignore="HardcodedText"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content" />
+
+</LinearLayout>
     <View
-        android:layout_width="match_parent"
-        android:layout_weight="1"
-        android:layout_height="0dp"/>
+        style="@style/View_aditional_service"
+        android:layout_marginTop="5dp"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        tools:ignore="UselessLeaf" />
-    <View
-            style="@style/View_aditional_service"
-            android:layout_marginBottom="8dp" />
-    <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="6dp"
-            android:gravity="center"
-            android:orientation="horizontal"
+        android:orientation="horizontal"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical"
         tools:ignore="UseCompoundDrawables">
 
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/recent"
+            tools:ignore="ContentDescription,ImageContrastCheck" />
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/fluent_location"
-                tools:ignore="ContentDescription" />
-
-            <TextView
-                style="@style/Black_bigger_textView"
-                android:layout_marginStart="10dp"
-                android:text="Set location on map"
-                tools:ignore="HardcodedText" />
-
-
-        </LinearLayout>
+        <TextView
+            style="@style/Black_bigger_textView"
+            android:text="Shpanivs'kyi Ln, 2-32"
+            android:layout_marginStart="10dp"
+            tools:ignore="HardcodedText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
 
     </LinearLayout>
+    <View
+        style="@style/View_aditional_service"
+        android:layout_marginTop="5dp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical"
+        tools:ignore="UseCompoundDrawables">
 
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/recent"
+            tools:ignore="ContentDescription,ImageContrastCheck" />
+
+        <TextView
+            style="@style/Black_bigger_textView"
+            android:text="Shpanivs'kyi Ln, 2-32"
+            android:layout_marginStart="10dp"
+            tools:ignore="HardcodedText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+    <View
+        style="@style/View_aditional_service"
+        android:layout_marginTop="5dp"/>
