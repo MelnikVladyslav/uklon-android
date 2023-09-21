@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
@@ -17,11 +18,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
-import com.example.uklon_android.DTOs.UploadDTO;
 import com.example.uklon_android.DTOs.UserDTO;
 import com.example.uklon_android.R;
 import com.example.uklon_android.classes.User;
 import com.example.uklon_android.interfaces.ApiService;
+import com.example.uklon_android.interfaces.DeleteTask;
+import com.example.uklon_android.interfaces.FileUploader;
+import com.example.uklon_android.interfaces.UploadTask;
 import com.facebook.AccessToken;
 import com.facebook.login.LoginManager;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -32,10 +35,8 @@ import com.google.android.gms.tasks.Task;
 import com.squareup.picasso.Picasso;
 
 import java.io.File;
+import java.io.IOException;
 
-import okhttp3.MediaType;
-import okhttp3.MultipartBody;
-import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -49,7 +50,7 @@ public class ProfileActivity extends AppCompatActivity {
     ImageButton avatarImg;
     TextView firstNameEdT;
     TextView emailEdT;
-    LinearLayout llPerData, llExit, llDelete, llChange, llSelAdr;
+    LinearLayout llPerData, llExit, llDelete;
     String urlAv;
     GoogleSignInClient gsc;
     GoogleSignInOptions gso;
@@ -87,8 +88,6 @@ public class ProfileActivity extends AppCompatActivity {
         llPerData = findViewById(R.id.PersonalData);
         llExit = findViewById(R.id.signOut);
         llDelete = findViewById(R.id.delete);
-        llChange = findViewById(R.id.change);
-        llSelAdr = findViewById(R.id.selAdrees);
         emailEdT.setText(correctUser.getEmail());
 
         AccessToken accessToken = AccessToken.getCurrentAccessToken();
@@ -116,6 +115,9 @@ public class ProfileActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(ProfileActivity.this, PersonalDataActivity.class);
                 intent.putExtra("user", correctUser);
+                if(urlAv != null) {
+                    intent.putExtra("uriImg", urlAv.toString());
+                }
                 startActivity(intent);
             }
         });
@@ -136,49 +138,6 @@ public class ProfileActivity extends AppCompatActivity {
         llDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                UserDTO userDTO = new UserDTO();
-                userDTO.setFirstName(correctUser.getFirstName());
-                userDTO.setLastName(correctUser.getLastName());
-                userDTO.setPassword(correctUser.getPassword());
-                userDTO.setPhoneNumber(correctUser.getPhoneNumber());
-                userDTO.setEmail(correctUser.getEmail());
-                userDTO.setUrl(correctUser.getUrl());
-                /*apiService.deleteUser(userDTO).enqueue(new Callback() {
-                    @Override
-                    public void onResponse(Call call, Response response) {
-                        if(response.body() != null)
-                        {
-                            Intent intent = new Intent(ProfileActivity.this, LoginActivity.class);
-                            startActivity(intent);
-                        }
-                        else {
-                            Log.d("Error: ", response.code() + " " + response.message());
-                        }
-                    }
-
-                    @Override
-                    public void onFailure(Call call, Throwable t) {
-                        Log.d("Error: ", t.getMessage());
-                    }
-                });*/
-            }
-        });
-
-        llChange.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(ProfileActivity.this, ChangePassActivity.class);
-                intent.putExtra("user", correctUser);
-                startActivity(intent);
-            }
-        });
-
-        llSelAdr.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(ProfileActivity.this, SelectedAdress.class);
-                intent.putExtra("user", correctUser);
-                startActivity(intent);
             }
         });
 
@@ -195,7 +154,6 @@ public class ProfileActivity extends AppCompatActivity {
     public void pickImageFromGallery(View view) {
         Intent intent = new Intent(Intent.ACTION_PICK,
                 android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-        intent.setType("image/png");
         startActivityForResult(intent, PICK_IMAGE_REQUEST);
     }
 
@@ -233,37 +191,12 @@ public class ProfileActivity extends AppCompatActivity {
 
             // Отримайте файл з фактичним шляхом
             File imageFile = new File(imagePath);
-            RequestBody requestFile = RequestBody.create(MediaType.parse("multipart/form-data"), imageFile);
-            MultipartBody.Part body = MultipartBody.Part.createFormData("imageFile", imageFile.getName(), requestFile);
 
-            uploadDTO.setImageFile(body);
-            uploadDTO.setUserId(correctUser.getId());
+            new UploadTask(imageFile, correctUser.getId()).execute();
 
-            Log.d("user id:", uploadDTO.getUserId());
-            Log.d("image:", String.valueOf(uploadDTO.getImageFile().body()));
-
-            RequestBody userIdRequestBody = RequestBody.create(MediaType.parse("text/plain"), correctUser.getId());
-
-            apiService.uploadPhoto(uploadDTO).enqueue(new Callback<User>() {
-                @Override
-                public void onResponse(Call<User> call, Response<User> response) {
-                    if(response.body() != null)
-                    {
-                        // Тут ви можете робити що завгодно з вибраною фотографією, наприклад, відображати її у віджеті ImageView
-                        avatarImg.setImageURI(selectedImageUri);
-                        urlAv = imagePath;
-                    }
-                    else
-                    {
-                        Log.d("Error: ", String.valueOf(response.code() + " " + response.message()));
-                    }
-                }
-
-                @Override
-                public void onFailure(Call<User> call, Throwable t) {
-
-                }
-            });
+            // Тут ви можете робити що завгодно з вибраною фотографією, наприклад, відображати її у віджеті ImageView
+            avatarImg.setImageURI(selectedImageUri);
+            urlAv = imagePath;
         }
     }
 

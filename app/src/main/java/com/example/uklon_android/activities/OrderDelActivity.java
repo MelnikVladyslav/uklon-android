@@ -69,7 +69,13 @@ public class OrderDelActivity extends AppCompatActivity {
         tvAdressEnd.setText(endPoint);
         tvSendUser.setText(correctUser.getFirstName() + " " + correctUser.getLastName());
 
+        transport = new Transport();
+        transport.setModel("Delivery car");
+        transport.setDescription("Delivery car");
+        transport.setType(1);
+        trs.add(transport);
 
+        order.setTransports(trs);
         order.setPrice(price);
         order.setType("Delivery");
         order.setStartPoint(startPoint);

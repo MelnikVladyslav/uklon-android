@@ -165,6 +165,12 @@
         android:gravity="center"
         tools:ignore="UseCompoundDrawables">
 
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/icon_email_outline"
+            tools:ignore="ContentDescription" />
+
         <TextView
             style="@style/Black_textView"
             android:text="Update"
