@@ -93,7 +93,7 @@
                     tools:ignore="ContentDescription,ImageContrastCheck" />
 
                 <EditText
-                    android:id="@+id/NameInput"
+                    android:id="@+id/where_to_go"
                     style="@style/regular_13"
                     android:layout_height="match_parent"
                     android:layout_marginStart="10dp"

@@ -78,7 +78,6 @@
             tools:ignore="HardcodedText" />
     </LinearLayout>
     <LinearLayout
-        android:id="@+id/selAdrees"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -161,7 +160,6 @@
         style="@style/View_aditional_service"
         android:layout_marginTop="20dp"/>
     <LinearLayout
-        android:id="@+id/change"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"

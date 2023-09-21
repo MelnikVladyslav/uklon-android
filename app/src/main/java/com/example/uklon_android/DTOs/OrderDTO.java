@@ -13,6 +13,7 @@ public class OrderDTO {
     private String startPoint;
     private String endPoint;
     private int rating = 5;
+    private List<Transport> transportList;
 
     public float getPrice() {
         return totalPrice;
@@ -67,5 +68,13 @@ public class OrderDTO {
 
     public void setRating(int rating) {
         this.rating = rating;
+    }
+
+    public List<Transport> getTransports() {
+        return transportList;
+    }
+
+    public void setTransports(List<Transport> transportList) {
+        this.transportList = transportList;
     }
 }
