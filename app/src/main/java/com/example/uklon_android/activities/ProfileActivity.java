@@ -50,7 +50,7 @@ public class ProfileActivity extends AppCompatActivity {
     ImageButton avatarImg;
     TextView firstNameEdT;
     TextView emailEdT;
-    LinearLayout llPerData, llExit, llDelete;
+    LinearLayout llPerData, llExit, llDelete, llChange, llSelAdr;
     String urlAv;
     GoogleSignInClient gsc;
     GoogleSignInOptions gso;
@@ -164,7 +164,7 @@ public class ProfileActivity extends AppCompatActivity {
             }
         });
 
-        /*llChange.setOnClickListener(new View.OnClickListener() {
+        llChange.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(ProfileActivity.this, ChangePassActivity.class);
@@ -176,9 +176,11 @@ public class ProfileActivity extends AppCompatActivity {
         llSelAdr.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent intent = new Intent(ProfileActivity.this, SelectedAdress.class);
+                intent.putExtra("user", correctUser);
+                startActivity(intent);
             }
-        });*/
+        });
 
         //Avatar
         avatarImg.setOnClickListener(new View.OnClickListener() {
