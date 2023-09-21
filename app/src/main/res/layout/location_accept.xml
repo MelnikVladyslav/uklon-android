@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:theme="@style/ScreenBackground"
+    android:background="@color/white"
     android:paddingHorizontal="16dp"
     android:paddingBottom="40dp"
     android:orientation="vertical"
@@ -17,7 +17,7 @@
 
         <ImageButton
             style="@style/wrap_content"
-            android:theme="@style/black_to_light_tint"
+
             android:background="@drawable/arrow_back"
             tools:ignore="ContentDescription,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
         <View
@@ -27,7 +27,7 @@
         <Button
             android:id="@+id/skip"
             style="@style/regular_14"
-            android:theme="@style/light_grey_to_grey_button"
+            android:background="@drawable/skip_button"
             android:layout_width="60dp"
             android:layout_height="36dp"
             android:text="Skip"
@@ -47,13 +47,13 @@
         tools:ignore="ContentDescription" />
     <TextView
         style="@style/bold_24"
-        android:theme="@style/black_to_light_grey"
+       android:textColor="#262626"
         android:text="Location access"
         android:layout_marginTop="20dp"
         tools:ignore="HardcodedText" />
     <TextView
        style="@style/regular_12"
-        android:theme="@style/black_to_light_grey"
+       android:textColor="#262626"
         android:text="
 It's necessary to improve your experience of using Drive. \n
 For example, you won't have to enter the address of \n
@@ -73,6 +73,6 @@ the pickup point every time"
         android:id="@+id/next"
         style="@style/green_button"
         android:text="Grant access"
-        android:theme="@style/black_to_light_grey"
+       android:textColor="#262626"
         tools:ignore="HardcodedText,TextContrastCheck,VisualLintButtonSize" />
 </LinearLayout>

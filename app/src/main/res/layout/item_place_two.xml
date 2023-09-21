@@ -24,7 +24,7 @@
             android:id="@+id/placeNameTextView"
             style="@style/regular_15"
             android:text="Shpanivs'kyi Ln, 2-32"
-            android:theme="@style/black_to_light_grey"
+            android:textColor="#262626"
             tools:ignore="HardcodedText,TextContrastCheck" />
 
     </LinearLayout>
@@ -33,5 +33,5 @@
         android:layout_height="1dp"
         android:layout_marginTop="11dp"
         android:layout_marginBottom="22dp"
-        style="@style/grey_line_to_dark_grey"/>
+        android:background="@drawable/line_grey"/>
 </LinearLayout>

@@ -72,7 +72,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/lato_700"
+            android:fontFamily="@font/lato_600"
             android:textSize="20sp"
             android:text="Drive has accepted your order..."
             android:layout_marginTop="15dp"

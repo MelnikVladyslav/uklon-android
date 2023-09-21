@@ -28,13 +28,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/arrow_back"
-                style="@style/white_rounded_black_tint"
+                android:background="@drawable/white_rounded"
                 tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        style="@style/white_rounded_top_corners_to_dark_grey"
+        android:background="@drawable/white_rounded_top_corners"
         android:gravity="center_horizontal"
         android:elevation="15dp"
         android:orientation="vertical"
@@ -50,7 +50,7 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
-                android:background="@drawable/line_grey"
+                android:background="@drawable/line_light_grey"
                 android:layout_marginTop="25dp"/>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -65,11 +65,12 @@
                     android:layout_weight="1"
                     android:text="0 ₴ "
                     style="@style/semibold_32"
-                    android:theme="@style/black_to_light_grey"
+                   android:textColor="#262626"
                     tools:ignore="HardcodedText" />
                 <TextView
                     style="@style/regular_13"
-                    android:theme="@style/grey_text_light_grey_background"
+                    android:background="@drawable/skip_button"
+                    android:textColor="#848484"
                     android:paddingHorizontal="15dp"
                     android:paddingVertical="7dp"
                     android:text="10 min, 4.5 km"
@@ -78,7 +79,7 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
-                android:background="@drawable/line_grey"
+                android:background="@drawable/line_light_grey"
                 android:layout_marginTop="10dp"/>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -102,7 +103,7 @@
                         tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
                     <TextView
                         style="@style/regular_12"
-                        android:theme="@style/black_to_light_grey"
+                       android:textColor="#262626"
                         android:text="Cash"
                         tools:ignore="HardcodedText"
                         />
@@ -119,11 +120,11 @@
                         style="@style/wrap_content"
                         android:layout_marginBottom="10dp"
                         android:background="@drawable/comment"
-                        android:theme="@style/black_to_light_tint"
+
                         tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
                     <TextView
                         style="@style/regular_12"
-                        android:theme="@style/black_to_light_grey"
+                       android:textColor="#262626"
                         android:text="Comment"
                         tools:ignore="HardcodedText"/>
                 </LinearLayout>
@@ -139,11 +140,11 @@
                         style="@style/wrap_content"
                         android:layout_marginBottom="10dp"
                         android:background="@drawable/more"
-                        android:theme="@style/black_to_light_tint"
+
                         tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
                     <TextView
                         style="@style/regular_12"
-                        android:theme="@style/black_to_light_grey"
+                       android:textColor="#262626"
                         android:text="Services"
                         tools:ignore="HardcodedText"/>
                 </LinearLayout>
@@ -154,7 +155,7 @@
             style="@style/green_button"
             android:layout_marginTop="20dp"
             android:text="Request a ride"
-            android:theme="@style/black_to_light_grey"
+           android:textColor="#262626"
             tools:ignore="HardcodedText,VisualLintButtonSize,TextContrastCheck" />
         </LinearLayout>
     </LinearLayout>

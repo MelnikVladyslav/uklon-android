@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:paddingHorizontal="16dp"
     android:paddingTop="45dp"
-    style="@style/ScreenBackground"
+    android:background="@color/white"
     android:gravity="center_horizontal"
     android:orientation="vertical">
     <LinearLayout
@@ -16,12 +16,12 @@
         tools:ignore="UselessParent">
         <ImageButton
             style="@style/wrap_content"
-            android:theme="@style/black_to_light_tint"
+
             android:background="@drawable/arrow_back"
             tools:ignore="ContentDescription,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
         <TextView
             style="@style/bold_20"
-            android:theme="@style/black_to_light_grey"
+           android:textColor="#262626"
             android:layout_weight="1"
             android:layout_marginEnd="28dp"
             android:gravity="center"
@@ -43,7 +43,7 @@
             android:orientation="vertical">
                 <TextView
                     style="@style/bold_14"
-                    android:theme="@style/black_to_light_grey"
+                   android:textColor="#262626"
                     android:text="Order reports"
                     tools:ignore="HardcodedText" />
                 <TextView
@@ -73,7 +73,7 @@
             android:orientation="vertical">
             <TextView
                 style="@style/bold_14"
-                android:theme="@style/black_to_light_grey"
+               android:textColor="#262626"
                 android:text="Ride status changes"
                 tools:ignore="HardcodedText" />
             <TextView
@@ -98,9 +98,9 @@
         android:orientation="vertical">
         <TextView
             style="@style/bold_14"
-            android:theme="@style/black_to_light_grey"
+           android:textColor="#262626"
             android:text="Advertising messages"
-            android:fontFamily="@font/lato_700"
+            android:fontFamily="@font/lato_600"
             tools:ignore="HardcodedText" />
         <TextView
             style="@style/bold_14"
@@ -119,9 +119,9 @@
         android:orientation="vertical">
         <TextView
             style="@style/bold_14"
-            android:theme="@style/black_to_light_grey"
+           android:textColor="#262626"
             android:text="Additional services by default"
-            android:fontFamily="@font/lato_700"
+            android:fontFamily="@font/lato_600"
             tools:ignore="HardcodedText" />
         <TextView
             style="@style/bold_14"
@@ -140,9 +140,9 @@
         android:orientation="vertical">
         <TextView
             style="@style/bold_14"
-            android:theme="@style/black_to_light_grey"
+           android:textColor="#262626"
             android:text="Language"
-            android:fontFamily="@font/lato_700"
+            android:fontFamily="@font/lato_600"
             tools:ignore="HardcodedText" />
         <TextView
             style="@style/bold_14"
@@ -162,7 +162,7 @@
 
             <TextView
                 style="@style/bold_14"
-                android:theme="@style/black_to_light_grey"
+               android:textColor="#262626"
                 android:layout_weight="1"
                 android:text="Light mode"
                 tools:ignore="HardcodedText"

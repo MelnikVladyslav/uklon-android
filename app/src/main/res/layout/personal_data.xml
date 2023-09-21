@@ -224,7 +224,7 @@
             <TextView
                 style="@style/Black_textView"
                 android:text="Do you have children under the age of 10?"
-                android:fontFamily="@font/lato_700"
+                android:fontFamily="@font/lato_600"
                 tools:ignore="HardcodedText" />
             <TextView
                 style="@style/Grey_Bold_textview"
@@ -254,7 +254,7 @@
             <TextView
                 style="@style/Black_textView"
                 android:text="Do you have a car?"
-                android:fontFamily="@font/lato_700"
+                android:fontFamily="@font/lato_600"
                 tools:ignore="HardcodedText" />
             <TextView
                 style="@style/Grey_Bold_textview"
@@ -284,7 +284,7 @@
             <TextView
                 style="@style/Black_textView"
                 android:text="Do you have pets?"
-                android:fontFamily="@font/lato_700"
+                android:fontFamily="@font/lato_600"
                 tools:ignore="HardcodedText" />
             <TextView
                 style="@style/Grey_Bold_textview"

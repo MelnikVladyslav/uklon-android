@@ -41,7 +41,7 @@
             style="@style/Black_textView"
             android:layout_weight="1"
             android:text="English"
-            android:fontFamily="@font/lato_700"
+            android:fontFamily="@font/lato_600"
             tools:ignore="HardcodedText"
             android:layout_width="0dp" />
        <ImageView
@@ -60,7 +60,7 @@
     <TextView
         style="@style/Black_textView"
         android:text="Українська"
-        android:fontFamily="@font/lato_700"
+        android:fontFamily="@font/lato_600"
         tools:ignore="HardcodedText" />
     <View
         style="@style/View_aditional_service"
@@ -71,7 +71,7 @@
     <TextView
         style="@style/Black_textView"
         android:text="Română"
-        android:fontFamily="@font/lato_700"
+        android:fontFamily="@font/lato_600"
         tools:ignore="HardcodedText" />
     <View
         style="@style/View_aditional_service"
@@ -81,7 +81,7 @@
     <TextView
         style="@style/Black_textView"
         android:text="Azərbaycan"
-        android:fontFamily="@font/lato_700"
+        android:fontFamily="@font/lato_600"
         tools:ignore="HardcodedText" />
     <View
         style="@style/View_aditional_service"
@@ -91,7 +91,7 @@
     <TextView
         style="@style/Black_textView"
         android:text="O'zbek"
-        android:fontFamily="@font/lato_700"
+        android:fontFamily="@font/lato_600"
         tools:ignore="HardcodedText" />
     <View
         style="@style/View_aditional_service"

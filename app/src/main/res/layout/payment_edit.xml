@@ -28,7 +28,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:fontFamily="@font/lato_700"
+            android:fontFamily="@font/lato_600"
             android:gravity="center_horizontal"
             android:letterSpacing="0.04"
             android:paddingEnd="25dp"
@@ -60,11 +60,13 @@
             style="@style/payment_method_linear_layout"
             >
             <TextView
-                style="@style/Black_bigger_textView"
+                  style="@style/regular_15"
+                        android:textColor="#262626"
                 android:text="Drive cash"
                 tools:ignore="HardcodedText,InefficientWeight,RtlSymmetry" />
             <TextView
-                style="@style/Grey_regular_smaller_textview"
+                style="@style/regular_12"
+android:textColor="#A3A3A3"
                 android:layout_marginTop="5dp"
                 android:text="UAH 0.00"
                 tools:ignore="HardcodedText,InefficientWeight,RtlSymmetry,TextContrastCheck" />
@@ -105,7 +107,8 @@
             android:background="@drawable/google_pay"
             tools:ignore="ContentDescription" />
         <TextView
-            style="@style/Black_bigger_textView"
+              style="@style/regular_15"
+                        android:textColor="#262626"
             android:text="Drive cash"
             android:layout_weight="1"
             tools:ignore="HardcodedText,InefficientWeight,RtlSymmetry" />
@@ -119,7 +122,8 @@
                 android:background="@drawable/cash"
                 tools:ignore="ContentDescription" />
             <TextView
-                style="@style/Black_bigger_textView"
+                  style="@style/regular_15"
+                        android:textColor="#262626"
                 android:text="Cash"
                 android:layout_weight="1"
                 tools:ignore="HardcodedText,InefficientWeight,RtlSymmetry" />

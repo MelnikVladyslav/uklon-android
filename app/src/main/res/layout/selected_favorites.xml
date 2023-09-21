@@ -95,7 +95,8 @@
             tools:ignore="ContentDescription" />
 
         <TextView
-            style="@style/Black_bigger_textView"
+              style="@style/regular_15"
+                        android:textColor="#262626"
             android:layout_marginStart="10dp"
             android:text="Set location on map"
             tools:ignore="HardcodedText" />

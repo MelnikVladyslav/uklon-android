@@ -36,8 +36,9 @@
 
 
     <TextView
-        style="@style/Black_bigger_textView"
-        android:fontFamily="@font/lato_700"
+          style="@style/regular_15"
+                        android:textColor="#262626"
+        android:fontFamily="@font/lato_600"
         android:text="Add a job"
         android:layout_width="match_parent"
         android:gravity="center_horizontal"

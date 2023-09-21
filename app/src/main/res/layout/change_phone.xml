@@ -47,7 +47,8 @@
         android:orientation="horizontal">
         
         <TextView
-            style="@style/Black_bigger_textView"
+              style="@style/regular_15"
+                        android:textColor="#262626"
             android:text="+380"
             tools:ignore="HardcodedText" />
 

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:theme="@style/ScreenBackground"
+    android:background="@color/white"
     android:paddingHorizontal="16dp"
     android:paddingBottom="40dp"
     android:orientation="vertical"
@@ -12,7 +12,7 @@
 
     <ImageButton
         style="@style/wrap_content"
-        android:theme="@style/black_to_light_tint"
+
         android:background="@drawable/arrow_back"
         tools:ignore="ContentDescription,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 <LinearLayout
@@ -28,7 +28,7 @@
 
     <TextView
         style="@style/regular_24"
-        android:theme="@style/black_to_light_grey"
+       android:textColor="#262626"
         android:text="Accept Drive Terms \n&amp; Review Privacy \nNotice"
         android:layout_marginStart="15dp"
         tools:ignore="HardcodedText,MissingConstraints,VisualLintBounds" />
@@ -46,7 +46,7 @@
 
     <TextView
         style="@style/regular_12"
-        android:theme="@style/black_to_light_grey"
+       android:textColor="#262626"
         android:layout_marginTop="20dp"
         android:text="By selecting 'I Agree' below, I have reviewed and agree to the"
         tools:ignore="HardcodedText,TextContrastCheck" />
@@ -63,7 +63,7 @@
 
     <TextView
         style="@style/regular_12"
-        android:theme="@style/black_to_light_grey"
+       android:textColor="#262626"
         android:text=" and acknowledge the "
         tools:ignore="HardcodedText,TextContrastCheck" />
 
@@ -74,7 +74,7 @@
         tools:ignore="HardcodedText,TextContrastCheck" />
     <TextView
         style="@style/regular_12"
-        android:theme="@style/black_to_light_grey"
+       android:textColor="#262626"
         android:text="."
         tools:ignore="HardcodedText,TextContrastCheck" />
 
@@ -83,7 +83,7 @@
 
     <TextView
         style="@style/regular_12"
-        android:theme="@style/black_to_light_grey"
+       android:textColor="#262626"
         android:text="I am at least 18 years of age"
         tools:ignore="HardcodedText,TextContrastCheck" />
 
@@ -94,7 +94,7 @@
     <Button
         style="@style/green_button"
         android:text="I agree"
-        android:theme="@style/black_to_light_grey"
+       android:textColor="#262626"
         tools:ignore="HardcodedText,VisualLintButtonSize" />
 
 

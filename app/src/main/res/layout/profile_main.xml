@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:paddingHorizontal="16dp"
     android:orientation="vertical"
-    style="@style/ScreenBackground"
+    android:background="@color/white"
     android:gravity="center_horizontal"
     android:paddingTop="40dp">
 
@@ -17,12 +17,12 @@
         <ImageButton
             android:id="@+id/back"
             style="@style/wrap_content"
-            android:theme="@style/black_to_light_tint"
+
             android:background="@drawable/arrow_back"
             tools:ignore="ContentDescription,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
         <TextView
             style="@style/bold_20"
-            android:theme="@style/black_to_light_grey"
+           android:textColor="#262626"
             android:layout_weight="1"
             android:layout_marginEnd="28dp"
             android:gravity="center"
@@ -46,7 +46,7 @@
     <TextView
         android:id="@+id/firstName"
         style="@style/heavy_20"
-        android:theme="@style/black_to_light_grey"
+       android:textColor="#262626"
         android:layout_marginTop="15dp"
         android:text="Monica"
         tools:ignore="HardcodedText,InefficientWeight,RtlSymmetry" />
@@ -68,13 +68,13 @@
         tools:ignore="UseCompoundDrawables">
         <ImageView
             style="@style/wrap_content"
-            android:theme="@style/black_to_light_tint"
+
             android:background="@drawable/person_icon"
             android:layout_marginEnd="10dp"
             tools:ignore="ContentDescription" />
         <TextView
             style="@style/bold_14"
-            android:theme="@style/black_to_light_grey"
+           android:textColor="#262626"
             android:text="Personal data"
             tools:ignore="HardcodedText" />
     </LinearLayout>
@@ -88,13 +88,13 @@
         tools:ignore="UseCompoundDrawables">
         <ImageView
             style="@style/wrap_content"
-            android:theme="@style/black_to_light_tint"
+
             android:background="@drawable/heart_black_smaller"
             android:layout_marginEnd="10dp"
             tools:ignore="ContentDescription" />
         <TextView
             style="@style/bold_14"
-            android:theme="@style/black_to_light_grey"
+           android:textColor="#262626"
             android:text="Selected addresses"
             tools:ignore="HardcodedText" />
     </LinearLayout>
@@ -107,13 +107,13 @@
         tools:ignore="UseCompoundDrawables">
         <ImageView
             style="@style/wrap_content"
-            android:theme="@style/black_to_light_tint"
+
             android:background="@drawable/blacklist_icon"
             android:layout_marginEnd="10dp"
             tools:ignore="ContentDescription" />
         <TextView
             style="@style/bold_14"
-            android:theme="@style/black_to_light_grey"
+           android:textColor="#262626"
             android:text="Blacklist"
             tools:ignore="HardcodedText" />
     </LinearLayout>
@@ -126,13 +126,13 @@
         tools:ignore="UseCompoundDrawables">
         <ImageView
             style="@style/wrap_content"
-            android:theme="@style/black_to_light_tint"
+
             android:background="@drawable/settings"
             android:layout_marginEnd="10dp"
             tools:ignore="ContentDescription" />
         <TextView
             style="@style/bold_14"
-            android:theme="@style/black_to_light_grey"
+           android:textColor="#262626"
             android:text="Settings"
             tools:ignore="HardcodedText" />
     </LinearLayout>
@@ -148,13 +148,13 @@
         tools:ignore="UseCompoundDrawables">
         <ImageView
             style="@style/wrap_content"
-            android:theme="@style/black_to_light_tint"
+
             android:background="@drawable/message"
             android:layout_marginEnd="10dp"
             tools:ignore="ContentDescription" />
         <TextView
             style="@style/bold_14"
-            android:theme="@style/black_to_light_grey"
+           android:textColor="#262626"
             android:text="Send feedback"
             tools:ignore="HardcodedText" />
     </LinearLayout>
@@ -171,13 +171,13 @@
         tools:ignore="UseCompoundDrawables">
         <ImageView
             style="@style/wrap_content"
-            android:theme="@style/black_to_light_tint"
+
             android:background="@drawable/lock_outline"
             android:layout_marginEnd="10dp"
             tools:ignore="ContentDescription" />
         <TextView
             style="@style/bold_14"
-            android:theme="@style/black_to_light_grey"
+           android:textColor="#262626"
             android:text="Change password"
             tools:ignore="HardcodedText" />
     </LinearLayout>
@@ -211,13 +211,13 @@
         tools:ignore="UseCompoundDrawables">
         <ImageView
             style="@style/wrap_content"
-            android:theme="@style/black_to_light_tint"
+
             android:background="@drawable/log_out"
             android:layout_marginEnd="10dp"
             tools:ignore="ContentDescription" />
         <TextView
             style="@style/bold_14"
-            android:theme="@style/black_to_light_grey"
+           android:textColor="#262626"
             android:text="Go out"
             tools:ignore="HardcodedText" />
     </LinearLayout>
