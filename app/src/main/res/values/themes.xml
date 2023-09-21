@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="Theme.UklonFrintend" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <style name="Base.Theme.Uklonfrontend" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <item name="colorPrimary">#FFFFFF</item>
         <item name="colorPrimaryVariant">#F2F2F2</item>
         <item name="colorOnPrimary">#A3A3A3</item>
@@ -31,6 +31,7 @@
         <item name="android:background">@drawable/skip_button</item>
         <item name="android:textColor">#848484</item>
     </style>
+    <style name="Theme.Uklonfrontend" parent="Base.Theme.Uklonfrontend" />
     <!--Text Styles-->
     <style name="black_to_light_grey"><item name="android:textColor">#262626</item></style>
     <style name="grey_to_dark_grey"><item name="android:textColor">#A3A3A3</item></style>

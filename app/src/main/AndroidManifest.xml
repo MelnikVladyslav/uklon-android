@@ -32,6 +32,12 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".activities.SelHome"
+            android:exported="false" />
+        <activity
+            android:name=".activities.SelFav"
+            android:exported="false" />
+        <activity
             android:name=".activities.SelectedAdress"
             android:exported="false" />
         <activity

@@ -57,6 +57,8 @@ public class ProfileActivity extends AppCompatActivity {
     String imagePath;
     private static final int PICK_IMAGE_REQUEST = 1;
 
+    UploadDTO uploadDTO = new UploadDTO();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -174,7 +176,9 @@ public class ProfileActivity extends AppCompatActivity {
         llSelAdr.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent intent = new Intent(ProfileActivity.this, SelectedAdress.class);
+                intent.putExtra("user", correctUser);
+                startActivity(intent);
             }
         });
 
@@ -232,7 +236,6 @@ public class ProfileActivity extends AppCompatActivity {
             RequestBody requestFile = RequestBody.create(MediaType.parse("multipart/form-data"), imageFile);
             MultipartBody.Part body = MultipartBody.Part.createFormData("imageFile", imageFile.getName(), requestFile);
 
-            UploadDTO uploadDTO = new UploadDTO();
             uploadDTO.setImageFile(body);
             uploadDTO.setUserId(correctUser.getId());
 
