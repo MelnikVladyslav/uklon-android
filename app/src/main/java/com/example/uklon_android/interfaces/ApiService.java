@@ -4,10 +4,11 @@ import com.example.uklon_android.DTOs.CardDTO;
 import com.example.uklon_android.DTOs.ChangeDTO;
 import com.example.uklon_android.DTOs.OrderDTO;
 import com.example.uklon_android.DTOs.PhoneNumberVerificationDto;
-import com.example.uklon_android.DTOs.UploadDTO;
+import com.example.uklon_android.DTOs.SelAdresessDTO;
 import com.example.uklon_android.DTOs.UserDTO;
 import com.example.uklon_android.classes.Card;
 import com.example.uklon_android.classes.Order;
+import com.example.uklon_android.classes.SelAdress;
 import com.example.uklon_android.classes.Transport;
 import com.example.uklon_android.classes.Types;
 import com.example.uklon_android.classes.User;
@@ -58,9 +59,6 @@ public interface ApiService {
     @PUT("/api/login/register-driver")
     Call<User> registerDriver(@Body UserDTO user);
 
-    @PUT("/api/login/change-password")
-    Call<User> changePassword(@Body ChangeDTO changeDTO);
-
     @POST("/api/order/create-order")
     Call<OrderDTO> createOrder(@Body OrderDTO order);
 
@@ -83,9 +81,19 @@ public interface ApiService {
     Call<String> loginEmail(@Body PhoneNumberVerificationDto phoneDTO);
 
     @DELETE("/api/deleteuser")
-    Call deleteUser(@Body UserDTO user);
+    Call deleteUser(String userId);
 
+    @PUT("/api/login/change-password")
+    Call<User> changePassword(@Body ChangeDTO changeDTO);
+
+    @Multipart
     @Headers("Content-Type:multipart/form-data")
     @POST("/api/login/upload-photo")
-    Call<User> uploadPhoto(@Body UploadDTO uploadDTO);
+    Call<String> uploadPhoto(@Part MultipartBody.Part imageFile);
+
+    @GET
+    Call<List<SelAdress>> getSelAdreses();
+
+    @POST
+    Call addSelAdrees(@Body SelAdresessDTO selAdresessDTO);
 }

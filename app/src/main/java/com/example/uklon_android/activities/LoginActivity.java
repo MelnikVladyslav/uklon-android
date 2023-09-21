@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -40,10 +41,10 @@ import retrofit2.Response;
 
 public class LoginActivity extends AppCompatActivity {
     private EditText phoneNumberEditText;
-    private Button loginPhoneButton;
-    private Button loginGoogleButton;
-    private Button loginFacebookButton;
-    private Button loginEmailButton;
+    private LinearLayout loginPhoneButton;
+    private LinearLayout loginGoogleButton;
+    private LinearLayout loginFacebookButton;
+    private LinearLayout loginEmailButton;
 
     private CallbackManager callbackManager;
     GoogleSignInOptions gso;
