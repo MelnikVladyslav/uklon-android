@@ -51,6 +51,7 @@
             tools:ignore="HardcodedText" />
 
         <EditText
+            android:id="@+id/phoneNumberTextView"
             style="@style/regular_15"
             android:layout_marginStart="-1dp"
             android:background="@null"

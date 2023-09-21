@@ -164,7 +164,7 @@ public class ProfileActivity extends AppCompatActivity {
             }
         });
 
-        llChange.setOnClickListener(new View.OnClickListener() {
+        /*llChange.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(ProfileActivity.this, ChangePassActivity.class);
@@ -178,7 +178,7 @@ public class ProfileActivity extends AppCompatActivity {
             public void onClick(View view) {
 
             }
-        });
+        });*/
 
         //Avatar
         avatarImg.setOnClickListener(new View.OnClickListener() {

@@ -60,29 +60,7 @@
         style="@style/View_aditional_service"
         android:layout_marginTop="5dp"
         android:background="#A3A3A3" />
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="35dp"
-        android:gravity="center_vertical"
-        tools:ignore="UseCompoundDrawables">
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/recent"
-            tools:ignore="ContentDescription,ImageContrastCheck" />
-
-       <TextView
-          style="@style/Black_bigger_textView"
-           android:text="Henerala Bezruchka Ave, 5"
-           android:layout_marginStart="10dp"
-           tools:ignore="HardcodedText"
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content" />
-
-</LinearLayout>
     <View
         android:layout_width="match_parent"
         android:layout_weight="1"

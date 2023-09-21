@@ -3,7 +3,6 @@ package com.example.uklon_android.interfaces;
 import com.example.uklon_android.DTOs.CardDTO;
 import com.example.uklon_android.DTOs.OrderDTO;
 import com.example.uklon_android.DTOs.PhoneNumberVerificationDto;
-import com.example.uklon_android.DTOs.UploadDTO;
 import com.example.uklon_android.DTOs.UserDTO;
 import com.example.uklon_android.classes.Card;
 import com.example.uklon_android.classes.Order;
@@ -80,7 +79,7 @@ public interface ApiService {
     @DELETE("/api/deleteuser")
     Call deleteUser(String userId);
 
-    @Multipart
+    /*@Multipart
     @POST("/api/login/upload-photo")
-    Call<User> uploadPhoto(@Body UploadDTO uploadDTO);
+    Call<User> uploadPhoto(@Body UploadDTO uploadDTO);*/
 }
