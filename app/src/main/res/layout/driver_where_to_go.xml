@@ -10,42 +10,28 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:paddingHorizontal="16dp"
-
         android:paddingTop="45dp"
         android:paddingBottom="40dp">
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:gravity="center_vertical"
             tools:ignore="UselessParent">
-
             <ImageButton
                 android:id="@+id/backToMain"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+               style="@style/wrap_content"
                 android:background="@drawable/arrow_back"
                 tools:ignore="ContentDescription,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
-
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:fontFamily="@font/lato_600"
+                style="@style/bold_20"
                 android:gravity="center_horizontal"
-                android:letterSpacing="0.04"
                 android:paddingEnd="25dp"
                 android:text="Where to go?"
-                android:textAllCaps="false"
                 android:textColor="#262626"
-                android:textSize="20sp"
                 tools:ignore="HardcodedText,InefficientWeight,RtlSymmetry" />
-
-
         </LinearLayout>
-
-
         <LinearLayout
             android:id="@+id/adressLay"
             android:layout_width="match_parent"
@@ -55,14 +41,11 @@
             android:gravity="center_vertical"
             android:paddingStart="10dp"
             tools:ignore="RtlSymmetry">
-
-
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
-
+                android:orientation="vertical"
+                tools:ignore="UselessParent">
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -73,27 +56,29 @@
                     android:paddingEnd="10dp"
                     android:paddingVertical="14dp"
                     android:layout_marginBottom="10dp">
+
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="10dp"
                         android:background="@drawable/house_grey"
-                        tools:ignore="ContentDescription" />
+                        tools:ignore="ContentDescription,ImageContrastCheck" />
 
                     <EditText
                         android:id="@+id/startPos"
                         style="@style/Black_textView"
+                        android:layout_weight="1"
+                        android:background="@null"
                         android:hint="City"
                         android:textColorHint="#A3A3A3"
-                        android:layout_weight="1"
-                        />
+                        tools:ignore="HardcodedText,InefficientWeight,TextContrastCheck,TextFields,TouchTargetSizeCheck,VisualLintTextFieldSize"
+                        android:importantForAutofill="no" />
+
                     <ImageButton
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/arrow_back_grey"/>
-             
-
-
+                        android:background="@drawable/arrow_back_grey"
+                        tools:ignore="ContentDescription,ImageContrastCheck,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -103,32 +88,26 @@
                     android:background="@drawable/skip_button"
                     android:paddingHorizontal="18dp"
                     android:paddingVertical="14dp">
+
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="10dp"
                         android:background="@drawable/arrow_right_green"
-                        tools:ignore="ContentDescription" />
+                        tools:ignore="ContentDescription,ImageContrastCheck" />
                     <EditText
                         android:id="@+id/endAdress"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        style="@style/regular_15"
                         android:background="@null"
-                        android:fontFamily="@font/lato_400"
-                        android:letterSpacing="0.04"
                         android:hint="Address "
+                        android:textColorHint="#A3A3A3"
                         android:textColor="#262626"
-                        android:textSize="15sp"
-                        tools:ignore="Autofill,HardcodedText,LabelFor,TextContrastCheck,TextContrastCheck,TextFields,TouchTargetSizeCheck" />
-
-
+                        tools:ignore="Autofill,HardcodedText,LabelFor,TextContrastCheck,TextContrastCheck,TextFields,TouchTargetSizeCheck,VisualLintTextFieldSize" />
                 </LinearLayout>
-
-
             </LinearLayout>
-
         </LinearLayout>
-
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"
             android:layout_width="match_parent"
@@ -140,75 +119,33 @@
             android:layout_marginBottom="10dp"
             android:orientation="vertical"
             tools:ignore="MissingConstraints,ObsoleteLayoutParam" />
-
-
-
-
-
-
-
-
-
-
-
     </LinearLayout>
-    <Button
-        android:id="@+id/Send"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingHorizontal="138dp"
-        android:paddingVertical="16dp"
-        android:background="@drawable/start_button_background"
-        android:fontFamily="@font/lato_600"
-        android:letterSpacing="0.04"
-        android:text="Done"
-        android:textAllCaps="false"
-        android:textColor="#262626"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.95"
-        tools:ignore="HardcodedText,TouchTargetSizeCheck,VisualLintButtonSize" />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         android:paddingHorizontal="16dp"
         android:orientation="vertical">
-
         <View
             style="@style/View_aditional_service"
             android:layout_marginBottom="8dp" />
-
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:orientation="horizontal"
-            android:layout_marginBottom="8dp">
-
-
+            android:layout_marginBottom="8dp"
+            tools:ignore="UseCompoundDrawables">
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+               style="@style/wrap_content"
                 android:background="@drawable/fluent_location"
                 tools:ignore="ContentDescription" />
-
             <TextView
-                  style="@style/regular_15"
-                        android:textColor="#262626"
+                style="@style/regular_15"
+                android:textColor="#262626"
                 android:layout_marginStart="10dp"
                 android:text="Set location on map"
-                />
-
-
+                tools:ignore="HardcodedText" />
         </LinearLayout>
-
     </LinearLayout>
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

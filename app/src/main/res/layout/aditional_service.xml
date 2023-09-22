@@ -16,7 +16,6 @@
             <ImageButton
                 android:id="@+id/backASBtn"
                 style="@style/wrap_content"
-
                 android:background="@drawable/arrow_back"
                 tools:ignore="ContentDescription,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
             <TextView
@@ -37,8 +36,7 @@
             android:paddingBottom="20dp">
             <LinearLayout
                 android:id="@+id/RWP"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+               style="@style/wrap_content"
                 android:orientation="vertical">
                 <TextView
                     style="@style/bold_14"
@@ -57,7 +55,7 @@
                 style="@style/wrap_content"
                 android:layout_marginStart="20dp"
                 android:background="@drawable/about_green"
-                tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
+                tools:ignore="ContentDescription,SpeakableTextPresentCheck,ImageContrastCheck,TouchTargetSizeCheck" />
         </LinearLayout>
         <View
             android:layout_width="match_parent"
@@ -161,8 +159,7 @@
             android:orientation="horizontal">
             <LinearLayout
                 android:id="@+id/EL"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+               style="@style/wrap_content"
                 android:orientation="vertical">
                 <TextView
                     style="@style/bold_14"
@@ -177,11 +174,10 @@
             </LinearLayout>
 
             <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+               style="@style/wrap_content"
                 android:layout_marginStart="20dp"
                 android:background="@drawable/about_green"
-                tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
+                tools:ignore="ContentDescription,SpeakableTextPresentCheck,ImageContrastCheck,TouchTargetSizeCheck" />
         </LinearLayout>
         <View
         android:layout_width="match_parent"
@@ -192,10 +188,11 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"/>
-        <Button
-            android:id="@+id/Send"
+
+    <Button
+        android:id="@+id/Send"
         style="@style/green_button"
         android:text="Done"
-            android:textColor="#262626"
-        tools:ignore="HardcodedText,VisualLintButtonSize,TextContrastCheck" />
+        android:textColor="#262626"
+        tools:ignore="HardcodedText,VisualLintButtonSize,TextContrastCheck,TouchTargetSizeCheck" />
 </LinearLayout>

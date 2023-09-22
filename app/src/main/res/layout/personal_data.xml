@@ -46,7 +46,7 @@
             android:background="@drawable/icon_person"
             tools:ignore="ContentDescription" />
         
-        <EditText
+        <TextView
             android:id="@+id/firstName"
             style="@style/Black_textView"
             android:text="Monica"
@@ -109,7 +109,7 @@
             android:background="@drawable/icon_phone"
             tools:ignore="ContentDescription" />
 
-        <EditText
+        <TextView
             android:id="@+id/phoneNumber"
             style="@style/Black_textView"
             android:text="+380967022172"
@@ -150,7 +150,7 @@
             android:background="@drawable/icon_email_outline"
             tools:ignore="ContentDescription" />
 
-        <EditText
+        <TextView
             android:id="@+id/email"
             style="@style/Black_textView"
             android:text="Monica85@gmail.com"
@@ -166,14 +166,11 @@
         android:gravity="center"
         tools:ignore="UseCompoundDrawables">
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/icon_email_outline"
-            tools:ignore="ContentDescription" />
+
 
         <TextView
-            style="@style/Black_textView"
+            style="@style/semibold_16"
+            android:textColor="#262626"
             android:text="Update"
             android:layout_marginStart="10dp"
             tools:ignore="HardcodedText" />

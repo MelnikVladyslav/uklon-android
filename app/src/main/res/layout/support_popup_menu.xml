@@ -33,8 +33,7 @@
             tools:ignore="UseCompoundDrawables">
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+               style="@style/wrap_content"
                 android:background="@drawable/icon_facebook_support"
                 tools:ignore="ContentDescription" />
 
@@ -59,8 +58,7 @@
             tools:ignore="UseCompoundDrawables">
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+               style="@style/wrap_content"
                 android:background="@drawable/icon_viber"
                 tools:ignore="ContentDescription" />
 
@@ -85,8 +83,7 @@
             tools:ignore="UseCompoundDrawables">
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+               style="@style/wrap_content"
                 android:background="@drawable/icon_telegram"
                 tools:ignore="ContentDescription" />
 
@@ -111,8 +108,7 @@
             tools:ignore="UseCompoundDrawables">
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+               style="@style/wrap_content"
                 android:background="@drawable/icon_telephone_outline"
                 tools:ignore="ContentDescription" />
 

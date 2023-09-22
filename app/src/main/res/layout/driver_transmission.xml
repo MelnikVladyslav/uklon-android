@@ -31,13 +31,9 @@
 
     <TextView
         android:id="@+id/city_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/lato_600"
-        android:letterSpacing="0.04"
+        style="@style/bold_20"
         android:text="Rivne"
         android:textColor="#262626"
-        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.445"
@@ -78,10 +74,7 @@
         tools:ignore="ContentDescription,ImageContrastCheck" />
     
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/lato_600"
-        android:textSize="24sp"
+        style="@style/bold_24"
         android:textColor="#262626"
         android:text="Driver"
         android:layout_marginTop="20dp"
@@ -110,14 +103,10 @@ android:textColor="#A3A3A3"
         tools:ignore="HardcodedText,TextContrastCheck" />
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/lato_600"
-        android:textSize="20sp"
+       style="@style/bold_20"
         android:textColor="#262626"
         android:text="What’s your transmission type?"
         android:layout_marginTop="35dp"
-        android:letterSpacing="0.04"
         tools:ignore="HardcodedText" />
 
 
@@ -166,8 +155,7 @@ android:textColor="#A3A3A3"
 
             <RadioGroup
                 android:id="@+id/radioGroup"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+               style="@style/wrap_content"
                 tools:ignore="UselessParent">
             <RadioButton
                 android:id="@+id/automatic"
@@ -197,12 +185,9 @@ android:textColor="#A3A3A3"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:background="@drawable/start_button_background"
-        android:fontFamily="@font/lato_600"
-        android:letterSpacing="0.04"
+        style="@style/bold_16"
         android:text="Continue"
-        android:textAllCaps="false"
         android:textColor="#262626"
-        android:textSize="16sp"
         android:layout_marginTop="20dp"
         tools:ignore="HardcodedText,TouchTargetSizeCheck,VisualLintButtonSize" />
 

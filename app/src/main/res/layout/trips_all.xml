@@ -73,8 +73,7 @@
             android:orientation="horizontal">
 
             <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+               style="@style/wrap_content"
                 android:orientation="vertical"
                 tools:ignore="UselessParent">
 
@@ -93,14 +92,12 @@
             </LinearLayout>
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+               style="@style/wrap_content"
                 android:layout_marginStart="9dp"
                 android:background="@drawable/icon_for_trip"
                 tools:ignore="ContentDescription,ImageContrastCheck" />
             <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+               style="@style/wrap_content"
                 android:orientation="vertical"
                 android:layout_marginStart="10dp"
                 tools:ignore="UselessParent">
@@ -160,8 +157,7 @@
             android:orientation="horizontal">
 
             <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+               style="@style/wrap_content"
                 android:orientation="vertical"
                 tools:ignore="UselessParent">
 
@@ -180,14 +176,12 @@
             </LinearLayout>
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+               style="@style/wrap_content"
                 android:layout_marginStart="9dp"
                 android:background="@drawable/icon_for_trip"
                 tools:ignore="ContentDescription,ImageContrastCheck" />
             <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+               style="@style/wrap_content"
                 android:orientation="vertical"
                 android:layout_marginStart="10dp"
                 tools:ignore="UselessParent">
@@ -247,8 +241,7 @@
             android:orientation="horizontal">
 
             <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+               style="@style/wrap_content"
                 android:orientation="vertical"
                 tools:ignore="UselessParent">
 
@@ -267,14 +260,12 @@
             </LinearLayout>
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+               style="@style/wrap_content"
                 android:layout_marginStart="9dp"
                 android:background="@drawable/icon_for_trip"
                 tools:ignore="ContentDescription,ImageContrastCheck" />
             <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+               style="@style/wrap_content"
                 android:orientation="vertical"
                 android:layout_marginStart="10dp"
                 tools:ignore="UselessParent">
@@ -334,8 +325,7 @@
             android:orientation="horizontal">
 
             <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+               style="@style/wrap_content"
                 android:orientation="vertical"
                 tools:ignore="UselessParent">
 
@@ -354,14 +344,12 @@
             </LinearLayout>
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+               style="@style/wrap_content"
                 android:layout_marginStart="9dp"
                 android:background="@drawable/icon_for_trip"
                 tools:ignore="ContentDescription,ImageContrastCheck" />
             <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+               style="@style/wrap_content"
                 android:orientation="vertical"
                 android:layout_marginStart="10dp"
                 tools:ignore="UselessParent">

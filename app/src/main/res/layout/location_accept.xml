@@ -73,6 +73,6 @@ the pickup point every time"
         android:id="@+id/next"
         style="@style/green_button"
         android:text="Grant access"
-       android:textColor="#262626"
-        tools:ignore="HardcodedText,TextContrastCheck,VisualLintButtonSize" />
+        android:textColor="#262626"
+        tools:ignore="HardcodedText,TextContrastCheck,VisualLintButtonSize,TouchTargetSizeCheck" />
 </LinearLayout>

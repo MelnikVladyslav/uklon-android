@@ -60,25 +60,4 @@
 
    </LinearLayout>
 
-    <Button
-        android:id="@+id/Done"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingHorizontal="138dp"
-        android:paddingVertical="16dp"
-        android:background="@drawable/start_button_background"
-        android:fontFamily="@font/lato_600"
-        android:letterSpacing="0.04"
-        android:text="Done"
-        android:textAllCaps="false"
-        android:textColor="#262626"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.95"
-        tools:ignore="HardcodedText,TouchTargetSizeCheck,VisualLintButtonSize" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

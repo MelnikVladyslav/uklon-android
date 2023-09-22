@@ -28,7 +28,7 @@
             style="@style/wrap_content"
             android:layout_marginStart="16dp"
             android:background="@drawable/popup_menu_open"
-            tools:ignore="ContentDescription,SpeakableTextPresentCheck,ImageContrastCheck" />
+            tools:ignore="ContentDescription,SpeakableTextPresentCheck,ImageContrastCheck,TouchTargetSizeCheck" />
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -41,13 +41,14 @@
       android:textColor="#262626"
       android:text="Rivne"
       tools:ignore="HardcodedText" />
-  <ImageButton
-      android:id="@+id/arrow_down"
-      style="@style/wrap_content"
 
-      android:background="@drawable/arrow_down"
-      android:layout_marginStart="5dp"
-      tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
+    <ImageButton
+        android:id="@+id/arrow_down"
+        style="@style/wrap_content"
+
+        android:layout_marginStart="5dp"
+        android:background="@drawable/arrow_down"
+        tools:ignore="ContentDescription,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 </LinearLayout>
 
 
@@ -58,16 +59,17 @@
         android:layout_weight="1"
         android:gravity="bottom|right"
         tools:ignore="RtlHardcoded">
+
         <ImageButton
             android:id="@+id/find_my_location_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/white_rounded"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="20dp"
+            android:background="@drawable/white_rounded"
             android:padding="6.4dp"
             android:src="@drawable/find_my_location"
-            tools:ignore="ContentDescription,SpeakableTextPresentCheck,ImageContrastCheck" />
+            tools:ignore="ContentDescription,SpeakableTextPresentCheck,ImageContrastCheck,TouchTargetSizeCheck" />
     </LinearLayout>
     <LinearLayout
         android:background="@drawable/white_rounded_top_corners"

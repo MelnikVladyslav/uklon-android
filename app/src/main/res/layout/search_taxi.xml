@@ -17,61 +17,61 @@
         tools:layout_editor_absoluteY="-84dp" />
 
 
-
-
-
-
     <Button
         android:id="@+id/find_my_location_button"
         android:layout_width="60dp"
         android:layout_height="36dp"
-        android:background="@drawable/white_rounded"
-        android:text="Hide"
-        android:fontFamily="@font/lato_400"
-        android:textSize="14sp"
-        android:textColor="#A3A3A3"
-        android:textAllCaps="false"
-        app:layout_constraintBottom_toTopOf="@id/menu_search_driver"
-        app:layout_constraintEnd_toEndOf="@id/menu_search_driver"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="20dp"
-        tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
+        android:background="@drawable/white_rounded"
+        android:fontFamily="@font/lato_400"
+        android:text="Hide"
+        android:textAllCaps="false"
+        android:textColor="#A3A3A3"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@id/menu_search_driver"
+        app:layout_constraintEnd_toEndOf="@id/menu_search_driver"
+        tools:ignore="ContentDescription,HardcodedText,SpeakableTextPresentCheck,TouchTargetSizeCheck,TextContrastCheck" />
 
     <LinearLayout
         android:id="@+id/menu_search_driver"
         android:layout_width="match_parent"
         android:layout_height="450dp"
+        android:background="@drawable/white_rounded_top_corners"
         android:elevation="15dp"
-        android:orientation="vertical"
         android:gravity="center_horizontal"
+        android:orientation="vertical"
         android:paddingHorizontal="16dp"
         android:paddingTop="13dp"
-        android:background="@drawable/white_rounded_top_corners"
-        app:layout_constraintBottom_toBottomOf="parent">
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:ignore="TextSizeCheck">
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/grey_line"
             android:layout_alignTop="@id/popup_menu_main"
+            android:background="@drawable/grey_line"
 
-            tools:ignore="ContentDescription,NotSibling" />
-     <TextView
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:fontFamily="@font/lato_600"
-         android:textSize="20sp"
-         android:text="Finding you a driver..."
-         android:layout_marginTop="15dp"
-         android:letterSpacing="0.04"
-         android:textColor="#262626"/>
+            tools:ignore="ContentDescription,ImageContrastCheck,NotSibling,ObsoleteLayoutParam" />
 
-     <TextView
-         android:id="@+id/typeName"
-           style="@style/Grey_Bold_textview"
-         android:layout_marginTop="15dp"
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:fontFamily="@font/lato_600"
+            android:letterSpacing="0.04"
+            android:text="Finding you a driver..."
+            android:textColor="#262626"
+            android:textSize="20sp"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:id="@+id/typeName"
+            style="@style/Grey_Bold_textview"
+            android:layout_marginTop="15dp"
+            android:text="Standard"
             android:textSize="16sp"
-         android:text="Standard"/>
+            tools:ignore="HardcodedText" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -79,8 +79,7 @@
             android:layout_marginTop="40dp">
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                style="@style/wrap_content"
 
                 android:background="@drawable/skip_button"
                 android:fontFamily="@font/lato_400"
@@ -89,7 +88,8 @@
                 android:text="Payment type"
                 android:textColor="#848484"
                 android:textSize="13sp"
-                tools:ignore="HardcodedText" />
+                tools:ignore="HardcodedText,TextContrastCheck" />
+
             <View
                 android:layout_width="0dp"
                 android:layout_height="0dp"
@@ -97,8 +97,7 @@
 
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                style="@style/wrap_content"
                 android:background="@drawable/skip_button"
                 android:fontFamily="@font/lato_400"
                 android:paddingHorizontal="15dp"
@@ -106,7 +105,7 @@
                 android:text="10 min, 4.5 km"
                 android:textColor="#848484"
                 android:textSize="13sp"
-                tools:ignore="HardcodedText" />
+                tools:ignore="HardcodedText,TextContrastCheck" />
 
         </LinearLayout>
 
@@ -119,15 +118,15 @@
             android:id="@+id/CancelOrder"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
             android:fontFamily="@font/lato_400"
+            android:lineHeight="16sp"
             android:paddingHorizontal="15dp"
             android:paddingVertical="15dp"
-            android:layout_marginTop="5dp"
             android:text="Cancel ride"
-            android:lineHeight="16sp"
             android:textColor="#AE2012"
             android:textSize="15sp"
-            tools:ignore="HardcodedText" />
+            tools:ignore="HardcodedText,UnusedAttribute" />
 
         <View
             style="@style/View_aditional_service"
@@ -141,42 +140,42 @@
             android:orientation="horizontal">
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/cash"/>
+                style="@style/wrap_content"
+                android:background="@drawable/cash"
+                tools:ignore="ContentDescription" />
 
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
                 android:layout_weight="1"
-                android:orientation="vertical"
-                android:layout_marginStart="10dp">
-                
-                
+                android:orientation="vertical">
+
+
                 <TextView
-                   style="@style/regular_12"
-android:textColor="#A3A3A3"
+                    style="@style/regular_12"
                     android:text="Payment type"
-                   />
+                    android:textColor="#A3A3A3"
+                    tools:ignore="HardcodedText,TextContrastCheck" />
 
                 <TextView
                     style="@style/order_text_black"
-                    android:text="Cash"
                     android:layout_marginTop="5dp"
                     android:layout_marginBottom="0dp"
-                    />
+                    android:text="Cash"
+                    tools:ignore="HardcodedText" />
             </LinearLayout>
 
             <TextView
                 android:id="@+id/price"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="68 ₴ "
+                style="@style/wrap_content"
                 android:fontFamily="@font/lato_400"
-                android:textSize="32sp"
+                android:text="68 ₴ "
                 android:textColor="#262626"
+                android:textSize="32sp"
                 tools:ignore="HardcodedText" />
         </LinearLayout>
+
         <View
             style="@style/View_aditional_service"
             android:layout_marginTop="20dp" />
@@ -184,42 +183,46 @@ android:textColor="#A3A3A3"
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
             android:layout_marginTop="20dp"
-            android:orientation="horizontal"
-            android:layout_marginStart="5dp">
+            android:gravity="bottom"
+            android:orientation="horizontal">
+
+            <ImageView
+                style="@style/wrap_content"
+                android:background="@drawable/where_to_go_smaller"
+                tools:ignore="ContentDescription,ImageContrastCheck" />
 
 
             <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginStart="20dp">
+                style="@style/wrap_content"
+                android:layout_marginStart="20dp"
+                android:orientation="vertical">
 
 
                 <TextView
                     style="@style/regular_12"
-android:textColor="#A3A3A3"
-                    android:text="Route"
                     android:layout_marginBottom="15dp"
-                    />
+                    android:text="Route"
+                    android:textColor="#A3A3A3"
+                    tools:ignore="HardcodedText,TextContrastCheck" />
 
                 <TextView
                     android:id="@+id/startPoint"
-                      style="@style/regular_15"
-                        android:textColor="#262626"
-                    android:text="Gregory Skovorody Street 19"/>
+                    style="@style/regular_15"
+                    android:text="Gregory Skovorody Street 19"
+                    android:textColor="#262626"
+                    tools:ignore="HardcodedText" />
+
                 <TextView
                     android:id="@+id/endPoint"
-                      style="@style/regular_15"
-                        android:textColor="#262626"
-                    android:text="Kyivska Street, 40"
+                    style="@style/regular_15"
                     android:layout_marginTop="13dp"
-                    />
+                    android:text="Kyivska Street, 40"
+                    android:textColor="#262626"
+                    tools:ignore="HardcodedText" />
 
             </LinearLayout>
-
-
-
 
 
         </LinearLayout>
