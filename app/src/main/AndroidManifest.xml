@@ -38,6 +38,9 @@
             android:name=".activities.SelFav"
             android:exported="false" />
         <activity
+            android:name=".activities.SelHome"
+            android:exported="false" />
+        <activity
             android:name=".activities.ChangePassActivity"
             android:exported="false" />
         <activity

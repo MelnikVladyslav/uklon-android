@@ -37,6 +37,9 @@ import com.squareup.picasso.Picasso;
 import java.io.File;
 import java.io.IOException;
 
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -86,6 +89,8 @@ public class ProfileActivity extends AppCompatActivity {
         llPerData = findViewById(R.id.PersonalData);
         llExit = findViewById(R.id.signOut);
         llDelete = findViewById(R.id.delete);
+        llChange = findViewById(R.id.change);
+        llSelAdr = findViewById(R.id.selAdr);
         emailEdT.setText(correctUser.getEmail());
 
         AccessToken accessToken = AccessToken.getCurrentAccessToken();
@@ -136,14 +141,7 @@ public class ProfileActivity extends AppCompatActivity {
         llDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                UserDTO userDTO = new UserDTO();
-                userDTO.setFirstName(correctUser.getFirstName());
-                userDTO.setLastName(correctUser.getLastName());
-                userDTO.setPassword(correctUser.getPassword());
-                userDTO.setPhoneNumber(correctUser.getPhoneNumber());
-                userDTO.setEmail(correctUser.getEmail());
-                userDTO.setUrl(correctUser.getUrl());
-                /*apiService.deleteUser(userDTO).enqueue(new Callback() {
+                apiService.deleteUser(correctUser.getId()).enqueue(new Callback() {
                     @Override
                     public void onResponse(Call call, Response response) {
                         if(response.body() != null)
@@ -160,7 +158,7 @@ public class ProfileActivity extends AppCompatActivity {
                     public void onFailure(Call call, Throwable t) {
                         Log.d("Error: ", t.getMessage());
                     }
-                });*/
+                });
             }
         });
 
@@ -233,9 +231,28 @@ public class ProfileActivity extends AppCompatActivity {
             // Отримайте файл з фактичним шляхом
             File imageFile = new File(imagePath);
 
-            // Тут ви можете робити що завгодно з вибраною фотографією, наприклад, відображати її у віджеті ImageView
-            avatarImg.setImageURI(selectedImageUri);
-            urlAv = imagePath;
+            RequestBody requestFile = RequestBody.create(MediaType.parse("multipart/form-data"), imageFile);
+            MultipartBody.Part body = MultipartBody.Part.createFormData("imageFile", imageFile.getName(), requestFile);
+
+            apiService.uploadPhoto(body).enqueue(new Callback<String>() {
+                @Override
+                public void onResponse(Call<String> call, Response<String> response) {
+                    if(response.body() != null)
+                    {
+                        // Тут ви можете робити що завгодно з вибраною фотографією, наприклад, відображати її у віджеті ImageView
+                        avatarImg.setImageURI(selectedImageUri);
+                        urlAv = imagePath;
+                    }
+                    else {
+                        Log.d("Error", response.code() + response.message());
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<String> call, Throwable t) {
+                    Log.d("Error", t.getMessage());
+                }
+            });
         }
     }
 

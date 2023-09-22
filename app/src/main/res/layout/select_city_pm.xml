@@ -23,7 +23,6 @@
            <ImageButton
                style="@style/wrap_content"
                android:background="@drawable/search"
-               android:theme="@style/black_to_grey_tint"
                tools:ignore="ContentDescription,ImageContrastCheck,SpeakableTextPresentCheck" />
            <EditText
                android:id="@+id/NameInput"

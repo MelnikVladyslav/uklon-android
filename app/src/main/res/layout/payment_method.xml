@@ -209,6 +209,7 @@
         android:layout_height="0dp"
         android:layout_weight="1"/>
     <Button
+        android:id="@+id/Send"
         style="@style/green_button"
         android:layout_marginHorizontal="70dp"
         android:text="Add promocode"
