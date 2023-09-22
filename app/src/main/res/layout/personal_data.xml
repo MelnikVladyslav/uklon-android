@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/white"
     android:paddingHorizontal="16dp"
     android:paddingTop="45dp"
     android:orientation="vertical">
@@ -230,7 +231,6 @@
                 style="@style/Grey_Bold_textview"
                 android:text="Choose your answer"
                 android:textSize="14sp"
-                android:layout_marginTop="5dp"
                 tools:ignore="HardcodedText" />
         </LinearLayout>
     </LinearLayout>
@@ -260,7 +260,6 @@
                 style="@style/Grey_Bold_textview"
                 android:text="Choose your answer"
                 android:textSize="14sp"
-                android:layout_marginTop="5dp"
                 tools:ignore="HardcodedText" />
         </LinearLayout>
     </LinearLayout>
@@ -290,7 +289,6 @@
                 style="@style/Grey_Bold_textview"
                 android:text="Choose your answer"
                 android:textSize="14sp"
-                android:layout_marginTop="5dp"
                 tools:ignore="HardcodedText" />
         </LinearLayout>
     </LinearLayout>

@@ -45,7 +45,8 @@
         android:layout_width="match_parent"
         android:layout_marginTop="50dp"
         android:background="@null"
-        android:text="Email"
+        android:hint="Enter password"
+        android:textColorHint="#A3A3A3"
         android:textAlignment="textStart"
         tools:ignore="Autofill,HardcodedText,LabelFor,TextFields,TextContrastCheck,TouchTargetSizeCheck,VisualLintTextFieldSize" />
     <View
