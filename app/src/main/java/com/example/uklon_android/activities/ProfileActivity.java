@@ -7,6 +7,7 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Environment;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
@@ -35,6 +36,7 @@ import com.google.android.gms.tasks.Task;
 import com.squareup.picasso.Picasso;
 
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 
 import okhttp3.MediaType;
@@ -54,7 +56,7 @@ public class ProfileActivity extends AppCompatActivity {
     TextView firstNameEdT;
     TextView emailEdT;
     LinearLayout llPerData, llExit, llDelete, llChange, llSelAdr;
-    String urlAv;
+    byte[] urlAv;
     GoogleSignInClient gsc;
     GoogleSignInOptions gso;
     Uri selectedImageUri;
@@ -98,8 +100,28 @@ public class ProfileActivity extends AppCompatActivity {
 
         //Avatar
         if(getIntent().getSerializableExtra("uriImg") != null) {
-            urlAv = (String) getIntent().getSerializableExtra("uriImg");
-            Picasso.get().load(urlAv).into(avatarImg);
+            urlAv = (byte[]) getIntent().getSerializableExtra("uriImg");
+            FileOutputStream fos;
+
+            // Спершу отримайте доступ до зовнішнього сховища або кешу вашого додатку
+            File storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES); // Для зовнішнього сховища
+
+            // Створіть файл для зображення
+            File imageFile = new File(storageDir, "my_image.jpg");
+
+            try {
+                // Відкрийте файл для запису
+                fos = new FileOutputStream(imageFile);
+
+                // Запишіть байти у файл
+                fos.write(urlAv);
+
+                // Закрийте потік
+                fos.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            Picasso.get().load(imageFile).into(avatarImg);
             avatarImg.setBackground(null);
         }
 
@@ -118,9 +140,6 @@ public class ProfileActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(ProfileActivity.this, PersonalDataActivity.class);
                 intent.putExtra("user", correctUser);
-                if(urlAv != null) {
-                    intent.putExtra("uriImg", urlAv.toString());
-                }
                 startActivity(intent);
             }
         });
@@ -241,7 +260,33 @@ public class ProfileActivity extends AppCompatActivity {
                     {
                         // Тут ви можете робити що завгодно з вибраною фотографією, наприклад, відображати її у віджеті ImageView
                         avatarImg.setImageURI(selectedImageUri);
-                        urlAv = imagePath;
+                        Log.d("image id:", response.body());
+
+                        UserDTO userDTO = new UserDTO();
+                        userDTO.setFirstName(correctUser.getFirstName());
+                        userDTO.setLastName(correctUser.getLastName());
+                        userDTO.setEmail(correctUser.getEmail());
+                        userDTO.setPhoneNumber(correctUser.getPhoneNumber());
+                        userDTO.setUrl(response.body());
+
+                        apiService.updateUser(userDTO, correctUser.getId()).enqueue(new Callback<User>() {
+                            @Override
+                            public void onResponse(Call<User> call, Response<User> response) {
+                                if(response.body() != null)
+                                {
+                                    Log.d("Succesfull", "Succesfull");
+                                    correctUser = response.body();
+                                }
+                                else {
+                                    Log.d("Error", response.code() + response.message());
+                                }
+                            }
+
+                            @Override
+                            public void onFailure(Call<User> call, Throwable t) {
+                                Log.d("Error", t.getMessage());
+                            }
+                        });
                     }
                     else {
                         Log.d("Error", response.code() + response.message());

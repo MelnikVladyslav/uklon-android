@@ -37,7 +37,6 @@ public class PersonalDataActivity extends AppCompatActivity {
     EditText lastNameEdT;
     EditText emailEdT;
     EditText phoneNumEdT;
-    String urlAv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,6 +70,7 @@ public class PersonalDataActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 sendUser.setFirstName(firstNameEdT.getText().toString());
+                sendUser.setLastName(correctUser.getLastName());
                 sendUser.setEmail(emailEdT.getText().toString());
                 sendUser.setPhoneNumber(phoneNumEdT.getText().toString());
                 sendUser.setUrl(" ");

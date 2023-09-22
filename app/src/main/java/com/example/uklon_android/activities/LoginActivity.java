@@ -41,7 +41,7 @@ import retrofit2.Response;
 
 public class LoginActivity extends AppCompatActivity {
     private EditText phoneNumberEditText;
-    private LinearLayout loginPhoneButton;
+    private Button loginPhoneButton;
     private LinearLayout loginGoogleButton;
     private LinearLayout loginFacebookButton;
     private LinearLayout loginEmailButton;
@@ -73,7 +73,7 @@ public class LoginActivity extends AppCompatActivity {
         apiService = apiService.retrofit.create(ApiService.class);
 
         phoneNumberEditText = findViewById(R.id.phoneNumberTextView);
-        loginPhoneButton = findViewById(R.id.next);
+        loginPhoneButton = findViewById(R.id.loginPhone);
         loginGoogleButton = findViewById(R.id.Google_button);
         loginFacebookButton = findViewById(R.id.Facebook_button);
         loginEmailButton = findViewById(R.id.Email_button);
@@ -92,7 +92,6 @@ public class LoginActivity extends AppCompatActivity {
             Intent intent = new Intent(LoginActivity.this,MainActivity.class);
             startActivity(intent);
             finish();
-
         }
 
         GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(this);

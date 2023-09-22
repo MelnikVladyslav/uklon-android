@@ -18,9 +18,11 @@
           android:paddingEnd="12dp"
           android:paddingBottom="40dp"
           tools:ignore="UseCompoundDrawables,UselessParent">
-         <ImageView
+         <ImageButton
              android:id="@+id/avatar"
              style="@style/wrap_content"
+             android:layout_width="200px"
+             android:layout_height="200px"
              android:background="@drawable/user_icon"
              tools:ignore="ContentDescription,ImageContrastCheck" />
          <LinearLayout

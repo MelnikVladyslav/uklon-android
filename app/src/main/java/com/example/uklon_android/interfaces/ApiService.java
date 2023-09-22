@@ -12,6 +12,8 @@ import com.example.uklon_android.classes.SelAdress;
 import com.example.uklon_android.classes.Transport;
 import com.example.uklon_android.classes.Types;
 import com.example.uklon_android.classes.User;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.google.maps.internal.ApiResponse;
 
 import java.lang.reflect.Type;
@@ -36,9 +38,13 @@ import retrofit2.http.Part;
 import retrofit2.http.Path;
 
 public interface ApiService {
+    Gson gson = new GsonBuilder()
+            .setLenient()
+            .create();
+
     Retrofit retrofit = new Retrofit.Builder()
             .baseUrl("https://uklon.itstep.click")
-            .addConverterFactory(GsonConverterFactory.create())
+            .addConverterFactory(GsonConverterFactory.create(gson))
             .build();
 
     @GET("/api/login/get-users")
@@ -95,4 +101,7 @@ public interface ApiService {
 
     @POST("/api/SelectedAdresses")
     Call<Void> addSelAdrees(@Body SelAdresessDTO selAdresessDTO);
+
+    @GET("/api/login/api/photos/{photoId}")
+    Call<ResponseBody> getPhoto(@Path("photoId") String photoId);
 }

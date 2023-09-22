@@ -63,6 +63,7 @@
        android:background="@drawable/grey_line" />
 
     <Button
+        android:id="@+id/loginPhone"
         style="@style/green_button"
         android:layout_marginTop="20dp"
         android:text="Continue"
@@ -120,32 +121,7 @@
 
     </LinearLayout>
 
-    //Apple
 
-    <LinearLayout
-        android:id="@+id/Apple_button"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_marginTop="10dp"
-        android:gravity="center"
-        android:orientation="horizontal"
-        android:background="@drawable/skip_button"
-        tools:ignore="UseCompoundDrawables">
-
-        <ImageView
-            style="@style/wrap_content"
-            android:layout_marginEnd="38dp"
-            android:background="@drawable/icon_apple"
-            tools:ignore="ContentDescription" />
-
-        <TextView
-            style="@style/bold_16"
-            android:layout_marginEnd="59dp"
-            android:text="Continue with Apple"
-            android:textColor="#262626"
-            tools:ignore="HardcodedText" />
-
-    </LinearLayout>
 
     //Facebook
 

@@ -11,6 +11,7 @@ import android.location.Location;
 import android.location.LocationManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
@@ -70,6 +71,8 @@ import com.squareup.picasso.Picasso;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -77,6 +80,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
 
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -110,7 +114,7 @@ public class MainActivity extends AppCompatActivity implements PlacesAdapter.OnP
     PlacesClient placesClient;
     String ApiKey = "AIzaSyD3XTBjDPC3c5VrztOIBq1WVWvuxTGXd2E";
     boolean isExpanded = false;
-    String imageUrl;
+    byte[] imageBytes;
     PhoneNumberVerificationDto currentPhoneDTO;
     String tokenCurUser = "";
     List<User> listUser = new ArrayList<>();
@@ -132,6 +136,7 @@ public class MainActivity extends AppCompatActivity implements PlacesAdapter.OnP
         addressStrEnd = (String) getIntent().getSerializableExtra("endAdress");
 
 
+
         GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(this);
         if (acct != null) {
             sendUser.setEmail(acct.getEmail());
@@ -144,7 +149,29 @@ public class MainActivity extends AppCompatActivity implements PlacesAdapter.OnP
                         public void onResponse(Call<User> call, Response<User> response) {
                             if (response.isSuccessful()) {
                                 correctUser = response.body();
-                                urlAvatar = acct.getPhotoUrl();
+                                apiService.getPhoto(correctUser.getUrl()).enqueue(new Callback<ResponseBody>() {
+                                    @Override
+                                    public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                                        if (response.isSuccessful()) {
+                                            // Отримайте відповідь як байти
+                                            ResponseBody responseBody = response.body();
+                                            if (responseBody != null) {
+                                                try {
+                                                    imageBytes = responseBody.bytes();
+                                                } catch (IOException e) {
+                                                    throw new RuntimeException(e);
+                                                }
+                                            }
+                                        } else {
+                                            Log.d("Error:", response.code() + response.message());
+                                        }
+                                    }
+
+                                    @Override
+                                    public void onFailure(Call<ResponseBody> call, Throwable t) {
+
+                                    }
+                                });
                             } else {
                                 Toast.makeText(MainActivity.this, "Помилка обробки: " + response.message(), Toast.LENGTH_SHORT).show();
                             }
@@ -241,9 +268,6 @@ public class MainActivity extends AppCompatActivity implements PlacesAdapter.OnP
                                 sendUser.setFirstName(object.getString("first_name"));
                                 sendUser.setLastName(object.getString("last_name"));
                                 sendUser.setEmail(object.getString("email"));
-                                imageUrl = object.getJSONObject("picture")
-                                        .getJSONObject("data")
-                                        .getString("url");
                                 //found in database
                                 apiService.foundOrCreate(sendUser).
                                         enqueue(new Callback<User>() {
@@ -251,7 +275,30 @@ public class MainActivity extends AppCompatActivity implements PlacesAdapter.OnP
                                             public void onResponse(Call<User> call, Response<User> response) {
                                                 if (response.isSuccessful()) {
                                                     correctUser = response.body();
-                                                    urlAvatar = Uri.parse(imageUrl);
+                                                    apiService.getPhoto(correctUser.getUrl()).enqueue(new Callback<ResponseBody>() {
+                                                        @Override
+                                                        public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                                                            if (response.isSuccessful()) {
+                                                                // Отримайте відповідь як байти
+                                                                ResponseBody responseBody = response.body();
+                                                                if (responseBody != null) {
+                                                                    try {
+                                                                        imageBytes = responseBody.bytes();
+                                                                    } catch (IOException e) {
+                                                                        throw new RuntimeException(e);
+                                                                    }
+                                                                }
+                                                            } else {
+                                                                Log.d("Error:", response.code() + response.message());
+                                                            }
+                                                        }
+
+                                                        @Override
+                                                        public void onFailure(Call<ResponseBody> call, Throwable t) {
+
+                                                        }
+                                                    });
+
                                                 } else {
                                                     Toast.makeText(MainActivity.this, "Помилка: " + response.message(), Toast.LENGTH_SHORT).show();
                                                 }
@@ -292,6 +339,29 @@ public class MainActivity extends AppCompatActivity implements PlacesAdapter.OnP
                                     if(Objects.equals(user.getToken(), tokenCurUser))
                                     {
                                         correctUser = user;
+                                        apiService.getPhoto(correctUser.getUrl()).enqueue(new Callback<ResponseBody>() {
+                                            @Override
+                                            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                                                if (response.isSuccessful()) {
+                                                    // Отримайте відповідь як байти
+                                                    ResponseBody responseBody = response.body();
+                                                    if (responseBody != null) {
+                                                        try {
+                                                            imageBytes = responseBody.bytes();
+                                                        } catch (IOException e) {
+                                                            throw new RuntimeException(e);
+                                                        }
+                                                    }
+                                                } else {
+                                                    Log.d("Error:", response.code() + response.message());
+                                                }
+                                            }
+
+                                            @Override
+                                            public void onFailure(Call<ResponseBody> call, Throwable t) {
+
+                                            }
+                                        });
                                     }
                                 }
                             }
@@ -324,6 +394,29 @@ public class MainActivity extends AppCompatActivity implements PlacesAdapter.OnP
                                     if(Objects.equals(user.getToken(), tokenCurUser))
                                     {
                                         correctUser = user;
+                                        apiService.getPhoto(correctUser.getUrl()).enqueue(new Callback<ResponseBody>() {
+                                            @Override
+                                            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                                                if (response.isSuccessful()) {
+                                                    // Отримайте відповідь як байти
+                                                    ResponseBody responseBody = response.body();
+                                                    if (responseBody != null) {
+                                                        try {
+                                                            imageBytes = responseBody.bytes();
+                                                        } catch (IOException e) {
+                                                            throw new RuntimeException(e);
+                                                        }
+                                                    }
+                                                } else {
+                                                    Log.d("Error:", response.code() + response.message());
+                                                }
+                                            }
+
+                                            @Override
+                                            public void onFailure(Call<ResponseBody> call, Throwable t) {
+
+                                            }
+                                        });
                                     }
                                 }
                             }
@@ -346,6 +439,29 @@ public class MainActivity extends AppCompatActivity implements PlacesAdapter.OnP
         if(getIntent().getSerializableExtra("user") != null)
         {
             correctUser = (User) getIntent().getSerializableExtra("user");
+            apiService.getPhoto(correctUser.getUrl()).enqueue(new Callback<ResponseBody>() {
+                @Override
+                public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                    if (response.isSuccessful()) {
+                        // Отримайте відповідь як байти
+                        ResponseBody responseBody = response.body();
+                        if (responseBody != null) {
+                            try {
+                                imageBytes = responseBody.bytes();
+                            } catch (IOException e) {
+                                throw new RuntimeException(e);
+                            }
+                        }
+                    } else {
+                        Log.d("Error:", response.code() + response.message());
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<ResponseBody> call, Throwable t) {
+
+                }
+            });
         }
 
         showMenuButton = findViewById(R.id.button);
@@ -359,20 +475,34 @@ public class MainActivity extends AppCompatActivity implements PlacesAdapter.OnP
                     // Знаходження кнопок в меню
                     ImageButton btnOption1 = popupView.findViewById(R.id.btnOption1);
                     ImageButton btnSelCity = popupView.findViewById(R.id.selCityBtn);
-                    ImageView avatar = popupView.findViewById(R.id.avatar);
+                    ImageButton avatar = popupView.findViewById(R.id.avatar);
                     LinearLayout lltypePay = popupView.findViewById(R.id.typePay);
                     LinearLayout lltrips = popupView.findViewById(R.id.Trips);
 
                     //Avatar
-                    if(acct != null)
-                    {
-                        Picasso.get().load(acct.getPhotoUrl()).into(avatar);
-                        urlAvatar = acct.getPhotoUrl();
-                    }
-                    if(isLoggedIn)
-                    {
-                        Picasso.get().load(imageUrl).into(avatar);
-                        urlAvatar = Uri.parse(imageUrl);
+                    if(imageBytes != null) {
+                        FileOutputStream fos;
+
+                        // Спершу отримайте доступ до зовнішнього сховища або кешу вашого додатку
+                        File storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES); // Для зовнішнього сховища
+
+                        // Створіть файл для зображення
+                        File imageFile = new File(storageDir, "my_image.jpg");
+
+                        try {
+                            // Відкрийте файл для запису
+                            fos = new FileOutputStream(imageFile);
+
+                            // Запишіть байти у файл
+                            fos.write(imageBytes);
+
+                            // Закрийте потік
+                            fos.close();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                        Picasso.get().load(imageFile).into(avatar);
+                        avatar.setBackground(null);
                     }
 
                     // Обробка натискання кнопок
@@ -384,8 +514,8 @@ public class MainActivity extends AppCompatActivity implements PlacesAdapter.OnP
                         public void onClick(View v) {
                             Intent intent = new Intent(MainActivity.this, ProfileActivity.class);
                             intent.putExtra("user", correctUser);
-                            if(urlAvatar != null) {
-                                intent.putExtra("uriImg", urlAvatar.toString());
+                            if(imageBytes != null) {
+                                intent.putExtra("uriImg", imageBytes);
                             }
                             startActivity(intent);
                             finish();

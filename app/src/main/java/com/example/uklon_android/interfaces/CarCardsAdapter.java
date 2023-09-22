@@ -40,7 +40,7 @@ public class CarCardsAdapter extends RecyclerView.Adapter<CarCardsAdapter.PlaceV
         String carName = carTypes.get(position).name;
         holder.placeNameTextView.setText(carName);
         float carPrice = carTypes.get(position).price;
-        holder.TextPrice.setText(String.valueOf(carPrice));
+        holder.TextPrice.setText(String.valueOf(carPrice) + " ₴ (5 min)");
 
         holder.enterCar.setOnClickListener(new View.OnClickListener() {
             @Override
