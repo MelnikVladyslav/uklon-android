@@ -71,7 +71,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            android:fontFamily="@font/lato_700"
+            android:fontFamily="@font/lato_600"
             android:letterSpacing="0.04"
             android:text="Arrives in 4 min"
             android:textColor="#262626"

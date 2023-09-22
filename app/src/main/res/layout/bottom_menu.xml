@@ -17,7 +17,7 @@
         android:elevation="15dp"
         android:paddingHorizontal="16dp"
         android:orientation="vertical"
-        style="@style/white_rounded_top_corners_to_dark_grey"
+        android:background="@drawable/white_rounded_top_corners"
         android:gravity="center_horizontal"
         tools:ignore="TextSizeCheck">
 
@@ -38,7 +38,7 @@
                 android:layout_height="50dp"
                 android:layout_weight="1"
                 android:paddingStart="18dp"
-                android:theme="@style/grey_to_dark_grey_rounded"
+                  android:background="@drawable/skip_button"
                 android:gravity="center_vertical"
                 tools:ignore="InefficientWeight,RtlSymmetry,UseCompoundDrawables">
                 <ImageView
@@ -52,7 +52,7 @@
                     android:layout_marginStart="10dp"
                     android:layout_weight="1"
                     style="@style/semibold_13"
-                    android:theme="@style/black_to_light_grey"
+                    android:textColor="#262626"
                     android:gravity="center_vertical"
                     android:text="Gregory Skovorody\nStreet 19"
                     tools:ignore="HardcodedText,NestedWeights" />
@@ -62,10 +62,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:theme="@style/grey_to_dark_grey_rounded">
+                  android:background="@drawable/skip_button">
                 <TextView
                     style="@style/regular_13"
-                    android:theme="@style/black_to_light_grey"
+                    android:textColor="#262626"
                     android:fontFamily="@font/lato_400"
                     android:padding="17dp"
                     android:text="Entrance"
@@ -82,7 +82,7 @@
                 android:layout_height="50dp"
                 android:layout_weight="1"
                 android:gravity="center_vertical"
-                android:theme="@style/grey_to_dark_grey_rounded"
+                  android:background="@drawable/skip_button"
                 android:paddingStart="18dp"
                 tools:ignore="RtlSymmetry">
 
@@ -102,14 +102,14 @@
                     android:gravity="center_vertical"
                     android:hint="Where to go?"
                     android:textColorHint="#A3A3A3"
-                    android:theme="@style/black_to_light_grey"
+                    android:textColor="#262626"
                     tools:ignore="Autofill,HardcodedText,InefficientWeight,NestedWeights,TextFields,TouchTargetSizeCheck,TextContrastCheck,VisualLintTextFieldSize" />
             </LinearLayout>
                 <ImageButton
                     android:id="@+id/addHome"
                     style="@style/wrap_content"
                     android:layout_marginStart="5dp"
-                    android:theme="@style/grey_to_dark_grey_rounded"
+                      android:background="@drawable/skip_button"
                     android:padding="13dp"
                     android:src="@drawable/small_house"
                     tools:ignore="ContentDescription,ImageContrastCheck,SpeakableTextPresentCheck" />
@@ -117,7 +117,7 @@
                     android:id="@+id/addWork"
                     style="@style/wrap_content"
                     android:layout_marginStart="5dp"
-                    android:theme="@style/grey_to_dark_grey_rounded"
+                      android:background="@drawable/skip_button"
                     android:padding="14dp"
                     android:src="@drawable/backpack"
                     tools:ignore="ContentDescription,ImageContrastCheck,SpeakableTextPresentCheck" />
@@ -125,7 +125,7 @@
                     android:id="@+id/Like"
                     style="@style/wrap_content"
                     android:layout_marginStart="5dp"
-                    android:theme="@style/grey_to_dark_grey_rounded"
+                      android:background="@drawable/skip_button"
                     android:padding="13dp"
                     android:src="@drawable/heart"
                     tools:ignore="ContentDescription,ImageContrastCheck,SpeakableTextPresentCheck" />
@@ -154,7 +154,7 @@
             android:layout_width="match_parent"
             android:layout_height="2dp"
             android:layout_marginVertical="15dp"
-            android:theme="@style/light_line_color_changes"
+            android:background="@drawable/line_light_grey"
             tools:ignore="VisualLintBounds" />
         <LinearLayout
             android:layout_width="match_parent"
@@ -172,14 +172,14 @@
                     <ImageButton
                         android:id="@+id/delivery"
                         style="@style/wrap_content"
-                        android:theme="@style/grey_to_dark_grey_rounded"
+                          android:background="@drawable/skip_button"
                         android:paddingHorizontal="35dp"
                         android:paddingVertical="11dp"
                         android:src="@drawable/delivery"
                         tools:ignore="ContentDescription,SpeakableTextPresentCheck,ImageContrastCheck" />
                     <TextView
                         style="@style/regular_12"
-                        android:theme="@style/black_to_light_grey"
+                        android:textColor="#262626"
                         android:layout_marginTop="10dp"
                         android:gravity="center_vertical"
                         android:text="Delivery"
@@ -193,14 +193,14 @@
                     <ImageButton
                         android:id="@+id/driver"
                         style="@style/wrap_content"
-                        android:theme="@style/grey_to_dark_grey_rounded"
+                          android:background="@drawable/skip_button"
                         android:paddingHorizontal="35dp"
                         android:paddingVertical="10dp"
                         android:src="@drawable/driver"
                         tools:ignore="ContentDescription,ImageContrastCheck,SpeakableTextPresentCheck" />
                     <TextView
                         style="@style/regular_12"
-                        android:theme="@style/black_to_light_grey"
+                       android:textColor="#262626"
                         android:layout_marginTop="10dp"
                         android:gravity="center_vertical"
                         android:text="Driver"
@@ -216,14 +216,14 @@
                         android:id="@+id/intercity"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:theme="@style/grey_to_dark_grey_rounded"
+                          android:background="@drawable/skip_button"
                         android:paddingHorizontal="35dp"
                         android:paddingVertical="15dp"
                         android:src="@drawable/delivery_truck"
                         tools:ignore="ContentDescription,ImageContrastCheck,SpeakableTextPresentCheck" />
                     <TextView
                         style="@style/regular_12"
-                        android:theme="@style/black_to_light_grey"
+                       android:textColor="#262626"
                         android:layout_marginTop="10dp"
                         android:gravity="center_vertical"
                         android:text="Intercity"

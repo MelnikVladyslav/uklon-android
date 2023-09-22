@@ -39,7 +39,8 @@
                 tools:ignore="ContentDescription" />
 
             <TextView
-                style="@style/Black_bigger_textView"
+                  style="@style/regular_15"
+                        android:textColor="#262626"
                 android:text="Facebook Messenger"
                 android:layout_marginStart="11dp"
                 tools:ignore="HardcodedText" />
@@ -64,7 +65,8 @@
                 tools:ignore="ContentDescription" />
 
             <TextView
-                style="@style/Black_bigger_textView"
+                  style="@style/regular_15"
+                        android:textColor="#262626"
                 android:text="Viber"
                 android:layout_marginStart="13dp"
                 tools:ignore="HardcodedText" />
@@ -89,7 +91,8 @@
                 tools:ignore="ContentDescription" />
 
             <TextView
-                style="@style/Black_bigger_textView"
+                  style="@style/regular_15"
+                        android:textColor="#262626"
                 android:text="Telegram"
                 android:layout_marginStart="11dp"
                 tools:ignore="HardcodedText" />
@@ -114,7 +117,8 @@
                 tools:ignore="ContentDescription" />
 
             <TextView
-                style="@style/Black_bigger_textView"
+                  style="@style/regular_15"
+                        android:textColor="#262626"
                 android:text="To call"
                 android:layout_marginStart="13dp"
                 tools:ignore="HardcodedText" />

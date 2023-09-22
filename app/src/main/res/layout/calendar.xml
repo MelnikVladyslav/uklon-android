@@ -6,7 +6,7 @@
     android:gravity="center">
 
     <LinearLayout
-        style="@style/grey_to_dark_grey_rounded"
+        android:background="@drawable/skip_button"
         android:layout_width="326dp"
         android:layout_height="390dp"
         android:orientation="vertical"
@@ -17,7 +17,7 @@
         <TextView
             style="@style/bold_20"
             android:text="Mon, Jul 3"
-            android:theme="@style/black_to_light_grey"
+           android:textColor="#262626"
             tools:ignore="HardcodedText" />
         <LinearLayout
             android:layout_width="match_parent"
@@ -28,7 +28,7 @@
             <TextView
                 style="@style/bold_14"
                 android:text="7 2023"
-                android:theme="@style/black_to_light_grey"
+               android:textColor="#262626"
                 tools:ignore="HardcodedText" />
             <View
                 android:layout_width="0dp"
@@ -38,14 +38,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/arrow_small_left"
-                android:theme="@style/black_to_light_tint"
+
                 tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:background="@drawable/arrow_small_right"
-                android:theme="@style/black_to_light_tint"
+
                 tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
         </LinearLayout>
         <LinearLayout
@@ -56,7 +56,7 @@
             <TextView
                 style="@style/bold_14"
                 android:text="S"
-                android:theme="@style/black_to_light_grey"
+               android:textColor="#262626"
                 tools:ignore="HardcodedText" />
             <View
                 android:layout_width="0dp"
@@ -65,7 +65,7 @@
             <TextView
                 style="@style/bold_14"
                 android:text="M"
-                android:theme="@style/black_to_light_grey"
+               android:textColor="#262626"
                 tools:ignore="HardcodedText" />
             <View
                 android:layout_width="0dp"
@@ -74,7 +74,7 @@
             <TextView
                 style="@style/bold_14"
                 android:text="T"
-                android:theme="@style/black_to_light_grey"
+               android:textColor="#262626"
                 tools:ignore="HardcodedText" />
             <View
                 android:layout_width="0dp"
@@ -83,7 +83,7 @@
             <TextView
                 style="@style/bold_14"
                 android:text="W"
-                android:theme="@style/black_to_light_grey"
+               android:textColor="#262626"
                 tools:ignore="HardcodedText" />
             <View
                 android:layout_width="0dp"
@@ -92,7 +92,7 @@
             <TextView
                 style="@style/bold_14"
                 android:text="T"
-                android:theme="@style/black_to_light_grey"
+               android:textColor="#262626"
                 tools:ignore="HardcodedText" />
             <View
                 android:layout_width="0dp"
@@ -101,7 +101,7 @@
             <TextView
                 style="@style/bold_14"
                 android:text="F"
-                android:theme="@style/black_to_light_grey"
+               android:textColor="#262626"
                 tools:ignore="HardcodedText" />
             <View
                 android:layout_width="0dp"
@@ -110,7 +110,7 @@
             <TextView
                 style="@style/bold_14"
                 android:text="S"
-                android:theme="@style/black_to_light_grey"
+               android:textColor="#262626"
                 tools:ignore="HardcodedText" />
         </LinearLayout>
         <LinearLayout
@@ -121,7 +121,7 @@
 
             <TextView
                 style="@style/bold_14"
-                android:theme="@style/black_to_light_grey"
+               android:textColor="#262626"
                 tools:ignore="HardcodedText" />
 
             <View
@@ -131,7 +131,7 @@
 
             <TextView
                 style="@style/bold_14"
-                android:theme="@style/black_to_light_grey"
+               android:textColor="#262626"
                 tools:ignore="HardcodedText" />
 
             <View
@@ -141,7 +141,7 @@
 
             <TextView
                 style="@style/bold_14"
-                android:theme="@style/black_to_light_grey"
+               android:textColor="#262626"
                 tools:ignore="HardcodedText" />
 
             <View
@@ -151,7 +151,7 @@
 
             <TextView
                 style="@style/bold_14"
-                android:theme="@style/black_to_light_grey"
+               android:textColor="#262626"
                 tools:ignore="HardcodedText" />
 
             <View
@@ -161,7 +161,7 @@
 
             <TextView
                 style="@style/bold_14"
-                android:theme="@style/black_to_light_grey"
+               android:textColor="#262626"
                 tools:ignore="HardcodedText" />
 
             <View
@@ -171,7 +171,7 @@
 
             <TextView
                 style="@style/bold_14"
-                android:theme="@style/black_to_light_grey"
+               android:textColor="#262626"
                 tools:ignore="HardcodedText" />
 
             <View
@@ -182,7 +182,7 @@
             <TextView
                 style="@style/bold_14"
                 android:text="1"
-                android:theme="@style/black_to_light_grey"
+               android:textColor="#262626"
                 tools:ignore="HardcodedText" />
         </LinearLayout>
         <LinearLayout
@@ -194,7 +194,7 @@
             <TextView
                 style="@style/bold_14"
                 android:text="2"
-                android:theme="@style/black_to_light_grey"
+               android:textColor="#262626"
                 tools:ignore="HardcodedText" />
 
             <View
@@ -207,7 +207,7 @@
                 android:background="@drawable/green_circle"
                 android:gravity="center"
                 android:text="3"
-                android:theme="@style/black_to_light_grey"
+               android:textColor="#262626"
                 tools:ignore="HardcodedText,TextContrastCheck" />
 
             <View
@@ -218,7 +218,7 @@
             <TextView
                 style="@style/bold_14"
                 android:text="4"
-                android:theme="@style/black_to_light_grey"
+               android:textColor="#262626"
                 tools:ignore="HardcodedText" />
 
             <View
@@ -229,7 +229,7 @@
             <TextView
                 style="@style/bold_14"
                 android:text="5"
-                android:theme="@style/black_to_light_grey"
+               android:textColor="#262626"
                 tools:ignore="HardcodedText" />
 
             <View
@@ -240,7 +240,7 @@
             <TextView
                 style="@style/bold_14"
                 android:text="6"
-                android:theme="@style/black_to_light_grey"
+               android:textColor="#262626"
                 tools:ignore="HardcodedText" />
 
             <View
@@ -251,7 +251,7 @@
             <TextView
                 style="@style/bold_14"
                 android:text="7"
-                android:theme="@style/black_to_light_grey"
+               android:textColor="#262626"
                 tools:ignore="HardcodedText" />
 
             <View
@@ -262,7 +262,7 @@
             <TextView
                 style="@style/bold_14"
                 android:text="8"
-                android:theme="@style/black_to_light_grey"
+               android:textColor="#262626"
                 tools:ignore="HardcodedText" />
         </LinearLayout>
         <LinearLayout
@@ -279,13 +279,13 @@
             <TextView
                 style="@style/bold_16"
                 android:text="CANCEL"
-                android:theme="@style/black_to_light_grey"
+               android:textColor="#262626"
                 tools:ignore="HardcodedText" />
             <TextView
                 style="@style/bold_16"
                 android:layout_marginStart="20dp"
                 android:text="SAVE"
-                android:theme="@style/black_to_light_grey"
+               android:textColor="#262626"
                 tools:ignore="HardcodedText" />
         </LinearLayout>
     </LinearLayout>

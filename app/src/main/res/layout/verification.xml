@@ -4,9 +4,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:theme="@style/ScreenBackground"
     android:paddingHorizontal="16dp"
     android:paddingBottom="40dp"
+    android:background="@color/white"
     android:gravity="center_horizontal"
     tools:ignore="MissingClass">
 
@@ -19,12 +19,11 @@
 
     <ImageButton
        style="@style/wrap_content"
-        android:theme="@style/black_to_light_tint"
         android:background="@drawable/arrow_back"
         tools:ignore="ContentDescription,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
     <TextView
         style="@style/bold_20"
-        android:theme="@style/black_to_light_grey"
+        android:textColor="#262626"
         android:gravity="center_horizontal"
         android:layout_marginEnd="28dp"
         android:text="Verification"
@@ -34,7 +33,7 @@
 
     <TextView
         style="@style/bold_16"
-        android:theme="@style/black_to_light_grey"
+       android:textColor="#262626"
         android:layout_marginTop="100dp"
         android:text="Enter the code to verify your device"
         tools:ignore="HardcodedText" />
@@ -53,7 +52,7 @@
         <EditText
             android:id="@+id/editText1"
             style="@style/regular_15"
-            android:theme="@style/black_to_light_grey"
+           android:textColor="#262626"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="10dp"
@@ -70,7 +69,7 @@
         <EditText
             android:id="@+id/editText2"
             style="@style/regular_15"
-            android:theme="@style/black_to_light_grey"
+           android:textColor="#262626"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="10dp"
@@ -87,7 +86,7 @@
         <EditText
             android:id="@+id/editText3"
             style="@style/regular_15"
-            android:theme="@style/black_to_light_grey"
+           android:textColor="#262626"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="10dp"
@@ -104,7 +103,7 @@
         <EditText
             android:id="@+id/editText4"
             style="@style/regular_15"
-            android:theme="@style/black_to_light_grey"
+           android:textColor="#262626"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -181,7 +180,7 @@
     <Button
         style="@style/green_button"
         android:text="Next"
-        android:theme="@style/black_to_light_grey"
+       android:textColor="#262626"
         tools:ignore="HardcodedText,TextContrastCheck,VisualLintButtonSize" />
 
 </LinearLayout>

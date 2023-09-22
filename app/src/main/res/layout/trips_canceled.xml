@@ -106,14 +106,16 @@
                 tools:ignore="UselessParent">
 
                 <TextView
-                    style="@style/Black_bigger_textView"
+                      style="@style/regular_15"
+                        android:textColor="#262626"
                     android:textSize="13sp"
                     android:text="Henerala Bezruchka Ave, 5"
                     tools:ignore="HardcodedText"
                     android:layout_marginBottom="58dp"
                     />
                 <TextView
-                    style="@style/Black_bigger_textView"
+                      style="@style/regular_15"
+                        android:textColor="#262626"
                     android:textSize="13sp"
                     android:text="Shpanivs'kyi Ln, 2-32"
                     tools:ignore="HardcodedText" />
@@ -191,14 +193,16 @@
                 tools:ignore="UselessParent">
 
                 <TextView
-                    style="@style/Black_bigger_textView"
+                      style="@style/regular_15"
+                        android:textColor="#262626"
                     android:textSize="13sp"
                     android:text="Henerala Bezruchka Ave, 5"
                     tools:ignore="HardcodedText"
                     android:layout_marginBottom="58dp"
                     />
                 <TextView
-                    style="@style/Black_bigger_textView"
+                      style="@style/regular_15"
+                        android:textColor="#262626"
                     android:textSize="13sp"
                     android:text="Shpanivs'kyi Ln, 2-32"
                     tools:ignore="HardcodedText" />
@@ -276,14 +280,16 @@
                 tools:ignore="UselessParent">
 
                 <TextView
-                    style="@style/Black_bigger_textView"
+                      style="@style/regular_15"
+                        android:textColor="#262626"
                     android:textSize="13sp"
                     android:text="Henerala Bezruchka Ave, 5"
                     tools:ignore="HardcodedText"
                     android:layout_marginBottom="58dp"
                     />
                 <TextView
-                    style="@style/Black_bigger_textView"
+                      style="@style/regular_15"
+                        android:textColor="#262626"
                     android:textSize="13sp"
                     android:text="Shpanivs'kyi Ln, 2-32"
                     tools:ignore="HardcodedText" />
@@ -361,14 +367,16 @@
                 tools:ignore="UselessParent">
 
                 <TextView
-                    style="@style/Black_bigger_textView"
+                      style="@style/regular_15"
+                        android:textColor="#262626"
                     android:textSize="13sp"
                     android:text="Henerala Bezruchka Ave, 5"
                     tools:ignore="HardcodedText"
                     android:layout_marginBottom="58dp"
                     />
                 <TextView
-                    style="@style/Black_bigger_textView"
+                      style="@style/regular_15"
+                        android:textColor="#262626"
                     android:textSize="13sp"
                     android:text="Shpanivs'kyi Ln, 2-32"
                     tools:ignore="HardcodedText" />

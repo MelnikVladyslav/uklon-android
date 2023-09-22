@@ -32,7 +32,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:fontFamily="@font/lato_700"
+                android:fontFamily="@font/lato_600"
                 android:gravity="center_horizontal"
                 android:letterSpacing="0.04"
                 android:paddingEnd="25dp"
@@ -158,7 +158,7 @@
         android:paddingHorizontal="138dp"
         android:paddingVertical="16dp"
         android:background="@drawable/start_button_background"
-        android:fontFamily="@font/lato_700"
+        android:fontFamily="@font/lato_600"
         android:letterSpacing="0.04"
         android:text="Done"
         android:textAllCaps="false"
@@ -198,7 +198,8 @@
                 tools:ignore="ContentDescription" />
 
             <TextView
-                style="@style/Black_bigger_textView"
+                  style="@style/regular_15"
+                        android:textColor="#262626"
                 android:layout_marginStart="10dp"
                 android:text="Set location on map"
                 />

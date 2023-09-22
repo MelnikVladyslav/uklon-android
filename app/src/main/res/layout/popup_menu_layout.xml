@@ -2,7 +2,7 @@
    <LinearLayout
        xmlns:android="http://schemas.android.com/apk/res/android"
        xmlns:tools="http://schemas.android.com/tools"
-       style="@style/white_rounded_right_corners_to_dark_grey"
+       android:background="@color/white"
        android:layout_width="wrap_content"
        android:layout_height="match_parent"
        android:elevation="15dp"
@@ -32,7 +32,7 @@
             <TextView
                 android:id="@+id/nameUser"
                 style="@style/heavy_20"
-                android:theme="@style/black_to_light_grey"
+               android:textColor="#262626"
                 android:text="Monica"
                 tools:ignore="HardcodedText" />
             <TextView
@@ -45,7 +45,7 @@
          <ImageButton
              android:id="@+id/btnOption1"
              style="@style/wrap_content"
-             android:theme="@style/black_to_light_tint"
+
              android:background="@drawable/arrow_right"
              tools:ignore="ContentDescription,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
       </LinearLayout>
@@ -65,7 +65,7 @@
           tools:ignore="UseCompoundDrawables,UselessParent">
          <ImageView
              style="@style/wrap_content"
-             android:theme="@style/black_to_light_tint"
+
              android:background="@drawable/small_city_icon"
              tools:ignore="ContentDescription" />
          <LinearLayout
@@ -81,14 +81,14 @@
                 tools:ignore="HardcodedText,TextContrastCheck" />
             <TextView
                 style="@style/regular_14"
-                android:theme="@style/black_to_light_grey"
+               android:textColor="#262626"
                 android:text="Rivne"
                 tools:ignore="HardcodedText" />
          </LinearLayout>
          <ImageButton
              android:id="@+id/selCityBtn"
              style="@style/wrap_content"
-             android:theme="@style/black_to_light_tint"
+
              android:background="@drawable/arrow_right"
              tools:ignore="ContentDescription,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
       </LinearLayout>
@@ -106,12 +106,12 @@
           tools:ignore="UseCompoundDrawables">
          <ImageView
              style="@style/wrap_content"
-             android:theme="@style/black_to_light_tint"
+
              android:background="@drawable/clock_icon"
              tools:ignore="ContentDescription" />
          <TextView
              style="@style/semibold_20"
-             android:theme="@style/black_to_light_grey"
+            android:textColor="#262626"
              android:layout_marginStart="15dp"
              android:text="Trips"
              tools:ignore="HardcodedText"/>
@@ -125,12 +125,12 @@
           tools:ignore="UseCompoundDrawables">
          <ImageView
              style="@style/wrap_content"
-             android:theme="@style/black_to_light_tint"
+
              android:background="@drawable/credit_card"
              tools:ignore="ContentDescription" />
          <TextView
              style="@style/semibold_20"
-             android:theme="@style/black_to_light_grey"
+            android:textColor="#262626"
              android:layout_marginStart="15dp"
              android:text="Payment"
              tools:ignore="HardcodedText"/>
@@ -143,12 +143,12 @@
           tools:ignore="UseCompoundDrawables">
          <ImageView
              style="@style/wrap_content"
-             android:theme="@style/black_to_light_tint"
+
              android:background="@drawable/tag"
              tools:ignore="ContentDescription" />
          <TextView
              style="@style/semibold_20"
-             android:theme="@style/black_to_light_grey"
+            android:textColor="#262626"
              android:layout_marginStart="15dp"
              android:text="Promotion"
              tools:ignore="HardcodedText"/>
@@ -161,12 +161,12 @@
           tools:ignore="UseCompoundDrawables">
          <ImageView
              style="@style/wrap_content"
-             android:theme="@style/black_to_light_tint"
+
              android:background="@drawable/heart_black"
              tools:ignore="ContentDescription" />
          <TextView
              style="@style/semibold_20"
-             android:theme="@style/black_to_light_grey"
+            android:textColor="#262626"
              android:layout_marginStart="15dp"
              android:text="Favorites"
              tools:ignore="HardcodedText"/>
@@ -179,12 +179,12 @@
           tools:ignore="UseCompoundDrawables">
          <ImageView
              style="@style/wrap_content"
-             android:theme="@style/black_to_light_tint"
+
              android:background="@drawable/help"
              tools:ignore="ContentDescription" />
          <TextView
              style="@style/semibold_20"
-             android:theme="@style/black_to_light_grey"
+            android:textColor="#262626"
              android:layout_marginStart="15dp"
              android:text="Support"
              tools:ignore="HardcodedText"/>
@@ -197,12 +197,12 @@
           tools:ignore="UseCompoundDrawables">
          <ImageView
              style="@style/wrap_content"
-             android:theme="@style/black_to_light_tint"
+
              android:background="@drawable/about"
              tools:ignore="ContentDescription" />
          <TextView
              style="@style/semibold_20"
-             android:theme="@style/black_to_light_grey"
+            android:textColor="#262626"
              android:layout_marginStart="15dp"
              android:text="About us"
              tools:ignore="HardcodedText"/>
