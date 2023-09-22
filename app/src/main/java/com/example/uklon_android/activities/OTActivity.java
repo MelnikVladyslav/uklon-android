@@ -185,7 +185,6 @@ public class OTActivity extends AppCompatActivity {
         }
         trs.add(transport);
 
-        order.setTransports(trs);
         order.setPrice(price);
         order.setType("Taxi");
         order.setStartPoint(onePoint);

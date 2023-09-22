@@ -450,7 +450,7 @@ public class MainActivity extends AppCompatActivity implements PlacesAdapter.OnP
             bottomSheetDialog = new BottomSheetDialog(this);
             bottomSheetDialog.setContentView(R.layout.bottom_menu);
 
-            Button extranceBtn = bottomSheetDialog.findViewById(R.id.btnExtr);
+            LinearLayout extranceBtn = bottomSheetDialog.findViewById(R.id.btnExtr);
             TextView pointStart = bottomSheetDialog.findViewById(R.id.pointStart);
             EditText pointEnd = bottomSheetDialog.findViewById(R.id.where_to_go);
             ImageButton btnAddHome = bottomSheetDialog.findViewById(R.id.addHome);

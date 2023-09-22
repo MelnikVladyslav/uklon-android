@@ -54,7 +54,6 @@ public class PersonalDataActivity extends AppCompatActivity {
         emailEdT = findViewById(R.id.email);
         emailEdT.setText(correctUser.getEmail());
         phoneNumEdT = findViewById(R.id.phoneNumber);
-        lastNameEdT.setText(correctUser.getLastName());
         phoneNumEdT.setText(correctUser.getPhoneNumber());
 
         backBtn.setOnClickListener(new View.OnClickListener()
@@ -74,7 +73,7 @@ public class PersonalDataActivity extends AppCompatActivity {
                 sendUser.setFirstName(firstNameEdT.getText().toString());
                 sendUser.setEmail(emailEdT.getText().toString());
                 sendUser.setPhoneNumber(phoneNumEdT.getText().toString());
-                sendUser.setUrl(urlAv);
+                sendUser.setUrl(" ");
                 apiService.updateUser(sendUser, correctUser.getId()).
                         enqueue(new Callback<User>()
                         {
