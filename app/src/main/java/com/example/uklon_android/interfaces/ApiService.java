@@ -80,20 +80,19 @@ public interface ApiService {
     @POST("/api/login/login-email")
     Call<String> loginEmail(@Body PhoneNumberVerificationDto phoneDTO);
 
-    @DELETE("/api/deleteuser")
-    Call deleteUser(String userId);
+    @DELETE("/api/deleteuser/{id}")
+    Call deleteUser(@Path("id") String userId);
 
     @PUT("/api/login/change-password")
     Call<User> changePassword(@Body ChangeDTO changeDTO);
 
     @Multipart
-    @Headers("Content-Type:multipart/form-data")
     @POST("/api/login/upload-photo")
     Call<String> uploadPhoto(@Part MultipartBody.Part imageFile);
 
-    @GET
+    @GET("/api/SelectedAdresses")
     Call<List<SelAdress>> getSelAdreses();
 
-    @POST
-    Call addSelAdrees(@Body SelAdresessDTO selAdresessDTO);
+    @POST("/api/SelectedAdresses")
+    Call<Void> addSelAdrees(@Body SelAdresessDTO selAdresessDTO);
 }

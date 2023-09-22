@@ -53,9 +53,9 @@ public class SelJob extends AppCompatActivity {
                 selAdress.setNameJob(" ");
                 selAdress.setUserId(correctUser.getId());
 
-                apiService.addSelAdrees(selAdress).enqueue(new Callback() {
+                apiService.addSelAdrees(selAdress).enqueue(new Callback<Void>() {
                     @Override
-                    public void onResponse(Call call, Response response) {
+                    public void onResponse(Call<Void> call, Response<Void> response) {
                         if(response.body() != null)
                         {
                             Intent intent = new Intent(SelJob.this, MainActivity.class);
@@ -64,7 +64,7 @@ public class SelJob extends AppCompatActivity {
                     }
 
                     @Override
-                    public void onFailure(Call call, Throwable t) {
+                    public void onFailure(Call<Void> call, Throwable t) {
 
                     }
                 });

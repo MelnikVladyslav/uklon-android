@@ -156,7 +156,6 @@ public class OInterActivity extends AppCompatActivity {
         transport.setType(1);
         trs.add(transport);
 
-        order.setTransports(trs);
         order.setPrice(price);
         order.setType("Intercity");
         order.setStartPoint(onePoint);

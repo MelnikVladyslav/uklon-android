@@ -75,7 +75,6 @@ public class OrderDelActivity extends AppCompatActivity {
         transport.setType(1);
         trs.add(transport);
 
-        order.setTransports(trs);
         order.setPrice(price);
         order.setType("Delivery");
         order.setStartPoint(startPoint);
