@@ -1,20 +1,20 @@
 package com.example.uklon_android.activities;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.LinearLayout;
+import android.util.Log;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+
 import com.example.uklon_android.R;
+import com.example.uklon_android.classes.Types;
 import com.example.uklon_android.classes.User;
+import com.example.uklon_android.interfaces.ApiService;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationCallback;
 import com.google.android.gms.location.LocationRequest;
@@ -29,14 +29,23 @@ import com.google.android.gms.maps.model.MapStyleOptions;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-public class InterMainActivity extends AppCompatActivity {
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
-    TextView tvPrice;
-    LinearLayout llTypePay, llCom;
-    Button btnNext;
-    User correctUser = new User();
-    float price = 1450;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+public class SearchDeliveryActivity extends AppCompatActivity {
+
     String onePoint, twoPoint;
+    User correctUser = new User(), driver = new User();
+    float price = 0;
+    Types curType = new Types();
+    TextView tvTypeName, tvPrice, tvStartP, tvEndPoint;
+    List<User> listUsers = new ArrayList<>();
+    ApiService apiService;
     private GoogleMap googleMap;
     private SupportMapFragment mapFragment;
     private FusedLocationProviderClient fusedLocationClient;
@@ -51,18 +60,15 @@ public class InterMainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.inercity_main);
+        setContentView(R.layout.search_taxi);
 
-        tvPrice = findViewById(R.id.price);
-        llTypePay = findViewById(R.id.typePay);
-        llCom = findViewById(R.id.com);
-        btnNext = findViewById(R.id.next);
-
+        onePoint = (String) getIntent().getSerializableExtra("onePoint");
+        twoPoint = (String) getIntent().getSerializableExtra("twoPoint");
+        price = (float) getIntent().getSerializableExtra("price");
         correctUser = (User) getIntent().getSerializableExtra("user");
-        onePoint = (String) getIntent().getSerializableExtra("startPoint");
-        twoPoint = (String) getIntent().getSerializableExtra("endPoint");
+        curType = (Types) getIntent().getSerializableExtra("type");
 
-        tvPrice.setText(String.valueOf(price));
+        apiService = apiService.retrofit.create(ApiService.class);
 
         mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.mapFragment);
         mapFragment.getMapAsync(new OnMapReadyCallback() {
@@ -70,10 +76,10 @@ public class InterMainActivity extends AppCompatActivity {
             public void onMapReady(GoogleMap map) {
                 googleMap = map;
                 // Налаштування карт, робота з мапою
-                googleMap.setMapStyle(MapStyleOptions.loadRawResourceStyle(InterMainActivity.this, R.raw.map));
+                googleMap.setMapStyle(MapStyleOptions.loadRawResourceStyle(SearchDeliveryActivity.this, R.raw.map));
 
                 // Ініціалізація FusedLocationProviderClient
-                fusedLocationClient = LocationServices.getFusedLocationProviderClient(InterMainActivity.this);
+                fusedLocationClient = LocationServices.getFusedLocationProviderClient(SearchDeliveryActivity.this);
 
                 // Налаштування LocationRequest для отримання місцезнаходження
                 locationRequest = new LocationRequest();
@@ -114,35 +120,44 @@ public class InterMainActivity extends AppCompatActivity {
             }
         });
 
+        tvTypeName = findViewById(R.id.typeName);
+        tvPrice = findViewById(R.id.price);
+        tvStartP = findViewById(R.id.startPoint);
+        tvEndPoint = findViewById(R.id.endPoint);
 
-        llTypePay.setOnClickListener(new View.OnClickListener() {
+        tvPrice.setText(String.valueOf(price));
+        tvStartP.setText(onePoint);
+        tvEndPoint.setText(twoPoint);
+
+        apiService.getUsers().enqueue(new Callback<List<User>>() {
             @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(InterMainActivity.this, PayInterActivity.class);
-                intent.putExtra("user", (User) getIntent().getSerializableExtra("user"));
-                intent.putExtra("price", price);
-                startActivity(intent);
+            public void onResponse(Call<List<User>> call, Response<List<User>> response) {
+                listUsers = response.body();
+
+                for (User user: listUsers) {
+                    if (Objects.equals(user.getRole(), "Driver"))
+                    {
+                        driver = user;
+                        Log.d("Name driver: ", driver.getFirstName());
+                    }
+                }
+
+                if(driver != null)
+                {
+                    Intent intent = new Intent(SearchDeliveryActivity.this, OrderDelActivity.class);
+                    intent.putExtra("onePoint", onePoint);
+                    intent.putExtra("twoPoint", twoPoint);
+                    intent.putExtra("user", correctUser);
+                    intent.putExtra("driver", driver);
+                    intent.putExtra("price", price);
+                    intent.putExtra("type", curType);
+                    startActivity(intent);
+                }
             }
-        });
 
-        llCom.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(InterMainActivity.this, ComInterActivity.class);
-                intent.putExtra("price", price);
-                startActivity(intent);
-            }
-        });
-
-        btnNext.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(InterMainActivity.this, SearchInterActivity.class);
-                intent.putExtra("onePoint", onePoint);
-                intent.putExtra("user", correctUser);
-                intent.putExtra("twoPoint", twoPoint);
-                intent.putExtra("price", price);
-                startActivity(intent);
+            public void onFailure(Call<List<User>> call, Throwable t) {
+                Log.d("Error", t.getMessage());
             }
         });
 

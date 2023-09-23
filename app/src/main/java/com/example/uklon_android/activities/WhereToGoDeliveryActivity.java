@@ -18,7 +18,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.uklon_android.R;
 import com.example.uklon_android.classes.User;
-import com.example.uklon_android.interfaces.PlacesAdapter;
 import com.example.uklon_android.interfaces.PlacesTwoAdapter;
 import com.google.android.gms.tasks.Task;
 import com.google.android.libraries.places.api.Places;
@@ -32,7 +31,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class WhereToGoDriverActivity extends AppCompatActivity implements PlacesTwoAdapter.OnPlaceClickListener {
+public class WhereToGoDeliveryActivity extends AppCompatActivity implements PlacesTwoAdapter.OnPlaceClickListener {
 
     List<String> placeNames = new ArrayList<>();
     private RecyclerView recyclerView;
@@ -67,7 +66,7 @@ public class WhereToGoDriverActivity extends AppCompatActivity implements Places
         Places.initialize(getApplicationContext(), ApiKey);
         placesClient = Places.createClient(this);
         List<String> placesList = new ArrayList<>(); // Список місць
-        placesAdapter = new PlacesTwoAdapter(placesList, WhereToGoDriverActivity.this);
+        placesAdapter = new PlacesTwoAdapter(placesList, WhereToGoDeliveryActivity.this);
 
         TextView tvLoad = findViewById(R.id.loading);
         tvLoad.setVisibility(View.VISIBLE);
@@ -118,7 +117,7 @@ public class WhereToGoDriverActivity extends AppCompatActivity implements Places
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(WhereToGoDriverActivity.this, EnterTypeAutoActivity.class);
+                Intent intent = new Intent(WhereToGoDeliveryActivity.this, MainActivity.class);
                 startActivity(intent);
             }
         });
@@ -126,7 +125,7 @@ public class WhereToGoDriverActivity extends AppCompatActivity implements Places
         btnDone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(WhereToGoDriverActivity.this, DriverMainActivity.class);
+                Intent intent = new Intent(WhereToGoDeliveryActivity.this, DelMainActivity.class);
                 intent.putExtra("onePoint", startEdit.getText().toString());
                 intent.putExtra("user", correctUser);
                 intent.putExtra("twoPoint", endEdit.getText().toString());

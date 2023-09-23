@@ -133,7 +133,7 @@
             android:layout_marginTop="10dp"
             android:orientation="horizontal"
             tools:ignore="MissingConstraints,NotSibling,RtlSymmetry" />
-<!--        <TextView
+        <TextView
             android:id="@+id/loading"
             android:visibility="invisible"
             android:layout_width="wrap_content"
@@ -142,7 +142,7 @@
             android:text="Loading...."
             android:textSize="24sp"
             android:layout_gravity="center"
-            tools:ignore="HardcodedText" /> -->
+            tools:ignore="HardcodedText" />
         <View
             android:id="@+id/city_line"
             android:layout_width="match_parent"

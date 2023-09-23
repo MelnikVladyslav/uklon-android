@@ -76,7 +76,6 @@ public class OTActivity extends AppCompatActivity {
 
         apiService = apiService.retrofit.create(ApiService.class);
         tvCancel = findViewById(R.id.CancelOrder);
-        tvNameTr = findViewById(R.id.NameTr);
         tvNameDr = findViewById(R.id.nameDr);
         tvPrice = findViewById(R.id.textPrice);
         tvStartP = findViewById(R.id.startPoint);
