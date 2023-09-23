@@ -42,7 +42,7 @@ public class DeliveryActivity extends AppCompatActivity {
         btnSend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(DeliveryActivity.this, DelMainActivity.class);
+                Intent intent = new Intent(DeliveryActivity.this, WhereToGoDeliveryActivity.class);
                 intent.putExtra("onePoint", adressStart);
                 intent.putExtra("twoPoint", adressEnd);
                 intent.putExtra("user", correctUser);

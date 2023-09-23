@@ -41,6 +41,12 @@
             android:name=".activities.SelHome"
             android:exported="false" />
         <activity
+            android:name=".activities.WhereToGoDeliveryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.SearchDeliveryActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.ChangePassActivity"
             android:exported="false" />
         <activity

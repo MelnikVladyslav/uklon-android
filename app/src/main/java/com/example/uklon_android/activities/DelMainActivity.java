@@ -131,7 +131,7 @@ public class DelMainActivity extends AppCompatActivity {
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(DelMainActivity.this, OrderDelActivity.class);
+                Intent intent = new Intent(DelMainActivity.this, SearchDeliveryActivity.class);
                 intent.putExtra("onePoint", startPoint);
                 intent.putExtra("twoPoint", endPoint);
                 intent.putExtra("price", price);
