@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingHorizontal="16dp"
@@ -19,19 +20,17 @@
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/arrow_back"/>
+            android:background="@drawable/arrow_back"
+            tools:ignore="ContentDescription,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
         <TextView
             android:layout_weight="1"
             android:gravity="center"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/lato_600"
-            android:textSize="20sp"
+            style="@style/bold_20"
             android:textColor="#262626"
             android:text="Delivery"
            android:layout_marginEnd="30dp"
-            />
+            tools:ignore="HardcodedText,InefficientWeight" />
     </LinearLayout>
 
     <TextView
@@ -42,7 +41,7 @@
         android:textColor="#262626"
         android:text="68 ₴ "
         android:layout_marginTop="40dp"
-        />
+        tools:ignore="HardcodedText" />
     
     
     <LinearLayout
@@ -56,7 +55,8 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/door_icon"/>
+            android:background="@drawable/door_icon"
+            tools:ignore="ContentDescription,ImageContrastCheck" />
 
 
         <LinearLayout
@@ -64,23 +64,26 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingStart="10dp">
+            android:paddingStart="10dp"
+            tools:ignore="RtlSymmetry">
 
             <TextView
                   style="@style/regular_15"
                         android:textColor="#262626"
                 android:text="Door to door"
-                />
+                tools:ignore="HardcodedText" />
+
             <TextView
                 style="@style/regular_12"
-android:textColor="#A3A3A3"
-                android:text="+ 20 ₴ for each recipient"
                 android:layout_marginTop="4dp"
-                />
+                android:text="+ 20 ₴ for each recipient"
+                android:textColor="#A3A3A3"
+                tools:ignore="HardcodedText,TextContrastCheck" />
         </LinearLayout>
 
         <CheckBox
-            style="@style/checkbox_custom"/>
+            style="@style/checkbox_custom"
+            tools:ignore="TouchTargetSizeCheck" />
     </LinearLayout>
 
 
@@ -90,14 +93,11 @@ android:textColor="#A3A3A3"
 
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/lato_600"
-        android:textSize="20sp"
+       style="@style/bold_20"
         android:textColor="#262626"
         android:text="Sender"
 
-        />
+        tools:ignore="HardcodedText" />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -109,7 +109,8 @@ android:textColor="#A3A3A3"
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/location_green_icon"/>
+            android:background="@drawable/location_green_icon"
+            tools:ignore="ContentDescription,ImageContrastCheck" />
 
 
         <LinearLayout
@@ -117,13 +118,14 @@ android:textColor="#A3A3A3"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingStart="10dp">
+            android:paddingStart="10dp"
+            tools:ignore="RtlSymmetry">
 
             <TextView
                 style="@style/regular_12"
-android:textColor="#A3A3A3"
                 android:text="Address"
-                />
+                android:textColor="#A3A3A3"
+                tools:ignore="HardcodedText,TextContrastCheck" />
 
 
             <TextView
@@ -132,17 +134,19 @@ android:textColor="#A3A3A3"
                 android:text="Gregory Skovorody, Street 19"
                 android:textSize="13sp"
                 android:layout_marginTop="4dp"
-                />
+                tools:ignore="HardcodedText" />
         </LinearLayout>
-            <Button
-                  style="@style/regular_15"
-                        android:textColor="#262626"
-                android:textSize="13sp"
-                android:text="Entrance"
-                android:layout_width="wrap_content"
-                android:layout_height="28dp"
-                android:background="@drawable/skip_button"
-                android:stateListAnimator="@null"/>
+
+        <Button
+            style="@style/regular_15"
+            android:layout_width="wrap_content"
+            android:layout_height="28dp"
+            android:background="@drawable/skip_button"
+            android:stateListAnimator="@null"
+            android:text="Entrance"
+            android:textColor="#262626"
+            android:textSize="13sp"
+            tools:ignore="HardcodedText,TouchTargetSizeCheck" />
 
     </LinearLayout>
     <View
@@ -160,7 +164,8 @@ android:textColor="#A3A3A3"
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/icon_person"/>
+            android:background="@drawable/icon_person"
+            android:importantForAccessibility="no" />
 
 
         <LinearLayout
@@ -168,13 +173,14 @@ android:textColor="#A3A3A3"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingStart="10dp">
+            android:paddingStart="10dp"
+            tools:ignore="RtlSymmetry">
 
             <TextView
                 style="@style/regular_12"
-android:textColor="#A3A3A3"
                 android:text="Phone number and name"
-                />
+                android:textColor="#A3A3A3"
+                tools:ignore="HardcodedText,TextContrastCheck" />
 
 <LinearLayout
     android:layout_width="wrap_content"
@@ -187,11 +193,13 @@ android:textColor="#A3A3A3"
         android:text="+380569220303, "
         android:textSize="13sp"
 
-        />
+        tools:ignore="HardcodedText" />
+
     <TextView
         style="@style/order_grey_text"
+        android:text="Name"
         android:textColor="#A3A3A3"
-        android:text="Name"/>
+        tools:ignore="HardcodedText,TextContrastCheck" />
 
 </LinearLayout>
 
@@ -203,12 +211,10 @@ android:textColor="#A3A3A3"
         style="@style/View_aditional_service"
         android:layout_marginVertical="20dp"/>
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/lato_600"
-        android:textSize="20sp"
+        style="@style/bold_20"
         android:textColor="#262626"
-        android:text="Recipient"/>
+        android:text="Recipient"
+        tools:ignore="HardcodedText" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -221,7 +227,8 @@ android:textColor="#A3A3A3"
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/arrow_right_green"/>
+            android:background="@drawable/arrow_right_green"
+            tools:ignore="ContentDescription,ImageContrastCheck" />
 
 
         <LinearLayout
@@ -229,13 +236,14 @@ android:textColor="#A3A3A3"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingStart="10dp">
+            android:paddingStart="10dp"
+            tools:ignore="RtlSymmetry">
 
             <TextView
                 style="@style/regular_12"
-android:textColor="#A3A3A3"
                 android:text="Address"
-                />
+                android:textColor="#A3A3A3"
+                tools:ignore="HardcodedText,TextContrastCheck" />
 
 
             <TextView
@@ -244,7 +252,7 @@ android:textColor="#A3A3A3"
                 android:text="Gregory Skovorody, Street 19, Rivne"
                 android:textSize="13sp"
                 android:layout_marginTop="4dp"
-                />
+                tools:ignore="HardcodedText" />
         </LinearLayout>
     </LinearLayout>
     <View
@@ -256,20 +264,23 @@ android:textColor="#A3A3A3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:gravity="center_vertical">
+        android:gravity="center_vertical"
+        tools:ignore="UseCompoundDrawables">
 
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/icon_person"/>
+            android:background="@drawable/icon_person"
+            tools:ignore="ContentDescription" />
 
 
-       <TextView
-          style="@style/order_grey_text"
-          android:text="Phone number and name"
-           android:textColor="#A3A3A3"
-           android:layout_marginStart="10dp"/>
+        <TextView
+            style="@style/order_grey_text"
+            android:layout_marginStart="10dp"
+            android:text="Phone number and name"
+            android:textColor="#A3A3A3"
+            tools:ignore="HardcodedText,TextContrastCheck" />
 
     </LinearLayout>
 
@@ -284,8 +295,9 @@ android:textColor="#A3A3A3"
         style="@style/textview_popup_menu"
         android:layout_width="match_parent"
         android:layout_height="40dp"
+        android:background="@drawable/dark_grey_rounded"
         android:letterSpacing="0.04"
-        android:textColor="#F2F2F2"
         android:text="Fill in all fields"
-        android:background="@drawable/dark_grey_rounded"/>
+        android:textColor="#F2F2F2"
+        tools:ignore="HardcodedText,TouchTargetSizeCheck,TextContrastCheck,VisualLintButtonSize,VisualLintBounds" />
 </LinearLayout>

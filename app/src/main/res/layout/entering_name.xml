@@ -78,7 +78,7 @@
     <Button
         style="@style/green_button"
         android:text="Next"
-       android:textColor="#262626"
-        tools:ignore="HardcodedText,TextContrastCheck,VisualLintButtonSize" />
+        android:textColor="#262626"
+        tools:ignore="HardcodedText,TextContrastCheck,VisualLintButtonSize,TouchTargetSizeCheck" />
 
 </LinearLayout>

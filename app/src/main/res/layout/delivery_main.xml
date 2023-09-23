@@ -28,7 +28,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.03"
-        tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
+        tools:ignore="ContentDescription,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -59,24 +59,25 @@
                     android:textSize="20sp"
                     android:text="Delivery"
                     android:letterSpacing="0.04"
-                    />
+                    tools:ignore="HardcodedText" />
 
 
                 <TextView
                     style="@style/TextViewPrimary"
-                    android:textColor="#A3A3A3"
+                    android:layout_marginTop="5dp"
                     android:text="To door"
-                    android:layout_marginTop="5dp"/>
+                    android:textColor="#A3A3A3"
+                    tools:ignore="HardcodedText,TextContrastCheck" />
 
 
 
 
             </LinearLayout>
+
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                style="@style/wrap_content"
                 android:background="@drawable/icon_delivery_protection"
-                />
+                tools:ignore="ContentDescription,ImageContrastCheck" />
 
 
 
@@ -105,6 +106,7 @@
                 android:textSize="32sp"
                 android:textColor="#262626"
                 tools:ignore="HardcodedText" />
+
             <TextView
                 android:layout_width="117dp"
                 android:layout_height="wrap_content"
@@ -115,7 +117,7 @@
                 android:text="10 min, 4.5 km"
                 android:textColor="#848484"
                 android:textSize="13sp"
-                tools:ignore="HardcodedText" />
+                tools:ignore="HardcodedText,TextSizeCheck,TextContrastCheck" />
 
         </LinearLayout>
 
@@ -129,7 +131,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:orientation="horizontal"
-            android:gravity="center_horizontal">
+            android:gravity="center_horizontal"
+            tools:ignore="DisableBaselineAlignment">
 
             <LinearLayout
                 android:id="@+id/typePay"
@@ -142,8 +145,9 @@
                 <ImageButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
                     android:background="@drawable/cash"
-                    android:layout_marginBottom="12dp" />
+                    tools:ignore="ContentDescription,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -167,8 +171,9 @@
                 <ImageButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
                     android:background="@drawable/comment"
-                    android:layout_marginBottom="10dp" />
+                    tools:ignore="ContentDescription,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -192,8 +197,9 @@
                 <ImageButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
                     android:background="@drawable/more"
-                    android:layout_marginBottom="10dp" />
+                    tools:ignore="ContentDescription,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -209,21 +215,12 @@
 
         </LinearLayout>
 
-
         <Button
             android:id="@+id/next"
-            style="@style/textview_popup_menu"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginTop="16dp"
-            android:background="@drawable/start_button_background"
-            android:letterSpacing="0.04"
+            style="@style/green_button"
             android:text="Request a ride"
-            tools:ignore="HardcodedText,TouchTargetSizeCheck,VisualLintButtonSize" />
-
+            android:textColor="#262626"
+            android:layout_marginTop="16dp"
+            tools:ignore="HardcodedText,TextContrastCheck,VisualLintButtonSize,TouchTargetSizeCheck" />
     </LinearLayout>
-
-
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

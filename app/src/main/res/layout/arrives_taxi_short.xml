@@ -68,14 +68,10 @@
             tools:ignore="ContentDescription,NotSibling,ObsoleteLayoutParam,ImageContrastCheck" />
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/bold_20"
             android:layout_marginTop="15dp"
-            android:fontFamily="@font/lato_600"
-            android:letterSpacing="0.04"
             android:text="Arrives in 4 min"
             android:textColor="#262626"
-            android:textSize="20sp"
             tools:ignore="HardcodedText" />
 
         <LinearLayout

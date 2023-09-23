@@ -21,7 +21,6 @@
 
         <TextView
             style="@style/textview_popup_menu"
-            android:fontFamily="@font/lato_400"
             android:text="Do you have a car?"
             tools:ignore="HardcodedText" />
 
@@ -34,7 +33,6 @@
 
             <TextView
                 style="@style/textview_popup_menu"
-                android:fontFamily="@font/lato_400"
                 android:text="Yes"
                 tools:ignore="HardcodedText" />
 
@@ -53,7 +51,6 @@
 
             <TextView
                 style="@style/textview_popup_menu"
-                android:fontFamily="@font/lato_400"
                 android:text="No"
                 tools:ignore="HardcodedText" />
 

@@ -32,17 +32,15 @@
             tools:ignore="UseCompoundDrawables">
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+               style="@style/wrap_content"
                 android:background="@drawable/gallery"
                 android:layout_marginEnd="63dp"
                 tools:ignore="ContentDescription" />
 
             <TextView
-                 style="@style/regular_15"
-                        android:textColor="#262626"
+                style="@style/bold_15"
+                android:textColor="#262626"
                 android:text="Choose from gallery"
-                android:fontFamily="@font/lato_600"
                 tools:ignore="HardcodedText" />
 
         </LinearLayout>
@@ -55,17 +53,15 @@
             tools:ignore="UseCompoundDrawables">
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+               style="@style/wrap_content"
                 android:background="@drawable/take_photo"
                 android:layout_marginEnd="63dp"
                 tools:ignore="ContentDescription" />
 
             <TextView
-                  style="@style/regular_15"
-                        android:textColor="#262626"
+                style="@style/bold_15"
+                android:textColor="#262626"
                 android:text="Take a photo"
-                android:fontFamily="@font/lato_600"
                 tools:ignore="HardcodedText" />
 
         </LinearLayout>

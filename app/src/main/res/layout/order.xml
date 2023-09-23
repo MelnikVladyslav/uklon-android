@@ -25,8 +25,7 @@
         tools:ignore="RtlHardcoded,RtlSymmetry">
             <ImageButton
                 android:id="@+id/button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+               style="@style/wrap_content"
                 android:src="@drawable/arrow_back"
                 android:background="@drawable/white_rounded"
                 tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
@@ -44,8 +43,7 @@
         app:layout_constraintBottom_toBottomOf="parent">
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+               style="@style/wrap_content"
                 android:orientation="horizontal" />
             <View
                 android:layout_width="match_parent"

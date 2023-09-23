@@ -36,9 +36,8 @@
 
 
     <TextView
-          style="@style/regular_15"
-                        android:textColor="#262626"
-        android:fontFamily="@font/lato_600"
+        style="@style/bold_15"
+        android:textColor="#262626"
         android:text="Add to favorites"
         android:layout_width="match_parent"
         android:gravity="center_horizontal"

@@ -20,14 +20,12 @@
 
             <ImageButton
                 android:id="@+id/back"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+               style="@style/wrap_content"
                 android:background="@drawable/arrow_back"
                 tools:ignore="ContentDescription,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+               style="@style/wrap_content"
                 android:layout_weight="1"
                 android:fontFamily="@font/lato_600"
                 android:gravity="center_horizontal"

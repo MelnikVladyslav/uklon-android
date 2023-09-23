@@ -92,8 +92,7 @@
             android:layout_marginTop="40dp">
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+               style="@style/wrap_content"
 
                 android:background="@drawable/skip_button"
                 android:fontFamily="@font/lato_400"
@@ -111,8 +110,7 @@
 
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+               style="@style/wrap_content"
                 android:background="@drawable/skip_button"
                 android:fontFamily="@font/lato_400"
                 android:paddingHorizontal="15dp"
@@ -154,8 +152,7 @@
             android:orientation="horizontal">
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+               style="@style/wrap_content"
                 android:background="@drawable/cash"
                 tools:ignore="ContentDescription" />
 
@@ -183,8 +180,7 @@ android:textColor="#A3A3A3"
 
             <TextView
                 android:id="@+id/price"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+               style="@style/wrap_content"
                 android:fontFamily="@font/lato_400"
                 android:text="1095 ₴"
                 android:textColor="#262626"
@@ -201,12 +197,15 @@ android:textColor="#A3A3A3"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
             android:layout_marginTop="20dp"
+            android:gravity="bottom"
             android:orientation="horizontal">
 
-
+            <ImageView
+                style="@style/wrap_content"
+                android:background="@drawable/where_to_go_smaller"
+                tools:ignore="ContentDescription,ImageContrastCheck" />
             <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+               style="@style/wrap_content"
                 android:layout_marginStart="20dp"
                 android:orientation="vertical">
 

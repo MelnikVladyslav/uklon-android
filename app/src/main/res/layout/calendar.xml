@@ -35,14 +35,12 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1" />
             <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+               style="@style/wrap_content"
                 android:background="@drawable/arrow_small_left"
 
                 tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
             <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+               style="@style/wrap_content"
                 android:layout_marginStart="10dp"
                 android:background="@drawable/arrow_small_right"
 

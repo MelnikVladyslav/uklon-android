@@ -34,6 +34,7 @@
             <TextView
                 android:id="@+id/nameUser"
                 style="@style/heavy_20"
+                android:fontFamily="@font/lato_700"
                android:textColor="#262626"
                 android:text="Monica"
                 tools:ignore="HardcodedText" />

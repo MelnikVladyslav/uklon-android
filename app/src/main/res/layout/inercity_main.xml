@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activities.MainActivity">
-
     <fragment
         android:id="@+id/mapFragment"
         android:name="com.google.android.gms.maps.SupportMapFragment"
@@ -16,7 +15,6 @@
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="FragmentTagUsage"
         tools:layout_editor_absoluteY="0dp" />
-
     <ImageButton
         android:id="@+id/button"
         android:layout_width="wrap_content"
@@ -28,8 +26,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.03"
-        tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
-
+        tools:ignore="ContentDescription,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -39,54 +36,37 @@
         android:paddingHorizontal="16dp"
         android:paddingVertical="20dp"
         app:layout_constraintBottom_toBottomOf="parent">
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:gravity="center_vertical">
-
-
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                >
-
+                android:orientation="vertical">
                 <TextView
                     style="@style/Black_textView"
                     android:textSize="20sp"
                     android:text="Intercity"
                     android:letterSpacing="0.04"
-                    />
-
-
+                    tools:ignore="HardcodedText" />
                 <TextView
                     style="@style/TextViewPrimary"
-                    android:textColor="#A3A3A3"
+                    android:layout_marginTop="5dp"
                     android:text="1-4 passengers"
-                    android:layout_marginTop="5dp"/>
-
-
-
-
+                    android:textColor="#A3A3A3"
+                    tools:ignore="HardcodedText,TextContrastCheck" />
             </LinearLayout>
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                style="@style/wrap_content"
                 android:background="@drawable/intercity_icon"
-                />
-
-
-
+                tools:ignore="ContentDescription,ImageContrastCheck" />
         </LinearLayout>
-
         <View
             style="@style/View_aditional_service"
             android:layout_marginTop="20dp"/>
-
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -94,7 +74,6 @@
             android:layout_marginTop="10dp"
             android:layout_marginStart="2dp"
             android:gravity="center_vertical">
-
             <TextView
                 android:id="@+id/price"
                 android:layout_width="0dp"
@@ -106,8 +85,7 @@
                 android:textColor="#262626"
                 tools:ignore="HardcodedText" />
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                style="@style/wrap_content"
                 android:background="@drawable/skip_button"
                 android:fontFamily="@font/lato_400"
                 android:paddingHorizontal="15dp"
@@ -115,15 +93,11 @@
                 android:text="1 h 25 min, 73 km"
                 android:textColor="#848484"
                 android:textSize="13sp"
-                tools:ignore="HardcodedText" />
-
+                tools:ignore="HardcodedText,TextContrastCheck" />
         </LinearLayout>
-
-
         <View
             style="@style/View_aditional_service"
             android:layout_marginTop="10dp"/>
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -131,20 +105,19 @@
             android:orientation="horizontal"
             android:gravity="center_horizontal"
             android:layout_marginHorizontal="92dp">
-
             <LinearLayout
                 android:id="@+id/typePay"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+               style="@style/wrap_content"
                 android:orientation="vertical"
                 android:gravity="center_horizontal"
-                android:paddingStart="22dp">
-
+                android:paddingStart="22dp"
+                tools:ignore="RtlSymmetry">
                 <ImageButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
                     android:background="@drawable/cash"
-                    android:layout_marginBottom="12dp" />
+                    tools:ignore="ContentDescription,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -152,27 +125,23 @@
                     android:text="Cash"
                     android:textColor="#262626"
                     android:textSize="12sp"
-                    tools:ignore="HardcodedText"
-                    />
-
+                    tools:ignore="HardcodedText"/>
             </LinearLayout>
             <View
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="0dp"/>
-
             <LinearLayout
                 android:id="@+id/com"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                style="@style/wrap_content"
                 android:orientation="vertical">
-
                 <ImageButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/comment"
                     android:layout_gravity="center_horizontal"
-                    android:layout_marginBottom="10dp" />
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/comment"
+                    tools:ignore="ContentDescription,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -180,15 +149,9 @@
                     android:text="Comment"
                     android:textColor="#262626"
                     android:textSize="12sp"
-                    tools:ignore="HardcodedText"
-                    />
-
+                    tools:ignore="HardcodedText"/>
             </LinearLayout>
-
         </LinearLayout>
-
-
-
         <Button
             android:id="@+id/next"
             style="@style/textview_popup_menu"
@@ -199,10 +162,5 @@
             android:letterSpacing="0.04"
             android:text="Request a ride"
             tools:ignore="HardcodedText,TouchTargetSizeCheck,VisualLintButtonSize" />
-
     </LinearLayout>
-
-
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>
