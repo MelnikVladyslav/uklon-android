@@ -37,8 +37,8 @@
 
         <ImageButton
             android:id="@+id/avatar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="300px"
+            android:layout_height="300px"
             android:layout_marginStart="25dp"
             android:background="@drawable/user_profile"
             tools:ignore="ContentDescription,SpeakableTextPresentCheck" />

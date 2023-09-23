@@ -5,7 +5,7 @@ public class UserDTO {
     private String firstName = "";
     private String lastName = "";
     private String email = "";
-    private String password = "";
+    private String password = " ";
     private String phoneNumber = "";
     private String url = "";
 

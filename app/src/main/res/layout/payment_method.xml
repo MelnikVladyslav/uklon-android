@@ -210,7 +210,7 @@
         android:id="@+id/Send"
         style="@style/green_button"
         android:layout_marginHorizontal="70dp"
-        android:text="Add promocode"
+        android:text="Save"
         android:textColor="#262626"
         tools:ignore="HardcodedText,VisualLintButtonSize" />
 
