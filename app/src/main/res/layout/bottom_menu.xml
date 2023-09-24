@@ -8,17 +8,231 @@
 
 
     <LinearLayout
-    android:background="@drawable/white_rounded_top_corners"
-    android:id="@+id/popup_menu_main"
-    android:layout_width="match_parent"
-    android:layout_height="30dp"
-    android:elevation="15dp"
-    android:gravity="center_horizontal">
-    <ImageView
-        style="@style/wrap_content"
-        android:layout_marginTop="13dp"
-        android:background="@drawable/grey_line"
-        tools:ignore="ContentDescription,NotSibling,ImageContrastCheck" />
-</LinearLayout>
+        android:id="@+id/popup_menu_main"
+        android:layout_width="match_parent"
+        android:layout_height="360dp"
+        android:elevation="15dp"
+        android:paddingHorizontal="16dp"
+        android:orientation="vertical"
+        android:background="@drawable/white_rounded_top_corners"
+        android:gravity="center_horizontal"
+        tools:ignore="TextSizeCheck,UselessParent">
+
+        <ImageView
+            style="@style/wrap_content"
+            android:layout_marginTop="13dp"
+            android:background="@drawable/grey_line"
+            tools:ignore="ContentDescription,ImageContrastCheck" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:orientation="horizontal"
+            tools:ignore="DisableBaselineAlignment">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:paddingStart="18dp"
+                  android:background="@drawable/skip_button"
+                android:gravity="center_vertical"
+                tools:ignore="InefficientWeight,RtlSymmetry,UseCompoundDrawables">
+                <ImageView
+                    style="@style/wrap_content"
+                    android:background="@drawable/location_icon"
+                    tools:ignore="ContentDescription,ImageContrastCheck" />
+                <TextView
+                    android:id="@+id/pointStart"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="10dp"
+                    android:layout_weight="1"
+                    style="@style/semibold_13"
+                    android:textColor="#262626"
+                    android:gravity="center_vertical"
+                    android:text="Gregory Skovorody\nStreet 19"
+                    tools:ignore="HardcodedText,NestedWeights" />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/btnExtr"
+               style="@style/wrap_content"
+                android:layout_marginStart="10dp"
+                  android:background="@drawable/skip_button">
+                <TextView
+                    style="@style/regular_13"
+                    android:textColor="#262626"
+                    android:fontFamily="@font/lato_400"
+                    android:padding="17dp"
+                    android:text="Entrance"
+                    tools:ignore="HardcodedText" />
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                  android:background="@drawable/skip_button"
+                android:paddingStart="18dp"
+                tools:ignore="RtlSymmetry">
+
+                <ImageButton
+                    android:id="@+id/showRouteButton"
+                    style="@style/wrap_content"
+                    android:background="@drawable/arrow_right_grey"
+                    tools:ignore="ContentDescription,ImageContrastCheck" />
+
+                <EditText
+                    android:id="@+id/where_to_go"
+                    style="@style/regular_13"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="10dp"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:gravity="center_vertical"
+                    android:hint="Where to go?"
+                    android:textColorHint="#A3A3A3"
+                    android:textColor="#262626"
+                    tools:ignore="Autofill,HardcodedText,InefficientWeight,NestedWeights,TextFields,TouchTargetSizeCheck,TextContrastCheck,VisualLintTextFieldSize" />
+            </LinearLayout>
+                <ImageButton
+                    android:id="@+id/addHome"
+                    style="@style/wrap_content"
+                    android:layout_marginStart="5dp"
+                      android:background="@drawable/skip_button"
+                    android:padding="13dp"
+                    android:src="@drawable/small_house"
+                    tools:ignore="ContentDescription,ImageContrastCheck,SpeakableTextPresentCheck" />
+                <ImageButton
+                    android:id="@+id/addWork"
+                    style="@style/wrap_content"
+                    android:layout_marginStart="5dp"
+                      android:background="@drawable/skip_button"
+                    android:padding="14dp"
+                    android:src="@drawable/backpack"
+                    tools:ignore="ContentDescription,ImageContrastCheck,SpeakableTextPresentCheck" />
+                <ImageButton
+                    android:id="@+id/Like"
+                    style="@style/wrap_content"
+                    android:layout_marginStart="5dp"
+                      android:background="@drawable/skip_button"
+                    android:padding="13dp"
+                    android:src="@drawable/heart"
+                    tools:ignore="ContentDescription,ImageContrastCheck,SpeakableTextPresentCheck" />
+        </LinearLayout>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal"
+            tools:ignore="MissingConstraints,NotSibling,RtlSymmetry" />
+        <TextView
+            android:id="@+id/loading"
+            android:visibility="invisible"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/recyclerView"
+            android:text="Loading...."
+            android:textSize="24sp"
+            android:layout_gravity="center"
+            tools:ignore="HardcodedText" />
+        <View
+            android:id="@+id/city_line"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginVertical="15dp"
+            android:background="@drawable/line_light_grey"
+            tools:ignore="VisualLintBounds" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            tools:ignore="NotSibling">
+            <LinearLayout
+                style="@style/wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal">
+                <LinearLayout
+                    style="@style/wrap_content"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical">
+                    <ImageButton
+                        android:id="@+id/delivery"
+                        style="@style/wrap_content"
+                          android:background="@drawable/skip_button"
+                        android:paddingHorizontal="35dp"
+                        android:paddingVertical="11dp"
+                        android:src="@drawable/delivery"
+                        tools:ignore="ContentDescription,SpeakableTextPresentCheck,ImageContrastCheck" />
+                    <TextView
+                        style="@style/regular_12"
+                        android:textColor="#262626"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center_vertical"
+                        android:text="Delivery"
+                        tools:ignore="HardcodedText" />
+                </LinearLayout>
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="1"/>
+                <LinearLayout
+                    style="@style/wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical">
+                    <ImageButton
+                        android:id="@+id/driver"
+                        style="@style/wrap_content"
+                        android:background="@drawable/skip_button"
+                        android:paddingHorizontal="35dp"
+                        android:paddingVertical="10dp"
+                        android:src="@drawable/driver"
+                        tools:ignore="ContentDescription,ImageContrastCheck,SpeakableTextPresentCheck" />
+                    <TextView
+                        style="@style/regular_12"
+                       android:textColor="#262626"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center_vertical"
+                        android:text="Driver"
+                        tools:ignore="HardcodedText" />
+                </LinearLayout>
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="1"/>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical">
+                    <ImageButton
+                        android:id="@+id/intercity"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/skip_button"
+                        android:paddingHorizontal="35dp"
+                        android:paddingVertical="15dp"
+                        android:src="@drawable/delivery_truck"
+                        tools:ignore="ContentDescription,ImageContrastCheck,SpeakableTextPresentCheck" />
+                    <TextView
+                        style="@style/regular_12"
+                       android:textColor="#262626"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center_vertical"
+                        android:text="Intercity"
+                        tools:ignore="HardcodedText" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
 
 </LinearLayout>
