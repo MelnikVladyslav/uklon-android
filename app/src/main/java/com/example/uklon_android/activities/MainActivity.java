@@ -541,15 +541,6 @@ public class MainActivity extends AppCompatActivity implements PlacesAdapter.OnP
                         }
                     });
 
-                    //trips
-                    lltrips.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            Intent intent = new Intent(MainActivity.this, TripsActivity.class);
-                            intent.putExtra("userId", correctUser.getId());
-                            startActivity(intent);
-                        }
-                    });
 
                 if(!isExpanded) {
                     // Відображення меню

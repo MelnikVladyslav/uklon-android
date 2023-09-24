@@ -34,6 +34,8 @@ import com.google.android.gms.maps.model.MapStyleOptions;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -81,6 +83,7 @@ public class OTActivity extends AppCompatActivity {
         tvStartP = findViewById(R.id.startPoint);
         tvEndP = findViewById(R.id.endPoint);
         btnOk = findViewById(R.id.ok);
+
 
         mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.mapFragment);
         mapFragment.getMapAsync(new OnMapReadyCallback() {
@@ -140,7 +143,6 @@ public class OTActivity extends AppCompatActivity {
             }
         });
 
-        nameTr = String.valueOf(tvNameTr.getText());
         onePoint = (String) getIntent().getSerializableExtra("onePoint");
         twoPoint = (String) getIntent().getSerializableExtra("twoPoint");
         correctUser = (User) getIntent().getSerializableExtra("user");
@@ -153,46 +155,20 @@ public class OTActivity extends AppCompatActivity {
         tvPrice.setText(String.valueOf(price));
         tvNameDr.setText(String.valueOf(driver.getFirstName()));
 
-        Random r = new Random();
-
-        transport = new Transport();
-        transport.setId(r.nextInt());
-        transport.setModel(nameTr);
-        transport.setDescription("Taxi car");
-        if (curType.getName() != null)
-        {
-            apiService.getTypes().enqueue(new Callback<List<Types>>() {
-                @Override
-                public void onResponse(Call<List<Types>> call, Response<List<Types>> response) {
-                    List<Types> types = response.body();
-
-                    for (Types type: types)
-                    {
-                        if(Objects.equals(curType.getName(), type.getName()))
-                        {
-                            idT = type.getId();
-                            transport.setType(idT);
-                        }
-                    }
-                }
-
-                @Override
-                public void onFailure(Call<List<Types>> call, Throwable t) {
-
-                }
-            });
-        }
-        trs.add(transport);
-
         order.setPrice(price);
         order.setType("Taxi");
         order.setStartPoint(onePoint);
         order.setEndPoint(twoPoint);
         order.setDate(Calendar.getInstance().getTime());
-        Log.d("Date: ", String.valueOf(Calendar.getInstance().getTime()));
         order.setUser(correctUser.getId());
-        Log.d("User id: ", correctUser.getId());
         order.setRating(5);
+        Log.d("User id: ", order.getUser());
+        Log.d("User id: ", order.getEndPoint());
+        Log.d("User id: ", order.getStartPoint());
+        Log.d("User id: ", String.valueOf(order.getPrice()));
+        Log.d("User id: ", order.getType());
+        Log.d("User id: ", String.valueOf(order.getDate()));
+        Log.d("User id: ", String.valueOf(order.getRating()));
 
         btnOk.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -200,7 +176,7 @@ public class OTActivity extends AppCompatActivity {
                 apiService.createOrder(order).enqueue(new Callback<OrderDTO>() {
                     @Override
                     public void onResponse(Call<OrderDTO> call, Response<OrderDTO> response) {
-                        Log.d("responce code: ", String.valueOf(response.code()));
+                        Log.d("responce code: ", String.valueOf(response.code()) + response.message());
                         Intent intent = new Intent(OTActivity.this, MainActivity.class);
                         startActivity(intent);
                     }
