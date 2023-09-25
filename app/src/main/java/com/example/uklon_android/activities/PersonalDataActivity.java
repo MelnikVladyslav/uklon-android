@@ -34,7 +34,6 @@ public class PersonalDataActivity extends AppCompatActivity {
     ImageButton backBtn;
     LinearLayout uploadBtn;
     EditText firstNameEdT;
-    EditText lastNameEdT;
     EditText emailEdT;
     EditText phoneNumEdT;
 
@@ -73,7 +72,7 @@ public class PersonalDataActivity extends AppCompatActivity {
                 sendUser.setLastName(correctUser.getLastName());
                 sendUser.setEmail(emailEdT.getText().toString());
                 sendUser.setPhoneNumber(phoneNumEdT.getText().toString());
-                sendUser.setUrl(" ");
+                sendUser.setUrl(correctUser.getUrl());
                 apiService.updateUser(sendUser, correctUser.getId()).
                         enqueue(new Callback<User>()
                         {
@@ -82,7 +81,6 @@ public class PersonalDataActivity extends AppCompatActivity {
                                 if (response.isSuccessful()) {
                                     correctUser = response.body();
                                     firstNameEdT.setText(correctUser.getFirstName());
-                                    lastNameEdT.setText(correctUser.getLastName());
                                     emailEdT.setText(correctUser.getEmail());
                                     phoneNumEdT.setText(correctUser.getPhoneNumber());
                                 }

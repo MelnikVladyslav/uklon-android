@@ -46,7 +46,7 @@
             android:background="@drawable/icon_person"
             tools:ignore="ContentDescription" />
         
-        <TextView
+        <EditText
             android:id="@+id/firstName"
             style="@style/Black_textView"
             android:text="Monica"
@@ -109,7 +109,7 @@
             android:background="@drawable/icon_phone"
             tools:ignore="ContentDescription" />
 
-        <TextView
+        <EditText
             android:id="@+id/phoneNumber"
             style="@style/Black_textView"
             android:text="+380967022172"
@@ -150,7 +150,7 @@
             android:background="@drawable/icon_email_outline"
             tools:ignore="ContentDescription" />
 
-        <TextView
+        <EditText
             android:id="@+id/email"
             style="@style/Black_textView"
             android:text="Monica85@gmail.com"
